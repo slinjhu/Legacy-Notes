@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-28 Sat 22:41 -->
+<!-- 2016-05-29 Sun 17:49 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -502,6 +502,7 @@ for the JavaScript code in this tag.
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\N}{\mathcal{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
 \newcommand{\fun}{\mathrm{Fun}~}
 \newcommand{\To}{\Rightarrow}
 \newcommand{\True}{\mathrm{True}}
@@ -1054,9 +1055,52 @@ Suppose \(x^*\) is a local solution and LICQ holds for \(x^*\), then there is a 
 
 <div id="outline-container-orgheadline45" class="outline-4">
 <h4 id="orgheadline45"><span class="section-number-4">2.3.8</span> <span class="todo TODO">TODO</span> Duality</h4>
+<div class="outline-text-4" id="text-2-3-8">
+<dl class="org-dl">
+<dt>Infimum and Supermum</dt><dd>Infimum: greatest lower bound; Supremum: least upper bound. 
+<ul class="org-ul">
+<li>If \(A\subseteq B\), then \(\sup A \le \sup B\) and \(\inf A \ge \inf B\)</li>
+<li>\(\inf(-A) = - \sup A\), \(\sup(-A) = - \inf A\)</li>
+<li>\(\inf (A + B) \ge \inf A + \inf B\)</li>
+</ul></dd>
+<dt>Original problem</dt><dd>\[\min_{x\in \R^n} f(x) \mbox{ s.t. } c_i(x) = 0 \forall i \in \E, c_i(x) \ge 0 \forall i \in \I \]</dd>
+<dt>Lagrangian function</dt><dd>\[L(x,y) = f(x) - \sum_{i\in \E\cup\I}y_i c_i(x) \]</dd>
+<dt>Primal Function</dt><dd>\[L_P(x) = \sup_{y \in \Y} L(x,y)\] where \(\Y = \{y: y_i \ge 0 \forall i \in \I \}\)</dd>
+<dt>Dual Function</dt><dd>\[L_D(y) = \inf_{x} L(x,y) \]</dd>
+<dt>Primal Problem</dt><dd><ul class="org-ul">
+<li>\[ L_P(x) = \sup_{y\in\Y} \left\{\ f(x) - \sum_{i\in \E\cup\I} y_i c_i(x) \right\} = f(x) - \inf_{y\in\Y} \left\{ \sum_{i\in \E\cup\I} y_i c_i(x) \right\} \]</li>
+<li>If \(x\) is feasible, then the \(\inf\) is zero. If \(x\) is infeasible, then at least one constraint is violated and we can choose \(y_i\) to make the \(\inf = -\infty\).</li>
+</ul></dd>
+</dl>
+<p>
+\[L_P(x) = \begin{cases} f(x) & \mbox{if $x$ is feasible}  \\ f(x) - (-\infty) = \infty & \mbox{if $x$ is not feasible}
+\end{cases}\] 
+</p>
+<ul class="org-ul">
+<li>The original problem is the primal problem: \[ \min_{x} L_P(x) \iff \min_{x\in \R^n} f(x) \mbox{ s.t. } c_i(x) = 0 \forall i \in \E, c_i(x) \ge 0 \forall i \in \I\]</li>
+</ul>
+<dl class="org-dl">
+<dt>Dual Problem</dt><dd>\(\max_{y\in \Y} \inf_x L(x,y)\)
+<ul class="org-ul">
+<li>Due to linearity of \(y\) and \(\inf(A+B) \ge \inf A + \inf B\), the dual function is always concave.</li>
+</ul></dd>
+<dt>Weak Duality</dt><dd>For any \(x^*\) and feasible \(y^*\in \Y\), we have</dd>
+</dl>
+<p>
+\[L_P(x^*) = \sup_{y\in \Y} L(x^*, y) \ge L(x^*, y^*) \ge \inf_{x^*} L(x, y^*) = L_D(y^*) \]
+</p>
+<dl class="org-dl">
+<dt>Duality Gap</dt><dd>If \(x^*\) is a primal feasible point and \(y^*\) is a dual feasible point, then \(f(x^*) \ge L_D(y^*)\), and we define \[\mathrm{gap}(x^*, y^*) = f(x^*) - L_D(y^*)\]</dd>
+<dt>Saddle Point</dt><dd>A point \((x^*, y^*)\), where \(y^*\in \Y\) is a saddle point of the Lagrangian if for all \(x\in \R^n\) and \(y \in \Y\) we have \[ L(x^*, y) \le L(x^*, y^*) \le L(x, y^*) \]</dd>
+<dt>Strong Duality</dt><dd>If the Lagrangian has a saddle \((x^*, y^*)\), then \(x^*\) is a solution to the primal problem, \(y^*\) is a solution to the dual problem and \(\mathrm{gap}(x^*, y^*) = 0\).</dd>
+<dt>Duality and Convex Optimization</dt><dd>If the original problem is a convex optimization, it follows that \((x^*, y^*) \in \R^n\times \Y\) is a KKT point if and only if it is a saddle point to the Lagrangian.</dd>
+</dl>
 </div>
 </div>
 </div>
+</div>
+
+
 
 <div id="outline-container-orgheadline86" class="outline-2">
 <h2 id="orgheadline86"><span class="section-number-2">3</span> Natural Language Processing</h2>
@@ -3416,7 +3460,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-05-28 Sat 22:41</p>
+<p class="date">Created: 2016-05-29 Sun 17:49</p>
 <p class="validation"></p>
 </div>
 </body>

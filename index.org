@@ -9,6 +9,7 @@
 #+LaTeX_HEADER: \newcommand{\F}{\mathcal{F}}
 #+LaTeX_HEADER: \newcommand{\N}{\mathcal{N}}
 #+LaTeX_HEADER: \newcommand{\R}{\mathbb{R}}
+#+LaTeX_HEADER: \newcommand{\Y}{\mathcal{Y}}
 #+LaTeX_HEADER: \newcommand{\fun}{\mathrm{Fun}~}
 #+LaTeX_HEADER: \newcommand{\To}{\Rightarrow}
 #+LaTeX_HEADER: \newcommand{\True}{\mathrm{True}}
@@ -76,6 +77,7 @@
 \newcommand{\I}{\mathcal{I}}
 \newcommand{\N}{\mathcal{N}}
 \newcommand{\R}{\mathbb{R}}
+\newcommand{\Y}{\mathcal{Y}}
 \newcommand{\fun}{\mathrm{Fun}~}
 \newcommand{\To}{\Rightarrow}
 \newcommand{\True}{\mathrm{True}}
@@ -379,6 +381,30 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 *** TODO Linear Programming
 
 *** TODO Duality
+- Infimum and Supermum :: Infimum: greatest lower bound; Supremum: least upper bound. 
+    - If $A\subseteq B$, then $\sup A \le \sup B$ and $\inf A \ge \inf B$
+    - $\inf(-A) = - \sup A$, $\sup(-A) = - \inf A$
+    - $\inf (A + B) \ge \inf A + \inf B$
+- Original problem :: \[\min_{x\in \R^n} f(x) \mbox{ s.t. } c_i(x) = 0 \forall i \in \E, c_i(x) \ge 0 \forall i \in \I \]
+- Lagrangian function :: \[L(x,y) = f(x) - \sum_{i\in \E\cup\I}y_i c_i(x) \]
+- Primal Function :: \[L_P(x) = \sup_{y \in \Y} L(x,y)\] where $\Y = \{y: y_i \ge 0 \forall i \in \I \}$
+- Dual Function :: \[L_D(y) = \inf_{x} L(x,y) \]
+- Primal Problem :: 
+    - \[ L_P(x) = \sup_{y\in\Y} \left\{\ f(x) - \sum_{i\in \E\cup\I} y_i c_i(x) \right\} = f(x) - \inf_{y\in\Y} \left\{ \sum_{i\in \E\cup\I} y_i c_i(x) \right\} \]
+    - If $x$ is feasible, then the $\inf$ is zero. If $x$ is infeasible, then at least one constraint is violated and we can choose $y_i$ to make the $\inf = -\infty$. 
+\[L_P(x) = \begin{cases} f(x) & \mbox{if $x$ is feasible}  \\ f(x) - (-\infty) = \infty & \mbox{if $x$ is not feasible}
+\end{cases}\] 
+    - The original problem is the primal problem: \[ \min_{x} L_P(x) \iff \min_{x\in \R^n} f(x) \mbox{ s.t. } c_i(x) = 0 \forall i \in \E, c_i(x) \ge 0 \forall i \in \I\]
+- Dual Problem :: $\max_{y\in \Y} \inf_x L(x,y)$
+    - Due to linearity of $y$ and $\inf(A+B) \ge \inf A + \inf B$, the dual function is always concave. 
+- Weak Duality :: For any $x^*$ and feasible $y^*\in \Y$, we have 
+\[L_P(x^*) = \sup_{y\in \Y} L(x^*, y) \ge L(x^*, y^*) \ge \inf_{x^*} L(x, y^*) = L_D(y^*) \]
+- Duality Gap :: If $x^*$ is a primal feasible point and $y^*$ is a dual feasible point, then $f(x^*) \ge L_D(y^*)$, and we define \[\mathrm{gap}(x^*, y^*) = f(x^*) - L_D(y^*)\]
+- Saddle Point :: A point $(x^*, y^*)$, where $y^*\in \Y$ is a saddle point of the Lagrangian if for all $x\in \R^n$ and $y \in \Y$ we have \[ L(x^*, y) \le L(x^*, y^*) \le L(x, y^*) \]
+- Strong Duality :: If the Lagrangian has a saddle $(x^*, y^*)$, then $x^*$ is a solution to the primal problem, $y^*$ is a solution to the dual problem and $\mathrm{gap}(x^*, y^*) = 0$.
+- Duality and Convex Optimization :: If the original problem is a convex optimization, it follows that $(x^*, y^*) \in \R^n\times \Y$ is a KKT point if and only if it is a saddle point to the Lagrangian.
+
+
 
 * Natural Language Processing
 ** Grammar
