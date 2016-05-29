@@ -261,8 +261,8 @@ For vector variable:
 In Galerkin FEM, the shape functions are of the same sort as the test functions. 
 
 
-** Numerical Optimization
-*** Overview
+* Numerical Optimization
+** Overview
 - Three components of an optimization problem ::
    - *Objective*: a quantitative measure of the performance of the system under study. 
    - *Variables*: the objective depends on certain characteristics of the system. 
@@ -299,16 +299,16 @@ In Galerkin FEM, the shape functions are of the same sort as the test functions.
 - Remainder $R_k(x) = h_k(x)(x-a)^k$ goes to zero faster than $(x-a)^k$. 
 - Vector form: Suppose that $f: \R^n \to \R$ is continuously differentiable and that $p\in \R^n$, then we have some $t\in (0,1)$ such that \[f(x+p) = f(x) + p^T \nabla f(x+ tp)\] and \[f(x+p) = f(x) + p^T \nabla f(x) + {1\over2} p^T \nabla^2 f(x+ tp) p\]
 - Integral form: \[\nabla f(x+p) = \nabla f(x) + \int_0^1 \nabla^2 f(x+tp) \cdot p dt \]
-*** Unconstrained Optimization
-**** Unconstrained Optimality Condition
+** Unconstrained Optimization
+*** Unconstrained Optimality Condition
 - 1st order Necessary :: $x^*$ is a local minimizer $\Rightarrow \nabla f(x^*) = 0$
 - 2nd order Necessary :: $x^*$ is a local minimizer $\Rightarrow \nabla f(x^*) = 0$ and $\nabla^2 f(x^*)\succeq 0$ (positive semi-definite)
 - 2nd order Sufficient :: $x^*$ is a *strict* local minimizer $\Leftarrow \nabla f(x^*) = 0$ and $\nabla^2 f(x^*)\succ 0$ (positive definite)
-**** Line Search
+*** Line Search
 - In the line search strategy, the algorithm chooses choose a direction $p_k$ and searches along this direction for a lower objective.
 - Subproblem: $\min_{\alpha>0} f(x_k + \alpha p_k)$
 
-**** Line Search Directions
+*** Line Search Directions
 - Steepest descent direction :: $p_k = -\nabla f_k$
 - Newton direction ::
     - $p_k^N = -(\nabla^2 f_k)^{-1} \nabla f_k$. 
@@ -322,27 +322,27 @@ In Galerkin FEM, the shape functions are of the same sort as the test functions.
     - Two popular approximations: *SR1* (Symmetric Rank one) and *BFGS*
 - Conjugate gradient direction :: $p_k = -\nabla f_k + \beta_k p_{k-1}$, where $\beta_k$ is a scalar that ensures that $p_k$ and $p_{k-1}$ are conjugate. 
 
-**** Trust Region
+*** Trust Region
 - In the trust region strategy, the information gathered about $f(x)$ is used to construct a model function $m_k(x)$ whose behavior near the current point $x_k$ is similar to that of $f(x)$. 
 - Subproblem: $\min_p m_k(x_k + p)$, where $x_k + p$ lies inside the trust region.
 
 
 
 
-*** Least Square Problems
-**** Problem Formulation
+** Least Square Problems
+*** Problem Formulation
 In least-square problems, the objective $f$ takes the form:
 \[ f(x) = {1\over2} \vr\cdot \vr = {1\over2} \sum_{j=1}^m r_j^2(x) \]
 where each $r_j : \R^n \to \R$ is a smooth residual function, and $m \ge n$.
-**** Solving
+*** Solving
 - Gradient: \[ \nabla f = J^T \cdot \vr, \mbox{where } J = \pp{\vr}{\vx}  \]
 - Hessian $H=\nabla^2 f$: The first item is available cheaply $J^T J$
 \[H_{ij} = (\partial_i r_k)(\partial_j r_k) + r_k \partial_i \partial_j r_k\]
-**** Linear Least Square
+*** Linear Least Square
 If $f(x) = {1\over2} |Ax-b|^2$, then $J = A$ and setting $\nabla f = A^T (Ax-b) = 0$ gives the *normal equation*
 \[ A^T A x = A^T b \]
 
-*** Constrained Optimization
+** Constrained Optimization
 - Active set $\A(x)$ :: The active set $\A(x)$ at any feasible $x$ consists of the equality constraints indices from $\E$ and indices of tight inequality constraints. 
 \[ \A(x) = \E \cup \{i\in \I | c_i(x) =0 \} \]
 - Tangent cone $T_{\Omega}(x^*)$ :: The set of all tangents (limiting direction of a feasible sequence) to $\Omega$ at $x^*$. 
@@ -354,16 +354,16 @@ If $f(x) = {1\over2} |Ax-b|^2$, then $J = A$ and setting $\nabla f = A^T (Ax-b) 
     - $\lambda_i^*$ indicates how hard $f$ is pushing or pulling the solution $x^*$ against the particular constraint $c_i$. 
     - $\lambda_i^* = 0$ for inactive constraints and it indicates that $c_i$ is not significant. 
 
-**** KKT (1st order Necessary) condition
+*** KKT (1st order Necessary) condition
 Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagrangian multiplier vector $\lambda^*$ such that
     - Stationarity: \[\nabla_x L(x^*, \lambda^*) = \nabla f - \sum_{i\in A(x^*)} \lambda^*_i \nabla c_i = 0\]
     - Primal feasibility: $c_i(x^*) = 0$, for all $i\in \E$ and $c_i(x^*) \ge 0$, for all $i\in \I$
     - Dual feasibility: $\lambda^*_i \ge 0$, for all $i \in \I$
     - Complementarity condition: $\lambda^*_i \cdot c_i(x^*) = 0$, for all $i\in I$. either constraint $c_i$ is active or $\lambda^*_i = 0$
-**** Notes about KKT
+*** Notes about KKT
 - We used $\ge$ symbol for inequality constraints such that $\nabla c_i(x)$ always points toward the feasible region for $i \in \I$
 
-**** Proof of KKT
+*** Proof of KKT
 - Let $x^*$ be a feasible point, then $T_{\Omega}(x^*) \subset \F(x^*)$. If the LICQ is satisfied at $x^*$, then $T_{\Omega}(x^*) = \F(x^*)$
 - A cone in $\R^n$ can be represented by all its arbitrary vectors: $\vk = \vB\vy + \vC\vw$, where $\vB = [\vb_1, \vb_2, \dots, \vb_m] \in \R^{n\times m}$, $\vy \ge 0$ and $\vC\in \R^{n\times p}$. 
 - If a cone lies on one side of a directional hyper plane (represented by its normal vector $\vd$), then $\vk^T \vd \ge 0$ for all $\vy >0$ and $\vw$, i.e., $B^T d\ge 0$ and $C^T d=0$.
@@ -376,9 +376,7 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
     - Let the cone be \[K = \left\{ \sum_{i\in\A(x^*)} \lambda_i \nabla c_i(x^*) \bigg| \lambda_i \ge 0 \forall i \in \A(x^*)\cap \I \right\}\], and the vector $g = \nabla f(x^*)$, using Farkas Lemma then either $g\in K$ or there exists plane normal $d$ separating $\nabla F(x^*)$ and $K$. 
     - In the case of $d\in K$, we can construct required Lagrangian multipliers; In the latter case, $d$ is a feasible descent direction since $d\in \F(x^*)$. 
 
-
-
-*** Duality
+** Duality
 - Infimum and Supermum :: Infimum: greatest lower bound; Supremum: least upper bound. 
     - If $A\subseteq B$, then $\sup A \le \sup B$ and $\inf A \ge \inf B$
     - $\inf(-A) = - \sup A$, $\sup(-A) = - \inf A$
