@@ -378,9 +378,7 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 
 
 
-*** TODO Linear Programming
-
-*** TODO Duality
+*** Duality
 - Infimum and Supermum :: Infimum: greatest lower bound; Supremum: least upper bound. 
     - If $A\subseteq B$, then $\sup A \le \sup B$ and $\inf A \ge \inf B$
     - $\inf(-A) = - \sup A$, $\sup(-A) = - \inf A$
@@ -391,9 +389,7 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 - Dual Function :: \[L_D(y) = \inf_{x} L(x,y) \]
 - Primal Problem :: 
     - \[ L_P(x) = \sup_{y\in\Y} \left\{\ f(x) - \sum_{i\in \E\cup\I} y_i c_i(x) \right\} = f(x) - \inf_{y\in\Y} \left\{ \sum_{i\in \E\cup\I} y_i c_i(x) \right\} \]
-    - If $x$ is feasible, then the $\inf$ is zero. If $x$ is infeasible, then at least one constraint is violated and we can choose $y_i$ to make the $\inf = -\infty$. 
-\[L_P(x) = \begin{cases} f(x) & \mbox{if $x$ is feasible}  \\ f(x) - (-\infty) = \infty & \mbox{if $x$ is not feasible}
-\end{cases}\] 
+    - If $x$ is feasible, then the $\inf$ is zero. If $x$ is infeasible, then at least one constraint is violated and we can choose $y_i$ to make the $\inf = -\infty$. \[L_P(x) = \begin{cases} f(x) & \mbox{if $x$ is feasible}  \\ f(x) - (-\infty) = \infty & \mbox{if $x$ is not feasible} \end{cases}\] 
     - The original problem is the primal problem: \[ \min_{x} L_P(x) \iff \min_{x\in \R^n} f(x) \mbox{ s.t. } c_i(x) = 0 \forall i \in \E, c_i(x) \ge 0 \forall i \in \I\]
 - Dual Problem :: $\max_{y\in \Y} \inf_x L(x,y)$
     - Due to linearity of $y$ and $\inf(A+B) \ge \inf A + \inf B$, the dual function is always concave. 
