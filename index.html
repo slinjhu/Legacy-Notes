@@ -1,0 +1,3423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2016-05-28 Sat 22:41 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>Notes</title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Sen Lin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="./style/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="./style/bigblow.css"/>
+<link rel="stylesheet" type="text/css" href="./style/hideshow.css"/>
+<link rel="stylesheet" type="text/css" href="./style/main.css"/>
+<script type="text/javascript" src="./style/jquery-1.12.2.min.js"></script>
+<script type="text/javascript" src="./style/jquery-ui-1.10.2.min.js"></script>
+<script type="text/javascript" src="./style/jquery.localscroll-min.js"></script>
+<script type="text/javascript" src="./style/jquery.scrollTo-1.4.3.1-min.js"></script>
+<script type="text/javascript" src="./style/jquery.zclip.min.js"></script>
+<script type="text/javascript" src="./style/bigblow.js"></script>
+<script type="text/javascript" src="./style/hideshow.js"></script>
+<script type="text/javascript" src="./style/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript">//$(hsCollapseAll);</script>
+<base target="_blank">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Notes</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline16">1. Design Pattern</a>
+<ul>
+<li><a href="#orgheadline1">1.1. Relationships</a></li>
+<li><a href="#orgheadline2">1.2. Meta Patterns</a></li>
+<li><a href="#orgheadline3">1.3. Observer</a></li>
+<li><a href="#orgheadline4">1.4. Decorator</a></li>
+<li><a href="#orgheadline5">1.5. Factory</a></li>
+<li><a href="#orgheadline6">1.6. Singleton</a></li>
+<li><a href="#orgheadline7">1.7. Command</a></li>
+<li><a href="#orgheadline8">1.8. Adapter</a></li>
+<li><a href="#orgheadline9">1.9. Facade</a></li>
+<li><a href="#orgheadline10">1.10. Template Method</a></li>
+<li><a href="#orgheadline11">1.11. Iterator</a></li>
+<li><a href="#orgheadline12">1.12. Composite</a></li>
+<li><a href="#orgheadline13">1.13. State</a></li>
+<li><a href="#orgheadline14">1.14. Strategy</a></li>
+<li><a href="#orgheadline15">1.15. Proxy</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline47">2. Fluid Topology Optimization</a>
+<ul>
+<li><a href="#orgheadline25">2.1. Fluid Dynamics</a>
+<ul>
+<li><a href="#orgheadline17">2.1.1. Convective derivative</a></li>
+<li><a href="#orgheadline20">2.1.2. Constitutive relationship of newtonian fluids</a></li>
+<li><a href="#orgheadline24">2.1.3. Dimensionless numbers</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline27">2.2. Finite Element Methods</a>
+<ul>
+<li><a href="#orgheadline26">2.2.1. Discretization</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline46">2.3. Numerical Optimization</a>
+<ul>
+<li><a href="#orgheadline28">2.3.1. Overview</a></li>
+<li><a href="#orgheadline29">2.3.2. Convexity</a></li>
+<li><a href="#orgheadline30">2.3.3. Taylor's Theorem</a></li>
+<li><a href="#orgheadline35">2.3.4. Unconstrained Optimization</a></li>
+<li><a href="#orgheadline39">2.3.5. Least Square Problems</a></li>
+<li><a href="#orgheadline43">2.3.6. Constrained Optimization</a></li>
+<li><a href="#orgheadline44">2.3.7. <span class="todo TODO">TODO</span> Linear Programming</a></li>
+<li><a href="#orgheadline45">2.3.8. <span class="todo TODO">TODO</span> Duality</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline86">3. Natural Language Processing</a>
+<ul>
+<li><a href="#orgheadline53">3.1. Grammar</a>
+<ul>
+<li><a href="#orgheadline48">3.1.1. Levels of languages:</a></li>
+<li><a href="#orgheadline49">3.1.2. Part-of-speech or word classes</a></li>
+<li><a href="#orgheadline50">3.1.3. Abbreviations of part-of-speech categories</a></li>
+<li><a href="#orgheadline51">3.1.4. Parts of sentences</a></li>
+<li><a href="#orgheadline52">3.1.5. Sentence level constructions</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline56">3.2. Regular expression and Automata</a>
+<ul>
+<li><a href="#orgheadline54">3.2.1. Elements of regular expression</a></li>
+<li><a href="#orgheadline55">3.2.2. Finite State Automaton (FSA)</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline65">3.3. Language Model</a>
+<ul>
+<li><a href="#orgheadline57">3.3.1. Corpus</a></li>
+<li><a href="#orgheadline58">3.3.2. Bayes Theorem</a></li>
+<li><a href="#orgheadline64">3.3.3. Measure of performance</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline71">3.4. N-gram model</a>
+<ul>
+<li><a href="#orgheadline66">3.4.1. Definition</a></li>
+<li><a href="#orgheadline67">3.4.2. Laplace or Add-&lambda; smoothing</a></li>
+<li><a href="#orgheadline68">3.4.3. <span class="todo TODO">TODO</span> Good-Turing Discounting</a></li>
+<li><a href="#orgheadline69">3.4.4. Add-&lambda; back-off</a></li>
+<li><a href="#orgheadline70">3.4.5. <span class="todo TODO">TODO</span> Witten-Bell smoothing</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline76">3.5. Log-linear model</a>
+<ul>
+<li><a href="#orgheadline72">3.5.1. Model overview</a></li>
+<li><a href="#orgheadline73">3.5.2. Training the model</a></li>
+<li><a href="#orgheadline74">3.5.3. Regularization</a></li>
+<li><a href="#orgheadline75">3.5.4. Log-linear model as smoothing</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline79">3.6. Parsing</a>
+<ul>
+<li><a href="#orgheadline77">3.6.1. <span class="todo TODO">TODO</span> CYK algorithm</a></li>
+<li><a href="#orgheadline78">3.6.2. <span class="todo TODO">TODO</span> Earley algorithm</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline85">3.7. Hidden Markov Model</a>
+<ul>
+<li><a href="#orgheadline80">3.7.1. Components of a HMM</a></li>
+<li><a href="#orgheadline81">3.7.2. Two simplifying assumptions</a></li>
+<li><a href="#orgheadline82">3.7.3. Likelihood problem (Forward algorithm)</a></li>
+<li><a href="#orgheadline83">3.7.4. Decoding problem (Viterbi algorithm)</a></li>
+<li><a href="#orgheadline84">3.7.5. Learning problem</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline113">4. Principle of Programming Languages</a>
+<ul>
+<li><a href="#orgheadline88">4.1. Background</a>
+<ul>
+<li><a href="#orgheadline87">4.1.1. Several Programming paradigm</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline91">4.2. OCaml</a>
+<ul>
+<li><a href="#orgheadline89">4.2.1. Variable types</a></li>
+<li><a href="#orgheadline90">4.2.2. Polymorphism</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline95">4.3. Operational Semantics</a>
+<ul>
+<li><a href="#orgheadline92">4.3.1. BNF (Backus-Naur Form)</a></li>
+<li><a href="#orgheadline93">4.3.2. Variable substitution</a></li>
+<li><a href="#orgheadline94">4.3.3. Y-combinator</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline98">4.4. Operational equivalence</a>
+<ul>
+<li><a href="#orgheadline96">4.4.1. Properties of operational equivalence</a></li>
+<li><a href="#orgheadline97">4.4.2. Some examples</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline103">4.5. Abstract Syntax and Semantics</a>
+<ul>
+<li><a href="#orgheadline99">4.5.1. Basic Fb</a></li>
+<li><a href="#orgheadline100">4.5.2. FbV, Fb with Variant</a></li>
+<li><a href="#orgheadline101">4.5.3. FbS, Fb with State</a></li>
+<li><a href="#orgheadline102">4.5.4. FbX, Fb with Exception</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline104">4.6. <span class="todo TODO">TODO</span> State</a></li>
+<li><a href="#orgheadline108">4.7. Type Systems</a>
+<ul>
+<li><a href="#orgheadline105">4.7.1. Concepts</a></li>
+<li><a href="#orgheadline106">4.7.2. Level of type systems</a></li>
+<li><a href="#orgheadline107">4.7.3. Subtyping</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline112">4.8. Concurrency</a>
+<ul>
+<li><a href="#orgheadline109">4.8.1. Concepts</a></li>
+<li><a href="#orgheadline110">4.8.2. Actor model</a></li>
+<li><a href="#orgheadline111">4.8.3. AFbV</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline186">5. Graph Theory</a>
+<ul>
+<li><a href="#orgheadline119">5.1. Notations</a>
+<ul>
+<li><a href="#orgheadline114">5.1.1. Graph</a></li>
+<li><a href="#orgheadline115">5.1.2. Graph operations</a></li>
+<li><a href="#orgheadline116">5.1.3. Size</a></li>
+<li><a href="#orgheadline117">5.1.4. Connectivity</a></li>
+<li><a href="#orgheadline118">5.1.5. Coloring</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline129">5.2. Basic Graph</a>
+<ul>
+<li><a href="#orgheadline120">5.2.1. Directed graphs</a></li>
+<li><a href="#orgheadline122">5.2.2. Edges and connections</a></li>
+<li><a href="#orgheadline123">5.2.3. Vertices</a></li>
+<li><a href="#orgheadline127">5.2.4. Graphs</a></li>
+<li><a href="#orgheadline128">5.2.5. Graph isomorphism</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline133">5.3. Tree</a>
+<ul>
+<li><a href="#orgheadline130">5.3.1. Definitions</a></li>
+<li><a href="#orgheadline131">5.3.2. Properties of a tree</a></li>
+<li><a href="#orgheadline132">5.3.3. Spanning tree</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline137">5.4. Matching and Factors</a>
+<ul>
+<li><a href="#orgheadline134">5.4.1. Definitions</a></li>
+<li><a href="#orgheadline135">5.4.2. Theorems</a></li>
+<li><a href="#orgheadline136">5.4.3. Stable matching</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline144">5.5. Cuts and Connectivity</a>
+<ul>
+<li><a href="#orgheadline138">5.5.1. Definitions</a></li>
+<li><a href="#orgheadline139">5.5.2. Theorems</a></li>
+<li><a href="#orgheadline141">5.5.3. 2-connected graphs</a></li>
+<li><a href="#orgheadline142">5.5.4. \(k\) -connected graphs</a></li>
+<li><a href="#orgheadline143">5.5.5. Block</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline153">5.6. Coloring of graphs</a>
+<ul>
+<li><a href="#orgheadline145">5.6.1. Definitions</a></li>
+<li><a href="#orgheadline146">5.6.2. Theorems (vertex coloring)</a></li>
+<li><a href="#orgheadline147">5.6.3. Theorems (edge coloring)</a></li>
+<li><a href="#orgheadline150">5.6.4. \(k\) -critical graph</a></li>
+<li><a href="#orgheadline152">5.6.5. Chromatic Polynomial</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline161">5.7. Special graphs</a>
+<ul>
+<li><a href="#orgheadline157">5.7.1. Vertex degree</a></li>
+<li><a href="#orgheadline158">5.7.2. Bipartite Graph</a></li>
+<li><a href="#orgheadline159">5.7.3. No even cycle</a></li>
+<li><a href="#orgheadline160">5.7.4. Line graphs</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline173">5.8. Several topics</a>
+<ul>
+<li><a href="#orgheadline162">5.8.1. Transversing a graph</a></li>
+<li><a href="#orgheadline163">5.8.2. Bijection</a></li>
+<li><a href="#orgheadline169">5.8.3. Some famous graphs</a></li>
+<li><a href="#orgheadline172">5.8.4. Techniques in graph theory</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline176">5.9. Plannar Graphs</a>
+<ul>
+<li><a href="#orgheadline174">5.9.1. Definitions</a></li>
+<li><a href="#orgheadline175">5.9.2. Theorems</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline185">5.10. Random Graph</a>
+<ul>
+<li><a href="#orgheadline177">5.10.1. Definitions</a></li>
+<li><a href="#orgheadline179">5.10.2. Ramsey Theory</a></li>
+<li><a href="#orgheadline180">5.10.3. Probability and Expectation</a></li>
+<li><a href="#orgheadline184">5.10.4. Several results</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline242">6. Algorithm</a>
+<ul>
+<li><a href="#orgheadline189">6.1. Asymptotic bounds</a>
+<ul>
+<li><a href="#orgheadline187">6.1.1. Definitions</a></li>
+<li><a href="#orgheadline188">6.1.2. Rules</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline195">6.2. Some algorithms</a>
+<ul>
+<li><a href="#orgheadline192">6.2.1. Multiplication</a></li>
+<li><a href="#orgheadline193">6.2.2. Sorting</a></li>
+<li><a href="#orgheadline194">6.2.3. Selection</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline210">6.3. Dynamic Programming (DP)</a>
+<ul>
+<li><a href="#orgheadline197">6.3.1. Ideas</a></li>
+<li><a href="#orgheadline209">6.3.2. Examples</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline235">6.4. Graph</a>
+<ul>
+<li><a href="#orgheadline222">6.4.1. Traversing a graph</a></li>
+<li><a href="#orgheadline228">6.4.2. Shortest paths</a></li>
+<li><a href="#orgheadline233">6.4.3. Minimum spanning tree (MST)</a></li>
+<li><a href="#orgheadline234">6.4.4. Maximum flow</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline239">6.5. Greedy Algorithms</a>
+<ul>
+<li><a href="#orgheadline236">6.5.1. Matroid</a></li>
+<li><a href="#orgheadline237">6.5.2. Greedy algorithm</a></li>
+<li><a href="#orgheadline238">6.5.3. Applications</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline241">6.6. Tree</a>
+<ul>
+<li><a href="#orgheadline240">6.6.1. Definitions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgheadline252">7. My Cheat Sheet</a>
+<ul>
+<li><a href="#orgheadline250">7.1. Emacs</a>
+<ul>
+<li><a href="#orgheadline247">7.1.1. General</a></li>
+<li><a href="#orgheadline248">7.1.2. Org-mode</a></li>
+<li><a href="#orgheadline249">7.1.3. Auctex</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline251">7.2. Bash</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline255">8. Java</a>
+<ul>
+<li><a href="#orgheadline253">8.1. About Java</a></li>
+<li><a href="#orgheadline254">8.2. <span class="todo TODO">TODO</span> Java Basics</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline257">9. C++</a>
+<ul>
+<li><a href="#orgheadline256">9.1. List initialization</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+\(
+\newcommand{\dd}[2]{{\mathrm{d}#1\over\mathrm{d} #2}}
+\newcommand{\pp}[2]{{\partial#1\over\partial#2}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\E}{\mathcal{E}}
+\newcommand{\F}{\mathcal{F}}
+\newcommand{\I}{\mathcal{I}}
+\newcommand{\N}{\mathcal{N}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\fun}{\mathrm{Fun}~}
+\newcommand{\To}{\Rightarrow}
+\newcommand{\True}{\mathrm{True}}
+\newcommand{\False}{\mathrm{False}}
+\newcommand{\va}{\boldsymbol{a}}
+\newcommand{\vb}{\boldsymbol{b}}
+\newcommand{\vc}{\boldsymbol{c}}
+\newcommand{\vd}{\boldsymbol{d}}
+\newcommand{\ve}{\boldsymbol{e}}
+\newcommand{\vf}{\boldsymbol{f}}
+\newcommand{\vg}{\boldsymbol{g}}
+\newcommand{\vh}{\boldsymbol{h}}
+\newcommand{\vi}{\boldsymbol{i}}
+\newcommand{\vj}{\boldsymbol{j}}
+\newcommand{\vk}{\boldsymbol{k}}
+\newcommand{\vl}{\boldsymbol{l}}
+\newcommand{\vm}{\boldsymbol{m}}
+\newcommand{\vn}{\boldsymbol{n}}
+\newcommand{\vo}{\boldsymbol{o}}
+\newcommand{\vp}{\boldsymbol{p}}
+\newcommand{\vq}{\boldsymbol{q}}
+\newcommand{\vr}{\boldsymbol{r}}
+\newcommand{\vs}{\boldsymbol{s}}
+\newcommand{\vt}{\boldsymbol{t}}
+\newcommand{\vu}{\boldsymbol{u}}
+\newcommand{\vv}{\boldsymbol{v}}
+\newcommand{\vw}{\boldsymbol{w}}
+\newcommand{\vx}{\boldsymbol{x}}
+\newcommand{\vy}{\boldsymbol{y}}
+\newcommand{\vz}{\boldsymbol{z}}
+\newcommand{\vA}{\boldsymbol{A}}
+\newcommand{\vB}{\boldsymbol{B}}
+\newcommand{\vC}{\boldsymbol{C}}
+\newcommand{\vD}{\boldsymbol{D}}
+\newcommand{\vE}{\boldsymbol{E}}
+\newcommand{\vF}{\boldsymbol{F}}
+\newcommand{\vG}{\boldsymbol{G}}
+\newcommand{\vH}{\boldsymbol{H}}
+\newcommand{\vI}{\boldsymbol{I}}
+\newcommand{\vJ}{\boldsymbol{J}}
+\newcommand{\vK}{\boldsymbol{K}}
+\newcommand{\vL}{\boldsymbol{L}}
+\newcommand{\vM}{\boldsymbol{M}}
+\newcommand{\vN}{\boldsymbol{N}}
+\newcommand{\vO}{\boldsymbol{O}}
+\newcommand{\vP}{\boldsymbol{P}}
+\newcommand{\vQ}{\boldsymbol{Q}}
+\newcommand{\vR}{\boldsymbol{R}}
+\newcommand{\vS}{\boldsymbol{S}}
+\newcommand{\vT}{\boldsymbol{T}}
+\newcommand{\vU}{\boldsymbol{U}}
+\newcommand{\vV}{\boldsymbol{V}}
+\newcommand{\vW}{\boldsymbol{W}}
+\newcommand{\vX}{\boldsymbol{X}}
+\newcommand{\vY}{\boldsymbol{Y}}
+\newcommand{\vZ}{\boldsymbol{Z}}
+\)
+
+
+<div id="outline-container-orgheadline16" class="outline-2">
+<h2 id="orgheadline16"><span class="section-number-2">1</span> Design Pattern</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Relationships</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+<img src="./figures/DesignPattern/Relationships.jpg" alt="Relationships.jpg" />
+Association is any kind of link or dependency between two classes.
+</p>
+<dl class="org-dl">
+<dt>Weak Association</dt><dd>Class A may be linked to Class B if one of its methods includes a parameter or return instance of Class B. B is local in Class A.</dd>
+<dt>Strong Association</dt><dd><ul class="org-ul">
+<li>Class A holds a reference to Class B instance.</li>
+<li>B is global in Class A.</li>
+</ul></dd>
+<dt>Aggregation (Shared association)</dt><dd><ul class="org-ul">
+<li>Whole-part relationship.</li>
+<li>Person continues to exist after his Company dies.</li>
+<li>Person can also be aggregated to other classes.</li>
+</ul></dd>
+<dt>Composition (Non-shared association)</dt><dd><ul class="org-ul">
+<li>Person owns Leg and Hand.</li>
+<li>Leg has no purpose without Person.</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Meta Patterns</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Delegate or forward message to other objects</li>
+<li>Make code more decoupled</li>
+<li>Replace switch with inheritance and dynamic dispatch.</li>
+<li>Reify an action or method as an object to manipulate it in new ways.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Observer</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>aka: publish/subscribe (pub/sub)</li>
+<li>Define a one-to-many dependency so that when one subject changes state, all its dependents are notified and updated automatically.</li>
+<li>Used in MVC: views register as observer so they can update when data changes.</li>
+</ul>
+
+
+<div class="figure">
+<p><img src="./figures/DesignPattern/Observer.png" alt="Observer.png" />
+</p>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">import</span> <span style="color: #4e3163;">java</span>.<span style="color: #4e3163;">util</span>.<span style="color: #ba2f59; font-weight: bold;">Observable</span>;
+<span style="color: #3a81c3; font-weight: bold;">import</span> <span style="color: #4e3163;">java</span>.<span style="color: #4e3163;">util</span>.<span style="color: #ba2f59; font-weight: bold;">Observer</span>;
+
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">MyData</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Observable</span><span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Data in the model-view paradigm</span>
+
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">data</span>;
+
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">getData</span><span style="color: #6c3163;">(){</span>
+        <span style="color: #3a81c3; font-weight: bold;">return</span> data;
+    <span style="color: #6c3163;">}</span>
+
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">setData</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">data</span><span style="color: #6c3163;">){</span>
+        <span style="color: #3a81c3; font-weight: bold;">this</span>.data = data;
+        <span style="color: #3a81c3; font-weight: bold;">super</span>.setChanged<span style="color: #2d9574;">()</span>;
+        <span style="color: #3a81c3; font-weight: bold;">super</span>.notifyObservers<span style="color: #2d9574;">()</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Display</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Observer</span><span style="color: #3a81c3;">{</span>
+    <span style="color: #4e3163;">@Override</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">update</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Observable</span> <span style="color: #715ab1;">o</span>, <span style="color: #ba2f59; font-weight: bold;">Object</span> <span style="color: #715ab1;">arg</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">MyData</span> <span style="color: #715ab1;">myData</span> = <span style="color: #2d9574;">(</span><span style="color: #ba2f59; font-weight: bold;">MyData</span><span style="color: #2d9574;">)</span> o;
+        System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Updated: "</span> + myData.getData<span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoObserver</span><span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">MyData</span> <span style="color: #715ab1;">myData</span> = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">MyData</span><span style="color: #2d9574;">()</span>;
+        myData.addObserver<span style="color: #2d9574;">(</span><span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Display</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+        myData.setData<span style="color: #2d9574;">(</span><span style="color: #4e3163;">5</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-3">
+<h3 id="orgheadline4"><span class="section-number-3">1.4</span> Decorator</h3>
+<div class="outline-text-3" id="text-1-4">
+<ul class="org-ul">
+<li>The decorator pattern attaches additional responsibilities to an object dynamically.</li>
+<li>Decorators provide a flexible alternative to subclassing for extending functionalities.</li>
+</ul>
+
+<div class="figure">
+<p><img src="./figures/DesignPattern/Decorator.png" alt="Decorator.png" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">1.5</span> Factory</h3>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">1.6</span> Singleton</h3>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.7</span> Command</h3>
+</div>
+
+<div id="outline-container-orgheadline8" class="outline-3">
+<h3 id="orgheadline8"><span class="section-number-3">1.8</span> Adapter</h3>
+</div>
+
+<div id="outline-container-orgheadline9" class="outline-3">
+<h3 id="orgheadline9"><span class="section-number-3">1.9</span> Facade</h3>
+</div>
+
+<div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.10</span> Template Method</h3>
+</div>
+
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.11</span> Iterator</h3>
+</div>
+
+<div id="outline-container-orgheadline12" class="outline-3">
+<h3 id="orgheadline12"><span class="section-number-3">1.12</span> Composite</h3>
+</div>
+
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.13</span> State</h3>
+</div>
+
+<div id="outline-container-orgheadline14" class="outline-3">
+<h3 id="orgheadline14"><span class="section-number-3">1.14</span> Strategy</h3>
+</div>
+
+<div id="outline-container-orgheadline15" class="outline-3">
+<h3 id="orgheadline15"><span class="section-number-3">1.15</span> Proxy</h3>
+</div>
+</div>
+
+<div id="outline-container-orgheadline47" class="outline-2">
+<h2 id="orgheadline47"><span class="section-number-2">2</span> Fluid Topology Optimization</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline25" class="outline-3">
+<h3 id="orgheadline25"><span class="section-number-3">2.1</span> Fluid Dynamics</h3>
+<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">2.1.1</span> Convective derivative</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Also known as:
+</p>
+<ul class="org-ul">
+<li>total derivative</li>
+<li>advective derivative</li>
+<li>Lagrangian derivative</li>
+<li>substantive or material derivative</li>
+<li>Stokes derivative</li>
+</ul>
+
+<p>
+Definition: the time rate of change for a material element subjected to a space-and-time dependent macroscopic velocity field. 
+\[
+  \dd{f(\vx,t)}{t} =
+  \pp{f}{t} + \pp{f}{\vx} \cdot \pp{\vx}{t}
+  = \pp{f}{t} + \vu\cdot \nabla f
+\]
+where, not rigorously, 
+\[
+  \nabla f = \pp{f}{\vx}
+  \mbox{ and } 
+  \vu = \pp{\vx}{t}
+\]
+</p>
+
+<p>
+For vector variable:
+\[
+  \dd{\vf}{t} = \pp{\vf}{t} + \vu \cdot \nabla \vf
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">2.1.2</span> Constitutive relationship of newtonian fluids</h4>
+<div class="outline-text-4" id="text-2-1-2">
+</div><ol class="org-ol"><li><a id="orgheadline18"></a>The stress tensor<br  /></li>
+
+<li><a id="orgheadline19"></a>The strain rate tensor<br  /><div class="outline-text-5" id="text-2-1-2-2">
+<ul class="org-ul">
+<li>Definition: the rate of change over time of local deformation</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-4">
+<h4 id="orgheadline24"><span class="section-number-4">2.1.3</span> Dimensionless numbers</h4>
+<div class="outline-text-4" id="text-2-1-3">
+</div><ol class="org-ol"><li><a id="orgheadline21"></a>Peclet number<br  /></li>
+<li><a id="orgheadline22"></a>Reynolds number<br  /><div class="outline-text-5" id="text-2-1-3-2">
+<ul class="org-ul">
+<li>defined as \(Re = \rho U L / \mu\)</li>
+<li>where the parameters are defined as 
+<ul class="org-ul">
+<li>\(\rho\) : density of the fluid</li>
+<li>\(U\) : characteristic velocity.</li>
+<li>\(L\) : representative length scale.</li>
+<li>\(\mu\): Dynamic viscosity of fluid. (1e-3 Pa.s for water at 20C)</li>
+</ul></li>
+<li>meaning of Re:
+<ul class="org-ul">
+<li>\(Re < 2300\): laminar flow</li>
+<li>\(Re > 4000\): turbulent flow.</li>
+<li>Re = (inertial forces) / (viscous forces)</li>
+</ul></li>
+</ul>
+</div></li>
+<li><a id="orgheadline23"></a>Knudsen number<br  /><div class="outline-text-5" id="text-2-1-3-3">
+<ul class="org-ul">
+<li>defined as \(Kn = \lambda / L\)</li>
+<li>parameters
+<ul class="org-ul">
+<li>\(\lambda\): length of the mean free path of the molecules.</li>
+<li>\(L\): representative length scale</li>
+</ul></li>
+<li>meaning of Kn
+<ul class="org-ul">
+<li>\(Kn < 0.01\): NS equations are valid.</li>
+<li>\(0.01 < Kn < 0.1\): NS equations can still be used but with special boundary conditions.</li>
+<li>\(Kn > 0.1\): NS equations are not valid.</li>
+</ul></li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-3">
+<h3 id="orgheadline27"><span class="section-number-3">2.2</span> Finite Element Methods</h3>
+<div class="outline-text-3" id="text-2-2">
+</div><div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">2.2.1</span> Discretization</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<ul class="org-ul">
+<li>Test function: defined locally.</li>
+<li>Shape function: used to represent the candidate solution.</li>
+</ul>
+<p>
+In Galerkin FEM, the shape functions are of the same sort as the test functions. 
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline46" class="outline-3">
+<h3 id="orgheadline46"><span class="section-number-3">2.3</span> Numerical Optimization</h3>
+<div class="outline-text-3" id="text-2-3">
+</div><div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">2.3.1</span> Overview</h4>
+<div class="outline-text-4" id="text-2-3-1">
+<dl class="org-dl">
+<dt>Three components of an optimization problem</dt><dd><ul class="org-ul">
+<li><b>Objective</b>: a quantitative measure of the performance of the system under study.</li>
+<li><b>Variables</b>: the objective depends on certain characteristics of the system.</li>
+<li><b>Constraint</b>: often the variables are constrained.</li>
+</ul></dd>
+<dt>Math formulation</dt><dd></dd>
+</dl>
+<p>
+\[
+  \min_{\vx\in R^n} f(\vx) \quad 
+  s.t. \begin{cases}
+         c_i(\vx) = 0 & i \in \E \quad (\mbox{Equality constraints}) \\
+         c_i(\vx) \ge 0 & i \in \I \quad (\mbox{Inequality constraints})
+       \end{cases}
+\]
+</p>
+<dl class="org-dl">
+<dt>Minimizers</dt><dd><ul class="org-ul">
+<li>Global: \(f(x^*) \le f(x) \forall x\)</li>
+<li>Local: \(\exists\) a neighborhood \(\N\), such that \(f(x^*) \le f(x) \forall x \in \N\)</li>
+<li>Strict local: \(\exists\) a neighborhood \(\N\), such that \(f(x^*) < f(x) \forall x \in \N\) and \(x\ne x^*\)</li>
+<li>Isolated: \(\exists\) a neighborhood \(\N\), such that \(x^*\) is the only local minimizer.</li>
+</ul></dd>
+<dt>Hessian</dt><dd>Hessian is a square matrix of second order partial derivatives. \(\nabla^2 f = H_{ij} = \partial_i\partial_j f\)</dd>
+<dt>Jacobian</dt><dd>Jacobian is the matrix of all first-order partial derivatives of a vector valued function. Suppose \(\vf: \R^n\to \R^m\), then \(J \in \R^{m\times n}\) matrix:</dd>
+</dl>
+<p>
+\[ J = \dd{\vf}{\vx} \mbox{ or } J_{ij} = \pp{f_i}{x_j}\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline29" class="outline-4">
+<h4 id="orgheadline29"><span class="section-number-4">2.3.2</span> Convexity</h4>
+<div class="outline-text-4" id="text-2-3-2">
+<dl class="org-dl">
+<dt>Convex set</dt><dd>For any two point \(x, y \in S\), if \(\alpha x + (1-\alpha) y \in S\) for all \(\alpha\in [0,1]\), then \(S\) is a convex set.</dd>
+<dt>Convex function</dt><dd>A function \(f\) is convex if its domain \(S\) is convex and for any two points \(x, y\in S\) and \(\alpha \in [0,1]\), we have</dd>
+</dl>
+<p>
+\[ f(\alpha x + (1-\alpha) y) \le \alpha f(x) + (1-\alpha) f(y) \]
+</p>
+<dl class="org-dl">
+<dt>Global minimizer</dt><dd>If the objective and feasible region are both convex, then any local minimizer is in fact a global minimizer.</dd>
+<dt>Convex optimization</dt><dd>Three requirements: 
+<ul class="org-ul">
+<li>The objective is convex</li>
+<li>The equality constraint are <b>linear</b> (otherwise it wouldn't be convex region)</li>
+<li>The inequality constraints are <b>concave</b> (because we let \(c_i(x)\ge 0\)).</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">2.3.3</span> Taylor's Theorem</h4>
+<div class="outline-text-4" id="text-2-3-3">
+<ul class="org-ul">
+<li>Let \(k\ge 1\) be an integer, function \(f: \R\to \R\) be k-times differentiable at point \(a\in \R\), then there exists a function \(h_k: \R\to \R\) such that</li>
+</ul>
+<p>
+\[f(x) = \sum_{i=0}^k {f^{(i)}(a) \over i!} (x-a)^i + h_k(x)(x-a)^k \mbox{ and }\lim_{x\to a} h_k(x) = 0\]
+</p>
+<ul class="org-ul">
+<li>Remainder \(R_k(x) = h_k(x)(x-a)^k\) goes to zero faster than \((x-a)^k\).</li>
+<li>Vector form: Suppose that \(f: \R^n \to \R\) is continuously differentiable and that \(p\in \R^n\), then we have some \(t\in (0,1)\) such that \[f(x+p) = f(x) + p^T \nabla f(x+ tp)\] and \[f(x+p) = f(x) + p^T \nabla f(x) + {1\over2} p^T \nabla^2 f(x+ tp) p\]</li>
+<li>Integral form: \[\nabla f(x+p) = \nabla f(x) + \int_0^1 \nabla^2 f(x+tp) \cdot p dt \]</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">2.3.4</span> Unconstrained Optimization</h4>
+<div class="outline-text-4" id="text-2-3-4">
+</div><ol class="org-ol"><li><a id="orgheadline31"></a>Unconstrained Optimality Condition<br  /><div class="outline-text-5" id="text-2-3-4-1">
+<dl class="org-dl">
+<dt>1st order Necessary</dt><dd>\(x^*\) is a local minimizer \(\Rightarrow \nabla f(x^*) = 0\)</dd>
+<dt>2nd order Necessary</dt><dd>\(x^*\) is a local minimizer \(\Rightarrow \nabla f(x^*) = 0\) and \(\nabla^2 f(x^*)\succeq 0\) (positive semi-definite)</dd>
+<dt>2nd order Sufficient</dt><dd>\(x^*\) is a <b>strict</b> local minimizer \(\Leftarrow \nabla f(x^*) = 0\) and \(\nabla^2 f(x^*)\succ 0\) (positive definite)</dd>
+</dl>
+</div></li>
+<li><a id="orgheadline32"></a>Line Search<br  /><div class="outline-text-5" id="text-2-3-4-2">
+<ul class="org-ul">
+<li>In the line search strategy, the algorithm chooses choose a direction \(p_k\) and searches along this direction for a lower objective.</li>
+<li>Subproblem: \(\min_{\alpha>0} f(x_k + \alpha p_k)\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline33"></a>Line Search Directions<br  /><div class="outline-text-5" id="text-2-3-4-3">
+<dl class="org-dl">
+<dt>Steepest descent direction</dt><dd>\(p_k = -\nabla f_k\)</dd>
+<dt>Newton direction</dt><dd><ul class="org-ul">
+<li>\(p_k^N = -(\nabla^2 f_k)^{-1} \nabla f_k\).</li>
+<li>Newton direction is derived from 2nd order Taylor approximation of \(f(x_k+ p)\).</li>
+<li>Newton direction can be used if \(\nabla^2 f_k\) is positive definite.</li>
+</ul></dd>
+<dt>Quasi-Newton direction</dt><dd><ul class="org-ul">
+<li>Does not require computation of Hessian.</li>
+<li>From the integral form of Taylor's Theorem, we have \(\nabla f(x+p) - \nabla f(x) \approx \nabla^2 f(x)\cdot p\)</li>
+<li>Hessian approximation should mimic the property and satisfies the <b>secant</b> equation:</li>
+</ul>
+<p>
+\[B_{k+1} s_k = y_k \quad s_k = x_{k+1} - x_k \quad y_k = \nabla f_{k+1} - \nabla f_k\]
+</p>
+<ul class="org-ul">
+<li>Two popular approximations: <b>SR1</b> (Symmetric Rank one) and <b>BFGS</b></li>
+</ul></dd>
+<dt>Conjugate gradient direction</dt><dd>\(p_k = -\nabla f_k + \beta_k p_{k-1}\), where \(\beta_k\) is a scalar that ensures that \(p_k\) and \(p_{k-1}\) are conjugate.</dd>
+</dl>
+</div></li>
+
+<li><a id="orgheadline34"></a>Trust Region<br  /><div class="outline-text-5" id="text-2-3-4-4">
+<ul class="org-ul">
+<li>In the trust region strategy, the information gathered about \(f(x)\) is used to construct a model function \(m_k(x)\) whose behavior near the current point \(x_k\) is similar to that of \(f(x)\).</li>
+<li>Subproblem: \(\min_p m_k(x_k + p)\), where \(x_k + p\) lies inside the trust region.</li>
+</ul>
+</div></li></ol>
+</div>
+
+
+
+
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">2.3.5</span> Least Square Problems</h4>
+<div class="outline-text-4" id="text-2-3-5">
+</div><ol class="org-ol"><li><a id="orgheadline36"></a>Problem Formulation<br  /><div class="outline-text-5" id="text-2-3-5-1">
+<p>
+In least-square problems, the objective \(f\) takes the form:
+\[ f(x) = {1\over2} \vr\cdot \vr = {1\over2} \sum_{j=1}^m r_j^2(x) \]
+where each \(r_j : \R^n \to \R\) is a smooth residual function, and \(m \ge n\).
+</p>
+</div></li>
+<li><a id="orgheadline37"></a>Solving<br  /><div class="outline-text-5" id="text-2-3-5-2">
+<ul class="org-ul">
+<li>Gradient: \[ \nabla f = J^T \cdot \vr, \mbox{where } J = \pp{\vr}{\vx}  \]</li>
+<li>Hessian \(H=\nabla^2 f\): The first item is available cheaply \(J^T J\)</li>
+</ul>
+<p>
+\[H_{ij} = (\partial_i r_k)(\partial_j r_k) + r_k \partial_i \partial_j r_k\]
+</p>
+</div></li>
+<li><a id="orgheadline38"></a>Linear Least Square<br  /><div class="outline-text-5" id="text-2-3-5-3">
+<p>
+If \(f(x) = {1\over2} |Ax-b|^2\), then \(J = A\) and setting \(\nabla f = A^T (Ax-b) = 0\) gives the <b>normal equation</b>
+\[ A^T A x = A^T b \]
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">2.3.6</span> Constrained Optimization</h4>
+<div class="outline-text-4" id="text-2-3-6">
+<dl class="org-dl">
+<dt>Active set \(\A(x)\)</dt><dd>The active set \(\A(x)\) at any feasible \(x\) consists of the equality constraints indices from \(\E\) and indices of tight inequality constraints.</dd>
+</dl>
+<p>
+\[ \A(x) = \E \cup \{i\in \I | c_i(x) =0 \} \]
+</p>
+<dl class="org-dl">
+<dt>Tangent cone \(T_{\Omega}(x^*)\)</dt><dd>The set of all tangents (limiting direction of a feasible sequence) to \(\Omega\) at \(x^*\).</dd>
+<dt>The set of linearized feasible directions \(\F(x)\)</dt><dd>Given a feasible point \(x\) and active set \(\A(x)\), the set of linearized feasible directions \(\F(x)\) is
+\[ \F(x) = \{d | d^T \nabla c_i(x) = 0 \forall i \in \E \mbox{ and } d^T \nabla c_i(x) \ge 0 \forall i \in \A(x)\cap \I \} \]</dd>
+<dt>Constraint qualifications</dt><dd>Constraint qualifications are assumptions that ensure similarity of the constraint set \(\Omega\) and its linearized assumption, in a neighborhood of \(x^*\).</dd>
+<dt>LICQ (Linear Independence Constrains Qualification)</dt><dd>Given a feasible \(x\) and active set \(\A(x)\), LICQ holds if the set of active constraint gradients \(\{\nabla c_i, i\in \A(x)\}\) is linearly independent. If LICQ holds, none of the active constraint gradients can be zero.</dd>
+<dt>Lagrangian multiplier vectors</dt><dd>\[L(x, \lambda) = f(x) - \sum_{i\in E\cup I}\lambda_i c_i(x) \]
+<ul class="org-ul">
+<li>\(\lambda_i^*\) indicates how hard \(f\) is pushing or pulling the solution \(x^*\) against the particular constraint \(c_i\).</li>
+<li>\(\lambda_i^* = 0\) for inactive constraints and it indicates that \(c_i\) is not significant.</li>
+</ul></dd>
+</dl>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline40"></a>KKT (1st order Necessary) condition<br  /><div class="outline-text-5" id="text-2-3-6-1">
+<p>
+Suppose \(x^*\) is a local solution and LICQ holds for \(x^*\), then there is a Lagrangian multiplier vector \(\lambda^*\) such that
+</p>
+<ul class="org-ul">
+<li>Stationarity: \[\nabla_x L(x^*, \lambda^*) = \nabla f - \sum_{i\in A(x^*)} \lambda^*_i \nabla c_i = 0\]</li>
+<li>Primal feasibility: \(c_i(x^*) = 0\), for all \(i\in \E\) and \(c_i(x^*) \ge 0\), for all \(i\in \I\)</li>
+<li>Dual feasibility: \(\lambda^*_i \ge 0\), for all \(i \in \I\)</li>
+<li>Complementarity condition: \(\lambda^*_i \cdot c_i(x^*) = 0\), for all \(i\in I\). either constraint \(c_i\) is active or \(\lambda^*_i = 0\)</li>
+</ul>
+</div></li>
+<li><a id="orgheadline41"></a>Notes about KKT<br  /><div class="outline-text-5" id="text-2-3-6-2">
+<ul class="org-ul">
+<li>We used \(\ge\) symbol for inequality constraints such that \(\nabla c_i(x)\) always points toward the feasible region for \(i \in \I\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline42"></a>Proof of KKT<br  /><div class="outline-text-5" id="text-2-3-6-3">
+<ul class="org-ul">
+<li>Let \(x^*\) be a feasible point, then \(T_{\Omega}(x^*) \subset \F(x^*)\). If the LICQ is satisfied at \(x^*\), then \(T_{\Omega}(x^*) = \F(x^*)\)</li>
+<li>A cone in \(\R^n\) can be represented by all its arbitrary vectors: \(\vk = \vB\vy + \vC\vw\), where \(\vB = [\vb_1, \vb_2, \dots, \vb_m] \in \R^{n\times m}\), \(\vy \ge 0\) and \(\vC\in \R^{n\times p}\).</li>
+<li>If a cone lies on one side of a directional hyper plane (represented by its normal vector \(\vd\)), then \(\vk^T \vd \ge 0\) for all \(\vy >0\) and \(\vw\), i.e., \(B^T d\ge 0\) and \(C^T d=0\).</li>
+<li><b>Farkas Lemma</b>: Given a vector \(g \in \R^n\) and a cone \(K = \{By + Cw | y\ge 0\}\), then exactly one of the following is true:
+<ul class="org-ul">
+<li>The vector is in the cone: \(g \in K\)</li>
+<li>There is a plane with normal \(d\) that separates \(g\) from \(K\), i.e., \(g^T d<0\), \(B^T d\ge 0\) and \(C^T d=0\)</li>
+</ul></li>
+<li>Now can prove KKT
+<ul class="org-ul">
+<li>If \(x^*\) is a local solution, then \(\nabla f(x^*) ^T d \ge 0\) for all \(d\in T_{\Omega}(x^*)\), otherwise we have a feasible descent direction.</li>
+<li>If the LICQ is satisfied, then \(\nabla f(x^*) ^T d \ge 0\) for all \(d\in \F(x^*)\)</li>
+<li>Let the cone be \[K = \left\{ \sum_{i\in\A(x^*)} \lambda_i \nabla c_i(x^*) \bigg| \lambda_i \ge 0 \forall i \in \A(x^*)\cap \I \right\}\], and the vector \(g = \nabla f(x^*)\), using Farkas Lemma then either \(g\in K\) or there exists plane normal \(d\) separating \(\nabla F(x^*)\) and \(K\).</li>
+<li>In the case of \(d\in K\), we can construct required Lagrangian multipliers; In the latter case, \(d\) is a feasible descent direction since \(d\in \F(x^*)\).</li>
+</ul></li>
+</ul>
+</div></li></ol>
+</div>
+
+
+
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44"><span class="section-number-4">2.3.7</span> <span class="todo TODO">TODO</span> Linear Programming</h4>
+</div>
+
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">2.3.8</span> <span class="todo TODO">TODO</span> Duality</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline86" class="outline-2">
+<h2 id="orgheadline86"><span class="section-number-2">3</span> Natural Language Processing</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-orgheadline53" class="outline-3">
+<h3 id="orgheadline53"><span class="section-number-3">3.1</span> Grammar</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48"><span class="section-number-4">3.1.1</span> Levels of languages:</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<dl class="org-dl">
+<dt>Phonetics (语音学)</dt><dd>the study of speech sounds, their production and combination, and their representation by written symbols</dd>
+<dt>Morphology (构词学)</dt><dd>the branch of linguistics that deals with word structure and with functional changes in the forms of words, such as inflection and compounding</dd>
+<dt>Syntax (句法)</dt><dd>the arrangement of and relationships among words, phrases, and clauses forming sentences; sentence structure</dd>
+<dt>Semantics (语义学)</dt><dd>the branch of linguistics concerned with the nature, the structure, and the development and changes of the meanings of speech forms, or with contextual meaning</dd>
+<dt>Pragmatics (语用学)</dt><dd>the branch of linguistics concerned with meaning in context, or the meanings of sentences in terms of the speaker's intentions in using them</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">3.1.2</span> Part-of-speech or word classes</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<dl class="org-dl">
+<dt>Two super categories</dt><dd><ul class="org-ul">
+<li><b>closed class</b>: a closed class has relatively fixed membership; these words are generally function words;
+<ul class="org-ul">
+<li>prepositions: on, under, over, near</li>
+<li>determiners:  this (as in this chapter), articles (a, an, the)</li>
+<li>pronouns: she, who, I, others</li>
+<li>conjunctions: and, but, or, as, if</li>
+<li>auxiliary verbs: can, may, should, are</li>
+<li>particles: function words that must be associated with another word or phrase to impart meaning, such as the infinitive marker "to".</li>
+<li>numerals: one, two, first</li>
+</ul></li>
+<li><b>open classes (nouns, verbs, adjectives, adverbs)</b>: new words are continually coined or borrowed from other languages.</li>
+</ul></dd>
+<dt>Noun</dt><dd><ul class="org-ul">
+<li>Proper nouns (names of specific persons or entities) / common nouns</li>
+<li>Count nouns / mass nouns (conceptualized as a homogeneous group).</li>
+</ul></dd>
+<dt>Verb</dt><dd><ul class="org-ul">
+<li>Morphological forms: non-third-person-sg (eat), third-person-sg (eats), progressive (eating), past participate (eaten).</li>
+<li>Auxiliaries</li>
+</ul></dd>
+<dt>Adjective</dt><dd>Adjectives describe properties or qualities.</dd>
+<dt>Adverb</dt><dd>Adverbs modify something (usually verbs or adverbs)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">3.1.3</span> Abbreviations of part-of-speech categories</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Abbr.</th>
+<th scope="col" class="org-left">Word</th>
+<th scope="col" class="org-left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Noun</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Pronoun</td>
+<td class="org-left">I, she</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Proper noun</td>
+<td class="org-left">USA</td>
+</tr>
+
+<tr>
+<td class="org-left">NP</td>
+<td class="org-left">Noun Phrase</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Adj</td>
+<td class="org-left">Adjective</td>
+<td class="org-left">modify or describe nouns</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Verb</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Aux</td>
+<td class="org-left">Auxiliary or helping verb</td>
+<td class="org-left">do, is</td>
+</tr>
+
+<tr>
+<td class="org-left">v.t.</td>
+<td class="org-left">Transitive Verb</td>
+<td class="org-left">can take a direct object</td>
+</tr>
+
+<tr>
+<td class="org-left">v.i.</td>
+<td class="org-left">Intransitive Verb</td>
+<td class="org-left">cannot have a direct object</td>
+</tr>
+
+<tr>
+<td class="org-left">VP</td>
+<td class="org-left">Verb Phrase</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Adv</td>
+<td class="org-left">Adverb</td>
+<td class="org-left">modify or describe adjectives, verbs or other adverbs</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">Det</td>
+<td class="org-left">Determiner</td>
+<td class="org-left">a, the</td>
+</tr>
+
+<tr>
+<td class="org-left">Con</td>
+<td class="org-left">Conjunction</td>
+<td class="org-left">and, or</td>
+</tr>
+
+<tr>
+<td class="org-left">Prep</td>
+<td class="org-left">Preposition</td>
+<td class="org-left">in, by, for</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">3.1.4</span> Parts of sentences</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<ul class="org-ul">
+<li>Subject: the noun phrase about which something is said in the predicate</li>
+<li>Predicate: the verb phrase that asserts something about the subject.</li>
+<li>Objects: a noun phrase that directly or indirectly receives the action of a verb, or one that is governed by a preposition.</li>
+<li>Complement: a phrase that completes the meaning and syntactic structure of the predicate.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52"><span class="section-number-4">3.1.5</span> Sentence level constructions</h4>
+<div class="outline-text-4" id="text-3-1-5">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 1:</span> Sentence-level constructions</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Declarative</td>
+<td class="org-left">S \(\to\) NP VP</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">Imperative</td>
+<td class="org-left">S \(\to\) VP</td>
+<td class="org-left">for commands and suggestions</td>
+</tr>
+
+<tr>
+<td class="org-left">Yes-no question</td>
+<td class="org-left">S \(\to\) Aux NP VP</td>
+<td class="org-left">to ask question</td>
+</tr>
+
+<tr>
+<td class="org-left">Wh-subject-question</td>
+<td class="org-left">S \(\to\) Wh-NP VP</td>
+<td class="org-left">Wh-NP as the subject</td>
+</tr>
+
+<tr>
+<td class="org-left">Wh-non-subject-question</td>
+<td class="org-left">S \(\to\) Wh-NP Aux NP VP</td>
+<td class="org-left">e.g. What flights do you have from BWI?</td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>Long-distance dependencies: In wh-non-subject-question structures, the wh-NP is far away from the predicate that it is semantically related to.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline56" class="outline-3">
+<h3 id="orgheadline56"><span class="section-number-3">3.2</span> Regular expression and Automata</h3>
+<div class="outline-text-3" id="text-3-2">
+<ul class="org-ul">
+<li>Regular expression: an algebraic notation for characterizing a set of strings.</li>
+<li>Formal language: a set of strings, each string composed of symbols from a finite symbol set called an <b>alphabet</b></li>
+</ul>
+</div>
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">3.2.1</span> Elements of regular expression</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<ul class="org-ul">
+<li>disjunction (with several alternatives): <code>[], |, .</code></li>
+<li>anchors: <code>^, $</code></li>
+<li>counters: <code>*, +, ?, {n,m}</code></li>
+<li>precedence operators: <code>(, )</code></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">3.2.2</span> Finite State Automaton (FSA)</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+Any regular expression can be realized as a FSA. A FSA is defined by five parameters:
+</p>
+<ul class="org-ul">
+<li>\(Q = \{q_i\}\), a finite set of \(N\) states.</li>
+<li>\(\Sigma\): a finite input alphabet of symbols.</li>
+<li>\(q_0\): the start state.</li>
+<li>\(F\): the set of final states, \(F\subseteq Q\).</li>
+<li>\(\delta(q,i)\): the transition function (matrix) between states. Given a state \(q\in Q\) and an input \(i\in\Sigma\), \(\delta(q,i)\) returns a new state \(q'\in Q\). In other words, \(\delta(q,i)\) is a relation from \(Q\times \Sigma\) to \(Q\).</li>
+</ul>
+
+<p>
+NFSA (Non-deterministic FSA): autumata with decision points. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline65" class="outline-3">
+<h3 id="orgheadline65"><span class="section-number-3">3.3</span> Language Model</h3>
+<div class="outline-text-3" id="text-3-3">
+</div><div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57"><span class="section-number-4">3.3.1</span> Corpus</h4>
+<div class="outline-text-4" id="text-3-3-1">
+<ul class="org-ul">
+<li>types: number of distinct words in a corpus</li>
+<li>tokens: number of running words in a corpus</li>
+<li>vocabulary size: total number of distinct words</li>
+<li>lemma: a set of lexical forms having the same stem</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58"><span class="section-number-4">3.3.2</span> Bayes Theorem</h4>
+<div class="outline-text-4" id="text-3-3-2">
+<ul class="org-ul">
+<li>Basic form: \(p(A|B) = { p(A,B) \over p(B)}\)</li>
+<li>Reflection: \(p(A|B) \cdot p(B) = p(B|A) \cdot p(A)\)</li>
+<li>Chain rule: \(p(A|B,C) \cdot p(B|C) = p(A,B|C)\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline64" class="outline-4">
+<h4 id="orgheadline64"><span class="section-number-4">3.3.3</span> Measure of performance</h4>
+<div class="outline-text-4" id="text-3-3-3">
+</div><ol class="org-ol"><li><a id="orgheadline59"></a>Perplexity<br  /><div class="outline-text-5" id="text-3-3-3-1">
+<ul class="org-ul">
+<li>a measurement of how well a probability distribution predicts a sample.</li>
+<li>The perplexity of a language model on a test set \(\vw = (w_1,w_2,\dots,w_n)\) is a function of its probability</li>
+</ul>
+<p>
+\[PP(\vw)=p(\vw)^{-1/N} = \sqrt[N]{{1\over p(\vw)}}\]
+</p>
+<ul class="org-ul">
+<li>If we are given \(\log p(\vw)\), then \(PP(\vw)=2^{-\log p(\vw)/N} = 2^{H(L)}\)</li>
+<li>Low perplexity \(\to\) good at predicting the sample.</li>
+<li>a variant of entropy.</li>
+<li>Relationship with cross entropy \(H\): \(PP = 2^H\)</li>
+<li>Another interpretation of perplexity: the weighted average branching factor of a language; the number of possible words that can follow any word.</li>
+</ul>
+</div></li>
+<li><a id="orgheadline60"></a>Entropy<br  /><div class="outline-text-5" id="text-3-3-3-2">
+<ul class="org-ul">
+<li>A measure of information contained in each message.</li>
+<li>Given a random variable \(X\) that ranges over whatever we are predicting and that has a probability function \(f(x)\), the entropy of this random variable is defined as</li>
+</ul>
+<p>
+\[
+  H(X) = -\sum_{x\in X} p(x)\cdot \log_2 p(x)
+\]
+</p>
+<ul class="org-ul">
+<li>meaning: lower bound of bits to encode a certain value of \(X\).</li>
+</ul>
+</div></li>
+<li><a id="orgheadline61"></a>Entropy rate<br  /><div class="outline-text-5" id="text-3-3-3-3">
+<p>
+Aka per word entropy. It is defined as
+\[
+  H(L) = -{1\over n} \sum_{|\vw| = n} p(\vw) \cdot \log_2 p(\vw)
+\]
+By Shannon theorem it can be estimated with 
+\[
+  H(L) = \lim_{n\to \infty} -{1\over n} \log_2 p(\vw)
+\]
+which means that we can take a long-enough single sentence instead of summing over all possible sentences.
+</p>
+</div></li>
+
+<li><a id="orgheadline62"></a>Cross entropy<br  /><div class="outline-text-5" id="text-3-3-3-4">
+<ul class="org-ul">
+<li>Given an unknown probability distribution \(p\) and a model \(m\), the cross-entropy of \(m\) on \(p\) is defined as</li>
+</ul>
+<p>
+\[
+  H(p, m) = -\sum_{x\in X} p(x)\cdot\log_2 m(x)
+\]
+</p>
+<ul class="org-ul">
+<li>However, \(p\) is unknown and the above cross entropy cannot be directly calculated. We estimate the cross entropy with</li>
+</ul>
+<p>
+\[
+  H(p,m) \approx -\sum_{i=1}^N {1\over N} \log_2 m(x_i)
+\]
+</p>
+<ul class="org-ul">
+<li>Cross entropy measures how surprized that \(m\) is on average to see events drawn from \(p\).</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline63"></a>KL divergence<br  /><div class="outline-text-5" id="text-3-3-3-5">
+<ul class="org-ul">
+<li>defined as:</li>
+</ul>
+<p>
+\[
+  D(p||m) = H(p, m) - H(p) = \sum_x p(x) \log_2 {p(x)\over m(x)}
+\]
+</p>
+<ul class="org-ul">
+<li>\(D(p||m) \ge 0\)</li>
+<li>KL divergence means whether \(m\) is a good model for \(p\).</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline71" class="outline-3">
+<h3 id="orgheadline71"><span class="section-number-3">3.4</span> N-gram model</h3>
+<div class="outline-text-3" id="text-3-4">
+</div><div id="outline-container-orgheadline66" class="outline-4">
+<h4 id="orgheadline66"><span class="section-number-4">3.4.1</span> Definition</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+Denote \(w_1^n\) as a word sequence \((w_1, w_2, \dots, w_n)\).
+</p>
+<ul class="org-ul">
+<li>A language model assigns probability to a word sequence, i.e., to find \(p(w_1^n)\)</li>
+<li>Using the chain rule: \(p(w_1^n) = p(w_1)\cdot p(w_2 ~|~ w_1) \cdot p(w_3 ~|~ w_1^2) \dots p(w_n ~|~ w_1^{n-1}) = \prod_{k=1}^n p(w_k ~|~ w_1^{k-1})\)</li>
+<li>Simplify to bigram or 1st order Markov model: \(p(w_1^n) = \prod_{k=1}^n p(w_k|w_{k-1})\)</li>
+<li><b>logprob</b>: to avoid overflow, we use \(\log_2 p(w_1^n)\)</li>
+<li>For general N-gram model: \(p(w_1^n) = \prod_{k=1}^n p(w_k|w_{k-N+1}^{k-1})\)</li>
+<li>Normalizing: to make sure conditional probabilities add up to 1 (every word must be followed by something)</li>
+</ul>
+<p>
+\[
+  p(w_n ~|~ w_{n-N+1}^{n-1}) 
+  \approx { c(w_{n-N+1}^{n-1} w_n) \over \sum_w c(w_{n-N+1}^{n-1} w) }
+  = { c(w_{n-N+1}^{n-1} w_n) \over c(w_{n-N+1}^{n-1}) }
+\]
+</p>
+<ul class="org-ul">
+<li>Maximum Likelihood Estimation (MLE): use the relative frequency (observed frequency of a sequence divided by frequency of its prefixed, defined as above).</li>
+<li>Smoothing is to reevaluate zero and low probabilities in N-gram model.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline67" class="outline-4">
+<h4 id="orgheadline67"><span class="section-number-4">3.4.2</span> Laplace or Add-&lambda; smoothing</h4>
+<div class="outline-text-4" id="text-3-4-2">
+<ul class="org-ul">
+<li>Denote \(V\) as the vocabulary size and \(N\) as the number of tokens.</li>
+<li>Pretend that we see all words &lambda; times  more.</li>
+<li>For unigram:</li>
+</ul>
+<p>
+\[
+  p(w) = {c(w) \over N} \to {c(w) + \lambda \over N+\lambda V}
+\]
+</p>
+<ul class="org-ul">
+<li>For bigram: augment unigram counts first</li>
+</ul>
+<p>
+\[
+  p(w_n ~|~ w_{n-1}) = {c(w_{n-1} w_n) \over c(w_{n-1})}
+  \to {c(w_{n-1} w_n) + \lambda \over c(w_{n-1}) +\lambda V}
+\]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline68" class="outline-4">
+<h4 id="orgheadline68"><span class="section-number-4">3.4.3</span> <span class="todo TODO">TODO</span> Good-Turing Discounting</h4>
+<div class="outline-text-4" id="text-3-4-3">
+<ul class="org-ul">
+<li>Idea: use the count of things you've seen once to help estimate the count of things you've never seen.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline69" class="outline-4">
+<h4 id="orgheadline69"><span class="section-number-4">3.4.4</span> Add-&lambda; back-off</h4>
+<div class="outline-text-4" id="text-3-4-4">
+<p>
+If count of \(\dots w_{n-2}w_{n-1}w_n\) is small and not reliable, then we back off to a lower gram model. 
+\[
+  p(w_n ~|~ w_{n-1}) = {c(w_{n-1} w_n) \over c(w_{n-1})}
+  \to {c(w_{n-1} w_n) + \lambda\cdot V p(w_n) \over c(w_{n-1}) +\lambda V}
+\]
+We don't simply add &lambda;. Instead, we add &lambda; based on a backed-off gram model. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline70" class="outline-4">
+<h4 id="orgheadline70"><span class="section-number-4">3.4.5</span> <span class="todo TODO">TODO</span> Witten-Bell smoothing</h4>
+</div>
+</div>
+
+
+
+
+
+
+<div id="outline-container-orgheadline76" class="outline-3">
+<h3 id="orgheadline76"><span class="section-number-3">3.5</span> Log-linear model</h3>
+<div class="outline-text-3" id="text-3-5">
+</div><div id="outline-container-orgheadline72" class="outline-4">
+<h4 id="orgheadline72"><span class="section-number-4">3.5.1</span> Model overview</h4>
+<div class="outline-text-4" id="text-3-5-1">
+<ul class="org-ul">
+<li>a set of <b>Training data</b> (context/event pairs) \(\{ (x_1, y_1), (x_2, y_2), \dots (x_N, y_N) \}\)</li>
+<li>For each training data tuple \((x_i, y_i)\), we have a vector-valued <b>feature function</b>: \(\vec{f} (x_i, y_i) = [f_1, f_2, \dots, f_k]\)</li>
+<li>a vector of <b>feature weights</b>: \(\vec{\theta} = [\theta_1, \theta_2, \dots, \theta_k]\); same weights for all training data</li>
+</ul>
+<p>
+Log-linear model assigns conditional probability to pair \((x,y)\) as follows:
+\[
+  p(y ~|~ x) = {\exp\left(\vec{\theta} \cdot \vec{f}(x,y) \right)
+  \over \sum_{y'} \exp\left( \vec{\theta} \cdot \vec{f} (x, y') \right) } 
+  = {u(x,y) \over Z(x) }
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline73" class="outline-4">
+<h4 id="orgheadline73"><span class="section-number-4">3.5.2</span> Training the model</h4>
+<div class="outline-text-4" id="text-3-5-2">
+<p>
+Maximize entropy: \(\prod_{i=1}^N p(y_i ~|~ x_i)\) or equivalently:
+\[
+  \max: F(\vec{\theta}) = \log \prod_{i=1}^N p(y_i ~|~ x_i) 
+  = \sum_{i=1}^N \log p(y_i ~|~ x_i) 
+\]
+</p>
+
+<p>
+Take the derivative: 
+\[
+  {\partial F(\vec{\theta}) \over \partial \theta_k} 
+  = \sum_{i=1}^N f_k(x_i, y_i) - \sum_{i=1}^N \sum_{y'} p(y'~|~ x_i)\cdot f_k(x_i, y') 
+\]
+which can be interpreted as (observed count of feature \(k\)) \(-\) (expected count of feature \(k\)). 
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline74" class="outline-4">
+<h4 id="orgheadline74"><span class="section-number-4">3.5.3</span> Regularization</h4>
+</div>
+
+<div id="outline-container-orgheadline75" class="outline-4">
+<h4 id="orgheadline75"><span class="section-number-4">3.5.4</span> Log-linear model as smoothing</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline79" class="outline-3">
+<h3 id="orgheadline79"><span class="section-number-3">3.6</span> Parsing</h3>
+<div class="outline-text-3" id="text-3-6">
+<ul class="org-ul">
+<li>Constituent: a group of words that behave as a single unit or phrase.</li>
+<li>Parsing: recognize an input string and assign a structure to it.</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+<caption class="t-above"><span class="table-number">Table 2:</span> Search strategies</caption>
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Top-down</td>
+<td class="org-left">Bottom-up</td>
+</tr>
+
+<tr>
+<td class="org-left">Goal-directed search</td>
+<td class="org-left">data-directed search</td>
+</tr>
+
+<tr>
+<td class="org-left">Rationalist: use prior knowledge</td>
+<td class="org-left">Empiricist: use available data</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div id="outline-container-orgheadline77" class="outline-4">
+<h4 id="orgheadline77"><span class="section-number-4">3.6.1</span> <span class="todo TODO">TODO</span> CYK algorithm</h4>
+</div>
+<div id="outline-container-orgheadline78" class="outline-4">
+<h4 id="orgheadline78"><span class="section-number-4">3.6.2</span> <span class="todo TODO">TODO</span> Earley algorithm</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline85" class="outline-3">
+<h3 id="orgheadline85"><span class="section-number-3">3.7</span> Hidden Markov Model</h3>
+<div class="outline-text-3" id="text-3-7">
+</div><div id="outline-container-orgheadline80" class="outline-4">
+<h4 id="orgheadline80"><span class="section-number-4">3.7.1</span> Components of a HMM</h4>
+<div class="outline-text-4" id="text-3-7-1">
+<ul class="org-ul">
+<li>Q = q<sub>1</sub>, q<sub>2</sub>, &hellip;, q<sub>N</sub>; a set of N states</li>
+<li>A = N &times; N matrix; a transition probability matrix (<b>prior</b>), where a<sub>ij</sub> = p(Q<sub>j</sub> | Q<sub>i</sub>), probability of transition from Q<sub>i</sub> to Q<sub>j</sub>.</li>
+<li>O = o<sub>1</sub>, o<sub>2</sub>, &hellip;, o<sub>T</sub>; a sequence of \(T\) observations.</li>
+<li>B = b<sub>i</sub>(o<sub>t</sub>); a sequence of observation <b>likelihoods</b>, aka emission probabilities. b<sub>i</sub>(o<sub>t</sub>) = p(o<sub>t</sub> | Q<sub>i</sub> ), the probability of an observation o<sub>t</sub> being generated from a state Q<sub>i</sub></li>
+<li>q<sub>0</sub>, q<sub>F</sub>; a special start state and final state</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline81" class="outline-4">
+<h4 id="orgheadline81"><span class="section-number-4">3.7.2</span> Two simplifying assumptions</h4>
+<div class="outline-text-4" id="text-3-7-2">
+<dl class="org-dl">
+<dt>Markov assumption</dt><dd>As with first-order Markov chain, the probability of a particular state depends only on the previous state.</dd>
+</dl>
+<p>
+\[ p(q_i | q_1, q_2, \dots, q_{i-1}) = p(q_i | q_{i-1}) \]
+</p>
+<dl class="org-dl">
+<dt>Output independence</dt><dd>the probability of an output observation o<sub>i</sub> only depends on the state q<sub>i</sub> that produced the observation, and not on any other states or observations.</dd>
+</dl>
+<p>
+\[ p(o_i | q_1, \dots, q_T, o_1, \dots, o_T) = p(o_i | q_i) \]
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline82" class="outline-4">
+<h4 id="orgheadline82"><span class="section-number-4">3.7.3</span> Likelihood problem (Forward algorithm)</h4>
+<div class="outline-text-4" id="text-3-7-3">
+<p>
+<b>The likelihood problem</b>: given a HMM &lambda; = (A,B) and an observation sequence O, determine the likelihood p(O|&lambda;). 
+</p>
+<ul class="org-ul">
+<li>Since each hidden state produces exactly one observation, for a particular sequence of states Q and observation O, we have</li>
+</ul>
+<p>
+\[p(O|Q) = \prod_{i=1}^T p(o_i|q_i)\]
+</p>
+<ul class="org-ul">
+<li>Probability of a particular state sequence is</li>
+</ul>
+<p>
+\[ p(Q) = \prod_{i=1}^T p(q_i|q_{i-1}) \]
+</p>
+<ul class="org-ul">
+<li>Probability of O is given by</li>
+</ul>
+<p>
+\[ p(O) = \sum_Q p(O,Q) = \sum_Q p(O|Q)\cdot p(Q) \]
+</p>
+<ul class="org-ul">
+<li><p>
+<b>Forward algorithm</b> solves \(p(O)\) using dynamic programming. 
+</p>
+<ul class="org-ul">
+<li>Table \(\alpha_t(j)\): total probability of all paths that emit the observation data from Start up through today and end up in state \(q_j\), given the automaton &lambda;.
+\[\alpha_t(j) =p(o_1, o_2, \dots, o_t, q_t = j | \lambda )\]</li>
+<li>Initialize: \(\alpha_1(j) = a_{0j}\cdot b_j(o_1)\)</li>
+<li>Compute \(\alpha_t(j)\) based on all entries in the last column:</li>
+</ul>
+<p>
+\[ \alpha_t(j) = \sum_{i=1}^N \alpha_{t-1}(i) \cdot a_{ij} \cdot b_j(o_t) \]
+<img src="./figures/NLP/HMMForwardAlgorithm.jpg" alt="HMMForwardAlgorithm.jpg" />
+</p></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline83" class="outline-4">
+<h4 id="orgheadline83"><span class="section-number-4">3.7.4</span> Decoding problem (Viterbi algorithm)</h4>
+<div class="outline-text-4" id="text-3-7-4">
+<p>
+<b>The decoding problem</b>: Given an observation sequence O and a HMM &lambda; = (A,B), discover the the best hidden state sequence Q. <b>Viterbi Algorithm</b> solves decoding using dynamic programming. 
+</p>
+<ul class="org-ul">
+<li>Table \(v_t(j)\): the probability that the HMM is in state \(q_j\) after seeing the first \(t\) observations, and passing through the most probable state sequence \(q_0, q_1, \dots, q_{t-1}\).</li>
+</ul>
+<p>
+\[ v_t(j) = \max_{q_0, \dots, q_{t-1}} p(q_0, \dots, q_{t-1}, o_1, \dots, o_t, q_t = j | \lambda ) = \max p(Q_t(j), O_t | \lambda) \]
+</p>
+<ul class="org-ul">
+<li>Viterbi algorithm updates the table using</li>
+</ul>
+<p>
+\[ v_t(j) = \max_{i=1}^N v_{t-1}(i) \cdot a_{ij} \cdot b_j(o_t) \]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline84" class="outline-4">
+<h4 id="orgheadline84"><span class="section-number-4">3.7.5</span> Learning problem</h4>
+<div class="outline-text-4" id="text-3-7-5">
+<ul class="org-ul">
+<li><b>The learning problem</b>: Given an observation <span class="underline">unlabeled</span> sequence O and the set of states in HMM, learn the HMM parameters A and B.</li>
+<li>Solve using backward-forward (aka Baum-Welch) algorithm.</li>
+<li><b>Backward probability</b>: \(\beta_t(i)\), the total probability of all paths from state \(q_i\) that emit observations from time \((t+1)\) to the end.</li>
+</ul>
+<p>
+\[\beta_t(i) = p(o_{t+1}, o_{t+2},\dots, o_T | q_t=i, \lambda ) \]
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+<div id="outline-container-orgheadline113" class="outline-2">
+<h2 id="orgheadline113"><span class="section-number-2">4</span> Principle of Programming Languages</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-orgheadline88" class="outline-3">
+<h3 id="orgheadline88"><span class="section-number-3">4.1</span> Background</h3>
+<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-orgheadline87" class="outline-4">
+<h4 id="orgheadline87"><span class="section-number-4">4.1.1</span> Several Programming paradigm</h4>
+<div class="outline-text-4" id="text-4-1-1">
+<ul class="org-ul">
+<li>Imperative: uses statements that change a program’s state</li>
+<li>Declarative: expresses the logic of a computation without describing its control flow without requiring the programmer to specify an exact procedure to follow.</li>
+<li>Functional: attempts to minimize side effects.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline91" class="outline-3">
+<h3 id="orgheadline91"><span class="section-number-3">4.2</span> OCaml</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-orgheadline89" class="outline-4">
+<h4 id="orgheadline89"><span class="section-number-4">4.2.1</span> Variable types</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<ul class="org-ul">
+<li>The <code>unit</code> type is actually a 0-tuple.</li>
+<li>A regular variable can be viewed as a 1-tuple.</li>
+<li><b>record</b>: list of key value pairs: <code>type point = {x:float; y:float}</code></li>
+<li><b>variant</b>: unified way of representing object of different types in a single list: <code>type number = | Int of int | Float of float</code></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline90" class="outline-4">
+<h4 id="orgheadline90"><span class="section-number-4">4.2.2</span> Polymorphism</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+In Ocaml, a function obtained through partial application is not polymorphic enough. Polymorphism is introduced only through the let construct, and results from application are weakly polymorphic.
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-ocaml">let f x y = () ;; (* val f : 'a -&gt; 'b -&gt; unit = &lt;fun&gt; *)
+f 2 ;; (* - : '_a -&gt; unit = &lt;fun&gt; *)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline95" class="outline-3">
+<h3 id="orgheadline95"><span class="section-number-3">4.3</span> Operational Semantics</h3>
+<div class="outline-text-3" id="text-4-3">
+<dl class="org-dl">
+<dt>Syntax</dt><dd>the set of rules governing the formation of expressions in a programming language</dd>
+<dt>Semantics</dt><dd>the meaning of expressions</dd>
+<dt>Operational semantics</dt><dd>a mathematical model of programming language execution; an interpreter defined mathematically. It defines computation relation: \(e \Rightarrow v\).</dd>
+<dt>Abstract syntax</dt><dd>A term in an abstract syntax is represented as a syntax <b>tree</b> in which each operation to be performed is a <b>node</b> and each operand to that operation is a <b>child</b> of that node.</dd>
+<dt>Concrete syntax</dt><dd>Concrete syntax of a language describes the textual representation of an expression in the language.</dd>
+</dl>
+</div>
+
+<div id="outline-container-orgheadline92" class="outline-4">
+<h4 id="orgheadline92"><span class="section-number-4">4.3.1</span> BNF (Backus-Naur Form)</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<ul class="org-ul">
+<li>BNF is a standard grammar formalism for defining language syntax.</li>
+<li>All BNF grammars comprise terminals, non-terminals (aka syntactic categories), and production rules.</li>
+<li>General form of production rules: <code>&lt;non-terminal&gt; -&gt; &lt;form1&gt; | ... |&lt;formn&gt;</code></li>
+<li>Abstract syntax: a term in an abstract syntax is represented as a <b>syntax tree</b>, in which each operation to be performed is a node and each operand is a child of that node.</li>
+<li>Normalizing: a language is normalizing if for all expressions \(e\), there is some value \(v\) such that \(e\Rightarrow v\).</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline93" class="outline-4">
+<h4 id="orgheadline93"><span class="section-number-4">4.3.2</span> Variable substitution</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<dl class="org-dl">
+<dt>Bound occurrence</dt><dd>Any occurrence of variable \(x\) in the expression \(\fun x \to e\) are bound in \(e\). Note that \(x\) is bound in \(e\) but not bound in \(e_2\) in this example: \(\fun x \to e \mbox{ in } e_2\)</dd>
+<dt>Free occurrence</dt><dd>A variable \(x\) is free in \(e\) if it is not bound in \(e\).</dd>
+<dt>Close expressions</dt><dd>An expression \(e\) is closed if it contains no free variable occurrences. All programs we execute are closed.</dd>
+<dt>Variable substitution \(e[e'/x]\)</dt><dd>The variable substitution of \(x\) for \(e'\) in \(e\) is the expression resulting in from replacing all <b>free</b> occurrences of \(x\) in \(e'\) with \(e'\).</dd>
+<dt>&alpha;-conversion</dt><dd>replacing a variable definition and all occurrences bounded to it with a different name, to improve readability.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline94" class="outline-4">
+<h4 id="orgheadline94"><span class="section-number-4">4.3.3</span> Y-combinator</h4>
+<div class="outline-text-4" id="text-4-3-3">
+<p>
+In &lambda;-calculus self-reference or recursion is not allowed, but we can achieve self-reference without directly using self-reference. 
+</p>
+
+<p>
+Let \(r = \lambda x.(\mathrm{expr})\) be the recursive function to construct. Define another function \(g\) that takes \(r\) as an input argument
+\[g = \lambda r. \lambda x.(\mathrm{expr})\]
+then \(g r\) will be the recursive function. On the other hand, \(r\) itself is such a recursive function, i.e., \(r = g r\). The problem becomes to find the fixed point of function \(g\). The Y-combinator defined as
+\[Y := \lambda f.(\lambda x.f (x ~ x)) ~ (\lambda x.f (x ~ x))\]
+could return a fixed point for a function \(g\) in that \(Y g = g (Y g)\). Therefore, \(r =Y g\) is such a recursive function. 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline98" class="outline-3">
+<h3 id="orgheadline98"><span class="section-number-3">4.4</span> Operational equivalence</h3>
+<div class="outline-text-3" id="text-4-4">
+<dl class="org-dl">
+<dt>Operational equivalence (informal)</dt><dd>Two programs expressions are equivalent \(\iff\) one can be replaced with the other one at any place , and no external change in behavior will be noticed.</dd>
+<dt>Operational equivalence</dt><dd>Two expressions are equivalent if in any possible context, one terminates if the other does. Nothing is said about the relationship between \(v\) and \(v'\), but they must be very similar. \(e \cong e' \iff \forall\) program context \(C\) such that \(C[e]\To v\) for some \(v\) if and only if \(C[e']\To v'\) for some \(v'\)</dd>
+<dt>Touch</dt><dd>An expression is said to touch one of its sub-expressions if the evaluation of the expression causes the evaluation of that sub-expression.</dd>
+</dl>
+</div>
+
+<div id="outline-container-orgheadline96" class="outline-4">
+<h4 id="orgheadline96"><span class="section-number-4">4.4.1</span> Properties of operational equivalence</h4>
+<div class="outline-text-4" id="text-4-4-1">
+<dl class="org-dl">
+<dt>Reflexivity</dt><dd>\(e\) is equivalent to itself; \(e\cong e\)</dd>
+<dt>Symmetry</dt><dd>If \(e \cong e'\), then \(e' \cong e\)</dd>
+<dt>Transitivity</dt><dd>If \(e_1 \cong e_2\) and \(e_2 \cong e_3\), then \(e_1 \cong e_3\)</dd>
+<dt>Congruence</dt><dd>If \(e\cong e'\), then \(C[e] \cong C[e']\)</dd>
+<dt>&beta;-equivalence</dt><dd>Function application; \((\fun x\to e)\; v \cong e[v/x]\)</dd>
+<dt>&eta;-equivalence</dt><dd>&eta;-conversion is similar to the proxy pattern in OOSE. \(\fun x \to e \cong (\fun z \to \fun x \to e)\; z'\)</dd>
+<dt>&alpha;-equivalence</dt><dd>Rename function argument; \(\fun x \to e \cong \fun y \to e[y/x]\)</dd>
+<dt>Others</dt><dd><ul class="org-ul">
+<li>If \(e\To v\) then \(e\cong v\)</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgheadline97" class="outline-4">
+<h4 id="orgheadline97"><span class="section-number-4">4.4.2</span> Some examples</h4>
+<div class="outline-text-4" id="text-4-4-2">
+<dl class="org-dl">
+<dt>\(x \not\cong x+1-1\)</dt><dd>\(x\) may not necessarily be integer type. Consider the program context \((\fun x \to \bullet)\; \True\). Equivalence cannot hold if one side makes <span class="underline">assumptions about the type</span> of operand while the other side does not.</dd>
+<dt>\((0\; 0) \cong (\fun x\to x\;x)\;(\fun x\to x\;x)\)</dt><dd>If \(e\not\To v\) for any \(v\) and \(e'\not\To v'\) for any \(v'\), and both \(e, e'\) are closed expressions, then \(e\cong e'\).</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline103" class="outline-3">
+<h3 id="orgheadline103"><span class="section-number-3">4.5</span> Abstract Syntax and Semantics</h3>
+<div class="outline-text-3" id="text-4-5">
+</div><div id="outline-container-orgheadline99" class="outline-4">
+<h4 id="orgheadline99"><span class="section-number-4">4.5.1</span> Basic Fb</h4>
+<div class="outline-text-4" id="text-4-5-1">
+
+<div class="figure">
+<p><img src="./figures/PL/Fb.jpg" alt="Fb.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline100" class="outline-4">
+<h4 id="orgheadline100"><span class="section-number-4">4.5.2</span> FbV, Fb with Variant</h4>
+<div class="outline-text-4" id="text-4-5-2">
+
+<div class="figure">
+<p><img src="./figures/PL/FbV.jpg" alt="FbV.jpg" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline101" class="outline-4">
+<h4 id="orgheadline101"><span class="section-number-4">4.5.3</span> FbS, Fb with State</h4>
+<div class="outline-text-4" id="text-4-5-3">
+
+<div class="figure">
+<p><img src="./figures/PL/FbS.jpg" alt="FbS.jpg" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline102" class="outline-4">
+<h4 id="orgheadline102"><span class="section-number-4">4.5.4</span> FbX, Fb with Exception</h4>
+<div class="outline-text-4" id="text-4-5-4">
+
+<div class="figure">
+<p><img src="./figures/PL/FbX.jpg" alt="FbX.jpg" />
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline104" class="outline-3">
+<h3 id="orgheadline104"><span class="section-number-3">4.6</span> <span class="todo TODO">TODO</span> State</h3>
+</div>
+
+<div id="outline-container-orgheadline108" class="outline-3">
+<h3 id="orgheadline108"><span class="section-number-3">4.7</span> Type Systems</h3>
+<div class="outline-text-3" id="text-4-7">
+</div><div id="outline-container-orgheadline105" class="outline-4">
+<h4 id="orgheadline105"><span class="section-number-4">4.7.1</span> Concepts</h4>
+<div class="outline-text-4" id="text-4-7-1">
+<dl class="org-dl">
+<dt>Type</dt><dd>A type is a property with which a program is implicitly or explicitly annotated before runtime.</dd>
+<dt>Type Systems</dt><dd>Type systems are rule-based formal systems that are similar to operational semantics.</dd>
+<dt>Type environment \(\Gamma\)</dt><dd>A type environment \(\Gamma\) is a set \(\{x_1 : \tau_1, \dots, x_n : \tau_n\}\) of bindings of free variables types. We write \(\Gamma(x) = \tau\) to indicate that \(\tau\) is the innermost or rightmost type for \(x\) in \(\Gamma\).</dd>
+<dt>Type assertion</dt><dd>\(\Gamma \vdash e: \tau\) indicates that in type environment \(\Gamma\), \(e\) is of type \(\tau\).</dd>
+<dt>Type inference</dt><dd>Type inference algorithms infer types and check that the program body has no type errors.</dd>
+<dt>Type checking</dt><dd>A type-checking algorithm takes as input a type environment \(\Gamma\) and an expression \(e\). It either returns the type \(\tau\) of \(e\), or it raises an exception indicating that \(e\) is not well-typed in the environment \(\Gamma\).</dd>
+<dt>Type soundness theorem</dt><dd>If \(\Gamma \vdash e: \tau\), then in the process of evaluating \(e\), a "stuck state" is never reached.</dd>
+<dt>Subtyping</dt><dd>Subtyping allows records and object polymorphism to type check. \(\tau <:\tau'\) means \(\tau\) is a subtype of \(\tau'\), and an object of type \(\tau\) may also be considered as an object of type \(\tau'\).</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline106" class="outline-4">
+<h4 id="orgheadline106"><span class="section-number-4">4.7.2</span> Level of type systems</h4>
+<div class="outline-text-4" id="text-4-7-2">
+<dl class="org-dl">
+<dt>Static type systems</dt><dd>Types are checked by the compiler, and type-unsafe programs fails to compile.</dd>
+<dt>Dynamic type systems</dt><dd>Dynamic type systems check types information at runtime.</dd>
+<dt>Untyped</dt><dd>In an untyped system there is no type check at all and anomalous behaviors can result at runtime. Untyped system are more expressive.</dd>
+</dl>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline107" class="outline-4">
+<h4 id="orgheadline107"><span class="section-number-4">4.7.3</span> Subtyping</h4>
+<div class="outline-text-4" id="text-4-7-3">
+<ul class="org-ul">
+<li>If record B = A + (some additional fields), then B is a subtype of A; \(B <: A\).</li>
+<li>If function \(f <: g\), then \(f\) takes less and gives more.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline112" class="outline-3">
+<h3 id="orgheadline112"><span class="section-number-3">4.8</span> Concurrency</h3>
+<div class="outline-text-3" id="text-4-8">
+</div><div id="outline-container-orgheadline109" class="outline-4">
+<h4 id="orgheadline109"><span class="section-number-4">4.8.1</span> Concepts</h4>
+<div class="outline-text-4" id="text-4-8-1">
+<dl class="org-dl">
+<dt>Concurrency</dt><dd>A concurrent computation works on more than one things at once.</dd>
+<dt>Parallelism</dt><dd>Parallel computing uses multiple processing elements simultaneously to solve one problem.</dd>
+<dt>Race condition</dt><dd>Two operations are interleaved and leaves the data in an inconsistent condition.</dd>
+<dt>Deadlock</dt><dd>Threads may need to wait for resources to free up (where were locked to prevent race condition), can can get in a cycle of waiting.</dd>
+<dt>Process</dt><dd><ul class="org-ul">
+<li>An executing instance of a program is called a process</li>
+<li>Each process is started with a single thread, often called the primary thread, but can create additional threads from any of its threads.</li>
+</ul></dd>
+<dt>Thread</dt><dd><ul class="org-ul">
+<li>A thread is the entity within a process that can be scheduled for execution.</li>
+<li>All threads of a process share its virtual address space and system resources.</li>
+<li>In Java, each thread has its own runtime stack but share only one heap.</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline110" class="outline-4">
+<h4 id="orgheadline110"><span class="section-number-4">4.8.2</span> Actor model</h4>
+<div class="outline-text-4" id="text-4-8-2">
+<ul class="org-ul">
+<li>Each actor is an autonomous, distributed agent, and has a name.</li>
+<li>All communication between actors is via explicit messaging, no shared memory.</li>
+<li>All messaging is asynchronous: senders never wait for replies from receivers.</li>
+<li>The arrival order of messages is nondeterministic.</li>
+<li>Actors can create other actors.</li>
+<li>Only one message is processed at a time by an actor.</li>
+<li>Concurrency is achieved by the fact that many actors can be processing their messages in parallel, not by concurrent behavior of an individual actor.</li>
+<li>Actors can never accept messages in the middle of processing their original messages.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline111" class="outline-4">
+<h4 id="orgheadline111"><span class="section-number-4">4.8.3</span> AFbV</h4>
+<div class="outline-text-4" id="text-4-8-3">
+<ul class="org-ul">
+<li>Messages are of variant type: <code>`typename(argument)</code></li>
+<li>Send a message: actor-name &larr; message</li>
+<li>Behavior is a function and takes the form <code>fun me -&gt; fun data -&gt; fun message -&gt; fun message -&gt; ...</code></li>
+<li>Create an actor: <code>Create(behavior1, data)</code> returns name of the new actor
+<ul class="org-ul">
+<li>Assign a fresh actor name: <code>name2</code></li>
+<li>Get new behavior via application: <code>behavior2 = behavior1 name2 data</code></li>
+<li>Added a pair <code>&lt;name2, hehevior2&gt;</code></li>
+</ul></li>
+
+<li>Process a message: 
+<ul class="org-ul">
+<li>Obtain <code>&lt;name, behavior1&gt;</code> and <code>&lt;name &lt;- message&gt;</code></li>
+<li>Process message <code>behavior2 = behavior1 message</code></li>
+<li>Add pair <code>&lt;name, behavior2&gt;</code></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline186" class="outline-2">
+<h2 id="orgheadline186"><span class="section-number-2">5</span> Graph Theory</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-orgheadline119" class="outline-3">
+<h3 id="orgheadline119"><span class="section-number-3">5.1</span> Notations</h3>
+<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-orgheadline114" class="outline-4">
+<h4 id="orgheadline114"><span class="section-number-4">5.1.1</span> Graph</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<ul class="org-ul">
+<li>\(P_n\): <b>path</b> with \(n\) vertices</li>
+<li>\(C_n\): <b>cycle</b> with \(n\) vertices</li>
+<li>\(K_n\): <b>complete graph</b> with \(n\) vertices</li>
+<li>\(K_{r,s}\): <b>complete bipartite graph</b> with sets of size \(r\) and \(s\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline115" class="outline-4">
+<h4 id="orgheadline115"><span class="section-number-4">5.1.2</span> Graph operations</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<ul class="org-ul">
+<li>\(\overline{G}\) : complement or inverse: a graph on the <b>same vertices</b> such that two distinct vertices of \(\overline{G}\) are adjacent \(\iff\) they are not adjacent in G.</li>
+<li>\(L(G)\) line graph : the graph whose vertices are edges in \(G\) and two vertices in \(L(G)\) are adjacent \(\iff\) their corresponding edges are incident in \(G\).</li>
+<li>\([S,T]\) : given \(S, T\subseteq V(G)\), we write \([S,T]\) as the set of edges having one endpoint in \(S\) and the other endpoint in \(T\).</li>
+<li>\(G[T]\) : induced graph * is composed of vertex set \(T\) together with edges whose endpoints are both in \(T\). It is noted that \(G[T] = G - \overline{T}\).</li>
+
+<li>\(G\vee H\) join: of simple graph \(G\) and \(H\): the graph obtained from the disjoint union \(G+H\) by adding the edges \(\{xy: x\in V(G), y\in V(H)\}\) (Def 3.3.6)</li>
+<li>\(G\Box H\) (cartesian product): the graph with vertex set \(V(G)\times V(H)\) specified by putting \((u,v)\) adjacent to \((u',v')\) if and only if (1) \(u=u'\) and \(vv'\in E(H)\), or (2) \(v=v'\) and \(uu'\in E(G)\).</li>
+
+<li><b>\(N_G(v)\) or \(N(v)\)</b>: neighborhood is the set of vertices adjacent to \(v\)</li>
+<li><b>\(G\cdot e\)</b>: contraction of edge \(e\); replace its two endpoints with a single vertex.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline116" class="outline-4">
+<h4 id="orgheadline116"><span class="section-number-4">5.1.3</span> Size</h4>
+<div class="outline-text-4" id="text-5-1-3">
+<ul class="org-ul">
+<li><b>order \(n(G)\)</b>: the number of vertices of a graph \(G\)</li>
+<li><b>size \(e(G)\)</b>: the number of edges in a graph \(G\)</li>
+<li><b>\(o(G)\)</b>: number of components with odd order.</li>
+<li><b>\(\alpha(G)\)</b>: max size of independent set</li>
+<li><b>\(\alpha'(G)\)</b>: max size of matching</li>
+<li><b>\(\beta(G)\)</b>: min size of vertex cover</li>
+<li><b>\(\beta'(G)\)</b>: min size of edge cover</li>
+<li>* \(d_G(v)\) or $d(v)$*: degree is the number of edges incident to \(v\)</li>
+<li><b>\(\tau(G)\)</b>: number of spanning trees of \(G\)</li>
+<li><b>\(c(G)\)</b>: number of components</li>
+<li><b>\(g(G)\)</b>: girth; length of shortest cycle.</li>
+<li>diameter: max length of a shortest \(uv\) -path for all \(u, v\).&lt;/li&gt;</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline117" class="outline-4">
+<h4 id="orgheadline117"><span class="section-number-4">5.1.4</span> Connectivity</h4>
+<div class="outline-text-4" id="text-5-1-4">
+<ul class="org-ul">
+<li><b>\(\kappa(G)\)</b>: connectivity of a graph (min seperating set \(S\) of vertices), such that \(G\setminus S\) is disconnected or has only one vertex. <b>\(k\) -connected</b>: connectivity is at least \(k\)</li>
+<li><b>\(\kappa'(G)\)</b>: edge-connectivity; min size of a disconnecting set of edges.</li>
+
+<li><b>\(\kappa(x,y)\)</b>: min size of \(x,y\) -cut (vertices)</li>
+<li><b>\(\kappa'(x,y)\)</b>: min number of edges whose deletion disconnects \(x\) and \(y\).</li>
+<li><b>\(\lambda(x,y)\)</b>: max size of a set of pairwise internally disjoint \(x,y\) -paths.</li>
+<li><b>\(\lambda'(x,y)\)</b>: max number of pairwise edge-disjoint \(x,y\) -paths.</li>
+<li><b>\(\delta(G)\)</b>: min vertex degree</li>
+<li><b>\(\Delta(G)\)</b> clique number: max vertex degree</li>
+<li><b>\(\mu(xy)\)</b>: multiplicity of edge \(xy\)</li>
+<li><b>\(\mu(G)\)</b>: max edge multiplicity in \(G\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline118" class="outline-4">
+<h4 id="orgheadline118"><span class="section-number-4">5.1.5</span> Coloring</h4>
+<div class="outline-text-4" id="text-5-1-5">
+<ul class="org-ul">
+<li><b>\(\chi(G)\)</b>: chromatic number; the least \(k\) such that \(G\) is \(k\) -colorable.</li>
+<li><b>\(\chi'(G)\)</b>: edge-chromatic number (or chormatic index); the least \(k\) such that loopless graph \(G\) is \(k\) -edge-colorable.</li>
+<li><b>\(\omega(G)\)</b>: clique number; the max size of a set of pairwise adjacent vertices in \(G\).</li>
+<li><b>\(\chi(G;k)\)</b>: chromatic polynomial; number of proper colorings \(f: V(G)\to [k]\).</li>
+<li><b>\(\theta(G)\)</b> clique cover number: the min number of cliques in \(G\) needed to cover \(V(G)\).</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline129" class="outline-3">
+<h3 id="orgheadline129"><span class="section-number-3">5.2</span> Basic Graph</h3>
+<div class="outline-text-3" id="text-5-2">
+</div><div id="outline-container-orgheadline120" class="outline-4">
+<h4 id="orgheadline120"><span class="section-number-4">5.2.1</span> Directed graphs</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<ul class="org-ul">
+<li><b>digraph</b>: directed graph</li>
+<li><b>edge \(uv\)</b>: from <b>tail</b> \(u\) to <b>head</b> \(v\). v is <b>successor</b> of \(u\), and \(u\) is the <b>predecessor</b> of \(v\).</li>
+<li>An <b>orientation</b> of a graph \(G\) is a digraph \(D\) obtained from \(G\) by choosing an orientation (\(x\to y\) or \(y\to x\)) for each edge.</li>
+<li><b>tournament</b>: an orientation of a complete graph</li>
+<li><b>king</b>: a vertex from which every vertex is reachable by a path of length at most 2.</li>
+<li><b>1.4.29</b>: Every tournament has a king.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline122" class="outline-4">
+<h4 id="orgheadline122"><span class="section-number-4">5.2.2</span> Edges and connections</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<p>
+<b>walk</b> \(\supseteq\) <b>trail</b> (no repeated edges) \(\supseteq\) <b>path</b> (no repeated edges and vertices) \(\supseteq\) <b>cycle</b>
+</p>
+
+<ul class="org-ul">
+<li><b>walk</b>: a list \((v_0, e_1, \dots, e_k, v_k)\), such that edge \(e_i\) has endpoints \(v_{i-1}\) and \(v_i\). Both edges and vertices can be repeated.</li>
+<li><b>trail</b>: a walk with no repeated edge</li>
+<li><b>loop</b>: an edge whose endpoints are equal</li>
+<li><b>path</b>: a simple graph whose vertices can be ordered so that two vertices are adjacent if and only they are consecutive in the list.</li>
+<li><b>cycle</b>: a graph with an equal number of vertices and edges whose vertices form a closed chain.</li>
+<li><b>a maximal path</b>: a path that is not contained in a longer path.</li>
+<li><b>circuit</b>: a closed trail</li>
+</ul>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline121"></a>Theorems<br  /><div class="outline-text-5" id="text-5-2-2-1">
+<ul class="org-ul">
+<li><b>1.2.15</b>: Every closed odd walk contains an odd cycle.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline123" class="outline-4">
+<h4 id="orgheadline123"><span class="section-number-4">5.2.3</span> Vertices</h4>
+<div class="outline-text-4" id="text-5-2-3">
+<ul class="org-ul">
+<li><b>clique</b>: a set of pairwise adjacent vertices</li>
+</ul>
+
+<p>
+Properties
+</p>
+
+<ul class="org-ul">
+<li><b>cut-vertex</b>: a vertex whose deletion increases the number of components.</li>
+<li><b>isolated vertex</b>: a vertex of degree \(0\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline127" class="outline-4">
+<h4 id="orgheadline127"><span class="section-number-4">5.2.4</span> Graphs</h4>
+<div class="outline-text-4" id="text-5-2-4">
+</div><ol class="org-ol"><li><a id="orgheadline124"></a>Special graphs<br  /><div class="outline-text-5" id="text-5-2-4-1">
+<ul class="org-ul">
+<li><b>complete graph</b>: every pair of distinct vertices is adjacent.</li>
+<li><b>biclique</b>: a complete bipartite graph</li>
+</ul>
+<p>
+\[ K_r + K_s = \overline{K_{r,s}} \]
+</p>
+
+<ul class="org-ul">
+<li><b>simple or strict graph</b>: an unweighted, undirected graph containing no loops or multiple edges.</li>
+<li><b>connected graph</b>: every pair of vertices is connected.</li>
+<li><b>bigraph</b>: bipartite graph; a graph \(G\) is bipartite if \(V(G)\) is the union of two disjoint (possibly empty) independent sets</li>
+<li><b>even</b>: all vertices are of even degree</li>
+<li><b>regular</b>: if maximum degree is equal to minimum degree \(\Delta(G)=\delta(G)\).</li>
+<li><b>tree</b>: a connected and acyclic graph</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline125"></a>Chord<br  /><div class="outline-text-5" id="text-5-2-4-2">
+<ul class="org-ul">
+<li><b>chord</b> of a cycle \(C\) is an edge not in \(C\) whose endpoints lie in \(C\)</li>
+<li><b>chordless cycle</b> in \(G\) is a cycle of length at least 4 that has no chord</li>
+<li><b>chordal</b>: a simple graph that has no chordless cycle.</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline126"></a>Graph operations<br  /><div class="outline-text-5" id="text-5-2-4-3">
+<ul class="org-ul">
+<li><b>component</b>: maximal connected subgraph</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline128" class="outline-4">
+<h4 id="orgheadline128"><span class="section-number-4">5.2.5</span> Graph isomorphism</h4>
+<div class="outline-text-4" id="text-5-2-5">
+<p>
+An isomorphism of graphs \(G\) and \(H\) is a bijection between the vertex sets 
+\[
+f: V(G) \to V(H)
+\]
+such that any two vertices \(u\) and \(v\) of \(G\) are adjacent if and only if \(f(u)\) and \(f(v)\) are adjacent in \(H\). 
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline133" class="outline-3">
+<h3 id="orgheadline133"><span class="section-number-3">5.3</span> Tree</h3>
+<div class="outline-text-3" id="text-5-3">
+</div><div id="outline-container-orgheadline130" class="outline-4">
+<h4 id="orgheadline130"><span class="section-number-4">5.3.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-5-3-1">
+<ul class="org-ul">
+<li><b>leaf or pendant vertex</b>: a vertex of degree 1.</li>
+<li><b>n-vertex star</b>: \(K_{1,n-1}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline131" class="outline-4">
+<h4 id="orgheadline131"><span class="section-number-4">5.3.2</span> Properties of a tree</h4>
+<div class="outline-text-4" id="text-5-3-2">
+<ul class="org-ul">
+<li>connected and acyclic by definition</li>
+<li>bipartite</li>
+<li>\(e(T) = n(T)-1\)</li>
+<li>\(uv\) -path is unique</li>
+<li>\(\not \exists\) induced cycle.</li>
+<li><b>4.1.18</b>: Every edge of a tree is a block.</li>
+<li><b>2.1.3</b>: Everry tree has at least two leaves (\(|n(T)| \ge 2\)).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline132" class="outline-4">
+<h4 id="orgheadline132"><span class="section-number-4">5.3.3</span> Spanning tree</h4>
+<div class="outline-text-4" id="text-5-3-3">
+<ul class="org-ul">
+<li><b>spanning tree</b>: a subgraph that is a tree and includes all of the vertices.</li>
+<li><b>2.2.3 Cayley</b>: For a set \(S\) of size \(n\), there are \(n^{n-1}\) trees with vertex set \(S\)</li>
+<li><b>2.2.8</b>: \(\tau(G) = \tau(G-e) + \tau(G\cdot e)\)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline137" class="outline-3">
+<h3 id="orgheadline137"><span class="section-number-3">5.4</span> Matching and Factors</h3>
+<div class="outline-text-3" id="text-5-4">
+</div><div id="outline-container-orgheadline134" class="outline-4">
+<h4 id="orgheadline134"><span class="section-number-4">5.4.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-5-4-1">
+<ul class="org-ul">
+<li>A <b>matching</b> in a graph \(G\) is a set of non-loop edges with no shared endpoints.</li>
+<li>The vertices incident to the edges of a matching \(M\) are <b>saturated</b> by \(M\).</li>
+<li><b>perfect matching</b>: a matching that saturates every vertex in \(G\).</li>
+<li>M-*alternating* path: a path that alternate between edges in \(M\) and edges not in \(M\).</li>
+<li>M-*augmenting* path: an M-alternating path whose endpoints are unsaturated by \(M\).</li>
+<li><b>vertex cover</b>: a set \(Q\in V(G)\) that contains at least one endpoints of every edge.</li>
+<li><b>edge cover</b>: a set of edges such that every vertex of the graph is incident to at least one edge of the set. Note that an edge cover exists only if \(G\) has no isolated vertex.</li>
+<li><b>independent set (stable set)</b>: a set of pairwise nonadjacent vertices</li>
+<li><b>k-factor</b>: a spanning k-regular subgraph of \(G\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline135" class="outline-4">
+<h4 id="orgheadline135"><span class="section-number-4">5.4.2</span> Theorems</h4>
+<div class="outline-text-4" id="text-5-4-2">
+<ul class="org-ul">
+<li>\(U\) is a stable set \(\iff\) \(V\setminus U\) is a vertex cover</li>
+<li>\(M\) is maximum matching in \(G \iff G\) has no M-augmenting path</li>
+<li>\(M\) is a maximal matching \(\iff V(M)\) is a vertex cover</li>
+<li>\(|\mathrm{stable set}| \le  |\mathrm{edge cover}|\)</li>
+<li>\(|\mathrm{matching}| \le  |\mathrm{vertex cover}|\)</li>
+<li><b>Gallai's theorem</b>: If \(G\) has no isolated vertex, then</li>
+</ul>
+<p>
+\[ |\mathrm{max stable set}| + |\mathrm{min vertex cover}| = |V| = |\mathrm{max matching}| + |\mathrm{min edge cover}| \]
+</p>
+
+<ul class="org-ul">
+<li><b>Berge's theorem</b>: a matching \(M\) is <b>maximum</b> \(\iff\) there is no M-agumenting path.</li>
+<li><b>Konig's theorem</b>: If \(G\) is bipartite, \(|\mathrm{maximum macthing}| = |\mathrm{minimum vertex cover}|\)</li>
+
+<li><b>Hall's theorem</b>: An \(X, Y\) -bigraph \(G\) has a matching that saturates \(X \iff |N(S)| \ge |S|\) for all \(S\subseteq X\)</li>
+
+<li><b>Tutte</b>: \(G\) has a 1-factor \(\iff o(G\setminus S)\le |\mathrm{S}| \forall S\subseteq V(G)\)</li>
+
+<li><b>Berge-Tutte Formula</b>: \(|\mathrm{max matching}| = \min_{S\subseteq V(G)} n(G) - o(G-S) + |S|\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline136" class="outline-4">
+<h4 id="orgheadline136"><span class="section-number-4">5.4.3</span> Stable matching</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline144" class="outline-3">
+<h3 id="orgheadline144"><span class="section-number-3">5.5</span> Cuts and Connectivity</h3>
+<div class="outline-text-3" id="text-5-5">
+</div><div id="outline-container-orgheadline138" class="outline-4">
+<h4 id="orgheadline138"><span class="section-number-4">5.5.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-5-5-1">
+<ul class="org-ul">
+<li><b>seperating set, or vertex cut</b>: a set \(S\subseteq V(G)\) such that \(G\setminus S\) is disconnected.</li>
+<li><b>disconnecting set</b> of edges: a set \(F\subseteq E(G)\) such that \(G\setminus F\) is disconnected.</li>
+
+<li><b>cut-edge</b>: an edge whose deletion increases the number of components.</li>
+
+<li><b>edge-cut</b>: an edge set of the form \([S,\overline{S}]\), where \(S\subset V(G)\) and \(S\ne \emptyset\)</li>
+<li><b>bond</b>: minimal nonempty edge cut.</li>
+<li><b>block</b>: a maximal connected subgraph that has no cut-vertex.</li>
+<li>Two \(u,v\) -paths are <b>internally disjoint</b> if they have no common internal vertex.</li>
+<li><b>subdivision</b>: replacing an edge \(uv\) with a path \(\{u, w, v\}\).</li>
+<li><b>ear</b>: a maximal path whose internal vertices have degree 2 in \(G\)</li>
+<li><b>ear decomposition</b> of \(G\) is a decomposition \(P_0, \dots, P_k\) such that \(P_0\) is a cycle and \(P_i\) for \(i\ge 1\) is an ear of \(\cup_{k=0}^{i} P_k\)</li>
+<li><b>\(x,y\) -separator or cut</b>: a set \(S\subseteq V(G)-x-y\) if \(G-S\) has no \(x,y\) -path.</li>
+<li><b>\(X,Y\) -path</b>: a path having first vertex in \(X\), last vertex in \(Y\), and no other vertex in \(X\cup Y\).</li>
+<li><b>\(x,U\) -fan</b>: a set of paths from \(x\) to vertex set \(U\) such that any two of them share only \(x\).</li>
+<li><b>block-cutpoint graph</b> of \(G\): a bipartite graph \(H=(X\cup Y, E(H))\), where \(X=\) cut-vertices \(v_i\) of \(G\), \(Y=\) blocks \(B_j\) of \(G\), and \(v_i B_j\in E(H) \iff v_i\in B_j\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline139" class="outline-4">
+<h4 id="orgheadline139"><span class="section-number-4">5.5.2</span> Theorems</h4>
+<div class="outline-text-4" id="text-5-5-2">
+<ul class="org-ul">
+<li><b>4.1.9 Whitney</b>: If \(G\) is a simple graph then</li>
+</ul>
+<p>
+\[ \kappa(G)\le \kappa'(G) \le \delta(G) \]
+</p>
+
+<p>
+&lt;li&gt;*4.2.17 Menger*: 
+</p>
+
+<ul class="org-ul">
+<li>If \(x,y\in V(G)\) and \(xy\not\in E(G)\), then \(\kappa(x,y) = \lambda(x,y)\)</li>
+<li>If \(x,y\in V(G)\) and \(x\ne y\), then \(\kappa'(x,y) = \lambda'(x,y)\)</li>
+</ul>
+
+<p>
+&lt;/li&gt;
+</p>
+<ul class="org-ul">
+<li><b>4.2.25 CSDR</b>: Families \(\vA = A_1, \dots, A_m\) and \(\vB = B_1,\dots,B_m\) have a common SDR</li>
+</ul>
+<p>
+\[\iff
+\big| (\cup_{i\in I} A_i) \cap (\cup_{j\in J} B_j) \big| 
+\ge |I| + |J| - m \; \forall I, J \subseteq [m]
+\]
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline141" class="outline-4">
+<h4 id="orgheadline141"><span class="section-number-4">5.5.3</span> 2-connected graphs</h4>
+<div class="outline-text-4" id="text-5-5-3">
+<ul class="org-ul">
+<li><b>4.2.2 Whitney</b>: A graph \(G\) having at least 3 vertices is 2-connected \(\iff\) for each pair of vertices \(x,y\) there exist internally disjoint \(x,y\) -paths in \(G\).</li>
+<li><b>4.2.6 Subdivision</b>: If \(G\) is 2-connected, then the graph \(G'\) obtained by subdividing an edge of \(G\) is 2-connected.</li>
+<li><b>4.2.8 ear</b>: A graph is 2-connected \(\iff\) it has an ear decomposition.</li>
+</ul>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline140"></a>4.2.4 Characterization<br  /><div class="outline-text-5" id="text-5-5-3-1">
+<p>
+If \(V(G)\ge 3\), the followings are equivalent and characterize 2-connected graphs:
+</p>
+<ul class="org-ul">
+<li>\(G\) is connected and has no cut-vertex.</li>
+<li>\(\forall x, y\in V(G)\), there are internally disjoint \(x,y\) -paths.</li>
+<li>\(\forall x, y\in V(G)\), there is a cycle through \(x,y\).</li>
+<li>\(\delta(G)\ge 1\), and every pair of edges in \(G\) lies on a common cycle.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline142" class="outline-4">
+<h4 id="orgheadline142"><span class="section-number-4">5.5.4</span> \(k\) -connected graphs</h4>
+<div class="outline-text-4" id="text-5-5-4">
+<ul class="org-ul">
+<li><b>4.2.3 Expansion Lemma</b>: If \(G\) is \(k\) -connected, and \(G'\) obtained from \(G\) by adding a new vertex \(y\) with at least \(k\) neighbors in \(G\), then \(G'\) is also \(k\) -connected.</li>
+<li><b>4.2.23 Fan Lemma</b>: \(G\) is \(k\) -connected \(\iff |V(G)| \ge k+1\) and \(\forall x, U\) with \(|U|\ge k\), \(\exists\) an \(x,U\) -fan of size \(k\).</li>
+<li><b>4.2.24 Dirac</b>: If \(G\) is \(k\) -connected (\(k\ge2\)), and \(S\) is a set of \(k\) vertices in \(G\), then \(G\) has a cycle including \(S\) in its vertex set.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline143" class="outline-4">
+<h4 id="orgheadline143"><span class="section-number-4">5.5.5</span> Block</h4>
+<div class="outline-text-4" id="text-5-5-5">
+<ul class="org-ul">
+<li><b>4.1.18</b>: An edge is a block of \(G\) \(\iff\) it is a cut-edge in \(G\).</li>
+<li><b>4.1.18</b>: If a block has more than two vertices, then it is 2-connected.</li>
+<li><b>4.1.19</b>: Two blocks in a graph share at most one vertex.</li>
+<li><b>4.1.20</b>: block-cutpoint graph of a graph is a forest.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline153" class="outline-3">
+<h3 id="orgheadline153"><span class="section-number-3">5.6</span> Coloring of graphs</h3>
+<div class="outline-text-3" id="text-5-6">
+</div><div id="outline-container-orgheadline145" class="outline-4">
+<h4 id="orgheadline145"><span class="section-number-4">5.6.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-5-6-1">
+<ul class="org-ul">
+<li><b>\(k\) -coloring</b>  of graph is a labeling \(f: V(G)\to S\), where \(|S| = k\). The labels are <b>colors</b>; the vertices of one color form a <b>color class</b>.</li>
+<li><b>proper coloring</b>: adjacent vertices have different colors.</li>
+<li><b>\(k\) -colorable</b>: if a graph has a proper \(k\) -coloring.</li>
+<li><b>\(k\) -chromatic</b>: if \(\chi(G)=k\)</li>
+<li><b>\(k\) -critical</b>: if \(\chi(H)< \chi(G)=k\) for all subgraph \(H\) of \(G\)</li>
+<li><b>perfect</b>: if \(\chi(H) = \omega(H)\) holds for \(G\) and all its induced subgraph. \(\chi(G[A]) = \omega(G[A])\; \forall A\in V(G)\)</li>
+<li><b>hereditary</b>: a family of graphs \(G\) is hereditary if every induced subgraph of a graph in \(G\) is also a graph in \(G\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline146" class="outline-4">
+<h4 id="orgheadline146"><span class="section-number-4">5.6.2</span> Theorems (vertex coloring)</h4>
+<div class="outline-text-4" id="text-5-6-2">
+<ul class="org-ul">
+<li><b>5.1.7</b>: For every graph \(G\), \(\chi(G)\ge \omega(G)\) and \(\chi(G)\ge n(G)\big/ \alpha(G)\)</li>
+<li><b>5.1.8</b>:</li>
+</ul>
+<p>
+\[\chi(G+H) = \max\big\{ \chi(H), \chi(G) \big\} \]
+\[\chi(G\vee H) = \chi(H) + \chi(G)\]
+</p>
+
+<ul class="org-ul">
+<li><b>5.1.13</b>: \(\chi(G)\le \Delta(G) + 1\)</li>
+
+<li><b>P2 HW9, Exercise 5.1.3</b>: \(\chi(G) = \max_i(G_i)\), where \(G_i\) are the blocks of \(G\).</li>
+<li><b>5.1.22 Brooks</b>: If \(G\) is a connected other than complete graph or an odd cycle, then \(\chi(G)\le \Delta(G)\)</li>
+<li><b>5.3.18</b>: \(\theta(G) = \chi(\overline{G})\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline147" class="outline-4">
+<h4 id="orgheadline147"><span class="section-number-4">5.6.3</span> Theorems (edge coloring)</h4>
+<div class="outline-text-4" id="text-5-6-3">
+<ul class="org-ul">
+<li><b>7.1.3</b>: \(\chi'(G) \ge \Delta(G)\)</li>
+<li><b>7.1.7 Konig</b>: If \(G\) is bipartite, then \(\chi'(G) = \Delta(G)\)</li>
+<li><b>7.1.10 Vizing</b>: If \(G\) is a simple graph, then \(\chi'(G) \le \Delta(G) + 1\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline150" class="outline-4">
+<h4 id="orgheadline150"><span class="section-number-4">5.6.4</span> \(k\) -critical graph</h4>
+<div class="outline-text-4" id="text-5-6-4">
+</div><ol class="org-ol"><li><a id="orgheadline148"></a>\(k\) -critical graphs for small number<br  /><div class="outline-text-5" id="text-5-6-4-1">
+<ul class="org-ul">
+<li><b>\(k=1\)</b>: \(K_1\)</li>
+<li><b>\(k=2\)</b>: \(K_2\)</li>
+<li><b>\(k=3\)</b>: odd cycles</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline149"></a>Theorems<br  /><div class="outline-text-5" id="text-5-6-4-2">
+<ul class="org-ul">
+<li><b>5.2.13 a</b>: If \(G\) is \(k\) -critical, then \(\delta(G)\ge k-1\)</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline152" class="outline-4">
+<h4 id="orgheadline152"><span class="section-number-4">5.6.5</span> Chromatic Polynomial</h4>
+<div class="outline-text-4" id="text-5-6-5">
+<ul class="org-ul">
+<li><b>5.3.2</b>: \(\chi(\overline{K_n}; k) =  k^n\)</li>
+<li><b>5.3.2</b>: \(\chi(K_n; k) = \Pi_{i=0}^{n-1} (k-i) = P_n^k\)</li>
+<li><b>5.3.3</b>: If \(T\) is a tree with \(n\) vertices, then \(\chi(T; k) = k(k-1)^{n-1}\)</li>
+
+<li><b>5.3.6 Chromatic Recurrence</b>: If \(G\) is a simple graph and \(e\in E(G)\), then \(\chi(G; k) = \chi(G-e; k) - \chi(G\cdot e; k)\)</li>
+
+<li><b>5.3.4</b>: \(\chi(G; k) = \sum_{r=1}^{n(G)} p_r(G) k_{(r)}\), where \(p_r(G)\) is the number of partitions of \(V(G)\) into \(r\) nonempty independent sets, and \(k_{(r)} = \Pi_{i=0}^r (k-i)\)</li>
+
+<li><b>5.3.27 Stanley</b>: number of acyclic orientations of \(G\) is \((-1)^{n(G)} \chi(G; -1)\)</li>
+</ul>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline151"></a>Coefficients of chromatic polynomial<br  /><div class="outline-text-5" id="text-5-6-5-1">
+<ul class="org-ul">
+<li><b>5.3.8</b>: chromatic polynomial \(\chi(G; k)\) of a simple graph has degree \(n(G)\), with integer coefficients alternating in sign and begining \(1, -e(G)\).</li>
+
+<li><b>P4 HW10</b>: exponent of last nonzero term is \(c(G)\).</li>
+<li><b>P4 HW10</b>: \(k\) is always a factor of \(\chi(G; k)\)</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline161" class="outline-3">
+<h3 id="orgheadline161"><span class="section-number-3">5.7</span> Special graphs</h3>
+<div class="outline-text-3" id="text-5-7">
+</div><div id="outline-container-orgheadline157" class="outline-4">
+<h4 id="orgheadline157"><span class="section-number-4">5.7.1</span> Vertex degree</h4>
+<div class="outline-text-4" id="text-5-7-1">
+<ul class="org-ul">
+<li><b>1.2.25</b>: If \(\delta(G)\ge 2\), then \(G\) contains a cycle.</li>
+<li><b>HW2 P9</b>: If \(\delta(G) = k\), then \(G\) contains a path of length at least \(k\) and a cycle of length at least \(k+1\).</li>
+<li><b>1.2.28</b>: If simple graph \(\delta(G)\ge k\), then \(G\) has \(|\mathrm{path}| \ge k\). If \(k\ge 2\), \(G\) has \(|\mathrm{cycle}| \ge k+1\)</li>
+</ul>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline154"></a>Even graph<br  /><div class="outline-text-5" id="text-5-7-1-1">
+<ul class="org-ul">
+<li><b>1.2.27</b>: Every even graph decomposes into cycles.</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline155"></a>3-regular<br  /><div class="outline-text-5" id="text-5-7-1-2">
+<ul class="org-ul">
+<li><b>3.3.8</b> if it has no cut-edge, then it has a 1-factor</li>
+<li><b>4.1.11</b> \(\kappa(G) = \kappa'(G)\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline156"></a>Even regular<br  /><div class="outline-text-5" id="text-5-7-1-3">
+<ul class="org-ul">
+<li><b>3.3.9</b> has a 2-factor</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline158" class="outline-4">
+<h4 id="orgheadline158"><span class="section-number-4">5.7.2</span> Bipartite Graph</h4>
+</div>
+
+<div id="outline-container-orgheadline159" class="outline-4">
+<h4 id="orgheadline159"><span class="section-number-4">5.7.3</span> No even cycle</h4>
+<div class="outline-text-4" id="text-5-7-3">
+<ul class="org-ul">
+<li><b>P5 HW8</b>: If \(G\) has no isolated vertex nor even cycle, then every block of \(G\) is a single edge or an odd cycle.</li>
+<li><b>P3 HW9</b>: If \(G\) has no even cycle, then \(\chi(G)\le 3\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline160" class="outline-4">
+<h4 id="orgheadline160"><span class="section-number-4">5.7.4</span> Line graphs</h4>
+<div class="outline-text-4" id="text-5-7-4">
+<ul class="org-ul">
+<li><b>7.1.1</b> \(\alpha'(G) = \alpha(L(G))\)</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline173" class="outline-3">
+<h3 id="orgheadline173"><span class="section-number-3">5.8</span> Several topics</h3>
+<div class="outline-text-3" id="text-5-8">
+</div><div id="outline-container-orgheadline162" class="outline-4">
+<h4 id="orgheadline162"><span class="section-number-4">5.8.1</span> Transversing a graph</h4>
+<div class="outline-text-4" id="text-5-8-1">
+<ul class="org-ul">
+<li><b>Eulerian circuit</b>: a closed trail (no repeated edges) containing all edges.</li>
+<li><b>1.2.26</b>: A connected graph \(G\) is Eulerian \(\iff\) it is even.</li>
+<li><b>1.4.24</b>: A digraph is Eulerian \(\iff\) \(d^+(v) = d^-(v)\) for each vertex \(v\), and the underlying graph has at most one nontrivial component.</li>
+
+<li><b>Hamiltonian cycle</b>: a cycle that visits each vertex exactly once.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline163" class="outline-4">
+<h4 id="orgheadline163"><span class="section-number-4">5.8.2</span> Bijection</h4>
+<div class="outline-text-4" id="text-5-8-2">
+<p>
+A function \(f: X\to Y\) is a bijection \(\iff\) it is injective and surjective.
+</p>
+
+<ul class="org-ul">
+<li><b>injective (one-to-one)</b>: \(f\) preserves distinctness</li>
+<li><b>surjective (onto)</b>: every \(y\in Y\) has a \(x\in X\) such that \(f(x) = y\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline169" class="outline-4">
+<h4 id="orgheadline169"><span class="section-number-4">5.8.3</span> Some famous graphs</h4>
+<div class="outline-text-4" id="text-5-8-3">
+</div><ol class="org-ol"><li><a id="orgheadline166"></a>Hypercube<br  /><div class="outline-text-5" id="text-5-8-3-1">
+<p>
+<b>n-cube or hypercube \(Q_n\)</b>: \(V(Q_n)\) is the set of all n-typles of \(\{0,1\}\), and two vertices are adjacent \(\iff\) their correponding tuples differ in exactly 1 coordinates.
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline164"></a>Properties<br  /><div class="outline-text-6" id="text-5-8-3-1-1">
+<p>
+&lt;ol&gt;
+</p>
+<ul class="org-ul">
+<li>\(n(Q_n) = 2^n, d(v) = n, e(Q_n) = n 2^{n-1}\)</li>
+<li>bipartite.</li>
+<li>Size of min seperating set: \(\kappa(Q_n) = n\)</li>
+<li>\(Q_n = Q_{n-1}\Box K_2\) when \(k\ge 1\)</li>
+</ul>
+<p>
+&lt;/ol&gt;
+</p>
+
+<p>
+*Boolean Lattice \(BL_n\)
+Vertex set of BL is the set of all subsets of \(\{1,2,\dots,n\}\). Two subsets are adjacent \(\iff\) their symmetric difference has exactly one element. 
+</p>
+</div></li>
+<li><a id="orgheadline165"></a>Properties<br  /><div class="outline-text-6" id="text-5-8-3-1-2">
+<p>
+&lt;ol&gt;
+</p>
+<ul class="org-ul">
+<li>\(Q_n\) and \(BL_n\) are isomorphic.</li>
+</ul>
+<p>
+&lt;/ol&gt;
+</p>
+</div></li></ol></li>
+
+<li><a id="orgheadline168"></a>Graph of permutations<br  /><div class="outline-text-5" id="text-5-8-3-2">
+<p>
+<b>Graph of permutations</b>: \(V(G_n)\) is the set of all permutations of \(\{1,2,\dots,n\}\), and two vertices are adjacent \(\iff\) they differ by changing a pair of entries.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline167"></a>Properties<br  /><div class="outline-text-6" id="text-5-8-3-2-1">
+<ul class="org-ul">
+<li>bipartite.</li>
+<li>Every edge of \(G_n\) connects vertices with different parity of number of inversions.</li>
+</ul>
+
+<p>
+Size for the followings is \(n!/2\)
+</p>
+<ul class="org-ul">
+<li>min vertex cover</li>
+<li>max independent set</li>
+<li>max matching</li>
+<li>min edge cover</li>
+</ul>
+</div></li></ol></li></ol>
+</div>
+
+<div id="outline-container-orgheadline172" class="outline-4">
+<h4 id="orgheadline172"><span class="section-number-4">5.8.4</span> Techniques in graph theory</h4>
+<div class="outline-text-4" id="text-5-8-4">
+</div><ol class="org-ol"><li><a id="orgheadline170"></a>Extremality<br  /><div class="outline-text-5" id="text-5-8-4-1">
+<p>
+When considering structures of a given type, choosing an example that is extreme in some sense may yield useful additional information.
+Examples: If \(\delta(G)=2\), then \(G\) contains a cycle
+Proof: Let \(P\) be a maximal path in \(G\), and let \(u\) be an endpoint in \(P\). By definition \(P\) cannot be extended, then \(N(u)\in V(P)\). Since \(d(u)\ge 2\), it has a neighbor \(v\) via an edge not in \(P\). The edge \(uv\) completes a cycle. 
+</p>
+</div></li>
+
+<li><a id="orgheadline171"></a>Counting two ways<br  /><div class="outline-text-5" id="text-5-8-4-2">
+<p>
+Examples:
+</p>
+<ul class="org-ul">
+<li><b>Handshaking Lemma</b>: \(\sum_v d(v) = 2\cdot e(G)\)</li>
+<li>Every \(k\) -regular bipartite graph has a perfect matching.</li>
+</ul>
+</div></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline176" class="outline-3">
+<h3 id="orgheadline176"><span class="section-number-3">5.9</span> Plannar Graphs</h3>
+<div class="outline-text-3" id="text-5-9">
+</div><div id="outline-container-orgheadline174" class="outline-4">
+<h4 id="orgheadline174"><span class="section-number-4">5.9.1</span> Definitions</h4>
+</div>
+
+<div id="outline-container-orgheadline175" class="outline-4">
+<h4 id="orgheadline175"><span class="section-number-4">5.9.2</span> Theorems</h4>
+<div class="outline-text-4" id="text-5-9-2">
+<ul class="org-ul">
+<li><b>6.1.2</b>: \(K_5\) and \(K_{3,3}\) cannot be drawn without crossings</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline185" class="outline-3">
+<h3 id="orgheadline185"><span class="section-number-3">5.10</span> Random Graph</h3>
+<div class="outline-text-3" id="text-5-10">
+</div><div id="outline-container-orgheadline177" class="outline-4">
+<h4 id="orgheadline177"><span class="section-number-4">5.10.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-5-10-1">
+<ul class="org-ul">
+<li><b>Ramsey number</b>:</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline179" class="outline-4">
+<h4 id="orgheadline179"><span class="section-number-4">5.10.2</span> Ramsey Theory</h4>
+<div class="outline-text-4" id="text-5-10-2">
+</div><ol class="org-ol"><li><a id="orgheadline178"></a>Theorems<br  /><div class="outline-text-5" id="text-5-10-2-1">
+<ul class="org-ul">
+<li><b>Pigeonhold principle</b>: If \(m\) objects are partitioned into \(n\) classes, then some class has at least \(\ceil{m/n}\) objects, and some class has at most \(\floor{m/n}\) objects.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline180" class="outline-4">
+<h4 id="orgheadline180"><span class="section-number-4">5.10.3</span> Probability and Expectation</h4>
+<div class="outline-text-4" id="text-5-10-3">
+<ul class="org-ul">
+<li>\(P[\cup_i A_i] = \sum_i P[A_i]\)</li>
+<li><b>Markov's Inequality</b>: probability of \(X\) being large is small.</li>
+</ul>
+<p>
+\[P[X\ge a] \le {E[X] \over a} \]
+</p>
+
+<ul class="org-ul">
+<li><b>Chebyshev's inequility</b>: \(X\) cannot deviate a lot from its mean too often.</li>
+</ul>
+<p>
+\[ P\big[|X-\mu| \ge \lambda \big] \le {\sigma^2\over \lambda^2} \] 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline184" class="outline-4">
+<h4 id="orgheadline184"><span class="section-number-4">5.10.4</span> Several results</h4>
+<div class="outline-text-4" id="text-5-10-4">
+</div><ol class="org-ol"><li><a id="orgheadline181"></a>Probabilities<br  /><div class="outline-text-5" id="text-5-10-4-1">
+<ul class="org-ul">
+<li><b>Having \(m\) edges</b>: $p<sup>m</sup> (1-p)<sup>{n\choose2} - m</sup> $</li>
+<li>\(H\) (with \(l\) edges) is an induced subgraph of \(G\): \(p^l (1-p)^{{k\choose2} - l}\)</li>
+<li><b>Diestel 11.1.2</b>: \(G\in \vG(n,p)\) has a set of \(k\) independent set: \(P[\alpha(G)\ge k] \le {n\choose k} (1-p)^{k\choose 2}\)</li>
+<li><b>Diestel 11.1.2</b>: \(G\in \vG(n,p)\) has a set of \(k\) clique: \(P[\omega(G)\ge k] \ge {n\choose k} p^{k\choose 2}\)</li>
+<li><b>HW11 P6</b>: a vertex having degree \(k\): \({n-1\choose k} p^k (1-p)^{n-1-k}\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline182"></a>Expected numbers<br  /><div class="outline-text-5" id="text-5-10-4-2">
+<ul class="org-ul">
+<li><b>Diestel 11.1.5</b>: number of \(k\) -cycles \( = p^k\cdot {n\choose k} k! \big/ 2k\)</li>
+<li><b>HW11 P6</b>: number of degree \(k\) vertices \( = k{n-1\choose k} p^k (1-p)^{n-1-k}\)</li>
+<li><b>HW11 P8</b>: number of spanning trees \( = n^{n-2} \cdot p^{n-1}\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline183"></a>\(P[X=0]\)<br  /><div class="outline-text-5" id="text-5-10-4-3">
+<p>
+Let \(X\) be integer property, \(\mu = E[X]\) and \(\sigma^2 = E[(X-\mu)^2]\)
+</p>
+
+<ul class="org-ul">
+<li><b>Lower bound</b>:</li>
+</ul>
+\begin{eqnarray}
+P[X = 0] &=& 1 - P[X> 0] \\
+&=& 1- P[X\ge 1] \\
+&\ge & 1 - E[X] = 1-\mu
+\end{eqnarray}
+
+<ul class="org-ul">
+<li><b>Upper bound</b>:</li>
+</ul>
+\begin{eqnarray}
+P[X=0] &\le& P\bigg[ |X-\mu|\ge \mu \bigg] 
+\le {\sigma^2 \over \mu^2 } = {E[X^2]\over \mu^2} -1
+\end{eqnarray}
+</div></li></ol>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline242" class="outline-2">
+<h2 id="orgheadline242"><span class="section-number-2">6</span> Algorithm</h2>
+<div class="outline-text-2" id="text-6">
+</div><div id="outline-container-orgheadline189" class="outline-3">
+<h3 id="orgheadline189"><span class="section-number-3">6.1</span> Asymptotic bounds</h3>
+<div class="outline-text-3" id="text-6-1">
+</div><div id="outline-container-orgheadline187" class="outline-4">
+<h4 id="orgheadline187"><span class="section-number-4">6.1.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<ul class="org-ul">
+<li><b>\(f = O(g)\)</b>: Upper bound; There exists positive constants \(c, n_0\), such that \(0 \le f \le c\cdot g\) for all \(n\ge n_0\)</li>
+<li><b>\(f = \Omega(g)\)</b>: Lower bound; There exist positive constants \(c,
+   n_0\) such that \(0 \le c\cdot g \le f\) for all \(n\ge n_0\)</li>
+<li><b>\(f = \Theta(g)\)</b>: Double-side bound</li>
+<li><b>\(f = o(g)\)</b>: Loose upper bound; For any (small) positive constant \(c\), there exists a positive constant \(n_0\) such that \(0 \le f < c\cdot g\) for all \(n\ge n_0\)</li>
+<li><b>\(f = \omega(g)\)</b>: Loose upper bound; For any (large) positive constant \(c\), there exists a positive constant \(n_0\) such that \(0 \le c\cdot g < f\) for all \(n\ge n_0\)</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline188" class="outline-4">
+<h4 id="orgheadline188"><span class="section-number-4">6.1.2</span> Rules</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<dl class="org-dl">
+<dt>Transpose symmetry</dt><dd><ul class="org-ul">
+<li>\(f = O(g) \iff g = \Omega(f)\)</li>
+<li>\(f = o(g) \iff g = \omega(f)\)</li>
+</ul></dd>
+
+<dt>Combinations</dt><dd><ul class="org-ul">
+<li>\(f + g = \Omega(\min(f, g))\)</li>
+<li>\(f + g = O(\max(f, g))\)</li>
+<li>\(f + o(f) = \Theta(f)\)</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline195" class="outline-3">
+<h3 id="orgheadline195"><span class="section-number-3">6.2</span> Some algorithms</h3>
+<div class="outline-text-3" id="text-6-2">
+</div><div id="outline-container-orgheadline192" class="outline-4">
+<h4 id="orgheadline192"><span class="section-number-4">6.2.1</span> Multiplication</h4>
+<div class="outline-text-4" id="text-6-2-1">
+</div><ol class="org-ol"><li><a id="orgheadline190"></a>Karatsuba multiplication<br  /><div class="outline-text-5" id="text-6-2-1-1">
+<p>
+For two n-digit number \(X\) and \(Y\), and \(m = n/2\), 
+\[ X = x_1 \cdot 2^m + x_2 \]
+\[ Y = y_1 \cdot 2^m + y_2 \] 
+then we have 
+\[ X \cdot Y = 2^{2m} \cdot (x_1 y_1) + 2^m \cdot (x_1 y_2 + y_1 x_2) + x_2 y_2 \] 
+The basic idea of Karatsuba algorithm is to reduce number of multiplications in the above recursive equation, using the following equation 
+\[ x_1 y_1 + x_2 y_1 + x_1 y_2 + x_2 y_1 = (x_1 + x_2) (y_1 + y_2) \]
+</p>
+</div></li>
+
+<li><a id="orgheadline191"></a>Strassen matrix multiplication<br  /><div class="outline-text-5" id="text-6-2-1-2">
+<p>
+2D version of Karatsuba multiplication. The basic idea is also to reduce number of multiplications.
+</p>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline193" class="outline-4">
+<h4 id="orgheadline193"><span class="section-number-4">6.2.2</span> Sorting</h4>
+<div class="outline-text-4" id="text-6-2-2">
+<ul class="org-ul">
+<li><b>Selection sort</b>: find the smallest currently unsorted element, put it just after the set of sorted elements, and repeat.</li>
+<li><b>Merge-sort</b>: recursively sort the left half of the array, then the right half, and then merge the two sorted halves.</li>
+<li><b>Quick-sort; \(\Theta(n^2)\)</b>: choose an element \(p\) as pivot, compare each element with \(p\), make an array consisting of \(L\) (elements less than \(p\)), followed by \(p\) and then followed by \(G\) (elements greater than \(p\)), and recursively sort \(L\) and \(G\).</li>
+<li><b>Randomized Quick-sort; \(\Theta(n\log n)\)</b>: choose pivot randomly.</li>
+<li><b>Radix sort; \(O(n)\)</b>: use bucket sort on each digit.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline194" class="outline-4">
+<h4 id="orgheadline194"><span class="section-number-4">6.2.3</span> Selection</h4>
+<div class="outline-text-4" id="text-6-2-3">
+<ul class="org-ul">
+<li><b>Randomized Quick-select</b>: similar to quick-sort but only recurse on the side which has the desired element.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline210" class="outline-3">
+<h3 id="orgheadline210"><span class="section-number-3">6.3</span> Dynamic Programming (DP)</h3>
+<div class="outline-text-3" id="text-6-3">
+</div><div id="outline-container-orgheadline197" class="outline-4">
+<h4 id="orgheadline197"><span class="section-number-4">6.3.1</span> Ideas</h4>
+<div class="outline-text-4" id="text-6-3-1">
+<ul class="org-ul">
+<li>Multi-stage optimization: the decisions we make at some point are influenced by the decisions we made earlier.</li>
+<li>Programming in here means a way of tabulation.</li>
+<li>Similar to Divide-and-Conquer but with overlapping subproblems.</li>
+</ul>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline196"></a>Elements of dynamic programming<br  /><div class="outline-text-5" id="text-6-3-1-1">
+<p>
+Two key ingredients that an optimization problem must have in order for DP to apply.
+</p>
+<ul class="org-ul">
+<li><b>Optimal substructure</b>: an optimal solution to the problem contains within it optimal solutions to subproblems.</li>
+<li>Subproblems must be independent. The solution to one subproblem does not affect the solution to another subproblem of the same problem. The subproblems should not share resources.</li>
+<li><b>Overlapping subproblems</b>: the space of subproblems must be small in the sense that a recursive algorithm solve the same subproblems over and over, rather than always generating new subproblems.</li>
+<li>DP takes advantages of overlapping subproblems by solving each subproblem once and storing the solution in a table.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline209" class="outline-4">
+<h4 id="orgheadline209"><span class="section-number-4">6.3.2</span> Examples</h4>
+<div class="outline-text-4" id="text-6-3-2">
+</div><ol class="org-ol"><li><a id="orgheadline200"></a>Longest Common Subsequence<br  /><div class="outline-text-5" id="text-6-3-2-1">
+<p>
+Given a sequence \(X = (x_1, x_2, \dots, x_m)\), where each \(x_i\) is an element of some alphabet, another sequence \(Z = (z_1, z_2, \dots, z_k)\) is a <b>subsequence</b> of \(X\) if there exists a strictly increasing sequence \((i_1, i_2, \dots, i_k)\) of indices of \(X\) such that for all \(j = 1,2,\dots, k\) we have \(x_{i_j} = z_j\). In the longest common subsequence problem, we are given two sequences \(X\) and \(Y\), and we wish to find a maximum length common subsequence of \(X\) and \(Y\).
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline198"></a>Optimal substructure<br  /><div class="outline-text-6" id="text-6-3-2-1-1">
+<p>
+Let \(X, Y\) be sequences and \(X\) be a LCS of \(X\) and \(Y\).
+</p>
+<ul class="org-ul">
+<li>If \(x_m = y_n\), then \(z_k = x_m = y_n\) and \(Z_{k-1}\) is an LCS of \(X_{m-1}\) and \(Y_{n-1}\).</li>
+<li>IF \(x_m\ne y_n\), then \(z_k\ne x_m\) implies that \(Z\) is LCS of \(X_{m-1}\) and \(Y\).</li>
+<li>IF \(x_m\ne y_n\), then \(z_k\ne y_n\) implies that \(Z\) is LCS of \(X\) and \(Y_{n-1}\).</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline199"></a>Recursive formula<br  /><div class="outline-text-6" id="text-6-3-2-1-2">
+<p>
+Define \(c[i,j]\) to be the length of an LCS of the sequence \(X_i\) and \(Y_j\). 
+\[ c[i,j] =  \begin{cases} 
+    0 & \mbox{if $i = 0$ or $j = 0$} \\
+    c[i-1, j-1] + 1 & \mbox{if $i, j >0$ and $x_i = y_j$} \\ 
+    \max\big(c[i, j-1], c[i-1,j] \big) & \mbox{if $i,j>0$ and $x_i\ne y_j$}
+  \end{cases} 
+\]
+</p>
+</div></li></ol></li>
+
+<li><a id="orgheadline203"></a>Optimal binary search tree<br  /><div class="outline-text-5" id="text-6-3-2-2">
+<p>
+Given probability of accessing each node \(k_i\) in the BST, we want to minimize total cost \(\sum_{i=1}^n p_i (\mbox{depth}_T(k_i) + 1)\)
+</p>
+</div>
+<ol class="org-ol"><li><a id="orgheadline201"></a>Optimal substructure<br  /><div class="outline-text-6" id="text-6-3-2-2-1">
+<p>
+To determine the optimal BST is to determine the root in each level. Let \(k_r\) be the root of optimal BST containing \((k_1, k_2, \dots, k_n)\), then the left subtree containing \((k_1, k_2, \dots, k_{r-1})\) and the right subtree \((k_{r+1}, \dots, k_n)\) must also be optimal.
+</p>
+</div></li>
+
+<li><a id="orgheadline202"></a>Recursive formula<br  /><div class="outline-text-6" id="text-6-3-2-2-2">
+<p>
+Denote \(M[i,j]\) as the total cost of accessing optimal BST containing \((k_i, \dots, k_j)\). 
+\[ M[i,j] = \]
+</p>
+</div></li></ol></li>
+
+<li><a id="orgheadline204"></a>Rod-cutting<br  /></li>
+
+<li><a id="orgheadline205"></a>Matrix-chain multiplication<br  /></li>
+
+<li><a id="orgheadline208"></a>0-1 knapsack problem<br  /><div class="outline-text-5" id="text-6-3-2-5">
+<p>
+Given the value \(v_i\) and weight \(w_i\) for each of \(n\) items and a knapsack of capacity \(W\) pounds, find the items that can fit in the knapsack and maximize total value.
+</p>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline206"></a>Optimal substructure<br  /></li>
+
+<li><a id="orgheadline207"></a>Recursive formula<br  /><div class="outline-text-6" id="text-6-3-2-5-2">
+<p>
+Denote \(V[k, w]\) as the value of the optimal solution to the first \(k\) items with constraint of weight \(w\). 
+\[ V[k, w] = \begin{cases} 
+  0 & \mbox{if $k=0$}\\
+  V[k-1, w] & \mbox{if $k\ne0$ and $w_k > w$} \\
+  \max\big( V[k-1, w], V[k-1, w-w_k] + v_k \big) & \mbox{otherwise}
+\end{cases}\]
+</p>
+</div></li></ol></li></ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline235" class="outline-3">
+<h3 id="orgheadline235"><span class="section-number-3">6.4</span> Graph</h3>
+<div class="outline-text-3" id="text-6-4">
+</div><div id="outline-container-orgheadline222" class="outline-4">
+<h4 id="orgheadline222"><span class="section-number-4">6.4.1</span> Traversing a graph</h4>
+<div class="outline-text-4" id="text-6-4-1">
+</div><ol class="org-ol"><li><a id="orgheadline213"></a>BFS (Breath-first search)<br  /><ol class="org-ol"><li><a id="orgheadline211"></a>Algorithm implemented with a queue<br  /><div class="outline-text-6" id="text-6-4-1-1-1">
+<ol class="org-ol">
+<li>Initialization. Color all vertices as <b>white</b> and setup an empty queue</li>
+<li>Push the source \(u\) into the queue.</li>
+<li>While the queue is not empty, pull one vertex \(v\) from it, push all $v$'s <b>white</b> neighbors (which are marked <b>gray</b> after being enqueued) into the queue, and mark \(v\) as <b>black</b>.</li>
+</ol>
+</div></li>
+
+<li><a id="orgheadline212"></a>Properties of BFS<br  /><div class="outline-text-6" id="text-6-4-1-1-2">
+<ul class="org-ul">
+<li>Running time \(O(V + E)\)</li>
+<li>BFS expands the frontier between discovered and undiscovered vertices uniformly across the breadth of the frontier.</li>
+<li>It discovers all vertices at distance \(k\) from the source before discovering any vertex at distance \(k+1\).</li>
+<li>BFS tree = shortest-path tree</li>
+</ul>
+</div></li></ol></li>
+
+<li><a id="orgheadline217"></a>DFS (Depth-first search)<br  /><ol class="org-ol"><li><a id="orgheadline214"></a>Algorithm implemented with a stack<br  /><div class="outline-text-6" id="text-6-4-1-2-1">
+<p>
+Change the queue to stack in BFS.
+</p>
+</div></li>
+
+<li><a id="orgheadline215"></a>Recursive algorithm<br  /><div class="outline-text-6" id="text-6-4-1-2-2">
+<pre class="example">
+DFS(v){
+    v.is_discovered = True
+    For each edge {v, u} in v.Adj {
+        if u.is_discovered == False {
+            DFS(u)
+        }
+    }
+}
+</pre>
+</div></li>
+
+<li><a id="orgheadline216"></a>Properties of DFS<br  /><div class="outline-text-6" id="text-6-4-1-2-3">
+<ul class="org-ul">
+<li>Running time \(O(E+V)\)</li>
+<li>DFS recursively explores edges out of the most recently discovered vertex \(v\) that still has unexplored out-edges. Once all of $v$'s edges have been explored, DFS <b>backtracks</b> to previous vertices.</li>
+<li>DFS timestamps each vertex with discovery and finish time.</li>
+<li>In DFS, discovery and finishing times have parenthesis property.</li>
+<li>Edge partitions with DFS: tree edges, forward edges, backward edges, cross edges.</li>
+</ul>
+</div></li></ol></li>
+
+<li><a id="orgheadline221"></a>Applications of DFS<br  /><ol class="org-ol"><li><a id="orgheadline218"></a>Topological sort<br  /><div class="outline-text-6" id="text-6-4-1-3-1">
+<ul class="org-ul">
+<li>Only a DAG (Directed Acyclic Graph) can be sorted.</li>
+<li>All edges go forward in a topologically sorted graph.</li>
+<li>Algorithm: Starting with an empty list, DFS a graph. When a node finished, put the node at the <b>head</b> of the list.</li>
+<li>Running time: \(O(E+V)\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline219"></a>Strongly Connected Components (SCC)<br  /><div class="outline-text-6" id="text-6-4-1-3-2">
+<p>
+Algorithm:
+</p>
+<ol class="org-ol">
+<li>DFS(\(G\^T\)) to get finishing times.</li>
+<li>Let v be the vertex in \(G\) with largest finishing time.</li>
+<li>Run DFS\((v)\) in \(G\) to define an SCC \(C\) of all nodes found in this
+DFS.</li>
+<li>Delete \(C\) from \(G\).</li>
+<li>Repeat from (1) until \(G\) is empty</li>
+
+<li>Two vertices \(u\) and \(v\) are equivalent if \(u\) is reachable from \(v\) and \(v\) is reachable from \(u\).</li>
+<li>SCC: a maximal set in which every pair of vertices are equivalent.</li>
+<li>Running time: \(O(E+V)\)</li>
+<li>The node with largest finishing time is in a source SCC.</li>
+</ol>
+</div></li>
+
+<li><a id="orgheadline220"></a>Other applications<br  /><div class="outline-text-6" id="text-6-4-1-3-3">
+<ul class="org-ul">
+<li>If a directed graph has a backward edge in DFS, then it is not DAG.</li>
+</ul>
+</div></li></ol></li></ol>
+</div>
+
+<div id="outline-container-orgheadline228" class="outline-4">
+<h4 id="orgheadline228"><span class="section-number-4">6.4.2</span> Shortest paths</h4>
+<div class="outline-text-4" id="text-6-4-2">
+</div><ol class="org-ol"><li><a id="orgheadline223"></a>Types of shortest path<br  /><div class="outline-text-5" id="text-6-4-2-1">
+<ul class="org-ul">
+<li><b>Single source</b>: the shortest paths from source \(v\) to all other nodes.</li>
+<li><b>Single pair</b>: find the shortest path from \(u\) to \(v\).</li>
+<li><b>All pairs</b>: find the shortest path from \(u\) to \(v\) for every edge \(u\to v\).</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline224"></a>Bellman-Ford Algorithm (single source)<br  /><div class="outline-text-5" id="text-6-4-2-2">
+<ul class="org-ul">
+<li>Define \(M[u,k]\) as the length of the shortest path from \(v\) to \(u\) with at most \(k\) edges.</li>
+<li>Dynamic programming recurrence:
+<ul class="org-ul">
+<li>\(M[u, k] = 0\), if \(u=v, k=0\)</li>
+<li>\(M[u, k] = \infty\), if \(u\ne v, k=0\)</li>
+<li>\(M[u, k] = \displaystyle\min_{w\to u \in E} \bigg(M[w, k-1] + len(w\to u) \bigg)\), otherwise.</li>
+</ul></li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline225"></a>Relaxation<br  /><div class="outline-text-5" id="text-6-4-2-3">
+<ul class="org-ul">
+<li>Define \(d(x)\) as an upper bound on its distance from the source.</li>
+<li>Relaxation is the process of narrowing this upper bound.</li>
+<li><b>Relax\((x,y)\)</b>: if \(d(y) > d(x) + len(x,y)\), then \(d(y) = d(x) +
+   len(x,y)\) and \(y\).parent \(= x\).</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline226"></a>Dijkstra's Algorithm (single source)<br  /><div class="outline-text-5" id="text-6-4-2-4">
+<ul class="org-ul">
+<li>does not work if there are negative edges</li>
+<li>a greedy algorithm.</li>
+<li>start from empty, maintain and grow it to shortest path tree.</li>
+
+<li>\(T = \emptyset\)</li>
+<li>Set \(d(v) = 0\), where \(v\) is the source. Set all other vertices \(d(u)  = \infty\)</li>
+<li>While not all nodes in \(T\)
+<ol class="org-ol">
+<li>Let \(u\) be node with minimum \(d(u)\)</li>
+<li>Add \(u\) to \(T\)</li>
+<li>For each edge \(u\to x\) with \(x\not\in T\), relax\((u,x)\)</li>
+</ol></li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline227"></a>Floyd-Warshall Algorithm (all pairs)<br  /></li></ol>
+</div>
+
+<div id="outline-container-orgheadline233" class="outline-4">
+<h4 id="orgheadline233"><span class="section-number-4">6.4.3</span> Minimum spanning tree (MST)</h4>
+<div class="outline-text-4" id="text-6-4-3">
+</div><ol class="org-ol"><li><a id="orgheadline230"></a>Generic greedy<br  /><div class="outline-text-5" id="text-6-4-3-1">
+<ul class="org-ul">
+<li>Suppose \(A\) is a subset of a MST. Edge \(uv\) is <b>safe</b> for \(A\) if \(A\cup uv\) is also a subset of a MST.</li>
+<li>A <b>cut</b> \((S,\overline{S})\) is a partition of \(V\) into two pieces.</li>
+<li>An edge <b>crosses</b> the cut if one of its endpoints is in \(S\) and the other one not in \(S\).</li>
+<li>Given a set of edges \(A\), a cut <b>respects</b> \(A\) if no edge in \(A\) crosses the cut.</li>
+<li>An edge \(e\) is a <b>light edge</b> crossing a cut if it crosses the cut and has minimum weight.</li>
+<li>Let \(A\subseteq E\) be a subset of a MST, let \((S,\overline{S})\) be a cut respecting \(A\), and let \(e\) be a light edge crossing \((S, \overline{S})\). Then \(e\) is safe for \(A\).</li>
+</ul>
+</div>
+
+<ol class="org-ol"><li><a id="orgheadline229"></a>Generic-MST<br  /><div class="outline-text-6" id="text-6-4-3-1-1">
+<ol class="org-ol">
+<li>\(A = \emptyset\)</li>
+<li>While \(A\) is not a spanning tree, find an edge \(uv\) that is safe for \(A\) and add it to \(A\).</li>
+<li>Return \(A\)</li>
+</ol>
+</div></li></ol></li>
+
+<li><a id="orgheadline231"></a>Prim's Algorithm<br  /><div class="outline-text-5" id="text-6-4-3-2">
+<ul class="org-ul">
+<li>start with a node, maintain a tree and grow it to spanning.</li>
+
+<li>\(A = \emptyset\)</li>
+<li>Let \(u\) be an arbitrary node, and let \(S = \{u\}\).</li>
+<li>While \(A\) is not a spanning tree, find an light edge \(xy\) of \((S,\overline{S})\) with \(x\in S\) and \(y\not\in S\). Set \(A = A\cup \{xy\}\) and \(S = S\cup y\).</li>
+<li>Return \(A\)</li>
+</ul>
+</div></li>
+
+<li><a id="orgheadline232"></a>Kruskal's Algorithm<br  /><div class="outline-text-5" id="text-6-4-3-3">
+<ul class="org-ul">
+<li>maintain a forest and stop when the forest becomes a tree.</li>
+<li>pure greedy.</li>
+<li>Running time: \(O(m \log m)\)</li>
+
+<li>\(A = \emptyset\).</li>
+<li>Sort the edges not in \(A\) by weight in ascending order.</li>
+<li>For each edge \(e\) in this order, if \(A\cup e\) has no cycles, add \(e\) to \(A\).</li>
+<li>Return \(A\)</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline234" class="outline-4">
+<h4 id="orgheadline234"><span class="section-number-4">6.4.4</span> Maximum flow</h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline239" class="outline-3">
+<h3 id="orgheadline239"><span class="section-number-3">6.5</span> Greedy Algorithms</h3>
+<div class="outline-text-3" id="text-6-5">
+</div><div id="outline-container-orgheadline236" class="outline-4">
+<h4 id="orgheadline236"><span class="section-number-4">6.5.1</span> Matroid</h4>
+<div class="outline-text-4" id="text-6-5-1">
+<ul class="org-ul">
+<li>Let \(U\) be a universe of elements and \(I\) be a collection of subsets of \(U\). Then \((U, I)\) is a <b>matroid</b> if the following three properties hold:
+<ol class="org-ol">
+<li>\(\emptyset \in I\)</li>
+<li>If \(F \in I\) and \(F'\subseteq F\), then \(F'\in I\)</li>
+<li><b>Augmentation property</b>: If \(F_1\in I\) and \(F_2\in I\) with \(|F_2| > |F_1|\), then there is some element \(e\in F_2\setminus F_1\) such that \(F_1 \cup e \in I\).</li>
+</ol></li>
+
+<li>If \(F_1\in I\) and \(F_2\in I\) are both maximal, then \(|F_1| = |F_2|\).</li>
+<li>The size of maximal independent set is known as the <b>rank</b> of a matroid.</li>
+<li>An <b>independence oracle</b> is an algorithm which, when given a set \(S\subseteq U\), tells us whether \(S\in I\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline237" class="outline-4">
+<h4 id="orgheadline237"><span class="section-number-4">6.5.2</span> Greedy algorithm</h4>
+<div class="outline-text-4" id="text-6-5-2">
+<p>
+Greedy algorithm applies to any matroid.
+</p>
+<ol class="org-ol">
+<li>Initialize \(F = \emptyset\).</li>
+<li>Sort \(U\) by weight from largest to smallest.</li>
+<li>Consider the elements in sorted order. For each element \(e\), add it to \(F\) if \(F\cup e\) is independent.</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-orgheadline238" class="outline-4">
+<h4 id="orgheadline238"><span class="section-number-4">6.5.3</span> Applications</h4>
+<div class="outline-text-4" id="text-6-5-3">
+<ul class="org-ul">
+<li>Applied to forest: Kruskal's Algorithm.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline241" class="outline-3">
+<h3 id="orgheadline241"><span class="section-number-3">6.6</span> Tree</h3>
+<div class="outline-text-3" id="text-6-6">
+</div><div id="outline-container-orgheadline240" class="outline-4">
+<h4 id="orgheadline240"><span class="section-number-4">6.6.1</span> Definitions</h4>
+<div class="outline-text-4" id="text-6-6-1">
+<ul class="org-ul">
+<li><b>rooted tree</b>: a tree with one vertex \(r\) chosen as root.</li>
+<li><b>\(P(v)\)</b>: the unique \(vr\) -path.</li>
+<li><b>parent</b> of \(v\): neighbor of \(v\) on \(P(v)\).</li>
+<li><b>children</b> of \(v\): its other neighbors other than its parent.</li>
+<li><b>ancestors</b> of \(v\): the vertices in \(P(v)-v\).</li>
+<li><b>descendants</b> of \(v\): all the vertices \(u\) such that \(v\in P(u)\).</li>
+<li><b>leaves</b>: vertices with on children.</li>
+<li><b>rooted plane tree</b> or <b>planted tree</b>: an ordered tree.</li>
+<li><b>binary tree</b>: a rooted plane tree where each vertex has at most two children, and each its child is designated as <b>left child</b> or <b>right child</b>.</li>
+<li><b>left subtree</b>: the subtree rooted at the left child.</li>
+<li><b>k-ary tree</b> allows each vertex up to \(k\) children</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline252" class="outline-2">
+<h2 id="orgheadline252"><span class="section-number-2">7</span> My Cheat Sheet</h2>
+<div class="outline-text-2" id="text-7">
+</div><div id="outline-container-orgheadline250" class="outline-3">
+<h3 id="orgheadline250"><span class="section-number-3">7.1</span> Emacs</h3>
+<div class="outline-text-3" id="text-7-1">
+</div><div id="outline-container-orgheadline247" class="outline-4">
+<h4 id="orgheadline247"><span class="section-number-4">7.1.1</span> General</h4>
+<div class="outline-text-4" id="text-7-1-1">
+</div><ol class="org-ol"><li><a id="orgheadline243"></a>Modifier keys:<br  /><div class="outline-text-5" id="text-7-1-1-1">
+<ul class="org-ul">
+<li>C: Control; ⌃</li>
+<li>M: Meta; Alt; Option.⌥</li>
+</ul>
+</div></li>
+<li><a id="orgheadline244"></a>Cut and paste rectangle region<br  /><div class="outline-text-5" id="text-7-1-1-2">
+<ul class="org-ul">
+<li><code>C-x r k</code>: <code>kill-rectangle</code>, cut</li>
+<li><code>C-x r y</code>: <code>yank-rectangle</code>; paste. (be careful with the target lines)</li>
+</ul>
+</div></li>
+<li><a id="orgheadline245"></a>Search and replace<br  /><div class="outline-text-5" id="text-7-1-1-3">
+<ul class="org-ul">
+<li><code>C-s</code>: <code>isearch-forward</code>; incremental search forward</li>
+<li><code>C-r</code>: <code>isearch-backward</code>; incremental search forward</li>
+<li>Repeat <code>C-s</code> or <code>C-r</code> to move to the next or previous match.</li>
+</ul>
+</div></li>
+<li><a id="orgheadline246"></a>Moving cursor<br  /><div class="outline-text-5" id="text-7-1-1-4">
+<ul class="org-ul">
+<li><code>CM-n</code>: Move cursor to the next parentheses group.</li>
+<li><code>CM-p</code>: Move cursor to the previous parentheses group.</li>
+</ul>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline248" class="outline-4">
+<h4 id="orgheadline248"><span class="section-number-4">7.1.2</span> Org-mode</h4>
+<div class="outline-text-4" id="text-7-1-2">
+<ul class="org-ul">
+<li><code>C-ce hh</code>: Export to html file</li>
+<li><code>C-cxl</code>: Toggle latex mask</li>
+<li><code>C-c .</code>: Insert current date</li>
+<li><code>C-ct</code>: Change status of a TODO task.</li>
+<li><code>C-x ns</code>: <code>org-narrow-to-subtree</code></li>
+<li><code>C-c c</code>: <code>org-capture</code></li>
+<li><code>C-cl</code>: Edit link address and content</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgheadline249" class="outline-4">
+<h4 id="orgheadline249"><span class="section-number-4">7.1.3</span> Auctex</h4>
+<div class="outline-text-4" id="text-7-1-3">
+<ul class="org-ul">
+<li>Preview: <code>C-cpd</code></li>
+<li>Remove preview: <code>C-cpcd</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgheadline251" class="outline-3">
+<h3 id="orgheadline251"><span class="section-number-3">7.2</span> Bash</h3>
+<div class="outline-text-3" id="text-7-2">
+<ul class="org-ul">
+<li><code>pgrep keywords</code>: grep search by process name</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline255" class="outline-2">
+<h2 id="orgheadline255"><span class="section-number-2">8</span> Java</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-orgheadline253" class="outline-3">
+<h3 id="orgheadline253"><span class="section-number-3">8.1</span> About Java</h3>
+<div class="outline-text-3" id="text-8-1">
+<dl class="org-dl">
+<dt>Platform</dt><dd>Any hardware or software environment in which a program runs is known as a platform. Java is also a platform since it has its own runtime environment and API.</dd>
+<dt>Types of Java applications</dt><dd><ul class="org-ul">
+<li>Standalone application: aka desktop or window based application; need to be installed on every machine.</li>
+<li>Web application: an application that runs on the server side and creates dynamic page.</li>
+<li>Enterprise application: is distributed in nature, such as banking applications.</li>
+<li>Mobile application.</li>
+</ul></dd>
+<dt>JVM (Java Virtual Machine)</dt><dd>JVM is a specification of an abstract machine that provides runtime environment in which Java bytecode can be executed.</dd>
+</dl>
+
+<div class="figure">
+<p><img src="./figures/Java/JVM.jpg" alt="JVM.jpg" />
+</p>
+</div>
+<dl class="org-dl">
+<dt>JRE (Java Runtime Environment)</dt><dd>JRE is the implementation of JVM and it provides runtime environment. JRE = JVM + libraries etc.</dd>
+<dt>JDK (Java Development Kit)</dt><dd>JDK = JRE + development tools</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgheadline254" class="outline-3">
+<h3 id="orgheadline254"><span class="section-number-3">8.2</span> <span class="todo TODO">TODO</span> Java Basics</h3>
+<div class="outline-text-3" id="text-8-2">
+<dl class="org-dl">
+<dt>Variable</dt><dd>A variable is name of reserved area allocated in memory.</dd>
+<dt>Three types of variables</dt><dd>(1) local variable: declared inside a method. (2) instance variable: declared inside a class but outside the method. (3) static variable: declared as static; cannot be local.</dd>
+<dt>Data types</dt><dd><img src="./figures/Java/DataType.jpg" alt="DataType.jpg" /></dd>
+<dt>Operators</dt><dd>shift &gt;&gt;&gt;</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgheadline257" class="outline-2">
+<h2 id="orgheadline257"><span class="section-number-2">9</span> C++</h2>
+<div class="outline-text-2" id="text-9">
+</div><div id="outline-container-orgheadline256" class="outline-3">
+<h3 id="orgheadline256"><span class="section-number-3">9.1</span> List initialization</h3>
+<div class="outline-text-3" id="text-9-1">
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #6c3163;">#include</span> <span style="color: #2d9574;">&lt;iostream&gt;</span>
+<span style="color: #6c3163;">#include</span> <span style="color: #2d9574;">&lt;map&gt;</span>
+<span style="color: #6c3163;">#include</span> <span style="color: #2d9574;">&lt;vector&gt;</span>
+<span style="color: #3a81c3; font-weight: bold;">using</span> <span style="color: #3a81c3; font-weight: bold;">namespace</span> <span style="color: #4e3163;">std</span>;
+
+<span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #3a81c3;">(){</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Direct list initialization</span>
+  <span style="color: #3a81c3; font-weight: bold;">auto</span> <span style="color: #ba2f59; font-weight: bold;">v1</span> = <span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #6c3163;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span><span style="color: #6c3163;">}</span>;
+  <span style="color: #3a81c3; font-weight: bold;">auto</span> <span style="color: #ba2f59; font-weight: bold;">m1</span> = <span style="color: #ba2f59; font-weight: bold;">map</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">char</span>, <span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #6c3163;">{</span><span style="color: #2d9574;">{</span><span style="color: #2d9574;">'a'</span>,<span style="color: #4e3163;">1</span><span style="color: #2d9574;">}</span>, <span style="color: #2d9574;">{</span><span style="color: #2d9574;">'b'</span>, <span style="color: #4e3163;">2</span><span style="color: #2d9574;">}</span><span style="color: #6c3163;">}</span>;
+
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Copy list initialization</span>
+  <span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #715ab1;">v2</span> = <span style="color: #6c3163;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span>,<span style="color: #4e3163;">4</span><span style="color: #6c3163;">}</span>;
+  <span style="color: #ba2f59; font-weight: bold;">map</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">string</span>, <span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #715ab1;">m2</span> = <span style="color: #6c3163;">{</span>
+    <span style="color: #2d9574;">{</span><span style="color: #2d9574;">"Monday"</span>, <span style="color: #4e3163;">1</span><span style="color: #2d9574;">}</span>, <span style="color: #2d9574;">{</span><span style="color: #2d9574;">"Tuesday"</span>, <span style="color: #4e3163;">2</span><span style="color: #2d9574;">}</span>
+  <span style="color: #6c3163;">}</span>;
+
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Unnamed temporary with braced-init-list</span>
+  <span style="color: #3a81c3; font-weight: bold;">for</span><span style="color: #6c3163;">(</span><span style="color: #3a81c3; font-weight: bold;">auto</span> <span style="color: #ba2f59; font-weight: bold;">x</span>: <span style="color: #2d9574;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span><span style="color: #2d9574;">}</span><span style="color: #6c3163;">){</span>
+    cout &lt;&lt; x &lt;&lt; <span style="color: #2d9574;">" "</span>;
+  <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Sen Lin</p>
+<p class="date">Created: 2016-05-28 Sat 22:41</p>
+<p class="validation"></p>
+</div>
+</body>
+</html>
