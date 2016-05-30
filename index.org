@@ -446,6 +446,18 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 *** Primal-Dual Interior-Point Method
 
 
+* Probability and Statistics
+** Random Variables
+*** Discrete variables
+**** Definitions
+-  *Probability mass function* or *frequency function*: $p(x_i) = P(X = x_i)$
+-  *Cumulative distribution function (CDF)*: $F(x) = P(X\le x), -\infty \le x \le \infty$
+**** Distributions
+-  *Bernoulli*: takes value on only 0 or 1, with probability $1-p$ and $p$: \[ p(1) = p; p(0) = 1-p \]
+-  *Binomial*: total number of 1 in $n$ independent Bernoulli variables. 
+\[ p(k) = P(X = k) = {n\choose k} p^k (1-p)^{n-k} \]
+-  *Poisson*: \[ p(x) = {\lambda^k \over k! } e^{-\lambda} \]
+
 
 * Natural Language Processing
 ** Grammar
