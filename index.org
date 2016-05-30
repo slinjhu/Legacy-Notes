@@ -277,7 +277,7 @@ In Galerkin FEM, the shape functions are of the same sort as the test functions.
 - Matrix Norm :: Matrix norm is derived from vector norm: \[ ||A|| = \sup_{x\ne 0} {||Ax||\over ||x||} \]
     - 1-norm is the maximum absolute column sum  \[ ||A||_1 = \max_j \sum_i |A_{ij}| \]
     - 2-norm is the largest eigenvalue of $\sqrt{A^T A}$
-    - \infty-norm is the maximum absolute row sum  \[ ||A||_{\infty} = \max_i \sum_j |A_{ij}| \]
+    - $\infty$ -norm is the maximum absolute row sum  \[ ||A||_{\infty} = \max_i \sum_j |A_{ij}| \]
     - Frobenius norm (not consistent with vector norm) \[||A||_F = \sqrt{\sum_{i,j} A^2_{ij}} \]
 - Condition number :: Condition Number of a nonsingular matrix is defined as \[\kappa(A) = ||A|| \cdot ||A^{-1}||\]
 - Eigenvalue :: For a square matrix $A\in \R^{n\times n}$, if there is a nonzero vector $q$ such that \[Aq = \lambda q\] then $\lambda$ is an eigenvalue and $q$ is an eigenvector. 
@@ -425,7 +425,7 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 - Duality and Convex Optimization :: If the original problem is a convex optimization, it follows that $(x^*, y^*) \in \R^n\times \Y$ is a KKT point if and only if it is a saddle point to the Lagrangian.
 
 ** Linear Programming
-- Standard form :: Linear objective and linear constraints. $c, x \in \R^n, b\in \R^m$, and $A\in \R^{m\times n}$ with full row rank.
+- Standard form :: Linear objective and linear constraints. $c, x \in \R^n, b\in \R^m$, and $A\in \R^{m\times n}$ with full row rank (usually $m<n$).
  \[\min c^T x, \mbox{ subject to } Ax=b, x \ge 0 \]
 - Lagrangian :: \[ L(x, \lambda, s) = c^T x - \lambda^T(Ax-b) - s^T x = (c - A^T\lambda - s)^T x + \lambda^T b \]
 - KKT condition :: 
@@ -437,6 +437,14 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 - Dual problem :: \[\max b^T \lambda, \mbox{ subject to } A^T \lambda \le c \]
 - Dual problem with slack variables :: \[\max b^T \lambda, \mbox{ subject to } A^T \lambda + s = c, s\ge 0 \]
 *** Simplex Method
+- Basic feasible point :: $x$ is a basic feasible point if there exists a subset $\B$ of the index set $\{1,2,\dots, n\}$ such that 
+    - $\B$ contains exactly $m$ indices
+    - $i \not\in \B \Rightarrow x_i = 0$
+    - Matrix $B$ composed of columns of $A$ is nonsingular: $B = [A_i]_{i\in\B}$
+- Vertex :: All basic feasible points of the standard LP are vertices of the feasible polytope $\{x | Ax=b, x\ge 0\}$, and vice versa. 
+- Idea :: Simplex method starts from a vertex, and moves from one vertex to an adjacent one for which $\B$ differs in exactly one component. 
+*** Primal-Dual Interior-Point Method
+
 
 
 * Natural Language Processing
