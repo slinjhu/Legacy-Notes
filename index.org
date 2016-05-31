@@ -447,16 +447,67 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 
 
 * Probability and Statistics
+** Probability
+- Sample space $\Omega$ :: Sample space is the set of all possible outcomes in an experiment. 
+- Event :: Event is a particular subset of sample space $\Omega$.
+- Probability measure :: a probability measure on $\Omega$ is a function $p$ from subsets of $\Omega$ to the real numbers that satisfies the following axioms:
+    - $p(\Omega) = 1$ 
+    - If $A\subset \Omega$, then $p(A) \ge 0$
+    - If $A_1 \cap A_2 = \emptyset$ (disjoint), then $p(A_1\cup A_2) = p(A_1) + p(A_2)$
+- Conditional probability :: Let $A, B$ be two events with $p(B)\ne 0$. If we are given that event $B$ occurred, then the relevant sample space is $B$ rather than $\Omega$. The conditional probability of $A$ given $B$ is 
+\[p(A|B) = {p(A\cap B) \over p(B)}\]
+- Law of total probability :: Let $B_i$ be mutually disjoint nonempty events and $\cup_i B_i = \Omega$, then for any event $A$: \[p(A) = \sum_i p(A|B_i) p(B_i)\]
+- Bayes' rule :: \[p(A|B) = {p(B|A) p(A) \over p(B)}\]
+- Independence :: $A, B$ are independent if knowing that one had occurred gave us no information about whether the other had occurred. \[ p(A\cap B) = p(A)p(B) \]
+
 ** Random Variables
-*** Discrete variables
-**** Definitions
--  *Probability mass function* or *frequency function*: $p(x_i) = P(X = x_i)$
--  *Cumulative distribution function (CDF)*: $F(x) = P(X\le x), -\infty \le x \le \infty$
-**** Distributions
--  *Bernoulli*: takes value on only 0 or 1, with probability $1-p$ and $p$: \[ p(1) = p; p(0) = 1-p \]
--  *Binomial*: total number of 1 in $n$ independent Bernoulli variables. 
-\[ p(k) = P(X = k) = {n\choose k} p^k (1-p)^{n-k} \]
--  *Poisson*: \[ p(x) = {\lambda^k \over k! } e^{-\lambda} \]
+- Random variable :: A random variable is a function from $\Omega$ to the real numbers. 
+- Discrete :: A discrete random variable can take on only a finite or at most a countably infinite number of values. 
+- Discrete Variables ::
+    - *Frequency* function: $p(x_i) = P(X = x_i)$
+    - Cumulative distribution function (CDF): CDF is a non-decreasing function with $\lim_{x\to-\infty} F(x)=0$ and $\lim_{x\to\infty} F(x)=1$. $F(x) = p(X\le x), -\infty \le x \le \infty$
+- Continuous variables :: 
+    - *Density* function $f(x)$ has the properties: 
+        - $f(x) \ge 0$
+        - $f(x)$ is pairwise continuous
+        - $\int_{-\infty}^{\infty} f(x)d x = 1$
+    - Cumulative distribution function: \[F(x) = p(X\le x) = \int_{-\infty}^x f(u) du \]
+    - Quantile: The p-th quantile of the distribution with CDF $F(x)$ is defined to be the inverse of $F$: \[ x_p = F^{-1}(p)\]
+*** Discrete Distributions
+**** Bernoulli distribution (binary)
+A Bernoulli variable takes value on only 0 or 1, with probability $1-p$ and $p$. In application, it often occurs as indicator variable. \[ p(1) = p; p(0) = 1-p \]
+**** Binomial distribution (number of successes) 
+A Binomial variable $X$ is the total number of successes in $n$ independent Bernoulli (such as coin tossing) experiments.
+\[ p(k) = p(X=k) = {n\choose k} p^k (1-p)^{n-k} \]
+**** Geometric distribution (number of trials till the first success)
+The geometric distribution is also constructed from independent Bernoulli trials, but from an infinite sequence. Define $X$ as the total number of trials up to and including the first success. \[p(k) = p(X=k) = (1-p)^{k-1} p\]
+**** Negative binomial distribution (number of trials till the first $r$ success) 
+Negative binomial distribution is a generalization of geometric distribution. Define $X$ as the total number of trials performed until there are $r$ success (the last one is a success): \[p(k) = p(X=k) = {k-1 \choose r-1} p^r (1-p)^{k-r} \]
+**** Hyper-geometric distribution
+Suppose that an urn contains $n$ balls, of which $r$ are black and $n-r$ are white. $X$ denotes the number of black balls drawn when taking $m$ balls without replacement. \[p(k) = p(X=k) = {{r\choose k} {n-r\choose m-k} \over {n\choose m} }\]
+**** Poisson distribution (large $n$ small $p$) 
+Poisson frequency function with parameter $\lambda>0$ is given by \[ p(x) = {\lambda^k \over k! } e^{-\lambda} \] Poisson distribution approximates Binomial distribution with large $n$, small $p$ and $np=\lambda$. Poisson distribution can be used to model the total number of occurrence of some event in a given interval of time, such as the number of calls coming into an exchange during a unit of time (if the exchange serves a lot of customers who act independently).
+
+*** Continuous Distributions
+**** Uniform distribution 
+A uniform random variable on the interval of $[a,b]$
+\[f(x) = \begin{cases} {1\over b-a} & a \le x \le b \\ 0 & x < a \mbox{ or } x > b \end{cases}\]
+**** Exponential distribution
+\[ f(x) = \begin{cases}\lambda e^{-\lambda x} & x \ge 0 \\ 0 & x < 0 \end{cases} \quad
+F(x) = \begin{cases} 1- e^{-\lambda x} & x \ge 0 \\ 0 & x < 0 \end{cases} 
+\] 
+Exponential distribution is usually used to model lifetimes or waiting times (probability of dying is the same at any age). Suppose an electronic component has lasted time $s$, and we wish to calculate the probability that it will last at least $t$ more time: 
+\[p(T>t+s | T>s) = {p(T> t+s)\over p(T>s)} = e^{-\lambda t} \]
+Exponential distribution is thus said to be *memoryless* since the probability does not depend on $s$. On the other hand, memorylessness also implies that the distribution is exponential. 
+**** Gamma distribution
+**** Normal (Gaussian) distribution
+\[ \phi(x) = {1\over \sigma \sqrt{2\pi}} e^{-(x-\mu)^2 / 2\sigma^2}, -\infty < x < \infty  \]
+If $X\sim N(\mu, \sigma^2)$, and $Y=aX+b$, then $Y\sim N(a\mu+b, a^2 \sigma^2)$
+**** Beta distribution
+
+** Joint Distributions
+
+** Expected Value
 
 
 * Natural Language Processing
