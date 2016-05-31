@@ -151,7 +151,7 @@
 * Design Pattern
 - OO Principles ::
     - Encapsulate what varies
-    - Favor composition over inheritance
+    - Favor composition over inheritance. With composition, objects can be changed dynamically at runtime; with inheritance, objects are fixed after compilation.
     - Program to interfaces, not implementations
     - Strive for loosely coupled designs between objects that interact
     - Classes should be open for extension, but closed for modification

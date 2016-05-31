@@ -4,7 +4,7 @@ abstract class Beverage {
 }
 
 abstract class Decorator extends Beverage {
-    protected Beverage beverage;
+    protected Beverage wrappedObj;
 }
 
 class Coffee extends Beverage {
@@ -15,10 +15,10 @@ class Coffee extends Beverage {
 class AddMilk extends Decorator {
     // Concrete decorator
     public AddMilk(Beverage c){
-        beverage = c;
+        wrappedObj = c;
     }
     public String description(){
-        return beverage.description() + " + Milk";
+        return wrappedObj.description() + " + Milk";
     }
 }
 

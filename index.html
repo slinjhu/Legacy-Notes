@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-31 Tue 15:48 -->
+<!-- 2016-05-31 Tue 15:57 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -630,7 +630,7 @@ for the JavaScript code in this tag.
 <dl class="org-dl">
 <dt>OO Principles</dt><dd><ul class="org-ul">
 <li>Encapsulate what varies</li>
-<li>Favor composition over inheritance</li>
+<li>Favor composition over inheritance. With composition, objects can be changed dynamically at runtime; with inheritance, objects are fixed after compilation.</li>
 <li>Program to interfaces, not implementations</li>
 <li>Strive for loosely coupled designs between objects that interact</li>
 <li>Classes should be open for extension, but closed for modification</li>
@@ -749,7 +749,7 @@ Association is any kind of link or dependency between two classes.
 <span style="color: #3a81c3;">}</span>
 
 <span style="color: #3a81c3; font-weight: bold;">abstract</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Decorator</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
-    <span style="color: #3a81c3; font-weight: bold;">protected</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">beverage</span>;
+    <span style="color: #3a81c3; font-weight: bold;">protected</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">wrappedObj</span>;
 <span style="color: #3a81c3;">}</span>
 
 <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Coffee</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
@@ -760,10 +760,10 @@ Association is any kind of link or dependency between two classes.
 <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">AddMilk</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Decorator</span> <span style="color: #3a81c3;">{</span>
     <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Concrete decorator</span>
     <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #6c3163; font-weight: bold;">AddMilk</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">c</span><span style="color: #6c3163;">){</span>
-        beverage = c;
+        wrappedObj = c;
     <span style="color: #6c3163;">}</span>
     <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">description</span><span style="color: #6c3163;">(){</span>
-        <span style="color: #3a81c3; font-weight: bold;">return</span> beverage.description<span style="color: #2d9574;">()</span> + <span style="color: #2d9574;">" + Milk"</span>;
+        <span style="color: #3a81c3; font-weight: bold;">return</span> wrappedObj.description<span style="color: #2d9574;">()</span> + <span style="color: #2d9574;">" + Milk"</span>;
     <span style="color: #6c3163;">}</span>
 <span style="color: #3a81c3;">}</span>
 
@@ -3916,7 +3916,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-05-31 Tue 15:48</p>
+<p class="date">Created: 2016-05-31 Tue 15:57</p>
 <p class="validation"></p>
 </div>
 </body>
