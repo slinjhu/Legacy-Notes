@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-05-31 Tue 15:57 -->
+<!-- 2016-05-31 Tue 16:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -734,6 +734,7 @@ Association is any kind of link or dependency between two classes.
 <li>Decorators provide a flexible alternative to subclassing for extending functionalities.</li>
 <li>Decorators have the same super type ad the objects they decorate, and you can use one or more decorators to wrap the object.</li>
 <li>The decorator adds its own behavior before and/or after <b>delegating</b> to the object it decorates.</li>
+<li><code>Component</code> can be either an abstract class or in interface.</li>
 </ul>
 
 
@@ -743,16 +744,16 @@ Association is any kind of link or dependency between two classes.
 </div>
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">abstract</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">interface</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
     <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">The component</span>
-    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">description</span><span style="color: #6c3163;">(){</span><span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #2d9574;">""</span>;<span style="color: #6c3163;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">description</span><span style="color: #6c3163;">()</span>;
 <span style="color: #3a81c3;">}</span>
 
-<span style="color: #3a81c3; font-weight: bold;">abstract</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Decorator</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
+<span style="color: #3a81c3; font-weight: bold;">abstract</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Decorator</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
     <span style="color: #3a81c3; font-weight: bold;">protected</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">wrappedObj</span>;
 <span style="color: #3a81c3;">}</span>
 
-<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Coffee</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Coffee</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
     <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Concrete component</span>
     <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">description</span><span style="color: #6c3163;">(){</span><span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #2d9574;">"Coffee"</span>;<span style="color: #6c3163;">}</span>
 <span style="color: #3a81c3;">}</span>
@@ -3916,7 +3917,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-05-31 Tue 15:57</p>
+<p class="date">Created: 2016-05-31 Tue 16:12</p>
 <p class="validation"></p>
 </div>
 </body>

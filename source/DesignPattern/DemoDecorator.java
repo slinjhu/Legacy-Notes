@@ -1,13 +1,13 @@
-abstract class Beverage {
+interface Beverage {
     // The component
-    public String description(){return "";}
+    public String description();
 }
 
-abstract class Decorator extends Beverage {
+abstract class Decorator implements Beverage {
     protected Beverage wrappedObj;
 }
 
-class Coffee extends Beverage {
+class Coffee implements Beverage {
     // Concrete component
     public String description(){return "Coffee";}
 }
