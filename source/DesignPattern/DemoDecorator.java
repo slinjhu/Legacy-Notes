@@ -1,6 +1,5 @@
-interface Beverage {
-    // The component
-    public String description();
+interface Beverage { // The component
+    String toString();
 }
 
 abstract class Decorator implements Beverage {
@@ -9,7 +8,7 @@ abstract class Decorator implements Beverage {
 
 class Coffee implements Beverage {
     // Concrete component
-    public String description(){return "Coffee";}
+    public String toString(){return "Coffee";}
 }
 
 class AddMilk extends Decorator {
@@ -17,17 +16,17 @@ class AddMilk extends Decorator {
     public AddMilk(Beverage c){
         wrappedObj = c;
     }
-    public String description(){
-        return wrappedObj.description() + " + Milk";
+    public String toString(){
+        return wrappedObj.toString() + " + Milk";
     }
 }
 
 public class DemoDecorator {
     public static void main(String[] args){
         Beverage coffee = new Coffee();
-        System.out.println( coffee.description() );
+        System.out.println( coffee );
 
         Beverage coffeeMilk = new AddMilk(coffee);
-        System.out.println( coffeeMilk.description() );
+        System.out.println( coffeeMilk );
     }
 }

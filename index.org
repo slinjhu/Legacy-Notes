@@ -155,6 +155,7 @@
     - Program to interfaces, not implementations
     - Strive for loosely coupled designs between objects that interact
     - Classes should be open for extension, but closed for modification
+    - Depend on abstractions; do not depend on concrete classes. 
 
 - Meta Patterns :: 
     - Delegate or forward message to other objects
@@ -199,8 +200,17 @@ Association is any kind of link or dependency between two classes.
 #+INCLUDE: "./source/DesignPattern/DemoDecorator.java" src java
 
 ** Factory
+*** Factory Method Pattern
+- The Factory Method pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. 
+- Factory Method lets a class defer instantiation to subclasses. 
+- The Creator class is written without knowledge of the actual products that will be created. 
+[[./figures/DesignPattern/FactoryMethod.png]]
+*** Abstract Factory Pattern
 
 ** Singleton
+- The Singleton pattern ensures a class has only one instance, and provides a global point of acceding it. 
+- No public constructor.
+#+INCLUDE: "./source/DesignPattern/DemoSingleton.java" src java
 
 ** Command
 
