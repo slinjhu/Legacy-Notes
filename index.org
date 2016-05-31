@@ -183,6 +183,7 @@ Association is any kind of link or dependency between two classes.
 - Used in MVC: views register as observer so they can update when data changes. 
 
 [[./figures/DesignPattern/Observer.png]]
+
 #+INCLUDE: "./source/DesignPattern/DemoObserver.java" src java
 
 ** Decorator
@@ -192,7 +193,9 @@ Association is any kind of link or dependency between two classes.
 - The decorator adds its own behavior before and/or after *delegating* to the object it decorates.
 - =Component= can be either an abstract class or in interface. 
 
+[[./figures/DesignPattern/DecoratorChain.png]]
 [[./figures/DesignPattern/Decorator.png]]
+
 #+INCLUDE: "./source/DesignPattern/DemoDecorator.java" src java
 
 ** Factory
