@@ -149,6 +149,18 @@
 
 
 * Design Pattern
+- OO Principles ::
+    - Encapsulate what varies
+    - Favor composition over inheritance
+    - Program to interfaces, not implementations
+    - Strive for loosely coupled designs between objects that interact
+
+- Meta Patterns :: 
+    - Delegate or forward message to other objects
+    - Make code more decoupled
+    - Replace switch with inheritance and dynamic dispatch.
+    - Reify an action or method as an object to manipulate it in new ways.
+
 ** Relationships
 [[./figures/DesignPattern/Relationships.jpg]]
 Association is any kind of link or dependency between two classes.
@@ -163,11 +175,6 @@ Association is any kind of link or dependency between two classes.
 - Composition (Non-shared association) :: 
     - Person owns Leg and Hand. 
     - Leg has no purpose without Person.
-** Meta Patterns
-- Delegate or forward message to other objects
-- Make code more decoupled
-- Replace switch with inheritance and dynamic dispatch.
-- Reify an action or method as an object to manipulate it in new ways.
 
 ** Observer
 - aka: publish/subscribe (pub/sub)
