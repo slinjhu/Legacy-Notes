@@ -530,6 +530,7 @@ Variance is a measure of variability (spread around the center).
     - For discrete variable: \[ \Var{X} = \sum_i (x_i - \mu)^2 p(x_i) \]
     - For continuous variable: \[ \Var{X} = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) dx \]
 - Standard deviation :: Standard deviation is the square root of variance \[\sigma(X) = \sqrt{\Var{X}}\]
+- Coefficient or variation :: aka relative standard deviation $\sigma/\mu$ 
 - Linear transformation :: If $\Var{X}$ exists, then \[\Var{a + bX} = b^2\Var{X}\]
 - Alternative calculation :: By linearity of expectation, variance can also be calculated as
  \[\Var{X} = E(X^2) - [E(X)]^2\]
@@ -555,6 +556,19 @@ Covariance is a measure of _joint variability_ or _degree of association_ of two
 - Correlation coefficient $\rho$ :: Correlation is defined in terms of covariance and variances. It is dimensionless and normalized; if $X,Y$ are subjected to linear transformation, the correlation coefficient does not change.
  \[\rho = {\Cov{X,Y} \over \sqrt{\Var{X} \Var{Y}}} = {\sigma_{XY} \over \sigma_X \sigma_Y}\]
 - $\rho \in [-1,1]$ :: $\rho=\pm1$ if and only if $Y = a + bX$ for some constant $a,b$
+
+** Data Pre-processing
+*** TODO Skewness
+
+*** TODO Normality
+**** Box-Cox Transformation
+Box-Cox transformation is a series of power transformation
+\[ x \leftarrow \begin{cases} {x^\lambda -1 \over \lambda} & \lambda \ne 0 \\ \log(x) & \lambda = 0 \end{cases} \]
+where $\lambda$
+
+*** Cronbach's alpha
+Cronbach's alpha is a measure of internal consistency. Suppose $X=Y_1 + Y_2 +\dots Y_k$, then
+\[\alpha = {k\over k-1} \left( 1 - {\sum_{i=1}^k \sigma^2_{Y_i} \over \sigma_X^2 } \right) \]
 
 * Natural Language Processing
 ** Grammar
