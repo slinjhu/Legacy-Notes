@@ -149,19 +149,14 @@
 
 
 * Design Pattern
-- OO Principles ::
-    - Encapsulate what varies
-    - Favor composition over inheritance. With composition, objects can be changed dynamically at runtime; with inheritance, objects are fixed after compilation.
-    - Program to interfaces, not implementations
-    - Strive for loosely coupled designs between objects that interact
-    - Classes should be open for extension, but closed for modification
-    - Depend on abstractions; do not depend on concrete classes. 
-
-- Meta Patterns :: 
-    - Delegate or forward message to other objects
-    - Make code more decoupled
-    - Replace switch with inheritance and dynamic dispatch.
-    - Reify an action or method as an object to manipulate it in new ways.
+** OO Principles ::
+- Encapsulate what varies
+- Favor composition over inheritance. With composition, objects can be changed dynamically at runtime; with inheritance, objects are fixed after compilation.
+- Program to interfaces, not implementations
+- Strive for loosely coupled designs between objects that interact
+- Classes should be open for extension, but closed for modification
+- Depend on abstractions; do not depend on concrete classes. 
+- Principle of Least Knowledge: reduce the interactions between objects to just a few close friends.
 
 ** Relationships
 [[./figures/DesignPattern/Relationships.jpg]]
@@ -219,8 +214,13 @@ Association is any kind of link or dependency between two classes.
 [[./figures/DesignPattern/Command.png]]
 
 ** Adapter
+Adapter Pattern converts the interface of a class into another interface the clients expect. 
+[[./figures/DesignPattern/Adapter.png]]
 
 ** Facade
+- Facade Pattern provides a unified interface to a set of interfaces in a system. 
+- Facade defines a higher level interface that makes the subsystem easier to use. 
+[[./figures/DesignPattern/Facade.png]]
 
 ** Template Method
 
