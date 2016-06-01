@@ -150,16 +150,27 @@
 
 * Design Pattern
 ** TODO OO Principles ::
-- Encapsulate what varies :: Identify the aspects of your application that vary, and separate them from what stays the same, so that later you can alter or extend the parts that vary without affecting those that don't. All design patterns provide a way to let some part of a system vary independently of all other parts. 
-- Program to interfaces, not implementations :: The declared type of the variables should be a supertype (Java interface or abstract class), so that the objects assigned to those variables can be of any concrete implementation of the supertype, which means the class declaring them doesn't have to know about the actual object types. 
+*** Encapsulate what varies
+- Identify the aspects of your application that vary, and separate them from what stays the same, so that later you can alter or extend the parts that vary without affecting those that don't. 
+- All design patterns provide a way to let some part of a system vary independently of all other parts. 
+*** Program to interfaces, not implementations
+The declared type of the variables should be a supertype (Java interface or abstract class), so that the objects assigned to those variables can be of any concrete implementation of the supertype, which means the class declaring them doesn't have to know about the actual object types.
 #+INCLUDE: "./source/DesignPattern/DemoInterface.java" src java
-- Favor composition over inheritance :: Has-a relationship can be better than Is-a relationship since it is more flexible. 
-With composition, objects can dynamically change behavior at runtime; with inheritance, objects are fixed after compilation.
-- Loose couple :: Strive for loosely coupled designs between objects that interact
-- Open-Close Principle :: Classes should be open for extension, but closed for modification
-- Dependency Inversion Principle :: Depend on abstractions; do not depend on concrete classes. 
-- Principle of Least Knowledge :: reduce the interactions between objects to just a few close friends.
-- The Hollywood Principle :: Don't call us; we'll call you. We allow low-level components to hook themselves into a system, but the high-level components determines when and how they are needed. 
+*** Favor composition over inheritance 
+- Has-a relationship can be better than Is-a relationship since it is more flexible. 
+- With composition, objects can dynamically change behavior at runtime
+- With inheritance, objects are fixed after compilation.
+*** Loose couple
+Strive for loosely coupled designs between objects that interact
+*** Open-Close Principle
+Classes should be open for extension, but closed for modification
+*** Dependency Inversion Principle 
+Depend on abstractions; do not depend on concrete classes.
+*** Principle of Least Knowledge
+reduce the interactions between objects to just a few close friends.
+*** The Hollywood Principle 
+- Don't call us; we'll call you. 
+- We allow low-level components to hook themselves into a system, but the high-level components determines when and how they are needed.
 
 ** UML and Object Relationships
 [[./figures/DesignPattern/Relationships.jpg]]
