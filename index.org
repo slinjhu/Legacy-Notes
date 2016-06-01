@@ -149,7 +149,7 @@
 
 
 * Design Pattern
-** TODO OO Principles ::
+** OO Principles
 *** Liskov Substitution Principle
 - Functions that use references to base classes must be able to use objects of derived classes without knowing it.
 - Sounds right in natural language does not always work in code.
@@ -173,6 +173,7 @@ Strive for loosely coupled designs between objects that interact
 Classes should be open for extension, but closed for modification
 *** Dependency Inversion Principle 
 Depend on abstractions; do not depend on concrete classes.
+[[./figures/DesignPattern/DependencyInversion.png]]
 *** Principle of Least Knowledge
 reduce the interactions between objects to just a few close friends.
 *** The Hollywood Principle 
@@ -217,6 +218,12 @@ Association is any kind of link or dependency between two classes.
 #+INCLUDE: "./source/DesignPattern/DemoDecorator.java" src java
 
 ** TODO Factory
+*** Simple Factory
+- In the Factory Pattern, we create objects without exposing the creation logic to the client and refer to newly created objects using a common interface. 
+- A Simple Factory is any method that makes objects for more than one possible classes. 
+[[./figures/DesignPattern/FactorySimple.png]]
+#+INCLUDE: "./source/DesignPattern/DemoSimpleFactory.java" src java
+
 *** Factory Method Pattern
 - The Factory Method pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. 
 - Factory Method lets a class defer instantiation to subclasses. 
