@@ -3,6 +3,11 @@
 #+SETUPFILE: ./style.org
 #+LaTeX_HEADER: \newcommand{\dd}[2]{{\mathrm{d}#1\over\mathrm{d} #2}}
 #+LaTeX_HEADER: \newcommand{\pp}[2]{{\partial#1\over\partial#2}}
+#+LaTeX_HEADER: \newcommand{\dS}{\;\mathrm{d}S}
+#+LaTeX_HEADER: \newcommand{\dV}{\;\mathrm{d}V}
+#+LaTeX_HEADER: \newcommand{\dx}{\;\mathrm{d}x}
+#+LaTeX_HEADER: \newcommand{\dt}{\;\mathrm{d}t}
+#+LaTeX_HEADER: \newcommand{\ds}{\;\mathrm{d}s}
 #+LaTeX_HEADER: \newcommand{\A}{\mathcal{A}}
 #+LaTeX_HEADER: \newcommand{\B}{\mathcal{B}}
 #+LaTeX_HEADER: \newcommand{\E}{\mathcal{E}}
@@ -70,11 +75,17 @@
 #+LaTeX_HEADER: \newcommand{\vX}{\boldsymbol{X}}
 #+LaTeX_HEADER: \newcommand{\vY}{\boldsymbol{Y}}
 #+LaTeX_HEADER: \newcommand{\vZ}{\boldsymbol{Z}}
+#+LaTeX_HEADER: \newcommand{\valpha}{\boldsymbol{\alpha}}
 
 #+BEGIN_HTML
 \(
 \newcommand{\dd}[2]{{\mathrm{d}#1\over\mathrm{d} #2}}
 \newcommand{\pp}[2]{{\partial#1\over\partial#2}}
+\newcommand{\dS}{\;\mathrm{d}S}
+\newcommand{\dV}{\;\mathrm{d}V}
+\newcommand{\dx}{\;\mathrm{d}x}
+\newcommand{\dt}{\;\mathrm{d}t}
+\newcommand{\ds}{\;\mathrm{d}s}
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\B}{\mathcal{B}}
 \newcommand{\E}{\mathcal{E}}
@@ -142,6 +153,7 @@
 \newcommand{\vX}{\boldsymbol{X}}
 \newcommand{\vY}{\boldsymbol{Y}}
 \newcommand{\vZ}{\boldsymbol{Z}}
+\newcommand{\valpha}{\boldsymbol{\alpha}}
 \)
 #+END_HTML
 
@@ -294,41 +306,84 @@ The Iterator Pattern provides a way to access the elements of an aggregate objec
 - Instead of creating many instances of a class, create one aggregate instance storing array of data.
 - Saves memory but all virtual instances have to behave in the same way.
 
-* Fluid Topology Optimization
-** Fluid Dynamics
-*** Convective derivative
-**** Also known as:
+* Fluid Dynamics
+** Mathematical Background
+*** Tensor
+**** Identity tensor 
+Also know as substitution tensor or Kronecker delta:
+\[\delta_{ij} = \begin{cases} 1 & i=j \\ 0 & i\ne j \end{cases}\]
+It is called substitution tensor because $\delta_{ij}v_j = v_i$
+**** Alternating unit tensor
+\[\varepsilon_{ijk} = \begin{cases}
+   1 & ijk = 123, 231, 312 \\
+  -1 & ijk = 321, 213, 132 \\
+   0 & \mbox{if any two indices are alike}
+\end{cases}\]
+$\varepsilon_{ijk}$ is equivalent to cross product: \[\va\times \vb = \varepsilon_{ijk} a_j b_k\]
+**** $\varepsilon_{ijk} \varepsilon_{ilm} = \delta_{jl}\delta_{km} - \delta_{jm}\delta_{kl}$
+**** Tensor Decomposition
+- Tensor $Q_{ij}$ is symmetric if $Q_{ij} = Q_{ji}$
+- Tensor $R_{ij}$ is anti-symmetric if $R_{ij} = -R_{ji}$
+- Any tensor can be decomposed into the summation of a symmetric tensor and an anti-symmetric tensor
+\[ T_{ij} = T_{[ij]} + T_{(ij)},\quad T_{(ij)} = {T_{ij} + T_{ji}\over 2}, \quad T_{[ij]} = {T_{ij} - T_{ji}\over 2} \]
+**** Inner Product 
+Inner product of two tensor is a scalar
+\[T:S = T_{ij} S_{ji}\]
+**** Dual Vector
+The dual vector $d_i$ of a tensor $T_{jk}$ is defined as
+\[ d_i = \varepsilon_{ijk} T_{jk} \]
+**** Dyadic Product
+The dyadic product or tensor product of two vector $u_i, v_i$ is defined as 
+\[T_{ij} = u_i v_j\]
+**** Derivative
+\[d\phi = \partial_i \phi d x_i = \nabla \phi \cdot d\vx\]
+Using directional cosine $d\vx = \valpha ds$, we can define the directional derivative 
+\[\dd{\phi}{s} = \nabla \phi \cdot \valpha \]
+*** Gauss (Divergence) Theorem
+- Index notation: \[ \int_{\Omega} \partial_i F \dV = \int_{\partial\Omega} n_i F \dS \]
+    - $\Omega$ is an arbitrary control volume with fixed geometry (not time dependent)
+    - $\partial \Omega$ denotes the boundary of $\Omega$
+    - $\vn$ is the outward normal of $\Omega$
+- If $\Omega$ is in 1D: \[ \int_a^b \dd{f}{x} \dx = f(b) - f(a) \]
+- For scalar $f$: \[ \int_{\Omega} \nabla f \dV = \int_{\partial\Omega} \vn f \dS \]
+- For vector $\vu$: \[ \int_{\Omega} \nabla \cdot \vu \dV = \int_{\partial\Omega} \vn \cdot \vu \dS \]
+*** Stokes's Theorem
+\[ \int \vn \cdot \nabla \times \vu \dS = \int \vt\cdot \vu \ds \]
+
+** Convective derivative
+*** Also known as:
 - total derivative
 - advective derivative
 - Lagrangian derivative
 - substantive or material derivative
 - Stokes derivative
 
-**** Definition 
+*** Definition 
 Convective derivative is the time rate of change for a material element subjected to a space-and-time dependent macroscopic velocity field.
 \[\dd{f}{t} = \pp{f}{t} + \vu\cdot \nabla f \]
 The key thing to note is that $\vx(t)$ is also time dependent, and thus 
 \[\dd{f(\vx(t),t)}{t} = \pp{f}{t} + \pp{f}{\vx}\pp{\vx}{t} = \pp{f}{t} + \vu\cdot \nabla f \]
-**** For vector variable
+*** For vector variable
+If $\vf$ is a vector variable depending on $\vx$ and $t$, then 
 \[  \dd{\vf}{t} = \pp{\vf}{t} + \vu \cdot \nabla \vf \]
-
-*** Continuity Condition
+or using index notation 
+\[d_t f_i = \partial_t f_i + u_j \partial_j f_i \]
+** Continuity Condition
 Continuity requires that anything goes into $\Omega$ must the mass it contains. 
-\[ \int_{\partial \Omega} \rho \vu (-\vn) dS = \dd{}{t} \int_{\Omega} \rho dV \]
+\[ \int_{\partial \Omega} \rho \vu (-\vn) \dS = \dd{}{t} \int_{\Omega} \rho \dV \]
 using Divergence Theorem we get
 \[ \nabla \cdot (\rho \vu) + \dd{\rho}{t} = 0 \]
 For incompressible flow ($\rho=$ constant), it reduces to \[\nabla \cdot \vu = 0\]
-**** Notes
-- $\Omega$ is an arbitrary control volume with fixed geometry (not time dependent)
-- $\partial \Omega$ denotes the boundary of $\Omega$
-- $\vn$ is the outward normal of $\Omega$
-*** Constitutive relationship of newtonian fluids
+
+** Constitutive relationship of newtonian fluids
 **** The stress tensor
  
 **** The strain rate tensor
 - Definition: the rate of change over time of local deformation
 
-*** Dimensionless numbers
+** Navier-Stokes Equation
+
+** Dimensionless numbers
 **** Reynolds number
 - defined as $Re = \rho U L / \mu$
 - where the parameters are defined as 
@@ -366,7 +421,7 @@ In Galerkin FEM, the shape functions are of the same sort as the test functions.
     - For any $b\in \R^n$, there exists $x\in\R^n$ such that $Ax=b$
     - Determinant $|A| \ne 0$
     - $A$ has an inverse. 
-- Orthogonal :: A square matrix $Q$ is orthogonal if $Q^T Q = Q Q^T=I$. $Q^{-1} = Q^T$
+- Orthogonal :: A square matrix $Q$ is orthogonal if $Q^T Q = Q Q^T=I$. We also have $Q^{-1} = Q^T$
 - Vector Norm :: \[||x||_p = \left(\sum_i |x_i|^p \right)^{1\over p} \]
 - Matrix Norm :: Matrix norm is derived from vector norm: \[ ||A|| = \sup_{x\ne 0} {||Ax||\over ||x||} \]
     - 1-norm is the maximum absolute column sum  \[ ||A||_1 = \max_j \sum_i |A_{ij}| \]
