@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-01 Wed 00:42 -->
+<!-- 2016-06-01 Wed 02:12 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -186,7 +186,7 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline27">1. Design Pattern</a>
 <ul>
-<li><a href="#orgheadline9">1.1. <span class="todo TODO">TODO</span> OO Principles ::</a>
+<li><a href="#orgheadline10">1.1. <span class="todo TODO">TODO</span> OO Principles ::</a>
 <ul>
 <li><a href="#orgheadline1">1.1.1. Encapsulate what varies</a></li>
 <li><a href="#orgheadline2">1.1.2. Program to interfaces, not implementations</a></li>
@@ -196,28 +196,28 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline6">1.1.6. Dependency Inversion Principle</a></li>
 <li><a href="#orgheadline7">1.1.7. Principle of Least Knowledge</a></li>
 <li><a href="#orgheadline8">1.1.8. The Hollywood Principle</a></li>
+<li><a href="#orgheadline9">1.1.9. Single Responsibility Principle</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline10">1.2. UML and Object Relationships</a></li>
-<li><a href="#orgheadline11">1.3. <span class="todo TODO">TODO</span> Strategy</a></li>
-<li><a href="#orgheadline12">1.4. Observer</a></li>
-<li><a href="#orgheadline13">1.5. Decorator</a></li>
-<li><a href="#orgheadline16">1.6. Factory</a>
+<li><a href="#orgheadline11">1.2. UML and Object Relationships</a></li>
+<li><a href="#orgheadline12">1.3. Observer</a></li>
+<li><a href="#orgheadline13">1.4. Decorator</a></li>
+<li><a href="#orgheadline16">1.5. <span class="todo TODO">TODO</span> Factory</a>
 <ul>
-<li><a href="#orgheadline14">1.6.1. Factory Method Pattern</a></li>
-<li><a href="#orgheadline15">1.6.2. Abstract Factory Pattern</a></li>
+<li><a href="#orgheadline14">1.5.1. Factory Method Pattern</a></li>
+<li><a href="#orgheadline15">1.5.2. Abstract Factory Pattern</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline17">1.7. Singleton</a></li>
-<li><a href="#orgheadline18">1.8. Command</a></li>
-<li><a href="#orgheadline19">1.9. Adapter</a></li>
-<li><a href="#orgheadline20">1.10. Facade</a></li>
-<li><a href="#orgheadline21">1.11. Template Method</a></li>
-<li><a href="#orgheadline22">1.12. Iterator</a></li>
-<li><a href="#orgheadline23">1.13. Composite</a></li>
-<li><a href="#orgheadline24">1.14. State</a></li>
-<li><a href="#orgheadline25">1.15. Strategy</a></li>
-<li><a href="#orgheadline26">1.16. Proxy</a></li>
+<li><a href="#orgheadline17">1.6. Singleton</a></li>
+<li><a href="#orgheadline18">1.7. Command</a></li>
+<li><a href="#orgheadline19">1.8. Adapter</a></li>
+<li><a href="#orgheadline20">1.9. Facade</a></li>
+<li><a href="#orgheadline21">1.10. Template Method</a></li>
+<li><a href="#orgheadline22">1.11. Iterator</a></li>
+<li><a href="#orgheadline23">1.12. Composite</a></li>
+<li><a href="#orgheadline24">1.13. State</a></li>
+<li><a href="#orgheadline25">1.14. Strategy</a></li>
+<li><a href="#orgheadline26">1.15. Proxy</a></li>
 </ul>
 </li>
 <li><a href="#orgheadline39">2. Fluid Topology Optimization</a>
@@ -645,8 +645,8 @@ for the JavaScript code in this tag.
 <div id="outline-container-orgheadline27" class="outline-2">
 <h2 id="orgheadline27"><span class="section-number-2">1</span> Design Pattern</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline9" class="outline-3">
-<h3 id="orgheadline9"><span class="section-number-3">1.1</span> <span class="todo TODO">TODO</span> OO Principles ::</h3>
+</div><div id="outline-container-orgheadline10" class="outline-3">
+<h3 id="orgheadline10"><span class="section-number-3">1.1</span> <span class="todo TODO">TODO</span> OO Principles ::</h3>
 <div class="outline-text-3" id="text-1-1">
 </div><div id="outline-container-orgheadline1" class="outline-4">
 <h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> Encapsulate what varies</h4>
@@ -743,10 +743,18 @@ reduce the interactions between objects to just a few close friends.
 </ul>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgheadline10" class="outline-3">
-<h3 id="orgheadline10"><span class="section-number-3">1.2</span> UML and Object Relationships</h3>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.1.9</span> Single Responsibility Principle</h4>
+<div class="outline-text-4" id="text-1-1-9">
+<p>
+Every responsibility of a class is an area of potential change. More than one responsibility means more than one area of change. A class should have only one reason to change.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-3">
+<h3 id="orgheadline11"><span class="section-number-3">1.2</span> UML and Object Relationships</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 <img src="./figures/DesignPattern/Relationships.jpg" alt="Relationships.jpg" />
@@ -770,12 +778,9 @@ Association is any kind of link or dependency between two classes.
 </dl>
 </div>
 </div>
-<div id="outline-container-orgheadline11" class="outline-3">
-<h3 id="orgheadline11"><span class="section-number-3">1.3</span> <span class="todo TODO">TODO</span> Strategy</h3>
-</div>
 <div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">1.4</span> Observer</h3>
-<div class="outline-text-3" id="text-1-4">
+<h3 id="orgheadline12"><span class="section-number-3">1.3</span> Observer</h3>
+<div class="outline-text-3" id="text-1-3">
 <ul class="org-ul">
 <li>aka: publish/subscribe (pub/sub)</li>
 <li>Define a one-to-many dependency so that when one subject changes state, all its dependents are notified and updated automatically.</li>
@@ -830,8 +835,8 @@ Association is any kind of link or dependency between two classes.
 </div>
 
 <div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.5</span> Decorator</h3>
-<div class="outline-text-3" id="text-1-5">
+<h3 id="orgheadline13"><span class="section-number-3">1.4</span> Decorator</h3>
+<div class="outline-text-3" id="text-1-4">
 <ul class="org-ul">
 <li>The decorator pattern attaches additional responsibilities to an object dynamically.</li>
 <li>Decorators provide a flexible alternative to subclassing for extending functionalities.</li>
@@ -885,11 +890,11 @@ Association is any kind of link or dependency between two classes.
 </div>
 
 <div id="outline-container-orgheadline16" class="outline-3">
-<h3 id="orgheadline16"><span class="section-number-3">1.6</span> Factory</h3>
-<div class="outline-text-3" id="text-1-6">
+<h3 id="orgheadline16"><span class="section-number-3">1.5</span> <span class="todo TODO">TODO</span> Factory</h3>
+<div class="outline-text-3" id="text-1-5">
 </div><div id="outline-container-orgheadline14" class="outline-4">
-<h4 id="orgheadline14"><span class="section-number-4">1.6.1</span> Factory Method Pattern</h4>
-<div class="outline-text-4" id="text-1-6-1">
+<h4 id="orgheadline14"><span class="section-number-4">1.5.1</span> Factory Method Pattern</h4>
+<div class="outline-text-4" id="text-1-5-1">
 <ul class="org-ul">
 <li>The Factory Method pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate.</li>
 <li>Factory Method lets a class defer instantiation to subclasses.</li>
@@ -903,13 +908,13 @@ Association is any kind of link or dependency between two classes.
 </div>
 </div>
 <div id="outline-container-orgheadline15" class="outline-4">
-<h4 id="orgheadline15"><span class="section-number-4">1.6.2</span> Abstract Factory Pattern</h4>
+<h4 id="orgheadline15"><span class="section-number-4">1.5.2</span> Abstract Factory Pattern</h4>
 </div>
 </div>
 
 <div id="outline-container-orgheadline17" class="outline-3">
-<h3 id="orgheadline17"><span class="section-number-3">1.7</span> Singleton</h3>
-<div class="outline-text-3" id="text-1-7">
+<h3 id="orgheadline17"><span class="section-number-3">1.6</span> Singleton</h3>
+<div class="outline-text-3" id="text-1-6">
 <ul class="org-ul">
 <li>The Singleton pattern ensures a class has only one instance, and provides a global point of acceding it.</li>
 <li>No public constructor.</li>
@@ -941,8 +946,8 @@ Association is any kind of link or dependency between two classes.
 </div>
 
 <div id="outline-container-orgheadline18" class="outline-3">
-<h3 id="orgheadline18"><span class="section-number-3">1.8</span> Command</h3>
-<div class="outline-text-3" id="text-1-8">
+<h3 id="orgheadline18"><span class="section-number-3">1.7</span> Command</h3>
+<div class="outline-text-3" id="text-1-7">
 <ul class="org-ul">
 <li>The Command Pattern encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations.</li>
 <li>It packages the actions and the receiver into an object that exposes just one method, <code>execute()</code>.</li>
@@ -957,8 +962,8 @@ Association is any kind of link or dependency between two classes.
 </div>
 
 <div id="outline-container-orgheadline19" class="outline-3">
-<h3 id="orgheadline19"><span class="section-number-3">1.9</span> Adapter</h3>
-<div class="outline-text-3" id="text-1-9">
+<h3 id="orgheadline19"><span class="section-number-3">1.8</span> Adapter</h3>
+<div class="outline-text-3" id="text-1-8">
 <p>
 Adapter Pattern converts the interface of a class into another interface the clients expect. 
 <img src="./figures/DesignPattern/Adapter.png" alt="Adapter.png" />
@@ -967,8 +972,8 @@ Adapter Pattern converts the interface of a class into another interface the cli
 </div>
 
 <div id="outline-container-orgheadline20" class="outline-3">
-<h3 id="orgheadline20"><span class="section-number-3">1.10</span> Facade</h3>
-<div class="outline-text-3" id="text-1-10">
+<h3 id="orgheadline20"><span class="section-number-3">1.9</span> Facade</h3>
+<div class="outline-text-3" id="text-1-9">
 <ul class="org-ul">
 <li>Facade Pattern provides a unified interface to a set of interfaces in a system.</li>
 <li>Facade defines a higher level interface that makes the subsystem easier to use.</li>
@@ -982,8 +987,8 @@ Adapter Pattern converts the interface of a class into another interface the cli
 </div>
 
 <div id="outline-container-orgheadline21" class="outline-3">
-<h3 id="orgheadline21"><span class="section-number-3">1.11</span> Template Method</h3>
-<div class="outline-text-3" id="text-1-11">
+<h3 id="orgheadline21"><span class="section-number-3">1.10</span> Template Method</h3>
+<div class="outline-text-3" id="text-1-10">
 <ul class="org-ul">
 <li>Template Method Pattern defines the skeleton of an algorithm in a method, deferring some steps to subclasses</li>
 <li>Template Method lets subclasses redefine certain steps of an algorithm, but prohibits changing the algorithm's structure.</li>
@@ -998,25 +1003,116 @@ Adapter Pattern converts the interface of a class into another interface the cli
 </div>
 
 <div id="outline-container-orgheadline22" class="outline-3">
-<h3 id="orgheadline22"><span class="section-number-3">1.12</span> Iterator</h3>
+<h3 id="orgheadline22"><span class="section-number-3">1.11</span> Iterator</h3>
+<div class="outline-text-3" id="text-1-11">
+<p>
+The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. 
+<img src="./figures/DesignPattern/Iterator.png" alt="Iterator.png" />
+</p>
+</div>
 </div>
 
 <div id="outline-container-orgheadline23" class="outline-3">
-<h3 id="orgheadline23"><span class="section-number-3">1.13</span> Composite</h3>
+<h3 id="orgheadline23"><span class="section-number-3">1.12</span> Composite</h3>
+<div class="outline-text-3" id="text-1-12">
+<ul class="org-ul">
+<li>The Composite Pattern allows you to compose objects into <b>tree</b> structures to represent part-whole hierarchies.</li>
+<li>Composite lets clients treat individual objects and compositions of objects uniformly.</li>
+<li>A composite contains components</li>
+</ul>
+
+<div class="figure">
+<p><img src="./figures/DesignPattern/Composite.png" alt="Composite.png" />
+</p>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline24" class="outline-3">
-<h3 id="orgheadline24"><span class="section-number-3">1.14</span> State</h3>
+<h3 id="orgheadline24"><span class="section-number-3">1.13</span> State</h3>
+<div class="outline-text-3" id="text-1-13">
+<ul class="org-ul">
+<li>The State Pattern allows an object to alter its behavior when its internal state changes.</li>
+<li>The object will appear to change its class.</li>
+<li>State Pattern is similar to Strategy Pattern but with different intent. 
+<ul class="org-ul">
+<li>With State Pattern, we have a set of behaviors encapsulated in state objects; at any time the context is delegating to one of those states.</li>
+<li>With Strategy Pattern, the client usually specifies the strategy object that the context is composed with.</li>
+</ul></li>
+</ul>
+
+<div class="figure">
+<p><img src="./figures/DesignPattern/State.png" alt="State.png" />
+</p>
+</div>
+</div>
 </div>
 
 <div id="outline-container-orgheadline25" class="outline-3">
-<h3 id="orgheadline25"><span class="section-number-3">1.15</span> Strategy</h3>
+<h3 id="orgheadline25"><span class="section-number-3">1.14</span> Strategy</h3>
+<div class="outline-text-3" id="text-1-14">
+<ul class="org-ul">
+<li>The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.</li>
+<li>Strategy enables the algorithms vary independently from clients that use it.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">interface</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">All algorithms are interchangeable because they implement the same interface</span>
+    <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">run</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">)</span>;
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Add</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Each algorithm is encapsulated in a class</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">run</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">){</span><span style="color: #3a81c3; font-weight: bold;">return</span> x1 + x2;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Multiply</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">run</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">){</span><span style="color: #3a81c3; font-weight: bold;">return</span> x1 * x2;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Client</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #715ab1;">strategy</span>;
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #6c3163; font-weight: bold;">Client</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #715ab1;">strategy</span><span style="color: #6c3163;">){</span>
+        <span style="color: #3a81c3; font-weight: bold;">this</span>.strategy = strategy;
+    <span style="color: #6c3163;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">executeStrategy</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">){</span>
+        <span style="color: #3a81c3; font-weight: bold;">return</span> strategy.run<span style="color: #2d9574;">(</span>x1, x2<span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoStrategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">Client</span> <span style="color: #715ab1;">client</span> = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Client</span><span style="color: #2d9574;">(</span><span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Add</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+        <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">result</span> = client.executeStrategy<span style="color: #2d9574;">(</span><span style="color: #4e3163;">3</span>, <span style="color: #4e3163;">4</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
+</pre>
+</div>
+</div>
 </div>
 
+
+
 <div id="outline-container-orgheadline26" class="outline-3">
-<h3 id="orgheadline26"><span class="section-number-3">1.16</span> Proxy</h3>
+<h3 id="orgheadline26"><span class="section-number-3">1.15</span> Proxy</h3>
+<div class="outline-text-3" id="text-1-15">
+<ul class="org-ul">
+<li>Proxy provides a surrogate or placeholder for another object to control access to it.</li>
+<li>A remote proxy controls access to a remote object</li>
+<li>A virtual proxy controls access to a resource that is expensive to create.</li>
+<li>A protection proxy controls access to a resource based on access rights.</li>
+</ul>
+
+<div class="figure">
+<p><img src="./figures/DesignPattern/Proxy.png" alt="Proxy.png" />
+</p>
 </div>
 </div>
+</div>
+</div>
+
+
 
 <div id="outline-container-orgheadline39" class="outline-2">
 <h2 id="orgheadline39"><span class="section-number-2">2</span> Fluid Topology Optimization</h2>
@@ -4108,7 +4204,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-06-01 Wed 00:42</p>
+<p class="date">Created: 2016-06-01 Wed 02:12</p>
 <p class="validation"></p>
 </div>
 </body>

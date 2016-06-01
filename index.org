@@ -172,6 +172,8 @@ reduce the interactions between objects to just a few close friends.
 - Don't call us; we'll call you. 
 - We allow low-level components to hook themselves into a system, but the high-level components determines when and how they are needed.
 
+*** Single Responsibility Principle
+Every responsibility of a class is an area of potential change. More than one responsibility means more than one area of change. A class should have only one reason to change.
 ** UML and Object Relationships
 [[./figures/DesignPattern/Relationships.jpg]]
 Association is any kind of link or dependency between two classes.
@@ -186,7 +188,6 @@ Association is any kind of link or dependency between two classes.
 - Composition (Non-shared association) :: 
     - Person owns Leg and Hand. 
     - Leg has no purpose without Person.
-** TODO Strategy 
 ** Observer
 - aka: publish/subscribe (pub/sub)
 - Define a one-to-many dependency so that when one subject changes state, all its dependents are notified and updated automatically. 
@@ -208,7 +209,7 @@ Association is any kind of link or dependency between two classes.
 
 #+INCLUDE: "./source/DesignPattern/DemoDecorator.java" src java
 
-** Factory
+** TODO Factory
 *** Factory Method Pattern
 - The Factory Method pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate. 
 - Factory Method lets a class defer instantiation to subclasses. 
@@ -243,14 +244,38 @@ Adapter Pattern converts the interface of a class into another interface the cli
 [[./figures/DesignPattern/TemplateMethod.png]]
 
 ** Iterator
+The Iterator Pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation. 
+[[./figures/DesignPattern/Iterator.png]]
 
 ** Composite
+- The Composite Pattern allows you to compose objects into *tree* structures to represent part-whole hierarchies. 
+- Composite lets clients treat individual objects and compositions of objects uniformly. 
+- A composite contains components
+[[./figures/DesignPattern/Composite.png]]
 
 ** State
+- The State Pattern allows an object to alter its behavior when its internal state changes.
+- The object will appear to change its class.
+- State Pattern is similar to Strategy Pattern but with different intent. 
+    - With State Pattern, we have a set of behaviors encapsulated in state objects; at any time the context is delegating to one of those states.
+    - With Strategy Pattern, the client usually specifies the strategy object that the context is composed with. 
+[[./figures/DesignPattern/State.png]]
 
-** Strategy
+** Strategy 
+- The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.
+- Strategy enables the algorithms vary independently from clients that use it.
+#+INCLUDE: "./source/DesignPattern/DemoStrategy.java" src java
+
+
 
 ** Proxy
+- Proxy provides a surrogate or placeholder for another object to control access to it. 
+- A remote proxy controls access to a remote object
+- A virtual proxy controls access to a resource that is expensive to create.
+- A protection proxy controls access to a resource based on access rights. 
+[[./figures/DesignPattern/Proxy.png]]
+
+
 
 * Fluid Topology Optimization
 ** Fluid Dynamics
