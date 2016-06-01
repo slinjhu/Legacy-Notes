@@ -297,40 +297,38 @@ The Iterator Pattern provides a way to access the elements of an aggregate objec
 * Fluid Topology Optimization
 ** Fluid Dynamics
 *** Convective derivative
-Also known as:
+**** Also known as:
 - total derivative
 - advective derivative
 - Lagrangian derivative
 - substantive or material derivative
 - Stokes derivative
 
-Definition: the time rate of change for a material element subjected to a space-and-time dependent macroscopic velocity field. 
-\[
-  \dd{f(\vx,t)}{t} =
-  \pp{f}{t} + \pp{f}{\vx} \cdot \pp{\vx}{t}
-  = \pp{f}{t} + \vu\cdot \nabla f
-\]
-where, not rigorously, 
-\[
-  \nabla f = \pp{f}{\vx}
-  \mbox{ and } 
-  \vu = \pp{\vx}{t}
-\]
+**** Definition 
+Convective derivative is the time rate of change for a material element subjected to a space-and-time dependent macroscopic velocity field.
+\[\dd{f}{t} = \pp{f}{t} + \vu\cdot \nabla f \]
+The key thing to note is that $\vx(t)$ is also time dependent, and thus 
+\[\dd{f(\vx(t),t)}{t} = \pp{f}{t} + \pp{f}{\vx}\pp{\vx}{t} = \pp{f}{t} + \vu\cdot \nabla f \]
+**** For vector variable
+\[  \dd{\vf}{t} = \pp{\vf}{t} + \vu \cdot \nabla \vf \]
 
-For vector variable:
-\[
-  \dd{\vf}{t} = \pp{\vf}{t} + \vu \cdot \nabla \vf
-\]
-
+*** Continuity Condition
+Continuity requires that anything goes into $\Omega$ must the mass it contains. 
+\[ \int_{\partial \Omega} \rho \vu (-\vn) dS = \dd{}{t} \int_{\Omega} \rho dV \]
+using Divergence Theorem we get
+\[ \nabla \cdot (\rho \vu) + \dd{\rho}{t} = 0 \]
+For incompressible flow ($\rho=$ constant), it reduces to \[\nabla \cdot \vu = 0\]
+**** Notes
+- $\Omega$ is an arbitrary control volume with fixed geometry (not time dependent)
+- $\partial \Omega$ denotes the boundary of $\Omega$
+- $\vn$ is the outward normal of $\Omega$
 *** Constitutive relationship of newtonian fluids
-
 **** The stress tensor
  
 **** The strain rate tensor
 - Definition: the rate of change over time of local deformation
 
 *** Dimensionless numbers
-**** Peclet number
 **** Reynolds number
 - defined as $Re = \rho U L / \mu$
 - where the parameters are defined as 
