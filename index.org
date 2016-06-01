@@ -150,6 +150,10 @@
 
 * Design Pattern
 ** TODO OO Principles ::
+*** Liskov Substitution Principle
+- Functions that use references to base classes must be able to use objects of derived classes without knowing it.
+- Sounds right in natural language does not always work in code.
+- E.g. A square is a rectangle, but =Square= cannot be the subclass of =Rectangle=
 *** Encapsulate what varies
 - Identify the aspects of your application that vary, and separate them from what stays the same, so that later you can alter or extend the parts that vary without affecting those that don't. 
 - All design patterns provide a way to let some part of a system vary independently of all other parts. 
@@ -162,6 +166,9 @@ The declared type of the variables should be a supertype (Java interface or abst
 - With inheritance, objects are fixed after compilation.
 *** Loose couple
 Strive for loosely coupled designs between objects that interact
+*** Interface Segregation Principle
+- No clients should be forced to depend on methods it does not use. 
+- Split large interfaces into smaller and specific ones. 
 *** Open-Close Principle
 Classes should be open for extension, but closed for modification
 *** Dependency Inversion Principle 
@@ -275,7 +282,10 @@ The Iterator Pattern provides a way to access the elements of an aggregate objec
 - A protection proxy controls access to a resource based on access rights. 
 [[./figures/DesignPattern/Proxy.png]]
 
-
+** Flyweight
+- Use one instance of class to provide many virtual instances. 
+- Instead of creating many instances of a class, create one aggregate instance storing array of data.
+- Saves memory but all virtual instances have to behave in the same way.
 
 * Fluid Topology Optimization
 ** Fluid Dynamics
