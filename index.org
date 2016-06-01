@@ -349,6 +349,9 @@ Using directional cosine $d\vx = \valpha ds$, we can define the directional deri
 - For vector $\vu$: \[ \int_{\Omega} \nabla \cdot \vu \dV = \int_{\partial\Omega} \vn \cdot \vu \dS \]
 *** Stokes's Theorem
 \[ \int \vn \cdot \nabla \times \vu \dS = \int \vt\cdot \vu \ds \]
+*** Leibnitz's Theorem
+$F(\vx, t)$ is a scalar, vector or tensor function, and the region of integration $\Omega(t)$ may be moving with velocity $\vW$. Leibnitz's Theorem says that we may move the time derivative inside the volume integral if we add a surface integral to compensate for the motion of the boundary. 
+\[ \dd{}{t} \int_{\Omega(t)} F(x_i, t) \dV = \int_{\Omega} \pp{F}{t} \dV + \int_{\partial\Omega} n_k w_k F \dS \]
 
 ** Convective derivative
 *** Also known as:
