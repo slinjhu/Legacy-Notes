@@ -213,6 +213,10 @@ Association is any kind of link or dependency between two classes.
 #+INCLUDE: "./source/DesignPattern/DemoSingleton.java" src java
 
 ** Command
+- The Command Pattern encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations. 
+- It packages the actions and the receiver into an object that exposes just one method, =execute()=. 
+- The command object defines a binding between an action and its receiver. 
+[[./figures/DesignPattern/Command.png]]
 
 ** Adapter
 
