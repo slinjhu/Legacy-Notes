@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-01 Wed 20:45 -->
+<!-- 2016-06-02 Thu 14:58 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -186,22 +186,22 @@ for the JavaScript code in this tag.
 <ul>
 <li><a href="#orgheadline31">1. Design Pattern</a>
 <ul>
-<li><a href="#orgheadline12">1.1. OO Principles</a>
+<li><a href="#orgheadline1">1.1. UML and Dependency</a></li>
+<li><a href="#orgheadline13">1.2. OO Principles</a>
 <ul>
-<li><a href="#orgheadline1">1.1.1. Liskov Substitution Principle</a></li>
-<li><a href="#orgheadline2">1.1.2. Encapsulate what varies</a></li>
-<li><a href="#orgheadline3">1.1.3. Program to interfaces, not implementations</a></li>
-<li><a href="#orgheadline4">1.1.4. Favor composition over inheritance</a></li>
-<li><a href="#orgheadline5">1.1.5. Loose couple</a></li>
-<li><a href="#orgheadline6">1.1.6. Interface Segregation Principle</a></li>
-<li><a href="#orgheadline7">1.1.7. Open-Close Principle</a></li>
-<li><a href="#orgheadline8">1.1.8. Dependency Inversion Principle</a></li>
-<li><a href="#orgheadline9">1.1.9. Principle of Least Knowledge</a></li>
-<li><a href="#orgheadline10">1.1.10. The Hollywood Principle</a></li>
-<li><a href="#orgheadline11">1.1.11. Single Responsibility Principle</a></li>
+<li><a href="#orgheadline2">1.2.1. Liskov Substitution Principle</a></li>
+<li><a href="#orgheadline3">1.2.2. Encapsulate what varies</a></li>
+<li><a href="#orgheadline4">1.2.3. Program to interfaces, not implementations</a></li>
+<li><a href="#orgheadline5">1.2.4. Favor composition over inheritance</a></li>
+<li><a href="#orgheadline6">1.2.5. Loose couple</a></li>
+<li><a href="#orgheadline7">1.2.6. Interface Segregation Principle</a></li>
+<li><a href="#orgheadline8">1.2.7. Open-Close Principle</a></li>
+<li><a href="#orgheadline9">1.2.8. Dependency Inversion Principle</a></li>
+<li><a href="#orgheadline10">1.2.9. Principle of Least Knowledge</a></li>
+<li><a href="#orgheadline11">1.2.10. The Hollywood Principle</a></li>
+<li><a href="#orgheadline12">1.2.11. Single Responsibility Principle</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline13">1.2. UML and Object Relationships</a></li>
 <li><a href="#orgheadline14">1.3. Observer</a></li>
 <li><a href="#orgheadline15">1.4. Decorator</a></li>
 <li><a href="#orgheadline19">1.5. <span class="todo TODO">TODO</span> Factory</a>
@@ -578,9 +578,15 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline313">10.2. <span class="todo TODO">TODO</span> Java Basics</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline316">11. C++</a>
+<li><a href="#orgheadline319">11. C++</a>
 <ul>
-<li><a href="#orgheadline315">11.1. List initialization</a></li>
+<li><a href="#orgheadline318">11.1. Data Structure</a>
+<ul>
+<li><a href="#orgheadline315">11.1.1. Build-in types</a></li>
+<li><a href="#orgheadline316">11.1.2. String</a></li>
+<li><a href="#orgheadline317">11.1.3. Initialization</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -668,31 +674,63 @@ for the JavaScript code in this tag.
 <div id="outline-container-orgheadline31" class="outline-2">
 <h2 id="orgheadline31"><span class="section-number-2">1</span> Design Pattern</h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-orgheadline12" class="outline-3">
-<h3 id="orgheadline12"><span class="section-number-3">1.1</span> OO Principles</h3>
+</div><div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> UML and Dependency</h3>
 <div class="outline-text-3" id="text-1-1">
-</div><div id="outline-container-orgheadline1" class="outline-4">
-<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> Liskov Substitution Principle</h4>
-<div class="outline-text-4" id="text-1-1-1">
+
+<div class="figure">
+<p><img src="./figures/DesignPattern/Relationships.jpg" alt="Relationships.jpg" />
+</p>
+</div>
+<dl class="org-dl">
+<dt>Association</dt><dd>Association is any kind of link or dependency between two classes.</dd>
+<dt>Dependency</dt><dd><ul class="org-ul">
+<li>If A depends on B, then A has to change if B is modified, while B does not necessarily need to change if A is modified.</li>
+<li>We put the arrow nearby B to indicate that A depends on B.</li>
+</ul></dd>
+<dt>Weak Association</dt><dd>Class A may be linked to Class B if one of its methods includes a parameter or return instance of Class B. B is local in Class A.</dd>
+<dt>Strong Association</dt><dd><ul class="org-ul">
+<li>Class A holds a reference to Class B instance.</li>
+<li>B is global in Class A.</li>
+</ul></dd>
+<dt>Aggregation (Shared association)</dt><dd><ul class="org-ul">
+<li>Whole-part relationship.</li>
+<li>Person continues to exist after his Company dies.</li>
+<li>Person can also be aggregated to other classes.</li>
+</ul></dd>
+<dt>Composition (Non-shared association)</dt><dd><ul class="org-ul">
+<li>Person owns Leg and Hand.</li>
+<li>Leg has no purpose without Person.</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-3">
+<h3 id="orgheadline13"><span class="section-number-3">1.2</span> OO Principles</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2"><span class="section-number-4">1.2.1</span> Liskov Substitution Principle</h4>
+<div class="outline-text-4" id="text-1-2-1">
 <ul class="org-ul">
-<li>Functions that use references to base classes must be able to use objects of derived classes without knowing it.</li>
+<li>Functions that use references to super-classes must be able to use objects of subclasses without knowing it.</li>
 <li>Sounds right in natural language does not always work in code.</li>
 <li>E.g. A square is a rectangle, but <code>Square</code> cannot be the subclass of <code>Rectangle</code></li>
+<li>A subclass contains all fields of its super-class and possibly more.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline2" class="outline-4">
-<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> Encapsulate what varies</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.2.2</span> Encapsulate what varies</h4>
+<div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>Identify the aspects of your application that vary, and separate them from what stays the same, so that later you can alter or extend the parts that vary without affecting those that don't.</li>
 <li>All design patterns provide a way to let some part of a system vary independently of all other parts.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline3" class="outline-4">
-<h4 id="orgheadline3"><span class="section-number-4">1.1.3</span> Program to interfaces, not implementations</h4>
-<div class="outline-text-4" id="text-1-1-3">
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.2.3</span> Program to interfaces, not implementations</h4>
+<div class="outline-text-4" id="text-1-2-3">
 <p>
 The declared type of the variables should be a supertype (Java interface or abstract class), so that the objects assigned to those variables can be of any concrete implementation of the supertype, which means the class declaring them doesn't have to know about the actual object types.
 </p>
@@ -725,102 +763,82 @@ The declared type of the variables should be a supertype (Java interface or abst
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline4" class="outline-4">
-<h4 id="orgheadline4"><span class="section-number-4">1.1.4</span> Favor composition over inheritance</h4>
-<div class="outline-text-4" id="text-1-1-4">
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">1.2.4</span> Favor composition over inheritance</h4>
+<div class="outline-text-4" id="text-1-2-4">
 <ul class="org-ul">
-<li>Has-a relationship can be better than Is-a relationship since it is more flexible.</li>
-<li>With composition, objects can dynamically change behavior at runtime</li>
+<li>"Has-a" relationship can be better than "Is-a" relationship since it is more flexible.</li>
+<li>With composition, objects can dynamically change behaviors at runtime</li>
 <li>With inheritance, objects are fixed after compilation.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline5" class="outline-4">
-<h4 id="orgheadline5"><span class="section-number-4">1.1.5</span> Loose couple</h4>
-<div class="outline-text-4" id="text-1-1-5">
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">1.2.5</span> Loose couple</h4>
+<div class="outline-text-4" id="text-1-2-5">
 <p>
-Strive for loosely coupled designs between objects that interact
+Strive for loosely coupled designs between objects that interact.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline6" class="outline-4">
-<h4 id="orgheadline6"><span class="section-number-4">1.1.6</span> Interface Segregation Principle</h4>
-<div class="outline-text-4" id="text-1-1-6">
+<div id="outline-container-orgheadline7" class="outline-4">
+<h4 id="orgheadline7"><span class="section-number-4">1.2.6</span> Interface Segregation Principle</h4>
+<div class="outline-text-4" id="text-1-2-6">
 <ul class="org-ul">
 <li>No clients should be forced to depend on methods it does not use.</li>
 <li>Split large interfaces into smaller and specific ones.</li>
+<li>E.g. Sign up and Login should be two separate interface.</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgheadline7" class="outline-4">
-<h4 id="orgheadline7"><span class="section-number-4">1.1.7</span> Open-Close Principle</h4>
-<div class="outline-text-4" id="text-1-1-7">
+<div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.2.7</span> Open-Close Principle</h4>
+<div class="outline-text-4" id="text-1-2-7">
 <p>
 Classes should be open for extension, but closed for modification
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline8" class="outline-4">
-<h4 id="orgheadline8"><span class="section-number-4">1.1.8</span> Dependency Inversion Principle</h4>
-<div class="outline-text-4" id="text-1-1-8">
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.2.8</span> Dependency Inversion Principle</h4>
+<div class="outline-text-4" id="text-1-2-8">
 <p>
 Depend on abstractions; do not depend on concrete classes.
 <img src="./figures/DesignPattern/DependencyInversion.png" alt="DependencyInversion.png" />
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-4">
-<h4 id="orgheadline9"><span class="section-number-4">1.1.9</span> Principle of Least Knowledge</h4>
-<div class="outline-text-4" id="text-1-1-9">
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.2.9</span> Principle of Least Knowledge</h4>
+<div class="outline-text-4" id="text-1-2-9">
 <p>
 reduce the interactions between objects to just a few close friends.
 </p>
 </div>
 </div>
-<div id="outline-container-orgheadline10" class="outline-4">
-<h4 id="orgheadline10"><span class="section-number-4">1.1.10</span> The Hollywood Principle</h4>
-<div class="outline-text-4" id="text-1-1-10">
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.2.10</span> The Hollywood Principle</h4>
+<div class="outline-text-4" id="text-1-2-10">
 <ul class="org-ul">
 <li>Don't call us; we'll call you.</li>
 <li>We allow low-level components to hook themselves into a system, but the high-level components determines when and how they are needed.</li>
+<li>Ref: Template Method Pattern.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline11" class="outline-4">
-<h4 id="orgheadline11"><span class="section-number-4">1.1.11</span> Single Responsibility Principle</h4>
-<div class="outline-text-4" id="text-1-1-11">
-<p>
-Every responsibility of a class is an area of potential change. More than one responsibility means more than one area of change. A class should have only one reason to change.
-</p>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.2.11</span> Single Responsibility Principle</h4>
+<div class="outline-text-4" id="text-1-2-11">
+<ul class="org-ul">
+<li>Every responsibility of a class is an area of potential change.</li>
+<li>More than one responsibility means more than one area of change.</li>
+<li>A class should have only one reason to change.</li>
+</ul>
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline13" class="outline-3">
-<h3 id="orgheadline13"><span class="section-number-3">1.2</span> UML and Object Relationships</h3>
-<div class="outline-text-3" id="text-1-2">
-<p>
-<img src="./figures/DesignPattern/Relationships.jpg" alt="Relationships.jpg" />
-Association is any kind of link or dependency between two classes.
-</p>
-<dl class="org-dl">
-<dt>Weak Association</dt><dd>Class A may be linked to Class B if one of its methods includes a parameter or return instance of Class B. B is local in Class A.</dd>
-<dt>Strong Association</dt><dd><ul class="org-ul">
-<li>Class A holds a reference to Class B instance.</li>
-<li>B is global in Class A.</li>
-</ul></dd>
-<dt>Aggregation (Shared association)</dt><dd><ul class="org-ul">
-<li>Whole-part relationship.</li>
-<li>Person continues to exist after his Company dies.</li>
-<li>Person can also be aggregated to other classes.</li>
-</ul></dd>
-<dt>Composition (Non-shared association)</dt><dd><ul class="org-ul">
-<li>Person owns Leg and Hand.</li>
-<li>Leg has no purpose without Person.</li>
-</ul></dd>
-</dl>
-</div>
-</div>
+
 <div id="outline-container-orgheadline14" class="outline-3">
 <h3 id="orgheadline14"><span class="section-number-3">1.3</span> Observer</h3>
 <div class="outline-text-3" id="text-1-3">
@@ -4357,36 +4375,33 @@ Greedy algorithm applies to any matroid.
 
 
 
-<div id="outline-container-orgheadline316" class="outline-2">
-<h2 id="orgheadline316"><span class="section-number-2">11</span> C++</h2>
+<div id="outline-container-orgheadline319" class="outline-2">
+<h2 id="orgheadline319"><span class="section-number-2">11</span> C++</h2>
 <div class="outline-text-2" id="text-11">
-</div><div id="outline-container-orgheadline315" class="outline-3">
-<h3 id="orgheadline315"><span class="section-number-3">11.1</span> List initialization</h3>
+</div><div id="outline-container-orgheadline318" class="outline-3">
+<h3 id="orgheadline318"><span class="section-number-3">11.1</span> Data Structure</h3>
 <div class="outline-text-3" id="text-11-1">
+</div><div id="outline-container-orgheadline315" class="outline-4">
+<h4 id="orgheadline315"><span class="section-number-4">11.1.1</span> Build-in types</h4>
+</div>
+<div id="outline-container-orgheadline316" class="outline-4">
+<h4 id="orgheadline316"><span class="section-number-4">11.1.2</span> String</h4>
+<div class="outline-text-4" id="text-11-1-2">
+<p>
+A string is a variable-length sequence of characters. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline317" class="outline-4">
+<h4 id="orgheadline317"><span class="section-number-4">11.1.3</span> Initialization</h4>
+<div class="outline-text-4" id="text-11-1-3">
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #6c3163;">#include</span> <span style="color: #2d9574;">&lt;iostream&gt;</span>
-<span style="color: #6c3163;">#include</span> <span style="color: #2d9574;">&lt;map&gt;</span>
-<span style="color: #6c3163;">#include</span> <span style="color: #2d9574;">&lt;vector&gt;</span>
-<span style="color: #3a81c3; font-weight: bold;">using</span> <span style="color: #3a81c3; font-weight: bold;">namespace</span> <span style="color: #4e3163;">std</span>;
-
-<span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #3a81c3;">(){</span>
-  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Direct list initialization</span>
-  <span style="color: #3a81c3; font-weight: bold;">auto</span> <span style="color: #ba2f59; font-weight: bold;">v1</span> = <span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #6c3163;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span><span style="color: #6c3163;">}</span>;
-  <span style="color: #3a81c3; font-weight: bold;">auto</span> <span style="color: #ba2f59; font-weight: bold;">m1</span> = <span style="color: #ba2f59; font-weight: bold;">map</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">char</span>, <span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #6c3163;">{</span><span style="color: #2d9574;">{</span><span style="color: #2d9574;">'a'</span>,<span style="color: #4e3163;">1</span><span style="color: #2d9574;">}</span>, <span style="color: #2d9574;">{</span><span style="color: #2d9574;">'b'</span>, <span style="color: #4e3163;">2</span><span style="color: #2d9574;">}</span><span style="color: #6c3163;">}</span>;
-
-  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Copy list initialization</span>
-  <span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #715ab1;">v2</span> = <span style="color: #6c3163;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span>,<span style="color: #4e3163;">4</span><span style="color: #6c3163;">}</span>;
-  <span style="color: #ba2f59; font-weight: bold;">map</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">string</span>, <span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #715ab1;">m2</span> = <span style="color: #6c3163;">{</span>
-    <span style="color: #2d9574;">{</span><span style="color: #2d9574;">"Monday"</span>, <span style="color: #4e3163;">1</span><span style="color: #2d9574;">}</span>, <span style="color: #2d9574;">{</span><span style="color: #2d9574;">"Tuesday"</span>, <span style="color: #4e3163;">2</span><span style="color: #2d9574;">}</span>
-  <span style="color: #6c3163;">}</span>;
-
-  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Unnamed temporary with braced-init-list</span>
-  <span style="color: #3a81c3; font-weight: bold;">for</span><span style="color: #6c3163;">(</span><span style="color: #3a81c3; font-weight: bold;">auto</span> <span style="color: #ba2f59; font-weight: bold;">x</span>: <span style="color: #2d9574;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span><span style="color: #2d9574;">}</span><span style="color: #6c3163;">){</span>
-    cout &lt;&lt; x &lt;&lt; <span style="color: #2d9574;">" "</span>;
-  <span style="color: #6c3163;">}</span>
-<span style="color: #3a81c3;">}</span>
+<pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">string</span> <span style="color: #715ab1;">s1</span> = <span style="color: #2d9574;">"Hello"</span>; <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Copy initialization</span>
+<span style="color: #ba2f59; font-weight: bold;">string</span> <span style="color: #6c3163; font-weight: bold;">s2</span> <span style="color: #3a81c3;">(</span><span style="color: #2d9574;">"Hello"</span><span style="color: #3a81c3;">)</span>; <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Direct initialization</span>
 </pre>
+</div>
 </div>
 </div>
 </div>
@@ -4394,7 +4409,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-06-01 Wed 20:45</p>
+<p class="date">Created: 2016-06-02 Thu 14:58</p>
 <p class="validation"></p>
 </div>
 </body>
