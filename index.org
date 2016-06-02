@@ -350,63 +350,52 @@ Using directional cosine $d\vx = \valpha ds$, we can define the directional deri
 *** Stokes's Theorem
 \[ \int \vn \cdot \nabla \times \vu \dS = \int \vt\cdot \vu \ds \]
 *** Leibnitz's Theorem
-$F(\vx, t)$ is a scalar, vector or tensor function, and the region of integration $\Omega(t)$ may be moving with velocity $\vW$. Leibnitz's Theorem says that we may move the time derivative inside the volume integral if we add a surface integral to compensate for the motion of the boundary. 
+$F(\vx, t)$ is a scalar, vector or tensor function, and the region of integration $\Omega(t)$ may be moving with velocity $\vw$. Leibnitz's Theorem says that we may move the time derivative inside the volume integral if we add a surface integral to compensate for the motion of the boundary. 
 \[ \dd{}{t} \int_{\Omega(t)} F(x_i, t) \dV = \int_{\Omega} \pp{F}{t} \dV + \int_{\partial\Omega} n_k w_k F \dS \]
 
-** Convective derivative
-*** Also known as:
+** Motion Equations
+*** Convective derivative
+**** Also known as:
 - total derivative
 - advective derivative
 - Lagrangian derivative
 - substantive or material derivative
 - Stokes derivative
 
-*** Definition 
+**** Definition 
 Convective derivative is the time rate of change for a material element subjected to a space-and-time dependent macroscopic velocity field.
 \[\dd{f}{t} = \pp{f}{t} + \vu\cdot \nabla f \]
 The key thing to note is that $\vx(t)$ is also time dependent, and thus 
 \[\dd{f(\vx(t),t)}{t} = \pp{f}{t} + \pp{f}{\vx}\pp{\vx}{t} = \pp{f}{t} + \vu\cdot \nabla f \]
-*** For vector variable
+**** For vector variable
 If $\vf$ is a vector variable depending on $\vx$ and $t$, then 
 \[  \dd{\vf}{t} = \pp{\vf}{t} + \vu \cdot \nabla \vf \]
 or using index notation 
 \[d_t f_i = \partial_t f_i + u_j \partial_j f_i \]
-** Continuity Condition
+*** Continuity Condition
 Continuity requires that anything goes into $\Omega$ must the mass it contains. 
 \[ \int_{\partial \Omega} \rho \vu (-\vn) \dS = \dd{}{t} \int_{\Omega} \rho \dV \]
 using Divergence Theorem we get
 \[ \nabla \cdot (\rho \vu) + \dd{\rho}{t} = 0 \]
 For incompressible flow ($\rho=$ constant), it reduces to \[\nabla \cdot \vu = 0\]
+*** Momentum equation
+Momentum equation can be derived from Newton's second law of motion: (rate of change of momentum of a control volume $\Omega$) = (net force on $\Omega$). 
+\[ \dd{}{t} \int_{\Omega}\rho\vu \dV 
+   = \int_{\partial\Omega} \sigma \cdot \vn \dS  + \int_{\Omega} \vf \dV \]
+where $\sigma$ is the stress tensor, $\vf$ is the body force. 
 
-** Constitutive relationship of newtonian fluids
-**** The stress tensor
- 
-**** The strain rate tensor
-- Definition: the rate of change over time of local deformation
+In differential form 
+\[ \dd{\rho\vu}{t} = \nabla\cdot\sigma + \vf \]
 
 ** Navier-Stokes Equation
-
-** Dimensionless numbers
-**** Reynolds number
-- defined as $Re = \rho U L / \mu$
-- where the parameters are defined as 
-    + $\rho$ : density of the fluid
-    + $U$ : characteristic velocity.
-    + $L$ : representative length scale. 
-    + $\mu$: Dynamic viscosity of fluid. (1e-3 Pa.s for water at 20C)
-- meaning of Re:
-    + $Re < 2300$: laminar flow
-    + $Re > 4000$: turbulent flow.
-    + Re = (inertial forces) / (viscous forces)
-**** Knudsen number
-- defined as $Kn = \lambda / L$
-- parameters
-    + $\lambda$: length of the mean free path of the molecules. 
-    + $L$: representative length scale
-- meaning of Kn
-    + $Kn < 0.01$: NS equations are valid. 
-    + $0.01 < Kn < 0.1$: NS equations can still be used but with special boundary conditions. 
-    + $Kn > 0.1$: NS equations are not valid. 
+*** Constitutive relationship of newtonian fluids
+The stress tensor can be decomposed into isotropic part and viscous part: 
+\[\sigma_{ij} = - p\delta_{ij} + \tau_{ij} \]
+In Newtonian incompressible flow, we assume
+\[\tau_{ij} = \mu (\partial_i u_j + \partial_j u_i) \]
+Substituting into the momentum equation leads to 
+\[ \rho\pp{\vu}{t} + \rho \vu\cdot \nabla \vu = -\nabla p + \mu \nabla^2 \vu + \vf \]
+If we drop the inertial term $\rho\vu\cdot\nabla\vu$, then we obtain the Stokes Equation, which is the linearization of NS equation at low Reynolds number.
 
 ** Finite Element Methods
 *** Discretization
