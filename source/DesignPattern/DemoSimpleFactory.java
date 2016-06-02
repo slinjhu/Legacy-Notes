@@ -29,9 +29,9 @@ class SimplePizzaFactory {
 public class DemoSimpleFactory {
     public static void main(String[] args){
         // No need to know the specific pizza types.
-        Pizza s1 = SimplePizzaFactory.makeShape( PizzaType.Cheese);
+        Pizza s1 = SimplePizzaFactory.makeShape( PizzaType.Cheese );
         s1.show();
-        Pizza s2 = SimplePizzaFactory.makeShape( PizzaType.Veggie);
+        Pizza s2 = SimplePizzaFactory.makeShape( PizzaType.Veggie );
         s2.show();
     }
 }

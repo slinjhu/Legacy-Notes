@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-02 Thu 14:58 -->
+<!-- 2016-06-02 Thu 15:51 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -901,7 +901,7 @@ reduce the interactions between objects to just a few close friends.
 <ul class="org-ul">
 <li>The decorator pattern attaches additional responsibilities to an object dynamically.</li>
 <li>Decorators provide a flexible alternative to subclassing for extending functionalities.</li>
-<li>Decorators have the same super type ad the objects they decorate, and you can use one or more decorators to wrap the object.</li>
+<li>Decorators have the same super type as the objects they decorate, and you can use one or more decorators to wrap the object.</li>
 <li>The decorator adds its own behavior before and/or after <b>delegating</b> to the object it decorates.</li>
 <li><code>Component</code> can be either an abstract class or in interface.</li>
 </ul>
@@ -998,9 +998,9 @@ reduce the interactions between objects to just a few close friends.
 <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoSimpleFactory</span> <span style="color: #3a81c3;">{</span>
     <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
         <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">No need to know the specific pizza types.</span>
-        <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #715ab1;">s1</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #4e3163;">PizzaType</span>.Cheese<span style="color: #2d9574;">)</span>;
+        <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #715ab1;">s1</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #4e3163;">PizzaType</span>.Cheese <span style="color: #2d9574;">)</span>;
         s1.show<span style="color: #2d9574;">()</span>;
-        <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #715ab1;">s2</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #4e3163;">PizzaType</span>.Veggie<span style="color: #2d9574;">)</span>;
+        <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #715ab1;">s2</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #4e3163;">PizzaType</span>.Veggie <span style="color: #2d9574;">)</span>;
         s2.show<span style="color: #2d9574;">()</span>;
     <span style="color: #6c3163;">}</span>
 <span style="color: #3a81c3;">}</span>
@@ -4409,7 +4409,7 @@ A string is a variable-length sequence of characters.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-06-02 Thu 14:58</p>
+<p class="date">Created: 2016-06-02 Thu 15:51</p>
 <p class="validation"></p>
 </div>
 </body>

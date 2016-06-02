@@ -229,7 +229,7 @@ reduce the interactions between objects to just a few close friends.
 ** Decorator
 - The decorator pattern attaches additional responsibilities to an object dynamically. 
 - Decorators provide a flexible alternative to subclassing for extending functionalities.
-- Decorators have the same super type ad the objects they decorate, and you can use one or more decorators to wrap the object.
+- Decorators have the same super type as the objects they decorate, and you can use one or more decorators to wrap the object.
 - The decorator adds its own behavior before and/or after *delegating* to the object it decorates.
 - =Component= can be either an abstract class or in interface. 
 
