@@ -395,7 +395,7 @@ In Newtonian incompressible flow, we assume
 \[\tau_{ij} = \mu (\partial_i u_j + \partial_j u_i) \]
 Substituting into the momentum equation leads to 
 \[ \rho\pp{\vu}{t} + \rho \vu\cdot \nabla \vu = -\nabla p + \mu \nabla^2 \vu + \vf \]
-If we drop the inertial term $\rho\vu\cdot\nabla\vu$, then we obtain the Stokes Equation, which is the linearization of NS equation at low Reynolds number.
+If we drop the inertial term $\rho\vu\cdot\nabla\vu$, then we obtain the Stokes Equation, which is the linearization of NS equation at low Reynolds number ($Re = \rho U L /\mu$).
 
 ** Finite Element Methods
 *** Discretization
@@ -660,10 +660,11 @@ If $X\sim N(\mu, \sigma^2)$, and $Y=aX+b$, then $Y\sim N(a\mu+b, a^2 \sigma^2)$
 - Linearity of expectation :: If $X_1, \dots, X_n$ are jointly distributed random variables with expectations $E(X_i)$, then 
 \[E \left( a+\sum_i b_i X_i \right) = a + \sum_i b_i E(X_i)\]
 *** Variance and Standard Deviation
-Variance is a measure of variability (spread around the center). 
 - Variance :: \[\Var{X} = E\bigg( [X-E(X)]^2 \bigg)\]
-    - For discrete variable: \[ \Var{X} = \sum_i (x_i - \mu)^2 p(x_i) \]
-    - For continuous variable: \[ \Var{X} = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) dx \]
+  - Variance is a measure of variability (spread around the center). 
+  - In short words, variance is the *expected deviation from mean*. 
+  - For discrete variable: \[ \Var{X} = \sum_i (x_i - \mu)^2 p(x_i) \]
+  - For continuous variable: \[ \Var{X} = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) dx \]
 - Standard deviation :: Standard deviation is the square root of variance \[\sigma(X) = \sqrt{\Var{X}}\]
 - Coefficient or variation :: aka relative standard deviation $\sigma/\mu$ 
 - Linear transformation :: If $\Var{X}$ exists, then \[\Var{a + bX} = b^2\Var{X}\]
@@ -1732,7 +1733,7 @@ DFS(v){
 
 ***** Strongly Connected Components (SCC)
 Algorithm:
-1. DFS($G\^T$) to get finishing times.
+1. DFS($G^T$) to get finishing times.
 2. Let v be the vertex in $G$ with largest finishing time.
 3. Run DFS$(v)$ in $G$ to define an SCC $C$ of all nodes found in this
    DFS.

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-01 Wed 20:10 -->
+<!-- 2016-06-01 Wed 20:45 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -1936,12 +1936,11 @@ If \(X\sim N(\mu, \sigma^2)\), and \(Y=aX+b\), then \(Y\sim N(a\mu+b, a^2 \sigma
 <div id="outline-container-orgheadline97" class="outline-4">
 <h4 id="orgheadline97"><span class="section-number-4">4.4.2</span> Variance and Standard Deviation</h4>
 <div class="outline-text-4" id="text-4-4-2">
-<p>
-Variance is a measure of variability (spread around the center). 
-</p>
 <dl class="org-dl">
 <dt>Variance</dt><dd>\[\Var{X} = E\bigg( [X-E(X)]^2 \bigg)\]
 <ul class="org-ul">
+<li>Variance is a measure of variability (spread around the center).</li>
+<li>In short words, variance is the <b>expected deviation from mean</b>.</li>
 <li>For discrete variable: \[ \Var{X} = \sum_i (x_i - \mu)^2 p(x_i) \]</li>
 <li>For continuous variable: \[ \Var{X} = \int_{-\infty}^{\infty} (x - \mu)^2 f(x) dx \]</li>
 </ul></dd>
@@ -4046,7 +4045,7 @@ DFS(v){
 Algorithm:
 </p>
 <ol class="org-ol">
-<li>DFS(\(G\^T\)) to get finishing times.</li>
+<li>DFS(\(G^T\)) to get finishing times.</li>
 <li>Let v be the vertex in \(G\) with largest finishing time.</li>
 <li>Run DFS\((v)\) in \(G\) to define an SCC \(C\) of all nodes found in this
 DFS.</li>
@@ -4395,7 +4394,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-06-01 Wed 20:10</p>
+<p class="date">Created: 2016-06-01 Wed 20:45</p>
 <p class="validation"></p>
 </div>
 </body>
