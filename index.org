@@ -1912,29 +1912,13 @@ Greedy algorithm applies to any matroid.
 
 
 * C++
-** List initialization
+** Data Structure
+*** Build-in types
+*** String
+A string is a variable-length sequence of characters. 
+
+*** Initialization
 #+BEGIN_SRC c++
-#include <iostream>
-#include <map>
-#include <vector>
-using namespace std;
-
-int main(){
-  // Direct list initialization
-  auto v1 = vector<int> {1,2,3};
-  auto m1 = map<char, int> {{'a',1}, {'b', 2}};
-
-  // Copy list initialization
-  vector<int> v2 = {1,2,3,4};
-  map<string, int> m2 = {
-    {"Monday", 1}, {"Tuesday", 2}
-  };
-
-  // Unnamed temporary with braced-init-list
-  for(auto x: {1,2,3}){
-    cout << x << " ";
-  }
-}
+string s1 = "Hello"; // Copy initialization
+string s2 ("Hello"); // Direct initialization
 #+END_SRC
-
-
