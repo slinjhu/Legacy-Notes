@@ -302,7 +302,6 @@ The Iterator Pattern provides a way to access the elements of an aggregate objec
 #+INCLUDE: "./source/DesignPattern/DemoStrategy.java" src java
 
 
-
 ** Proxy
 - Proxy provides a surrogate or placeholder for another object to control access to it. 
 - A remote proxy controls access to a remote object
@@ -412,7 +411,6 @@ If we drop the inertial term $\rho\vu\cdot\nabla\vu$, then we obtain the Stokes 
 - Shape function: used to represent the candidate solution. 
 In Galerkin FEM, the shape functions are of the same sort as the test functions. 
 
-
 * Numerical Optimization
 ** Linear Algebra
 - Positive definite ::  A square matrix $A$ is positive definite if $x^T A x > 0$ for all nonzero $x\in \R^n$. All eigenvalues of a symmetric positive definite matrix are positive.
@@ -435,8 +433,6 @@ In Galerkin FEM, the shape functions are of the same sort as the test functions.
 *** Matrix Decomposition
 - Singular Value Decomposition (SVD)
 - Spectral Decomposition :: If $A\in \R^{n\times n}$ is symmetric, its spectral decomposition is given by \[ A = Q\Lambda Q^T\] where $\Lambda = \mathrm{diag}(\lambda_1, \lambda_2, \dots, \lambda_n)$, and eigenvector matrix $Q=[q_1, q_2, \dots q_n]$
-
-
 
 ** Overview
 - Three components of an optimization problem ::
@@ -501,9 +497,6 @@ In Galerkin FEM, the shape functions are of the same sort as the test functions.
 *** Trust Region
 - In the trust region strategy, the information gathered about $f(x)$ is used to construct a model function $m_k(x)$ whose behavior near the current point $x_k$ is similar to that of $f(x)$. 
 - Subproblem: $\min_p m_k(x_k + p)$, where $x_k + p$ lies inside the trust region.
-
-
-
 
 ** Least Square Problems
 *** Problem Formulation
@@ -594,8 +587,17 @@ Suppose $x^*$ is a local solution and LICQ holds for $x^*$, then there is a Lagr
 - Vertex :: All basic feasible points of the standard LP are vertices of the feasible polytope $\{x | Ax=b, x\ge 0\}$, and vice versa. 
 - Idea :: Simplex method starts from a vertex, and moves from one vertex to an adjacent one for which $\B$ differs in exactly one component. 
 *** Primal-Dual Interior-Point Method
+- Interior point :: The method requires all iterates to satisfy the inequality constraints in the problem *strictly*, so it is called interior-point method. 
 
-
+** Method of Moving Asymptotes (MMA)
+- In each iteration of MMA, a strictly convex approximating subproblem is generated and solved. 
+- Generation of these subproblems is controlled by "moving asymptotes"
+*** Problem to solve
+$\vx\in \R^n$ is the design variable, $f_0(\vx)$ is the objective function.
+- Minimize $f_0(\vx)$
+- Inequality constraints $f_i(\vx) \le \hat{f_i}$, for $i = 1,\dots, m$
+- Bound constraints $\underline{x}_j \le x_j \le \overline{x}_j$, for $j = 1,\dots,n$
+*** 
 * Probability and Statistics
 ** Probability
 - Sample space $\Omega$ :: Sample space is the set of all possible outcomes in an experiment. 
@@ -998,7 +1000,6 @@ which can be interpreted as (observed count of feature $k$) $-$ (expected count 
 
 
 
-
 * Principle of Programming Languages
 ** Background
 *** Several Programming paradigm
@@ -1139,7 +1140,6 @@ could return a fixed point for a function $g$ in that $Y g = g (Y g)$. Therefore
     - Obtain ~<name, behavior1>~ and ~<name <- message>~
     - Process message ~behavior2 = behavior1 message~
     - Add pair ~<name, behavior2>~
-
 
 * Graph Theory
 ** Notations
@@ -1593,7 +1593,6 @@ P[X=0] &\le& P\bigg[ |X-\mu|\ge \mu \bigg]
 \end{eqnarray}
 
 
-
 * Algorithm
 ** Asymptotic bounds
 *** Definitions
@@ -1863,8 +1862,6 @@ Greedy algorithm applies to any matroid.
 -  *left subtree*: the subtree rooted at the left child.
 -  *k-ary tree* allows each vertex up to $k$ children
 
-
-
 * My Cheat Sheet
 ** Emacs
 *** General
@@ -1917,8 +1914,6 @@ Greedy algorithm applies to any matroid.
 - Three types of variables :: (1) local variable: declared inside a method. (2) instance variable: declared inside a class but outside the method. (3) static variable: declared as static; cannot be local. 
 - Data types :: [[./figures/Java/DataType.jpg]]
 - Operators ::  shift >>> 
-
-
 
 * C++
 ** Data Structure
