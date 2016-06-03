@@ -18,6 +18,7 @@
 #+LaTeX_HEADER: \newcommand{\Y}{\mathcal{Y}}
 #+LaTeX_HEADER: \newcommand{\Var}[1]{\mathrm{Var}\left(#1\right)}
 #+LaTeX_HEADER: \newcommand{\Cov}[1]{\mathrm{Cov}\left(#1\right)}
+#+LaTeX_HEADER: \newcommand{\pow}[2]{\left( {#1} \right)^{#2}}
 #+LaTeX_HEADER: \newcommand{\MSE}{\mathrm{MSE}}
 #+LaTeX_HEADER: \newcommand{\fun}{\mathrm{Fun}~}
 #+LaTeX_HEADER: \newcommand{\To}{\Rightarrow}
@@ -76,7 +77,11 @@
 #+LaTeX_HEADER: \newcommand{\vY}{\boldsymbol{Y}}
 #+LaTeX_HEADER: \newcommand{\vZ}{\boldsymbol{Z}}
 #+LaTeX_HEADER: \newcommand{\valpha}{\boldsymbol{\alpha}}
-
+#+LaTeX_HEADER: \newcommand{\xjk}{x_j^{(k)}}
+#+LaTeX_HEADER: \newcommand{\vxk}{\vx^{(k)}}
+#+LaTeX_HEADER: \newcommand{\rik}{r_i^{(k)}}
+#+LaTeX_HEADER: \newcommand{\Ujk}{U_j^{(k)}}
+#+LaTeX_HEADER: \newcommand{\Ljk}{L_j^{(k)}}
 #+BEGIN_HTML
 \(
 \newcommand{\dd}[2]{{\mathrm{d}#1\over\mathrm{d} #2}}
@@ -96,6 +101,7 @@
 \newcommand{\Y}{\mathcal{Y}}
 \newcommand{\Var}[1]{\mathrm{Var}\left(#1\right)}
 \newcommand{\Cov}[1]{\mathrm{Cov}\left(#1\right)}
+\newcommand{\pow}[2]{\left( {#1} \right)^{#2}}
 \newcommand{\MSE}{\mathrm{MSE}}
 \newcommand{\fun}{\mathrm{Fun}~}
 \newcommand{\To}{\Rightarrow}
@@ -154,6 +160,11 @@
 \newcommand{\vY}{\boldsymbol{Y}}
 \newcommand{\vZ}{\boldsymbol{Z}}
 \newcommand{\valpha}{\boldsymbol{\alpha}}
+\newcommand{\vxk}{\vx^{(k)}}
+\newcommand{\xjk}{x_j^{(k)}}
+\newcommand{\rik}{r_i^{(k)}}
+\newcommand{\Ujk}{U_j^{(k)}}
+\newcommand{\Ljk}{L_j^{(k)}}
 \)
 #+END_HTML
 
@@ -597,7 +608,32 @@ $\vx\in \R^n$ is the design variable, $f_0(\vx)$ is the objective function.
 - Minimize $f_0(\vx)$
 - Inequality constraints $f_i(\vx) \le \hat{f_i}$, for $i = 1,\dots, m$
 - Bound constraints $\underline{x}_j \le x_j \le \overline{x}_j$, for $j = 1,\dots,n$
-*** 
+
+*** General approach
+1. Choose a starting point $\vx^{(0)}$, and set iteration index $k=0$
+2. Given an iterate $\vx^{(k)}$, calculate value and gradient of objective and constraints: $f_i(\vx^{(k)})$ and $\nabla f_i(\vx^{(k)})$ for $i=0,1,\dots,m$
+3. Generate a subproblem $P^{(k)}$ using linearized $f_i$, based on the calculated $f_i$ and $\nabla f_i$. 
+4. Solve $P^{(k)}$ and use the solution for next iteration.
+
+*** Approximation of $f_i$
+$\tilde{f_i}(\vx)$ is a first order convex approximation of $f_i$, i.e., it has the same value and derivative as $f_i$ at $\vxk$ 
+\[ \Ljk < \xjk < \Ujk \]
+\[ \tilde{f_i}(\vx) 
+  = \rik + \sum_{j=1}^n \left( {p_{ij}^{(k)} \over \Ujk - x_j} + {q_{ij}^{(k)} \over x_j - \Ljk } \right) \]
+where 
+\[ p_{ij}^{(k)} = \max\left\{0, \pow{ \Ujk - \xjk }{2} \pp{f_i}{x_j} \right\} \]
+\[ q_{ij}^{(k)} = \max\left\{0, - \pow{ \xjk - \Ljk }{2} \pp{f_i}{x_j} \right\} \]
+and $\rik$ is meant to make $\tilde{f_i}(\vxk) = f_i(\vxk)$
+
+In summary
+\[ \tilde{f_i}(\vx) = r_i^{(k)} + \sum_{j=1}^n 
+\begin{cases}
+{ \pow{\Ujk - \xjk}{2} \over \Ujk - x_j} \pp{f_i}{x_j} & \pp{f_i}{x_j} > 0 \\
+0 & \pp{f_i}{x_j} = 0 \\
+-{ \pow{\xjk - \Ljk}{2} \over x_j - \Ljk } \pp{f_i}{x_j} & \pp{f_i}{x_j} < 0 \end{cases} \]
+The asymptotes $L, U$ controls second order derivative of $\tilde{f_i}$. The closer they are chosen to $\vx$, the larger become the second derivatives. 
+*** Solving subproblem
+
 * Probability and Statistics
 ** Probability
 - Sample space $\Omega$ :: Sample space is the set of all possible outcomes in an experiment. 
