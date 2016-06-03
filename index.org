@@ -249,7 +249,7 @@ reduce the interactions between objects to just a few close friends.
 
 #+INCLUDE: "./source/DesignPattern/DemoDecorator.java" src java
 
-** TODO Factory
+** Factory
 *** Simple Factory
 - In the Factory Pattern, we create objects without exposing the creation logic to the client and refer to newly created objects using a common interface. 
 - A Simple Factory is any method that makes objects for more than one possible classes. 
@@ -931,7 +931,7 @@ Denote $w_1^n$ as a word sequence $(w_1, w_2, \dots, w_n)$.
   p(w_n ~|~ w_{n-1}) = {c(w_{n-1} w_n) \over c(w_{n-1})}
   \to {c(w_{n-1} w_n) + \lambda \over c(w_{n-1}) +\lambda V}
 \]
-*** TODO Good-Turing Discounting
+*** Good-Turing Discounting
 - Idea: use the count of things you've seen once to help estimate the count of things you've never seen. 
 
 
@@ -943,7 +943,7 @@ If count of $\dots w_{n-2}w_{n-1}w_n$ is small and not reliable, then we back of
 \]
 We don't simply add \lambda. Instead, we add \lambda based on a backed-off gram model. 
 
-*** TODO Witten-Bell smoothing
+*** Witten-Bell smoothing
 
 
 
@@ -990,8 +990,8 @@ which can be interpreted as (observed count of feature $k$) $-$ (expected count 
 | Rationalist: use prior knowledge | Empiricist: use available data |
 |----------------------------------+--------------------------------|
 
-*** TODO CYK algorithm
-*** TODO Earley algorithm
+*** CYK algorithm
+*** Earley algorithm
 
 ** Hidden Markov Model
 *** Components of a HMM
@@ -1116,7 +1116,7 @@ could return a fixed point for a function $g$ in that $Y g = g (Y g)$. Therefore
 *** FbX, Fb with Exception
 [[./figures/PL/FbX.jpg]]
 
-** TODO State
+** State
 
 ** Type Systems
 *** Concepts
@@ -1945,7 +1945,7 @@ Greedy algorithm applies to any matroid.
 - JRE (Java Runtime Environment) :: JRE is the implementation of JVM and it provides runtime environment. JRE = JVM + libraries etc.
 - JDK (Java Development Kit) :: JDK = JRE + development tools
 
-** TODO Java Basics
+** Java Basics
 - Variable :: A variable is name of reserved area allocated in memory. 
 - Three types of variables :: (1) local variable: declared inside a method. (2) instance variable: declared inside a class but outside the method. (3) static variable: declared as static; cannot be local. 
 - Data types :: [[./figures/Java/DataType.jpg]]
