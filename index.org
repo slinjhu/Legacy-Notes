@@ -753,6 +753,40 @@ where $\lambda$
 Cronbach's alpha is a measure of internal consistency. Suppose $X=Y_1 + Y_2 +\dots Y_k$, then
 \[\alpha = {k\over k-1} \left( 1 - {\sum_{i=1}^k \sigma^2_{Y_i} \over \sigma_X^2 } \right) \]
 
+* Parallel Computing
+** OpenMP
+
+** CUDA
+*** Terminologies
+- CUDA: a parallel computing platform and API model created by Nvidia. 
+- Host: CPU
+- Device: Graphical Processing Unit
+- Kernel: functions run on GPU device 
+**** Grid, block, and thread
+- Block: each parallel invocation of a device function
+- Thread: a block can be split into parallel threads
+    - Within a block, all threads can share data via shared memory (fast)
+    - Declare using =__shared__= keyword
+    - =void __syncthreads();=: Synchronize all threads within a block.
+
+
+*** GPU Memory Model
+- Global memory: slow and uncached
+- Registers: fast; for variables defined in kernels.
+- Local memory: for what doesn’t fit in registers, slow but cached
+- Shared memory: accessible by threads within the block
+- Texture memory: read only; cache optimized for 2D access. 
+[[./figures/CUDA/MemoryModel.png]]
+
+*** Syntax
+- =__global__ function declaration=: the keyword indicates a function that runs on device and is called by from host code.
+- =mykernel<<< N_blocks, N_threads_per_block >>>();= Triple angle brackets mark a call from host code to device code. 
+- Host pointer cannot be dereferenced in device code; Device pointer cannot be dereferenced in host code. 
+- =blockIdx.x= and =threadIdx.x= give the index
+- =blockDim.x= give the number of threads per block
+
+** OpenCL
+
 * Natural Language Processing
 ** Grammar
 *** Levels of languages:
