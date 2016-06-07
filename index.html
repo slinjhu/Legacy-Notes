@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-02 Thu 23:37 -->
+<!-- 2016-06-06 Mon 22:23 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -326,7 +326,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline110">4.5. Data Pre-processing</a>
 <ul>
 <li><a href="#orgheadline106">4.5.1. <span class="todo TODO">TODO</span> Skewness</a></li>
-<li><a href="#orgheadline108">4.5.2. <span class="todo TODO">TODO</span> Normality</a></li>
+<li><a href="#orgheadline108">4.5.2. Normality</a></li>
 <li><a href="#orgheadline109">4.5.3. Cronbach's alpha</a></li>
 </ul>
 </li>
@@ -2119,13 +2119,13 @@ Covariance is a measure of <span class="underline">joint variability</span> or <
 </div>
 
 <div id="outline-container-orgheadline108" class="outline-4">
-<h4 id="orgheadline108"><span class="section-number-4">4.5.2</span> <span class="todo TODO">TODO</span> Normality</h4>
+<h4 id="orgheadline108"><span class="section-number-4">4.5.2</span> Normality</h4>
 <div class="outline-text-4" id="text-4-5-2">
 </div><ol class="org-ol"><li><a id="orgheadline107"></a>Box-Cox Transformation<br  /><div class="outline-text-5" id="text-4-5-2-1">
 <p>
 Box-Cox transformation is a series of power transformation
 \[ x \leftarrow \begin{cases} {x^\lambda -1 \over \lambda} & \lambda \ne 0 \\ \log(x) & \lambda = 0 \end{cases} \]
-where \(\lambda\)
+where \(\lambda\) is determined such that it maximize the normality after transformation.
 </p>
 </div></li></ol>
 </div>
@@ -4561,7 +4561,7 @@ A string is a variable-length sequence of characters.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-06-02 Thu 23:37</p>
+<p class="date">Created: 2016-06-06 Mon 22:23</p>
 <p class="validation"></p>
 </div>
 </body>

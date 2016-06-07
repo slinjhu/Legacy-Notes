@@ -743,11 +743,11 @@ Covariance is a measure of _joint variability_ or _degree of association_ of two
 ** Data Pre-processing
 *** TODO Skewness
 
-*** TODO Normality
+*** Normality
 **** Box-Cox Transformation
 Box-Cox transformation is a series of power transformation
 \[ x \leftarrow \begin{cases} {x^\lambda -1 \over \lambda} & \lambda \ne 0 \\ \log(x) & \lambda = 0 \end{cases} \]
-where $\lambda$
+where $\lambda$ is determined such that it maximize the normality after transformation.
 
 *** Cronbach's alpha
 Cronbach's alpha is a measure of internal consistency. Suppose $X=Y_1 + Y_2 +\dots Y_k$, then
