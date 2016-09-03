@@ -1986,13 +1986,8 @@ Greedy algorithm applies to any matroid.
 - Operators ::  shift >>> 
 
 * C++
-** Data Structure
-*** Build-in types
-*** String
-A string is a variable-length sequence of characters. 
 
-*** Initialization
-#+BEGIN_SRC c++
-string s1 = "Hello"; // Copy initialization
-string s2 ("Hello"); // Direct initialization
-#+END_SRC
+* Others
+** Software Installation
+- Emacs :: ~brew install emacs --HEAD --use-git-head --with-cocoa --with-gnutls --with-rsvg --with-imagemagick~
+- Openmp :: The ~gcc~ that comes with Mac OS does not contain OpenMP, so we need to reinstall it: ~brew reinstall gcc --without-multilib~ Then use the newly installed ~g++-6~ or other later version.

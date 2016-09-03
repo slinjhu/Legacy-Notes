@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-06-06 Mon 22:23 -->
+<!-- 2016-09-03 Sat 01:32 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -599,15 +599,10 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline326">11.2. Java Basics</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline332">12. C++</a>
+<li><a href="#orgheadline328">12. C++</a></li>
+<li><a href="#orgheadline330">13. Others</a>
 <ul>
-<li><a href="#orgheadline331">12.1. Data Structure</a>
-<ul>
-<li><a href="#orgheadline328">12.1.1. Build-in types</a></li>
-<li><a href="#orgheadline329">12.1.2. String</a></li>
-<li><a href="#orgheadline330">12.1.3. Initialization</a></li>
-</ul>
-</li>
+<li><a href="#orgheadline329">13.1. Software Installation</a></li>
 </ul>
 </li>
 </ul>
@@ -763,29 +758,29 @@ The declared type of the variables should be a supertype (Java interface or abst
 </p>
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Animal</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #ce537a; font-weight: bold;">String</span> <span style="color: #bc6ec5; font-weight: bold;">makeSound</span><span style="color: #bc6ec5;">()</span>;
-<span style="color: #4f97d7;">}</span>
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">interface</span> <span style="color: #ba2f59; font-weight: bold;">Animal</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">makeSound</span><span style="color: #6c3163;">()</span>;
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Dog</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Animal</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">String</span> <span style="color: #bc6ec5; font-weight: bold;">makeSound</span><span style="color: #bc6ec5;">(){</span><span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">"bark"</span>;<span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Dog</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Animal</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">makeSound</span><span style="color: #6c3163;">(){</span><span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #2d9574;">"bark"</span>;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Cat</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Animal</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">String</span> <span style="color: #bc6ec5; font-weight: bold;">makeSound</span><span style="color: #bc6ec5;">(){</span><span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">"meow"</span>;<span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Cat</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Animal</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">makeSound</span><span style="color: #6c3163;">(){</span><span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #2d9574;">"meow"</span>;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DemoInterface</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">private</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">printSound</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Animal</span> <span style="color: #7590db;">animal</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">We don't need to know if it is a dog or cat or whatever.</span>
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoInterface</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">printSound</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Animal</span> <span style="color: #715ab1;">animal</span><span style="color: #6c3163;">){</span>
+        <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">We don't need to know if it is a dog or cat or whatever.</span>
         System.out.println<span style="color: #2d9574;">(</span> animal.makeSound<span style="color: #67b11d;">()</span> <span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #7590db;">args</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">We can assign the concrete implementation object at runtime.</span>
-        printSound<span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Dog</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
-        printSound<span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Cat</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">We can assign the concrete implementation object at runtime.</span>
+        printSound<span style="color: #2d9574;">(</span><span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Dog</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+        printSound<span style="color: #2d9574;">(</span><span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Cat</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
@@ -883,40 +878,40 @@ reduce the interactions between objects to just a few close friends.
 
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">import</span> <span style="color: #a45bad;">java</span>.<span style="color: #a45bad;">util</span>.<span style="color: #ce537a; font-weight: bold;">Observable</span>;
-<span style="color: #4f97d7; font-weight: bold;">import</span> <span style="color: #a45bad;">java</span>.<span style="color: #a45bad;">util</span>.<span style="color: #ce537a; font-weight: bold;">Observer</span>;
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">import</span> <span style="color: #4e3163;">java</span>.<span style="color: #4e3163;">util</span>.<span style="color: #ba2f59; font-weight: bold;">Observable</span>;
+<span style="color: #3a81c3; font-weight: bold;">import</span> <span style="color: #4e3163;">java</span>.<span style="color: #4e3163;">util</span>.<span style="color: #ba2f59; font-weight: bold;">Observer</span>;
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">MyData</span> <span style="color: #4f97d7; font-weight: bold;">extends</span> <span style="color: #ce537a; font-weight: bold;">Observable</span><span style="color: #4f97d7;">{</span>
-    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Data in the model-view paradigm</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">MyData</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Observable</span><span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Data in the model-view paradigm</span>
 
-    <span style="color: #4f97d7; font-weight: bold;">private</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">data</span>;
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">data</span>;
 
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">getData</span><span style="color: #bc6ec5;">(){</span>
-        <span style="color: #4f97d7; font-weight: bold;">return</span> data;
-    <span style="color: #bc6ec5;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">getData</span><span style="color: #6c3163;">(){</span>
+        <span style="color: #3a81c3; font-weight: bold;">return</span> data;
+    <span style="color: #6c3163;">}</span>
 
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">setData</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">data</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #4f97d7; font-weight: bold;">this</span>.data = data;
-        <span style="color: #4f97d7; font-weight: bold;">super</span>.setChanged<span style="color: #2d9574;">()</span>;
-        <span style="color: #4f97d7; font-weight: bold;">super</span>.notifyObservers<span style="color: #2d9574;">()</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">setData</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">data</span><span style="color: #6c3163;">){</span>
+        <span style="color: #3a81c3; font-weight: bold;">this</span>.data = data;
+        <span style="color: #3a81c3; font-weight: bold;">super</span>.setChanged<span style="color: #2d9574;">()</span>;
+        <span style="color: #3a81c3; font-weight: bold;">super</span>.notifyObservers<span style="color: #2d9574;">()</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Display</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Observer</span><span style="color: #4f97d7;">{</span>
-    <span style="color: #a45bad;">@Override</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">update</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Observable</span> <span style="color: #7590db;">o</span>, <span style="color: #ce537a; font-weight: bold;">Object</span> <span style="color: #7590db;">arg</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #ce537a; font-weight: bold;">MyData</span> <span style="color: #7590db;">myData</span> = <span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">MyData</span><span style="color: #2d9574;">)</span> o;
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Display</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Observer</span><span style="color: #3a81c3;">{</span>
+    <span style="color: #4e3163;">@Override</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">update</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Observable</span> <span style="color: #715ab1;">o</span>, <span style="color: #ba2f59; font-weight: bold;">Object</span> <span style="color: #715ab1;">arg</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">MyData</span> <span style="color: #715ab1;">myData</span> = <span style="color: #2d9574;">(</span><span style="color: #ba2f59; font-weight: bold;">MyData</span><span style="color: #2d9574;">)</span> o;
         System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Updated: "</span> + myData.getData<span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DemoObserver</span><span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #7590db;">args</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #ce537a; font-weight: bold;">MyData</span> <span style="color: #7590db;">myData</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">MyData</span><span style="color: #2d9574;">()</span>;
-        myData.addObserver<span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Display</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
-        myData.setData<span style="color: #2d9574;">(</span><span style="color: #a45bad;">5</span><span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoObserver</span><span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">MyData</span> <span style="color: #715ab1;">myData</span> = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">MyData</span><span style="color: #2d9574;">()</span>;
+        myData.addObserver<span style="color: #2d9574;">(</span><span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Display</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+        myData.setData<span style="color: #2d9574;">(</span><span style="color: #4e3163;">5</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
@@ -940,38 +935,38 @@ reduce the interactions between objects to just a few close friends.
 
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #4f97d7;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">The component</span>
-    <span style="color: #ce537a; font-weight: bold;">String</span> <span style="color: #bc6ec5; font-weight: bold;">toString</span><span style="color: #bc6ec5;">()</span>;
-<span style="color: #4f97d7;">}</span>
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">interface</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span> <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">The component</span>
+    <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">toString</span><span style="color: #6c3163;">()</span>;
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">abstract</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Decorator</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">protected</span> <span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #7590db;">wrappedObj</span>;
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">abstract</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Decorator</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">protected</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">wrappedObj</span>;
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Coffee</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Concrete component</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">String</span> <span style="color: #bc6ec5; font-weight: bold;">toString</span><span style="color: #bc6ec5;">(){</span><span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">"Coffee"</span>;<span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Coffee</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Concrete component</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">toString</span><span style="color: #6c3163;">(){</span><span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #2d9574;">"Coffee"</span>;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">AddMilk</span> <span style="color: #4f97d7; font-weight: bold;">extends</span> <span style="color: #ce537a; font-weight: bold;">Decorator</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Concrete decorator</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">AddMilk</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #7590db;">c</span><span style="color: #bc6ec5;">){</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">AddMilk</span> <span style="color: #3a81c3; font-weight: bold;">extends</span> <span style="color: #ba2f59; font-weight: bold;">Decorator</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Concrete decorator</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #6c3163; font-weight: bold;">AddMilk</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">c</span><span style="color: #6c3163;">){</span>
         wrappedObj = c;
-    <span style="color: #bc6ec5;">}</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">String</span> <span style="color: #bc6ec5; font-weight: bold;">toString</span><span style="color: #bc6ec5;">(){</span>
-        <span style="color: #4f97d7; font-weight: bold;">return</span> wrappedObj.toString<span style="color: #2d9574;">()</span> + <span style="color: #2d9574;">" + Milk"</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">String</span> <span style="color: #6c3163; font-weight: bold;">toString</span><span style="color: #6c3163;">(){</span>
+        <span style="color: #3a81c3; font-weight: bold;">return</span> wrappedObj.toString<span style="color: #2d9574;">()</span> + <span style="color: #2d9574;">" + Milk"</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DemoDecorator</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #7590db;">args</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #7590db;">coffee</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Coffee</span><span style="color: #2d9574;">()</span>;
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoDecorator</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">coffee</span> = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Coffee</span><span style="color: #2d9574;">()</span>;
         System.out.println<span style="color: #2d9574;">(</span> coffee <span style="color: #2d9574;">)</span>;
 
-        <span style="color: #ce537a; font-weight: bold;">Beverage</span> <span style="color: #7590db;">coffeeMilk</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">AddMilk</span><span style="color: #2d9574;">(</span>coffee<span style="color: #2d9574;">)</span>;
+        <span style="color: #ba2f59; font-weight: bold;">Beverage</span> <span style="color: #715ab1;">coffeeMilk</span> = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">AddMilk</span><span style="color: #2d9574;">(</span>coffee<span style="color: #2d9574;">)</span>;
         System.out.println<span style="color: #2d9574;">(</span> coffeeMilk <span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
@@ -994,43 +989,43 @@ reduce the interactions between objects to just a few close friends.
 </div>
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">enum</span> <span style="color: #ce537a; font-weight: bold;">PizzaType</span> <span style="color: #4f97d7;">{</span><span style="color: #7590db;">Veggie</span>, <span style="color: #7590db;">Cheese</span><span style="color: #4f97d7;">}</span>
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">enum</span> <span style="color: #ba2f59; font-weight: bold;">PizzaType</span> <span style="color: #3a81c3;">{</span><span style="color: #715ab1;">Veggie</span>, <span style="color: #715ab1;">Cheese</span><span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Pizza</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">show</span><span style="color: #bc6ec5;">()</span>;
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">interface</span> <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">show</span><span style="color: #6c3163;">()</span>;
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Veggie</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Pizza</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">show</span><span style="color: #bc6ec5;">(){</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Veggie</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">show</span><span style="color: #6c3163;">(){</span>
         System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Veggie pizza"</span><span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Cheese</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Pizza</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">show</span><span style="color: #bc6ec5;">(){</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Cheese</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">show</span><span style="color: #6c3163;">(){</span>
         System.out.println<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Cheese pizza"</span><span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">SimplePizzaFactory</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">Pizza</span> <span style="color: #bc6ec5; font-weight: bold;">makeShape</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">PizzaType</span> <span style="color: #7590db;">t</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
-        <span style="color: #4f97d7; font-weight: bold;">switch</span> <span style="color: #2d9574;">(</span>t<span style="color: #2d9574;">){</span>
-            <span style="color: #4f97d7; font-weight: bold;">case</span> Cheese: <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Cheese</span><span style="color: #67b11d;">()</span>;
-            <span style="color: #4f97d7; font-weight: bold;">case</span> Veggie: <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Veggie</span><span style="color: #67b11d;">()</span>;
-            <span style="color: #4f97d7; font-weight: bold;">default</span>: <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">null</span>;
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">SimplePizzaFactory</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #6c3163; font-weight: bold;">makeShape</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">PizzaType</span> <span style="color: #715ab1;">t</span><span style="color: #6c3163;">)</span> <span style="color: #6c3163;">{</span>
+        <span style="color: #3a81c3; font-weight: bold;">switch</span> <span style="color: #2d9574;">(</span>t<span style="color: #2d9574;">){</span>
+            <span style="color: #3a81c3; font-weight: bold;">case</span> Cheese: <span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Cheese</span><span style="color: #67b11d;">()</span>;
+            <span style="color: #3a81c3; font-weight: bold;">case</span> Veggie: <span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Veggie</span><span style="color: #67b11d;">()</span>;
+            <span style="color: #3a81c3; font-weight: bold;">default</span>: <span style="color: #3a81c3; font-weight: bold;">return</span> <span style="color: #4e3163;">null</span>;
         <span style="color: #2d9574;">}</span>
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DemoSimpleFactory</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #7590db;">args</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">No need to know the specific pizza types.</span>
-        <span style="color: #ce537a; font-weight: bold;">Pizza</span> <span style="color: #7590db;">s1</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #a45bad;">PizzaType</span>.Cheese <span style="color: #2d9574;">)</span>;
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoSimpleFactory</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">No need to know the specific pizza types.</span>
+        <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #715ab1;">s1</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #4e3163;">PizzaType</span>.Cheese <span style="color: #2d9574;">)</span>;
         s1.show<span style="color: #2d9574;">()</span>;
-        <span style="color: #ce537a; font-weight: bold;">Pizza</span> <span style="color: #7590db;">s2</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #a45bad;">PizzaType</span>.Veggie <span style="color: #2d9574;">)</span>;
+        <span style="color: #ba2f59; font-weight: bold;">Pizza</span> <span style="color: #715ab1;">s2</span> = SimplePizzaFactory.makeShape<span style="color: #2d9574;">(</span> <span style="color: #4e3163;">PizzaType</span>.Veggie <span style="color: #2d9574;">)</span>;
         s2.show<span style="color: #2d9574;">()</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
@@ -1065,25 +1060,25 @@ reduce the interactions between objects to just a few close friends.
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Singleton</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">private</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">Singleton</span> <span style="color: #7590db;">uniqueInstance</span>;
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #715ab1;">uniqueInstance</span>;
 
-    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Make the constructor private such that it cannot be called from outside.</span>
-    <span style="color: #4f97d7; font-weight: bold;">private</span> <span style="color: #bc6ec5; font-weight: bold;">Singleton</span><span style="color: #bc6ec5;">(){}</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Make the constructor private such that it cannot be called from outside.</span>
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #6c3163; font-weight: bold;">Singleton</span><span style="color: #6c3163;">(){}</span>
 
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">Singleton</span> <span style="color: #bc6ec5; font-weight: bold;">getInstance</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span>
-        <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>uniqueInstance == <span style="color: #a45bad;">null</span><span style="color: #2d9574;">){</span>
-            uniqueInstance = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Singleton</span><span style="color: #67b11d;">()</span>;
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #6c3163; font-weight: bold;">getInstance</span><span style="color: #6c3163;">()</span> <span style="color: #6c3163;">{</span>
+        <span style="color: #3a81c3; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>uniqueInstance == <span style="color: #4e3163;">null</span><span style="color: #2d9574;">){</span>
+            uniqueInstance = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span><span style="color: #67b11d;">()</span>;
         <span style="color: #2d9574;">}</span>
-        <span style="color: #4f97d7; font-weight: bold;">return</span> uniqueInstance;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+        <span style="color: #3a81c3; font-weight: bold;">return</span> uniqueInstance;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DemoSingleton</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #7590db;">args</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #ce537a; font-weight: bold;">Singleton</span> <span style="color: #7590db;">singleton</span> = Singleton.getInstance<span style="color: #2d9574;">()</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoSingleton</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #715ab1;">singleton</span> = Singleton.getInstance<span style="color: #2d9574;">()</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
@@ -1201,36 +1196,36 @@ The Iterator Pattern provides a way to access the elements of an aggregate objec
 </ul>
 <div class="org-src-container">
 
-<pre class="src src-java"><span style="color: #4f97d7; font-weight: bold;">interface</span> <span style="color: #ce537a; font-weight: bold;">Strategy</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">All algorithms are interchangeable because they implement the same interface</span>
-    <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">run</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x1</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x2</span><span style="color: #bc6ec5;">)</span>;
-<span style="color: #4f97d7;">}</span>
+<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">interface</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">All algorithms are interchangeable because they implement the same interface</span>
+    <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">run</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">)</span>;
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Add</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Strategy</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Each algorithm is encapsulated in a class</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">run</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x1</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x2</span><span style="color: #bc6ec5;">){</span><span style="color: #4f97d7; font-weight: bold;">return</span> x1 + x2;<span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Add</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Each algorithm is encapsulated in a class</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">run</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">){</span><span style="color: #3a81c3; font-weight: bold;">return</span> x1 + x2;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Multiply</span> <span style="color: #4f97d7; font-weight: bold;">implements</span> <span style="color: #ce537a; font-weight: bold;">Strategy</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">run</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x1</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x2</span><span style="color: #bc6ec5;">){</span><span style="color: #4f97d7; font-weight: bold;">return</span> x1 * x2;<span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Multiply</span> <span style="color: #3a81c3; font-weight: bold;">implements</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">run</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">){</span><span style="color: #3a81c3; font-weight: bold;">return</span> x1 * x2;<span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Client</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">private</span> <span style="color: #ce537a; font-weight: bold;">Strategy</span> <span style="color: #7590db;">strategy</span>;
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #bc6ec5; font-weight: bold;">Client</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">Strategy</span> <span style="color: #7590db;">strategy</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #4f97d7; font-weight: bold;">this</span>.strategy = strategy;
-    <span style="color: #bc6ec5;">}</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">executeStrategy</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x1</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x2</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #4f97d7; font-weight: bold;">return</span> strategy.run<span style="color: #2d9574;">(</span>x1, x2<span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Client</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #715ab1;">strategy</span>;
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #6c3163; font-weight: bold;">Client</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">Strategy</span> <span style="color: #715ab1;">strategy</span><span style="color: #6c3163;">){</span>
+        <span style="color: #3a81c3; font-weight: bold;">this</span>.strategy = strategy;
+    <span style="color: #6c3163;">}</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #6c3163; font-weight: bold;">executeStrategy</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x1</span>, <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x2</span><span style="color: #6c3163;">){</span>
+        <span style="color: #3a81c3; font-weight: bold;">return</span> strategy.run<span style="color: #2d9574;">(</span>x1, x2<span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 
-<span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">DemoStrategy</span> <span style="color: #4f97d7;">{</span>
-    <span style="color: #4f97d7; font-weight: bold;">public</span> <span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #7590db;">args</span><span style="color: #bc6ec5;">){</span>
-        <span style="color: #ce537a; font-weight: bold;">Client</span> <span style="color: #7590db;">client</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Client</span><span style="color: #2d9574;">(</span><span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">Add</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
-        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">result</span> = client.executeStrategy<span style="color: #2d9574;">(</span><span style="color: #a45bad;">3</span>, <span style="color: #a45bad;">4</span><span style="color: #2d9574;">)</span>;
-    <span style="color: #bc6ec5;">}</span>
-<span style="color: #4f97d7;">}</span>
+<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoStrategy</span> <span style="color: #3a81c3;">{</span>
+    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
+        <span style="color: #ba2f59; font-weight: bold;">Client</span> <span style="color: #715ab1;">client</span> = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Client</span><span style="color: #2d9574;">(</span><span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Add</span><span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+        <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">result</span> = client.executeStrategy<span style="color: #2d9574;">(</span><span style="color: #4e3163;">3</span>, <span style="color: #4e3163;">4</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #6c3163;">}</span>
+<span style="color: #3a81c3;">}</span>
 </pre>
 </div>
 </div>
@@ -4527,41 +4522,27 @@ Greedy algorithm applies to any matroid.
 </div>
 </div>
 
-<div id="outline-container-orgheadline332" class="outline-2">
-<h2 id="orgheadline332"><span class="section-number-2">12</span> C++</h2>
-<div class="outline-text-2" id="text-12">
-</div><div id="outline-container-orgheadline331" class="outline-3">
-<h3 id="orgheadline331"><span class="section-number-3">12.1</span> Data Structure</h3>
-<div class="outline-text-3" id="text-12-1">
-</div><div id="outline-container-orgheadline328" class="outline-4">
-<h4 id="orgheadline328"><span class="section-number-4">12.1.1</span> Build-in types</h4>
-</div>
-<div id="outline-container-orgheadline329" class="outline-4">
-<h4 id="orgheadline329"><span class="section-number-4">12.1.2</span> String</h4>
-<div class="outline-text-4" id="text-12-1-2">
-<p>
-A string is a variable-length sequence of characters. 
-</p>
-</div>
+<div id="outline-container-orgheadline328" class="outline-2">
+<h2 id="orgheadline328"><span class="section-number-2">12</span> C++</h2>
 </div>
 
-<div id="outline-container-orgheadline330" class="outline-4">
-<h4 id="orgheadline330"><span class="section-number-4">12.1.3</span> Initialization</h4>
-<div class="outline-text-4" id="text-12-1-3">
-<div class="org-src-container">
-
-<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">s1</span> = <span style="color: #2d9574;">"Hello"</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Copy initialization</span>
-<span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #bc6ec5; font-weight: bold;">s2</span> <span style="color: #4f97d7;">(</span><span style="color: #2d9574;">"Hello"</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">Direct initialization</span>
-</pre>
-</div>
-</div>
+<div id="outline-container-orgheadline330" class="outline-2">
+<h2 id="orgheadline330"><span class="section-number-2">13</span> Others</h2>
+<div class="outline-text-2" id="text-13">
+</div><div id="outline-container-orgheadline329" class="outline-3">
+<h3 id="orgheadline329"><span class="section-number-3">13.1</span> Software Installation</h3>
+<div class="outline-text-3" id="text-13-1">
+<dl class="org-dl">
+<dt>Emacs</dt><dd><code>brew install emacs --HEAD --use-git-head --with-cocoa --with-gnutls --with-rsvg --with-imagemagick</code></dd>
+<dt>Openmp</dt><dd>The <code>gcc</code> that comes with Mac OS does not contain OpenMP, so we need to reinstall it: <code>brew reinstall gcc --without-multilib</code> Then use the newly installed <code>g++-6</code> or other later version.</dd>
+</dl>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-06-06 Mon 22:23</p>
+<p class="date">Created: 2016-09-03 Sat 01:32</p>
 <p class="validation"></p>
 </div>
 </body>
