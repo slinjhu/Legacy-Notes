@@ -1986,8 +1986,77 @@ Greedy algorithm applies to any matroid.
 - Operators ::  shift >>> 
 
 * C++
+** Pitfalls in C++
+Here I record some mistakes that are very easy to make in C++.
+*** Overflow and Underflow
+- Avoid adding two ~int~ number when an easy alternative exists
+#+BEGIN_SRC c++
+int mid = (left + right) / 2;
+#+END_SRC
+
+*** Implicit cast
+**** ~int~ to ~unsigned~
+A signed number is implicitly cast into unsigned before adding, and it may cause counter-intuitive results: 
+#+BEGIN_SRC c++
+assert(0U - 1 == -1);
+assert(0U - 1 > 0);
+#+END_SRC
+
+A common bug could occur when you want to loop through from the first to the second last element of a vector. Since ~size()~ is unsigned, and if the vector is empty, the loop will not be skipped.
+#+BEGIN_SRC c++
+vector<int> xx; // Empty
+for(size_t i = 0; i < xx.size() - 1; ++i){
+  // Loop will not stop until i = 4294967295
+}
+#+END_SRC
+
+**** ~int~ to ~bool~
+~int~ will be implicitly cast into ~bool~. If you mistakenly type ~&~ as ~&&~, then it still compiles but lead to different result.
+#+BEGIN_SRC c++
+int x = 0x0f, y = 0xf0;
+assert((x & y) == 0);
+assert((x && y) == 1);
+#+END_SRC
+
+*** Vector
+- When initializing a nested vector, ~{}~ is NOT the same as ~{{}}~. ~{}~ is an empty vector, while ~{{}}~ is a size-1 vector containing an empty list.
+- It is always easy to forget that vector does NOT check index bound. If you are not confident with the index, use ~at()~.
+#+BEGIN_SRC c++
+vector<int> xx = {0,1};
+try{
+  cout << xx.at(99);
+}catch(out_of_range e){
+  // If out of range, at() will raise exception.
+}
+#+END_SRC
+- C++ does not check iterator bound either. Dereferencing an out-of-range iterator will occur segmentation fault.
+- The input range for a STL algorithm is a close-open range (NOT including the later iterator).
+#+BEGIN_SRC c++
+xx = {0,1,2,3,4};
+vector<int> sub (xx.begin() + 1, xx.begin() + 3);
+assert(sub == vector<int> ({1,2}));
+#+END_SRC
+
+*** Char
+- In C++ char type is more like integer.
+#+BEGIN_SRC c++
+assert( to_string('a') != "a" );
+assert( to_string('a') == "97" );
+#+END_SRC
+
+- Char can be used to index an array syntactically, hiding some serious bugs
+#+BEGIN_SRC c++
+vector<int> xx = {0, 1, 2, 3};
+assert( & xx['1'] != & xx[1] );
+assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+#+END_SRC
+
+** Causes of Segmentation Fault
+- Out-of-range iterator
+- Uninitialized pointer
+- ~pop()~ on an empty stack or queue.
 
 * Others
 ** Software Installation
-- Emacs :: ~brew install emacs --HEAD --use-git-head --with-cocoa --with-gnutls --with-rsvg --with-imagemagick~
+- Emacs :: ~brew install emacs --HEAD --with-cocoa --with-gnutls --with-imagemagick~
 - Openmp :: The ~gcc~ that comes with Mac OS does not contain OpenMP, so we need to reinstall it: ~brew reinstall gcc --without-multilib~ Then use the newly installed ~g++-6~ or other later version.

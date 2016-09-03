@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-09-03 Sat 01:32 -->
+<!-- 2016-09-03 Sat 03:42 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -599,10 +599,22 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline326">11.2. Java Basics</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline328">12. C++</a></li>
-<li><a href="#orgheadline330">13. Others</a>
+<li><a href="#orgheadline336">12. C++</a>
 <ul>
-<li><a href="#orgheadline329">13.1. Software Installation</a></li>
+<li><a href="#orgheadline334">12.1. Pitfalls in C++</a>
+<ul>
+<li><a href="#orgheadline328">12.1.1. Overflow and Underflow</a></li>
+<li><a href="#orgheadline331">12.1.2. Implicit cast</a></li>
+<li><a href="#orgheadline332">12.1.3. Vector</a></li>
+<li><a href="#orgheadline333">12.1.4. Char</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline335">12.2. Causes of Segmentation Fault</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline338">13. Others</a>
+<ul>
+<li><a href="#orgheadline337">13.1. Software Installation</a></li>
 </ul>
 </li>
 </ul>
@@ -4522,18 +4534,149 @@ Greedy algorithm applies to any matroid.
 </div>
 </div>
 
-<div id="outline-container-orgheadline328" class="outline-2">
-<h2 id="orgheadline328"><span class="section-number-2">12</span> C++</h2>
+<div id="outline-container-orgheadline336" class="outline-2">
+<h2 id="orgheadline336"><span class="section-number-2">12</span> C++</h2>
+<div class="outline-text-2" id="text-12">
+</div><div id="outline-container-orgheadline334" class="outline-3">
+<h3 id="orgheadline334"><span class="section-number-3">12.1</span> Pitfalls in C++</h3>
+<div class="outline-text-3" id="text-12-1">
+<p>
+Here I record some mistakes that are very easy to make in C++.
+</p>
+</div>
+<div id="outline-container-orgheadline328" class="outline-4">
+<h4 id="orgheadline328"><span class="section-number-4">12.1.1</span> Overflow and Underflow</h4>
+<div class="outline-text-4" id="text-12-1-1">
+<ul class="org-ul">
+<li>Avoid adding two <code>int</code> number when an easy alternative exists</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">mid</span> = <span style="color: #3a81c3;">(</span>left + right<span style="color: #3a81c3;">)</span> / <span style="color: #4e3163;">2</span>;
+</pre>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline330" class="outline-2">
-<h2 id="orgheadline330"><span class="section-number-2">13</span> Others</h2>
+<div id="outline-container-orgheadline331" class="outline-4">
+<h4 id="orgheadline331"><span class="section-number-4">12.1.2</span> Implicit cast</h4>
+<div class="outline-text-4" id="text-12-1-2">
+</div><ol class="org-ol"><li><a id="orgheadline329"></a><code>int</code> to <code>unsigned</code><br  /><div class="outline-text-5" id="text-12-1-2-1">
+<p>
+A signed number is implicitly cast into unsigned before adding, and it may cause counter-intuitive results: 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++">assert<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">0U</span> - <span style="color: #4e3163;">1</span> == -<span style="color: #4e3163;">1</span><span style="color: #3a81c3;">)</span>;
+assert<span style="color: #3a81c3;">(</span><span style="color: #4e3163;">0U</span> - <span style="color: #4e3163;">1</span> &gt; <span style="color: #4e3163;">0</span><span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+
+<p>
+A common bug could occur when you want to loop through from the first to the second last element of a vector. Since <code>size()</code> is unsigned, and if the vector is empty, the loop will not be skipped.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #3a81c3;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #3a81c3;">&gt;</span> <span style="color: #715ab1;">xx</span>; <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Empty</span>
+<span style="color: #3a81c3; font-weight: bold;">for</span><span style="color: #3a81c3;">(</span><span style="color: #ba2f59; font-weight: bold;">size_t</span> <span style="color: #715ab1;">i</span> = <span style="color: #4e3163;">0</span>; i &lt; xx.size<span style="color: #6c3163;">()</span> - <span style="color: #4e3163;">1</span>; ++i<span style="color: #3a81c3;">){</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Loop will not stop until i = 4294967295</span>
+<span style="color: #3a81c3;">}</span>
+</pre>
+</div>
+</div></li>
+
+<li><a id="orgheadline330"></a><code>int</code> to <code>bool</code><br  /><div class="outline-text-5" id="text-12-1-2-2">
+<p>
+<code>int</code> will be implicitly cast into <code>bool</code>. If you mistakenly type <code>&amp;</code> as <code>&amp;&amp;</code>, then it still compiles but lead to different result.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">x</span> = <span style="color: #4e3163;">0x0f</span>, <span style="color: #715ab1;">y</span> = <span style="color: #4e3163;">0xf0</span>;
+assert<span style="color: #3a81c3;">(</span><span style="color: #6c3163;">(</span>x &amp; y<span style="color: #6c3163;">)</span> == <span style="color: #4e3163;">0</span><span style="color: #3a81c3;">)</span>;
+assert<span style="color: #3a81c3;">(</span><span style="color: #6c3163;">(</span>x &amp;&amp; y<span style="color: #6c3163;">)</span> == <span style="color: #4e3163;">1</span><span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+</div></li></ol>
+</div>
+
+<div id="outline-container-orgheadline332" class="outline-4">
+<h4 id="orgheadline332"><span class="section-number-4">12.1.3</span> Vector</h4>
+<div class="outline-text-4" id="text-12-1-3">
+<ul class="org-ul">
+<li>When initializing a nested vector, <code>{}</code> is NOT the same as <code>{{}}</code>. <code>{}</code> is an empty vector, while <code>{{}}</code> is a size-1 vector containing an empty list.</li>
+<li>It is always easy to forget that vector does NOT check index bound. If you are not confident with the index, use <code>at()</code>.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #3a81c3;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #3a81c3;">&gt;</span> <span style="color: #715ab1;">xx</span> = <span style="color: #3a81c3;">{</span><span style="color: #4e3163;">0</span>,<span style="color: #4e3163;">1</span><span style="color: #3a81c3;">}</span>;
+<span style="color: #3a81c3; font-weight: bold;">try</span><span style="color: #3a81c3;">{</span>
+  cout &lt;&lt; xx.at<span style="color: #6c3163;">(</span><span style="color: #4e3163;">99</span><span style="color: #6c3163;">)</span>;
+<span style="color: #3a81c3;">}</span><span style="color: #3a81c3; font-weight: bold;">catch</span><span style="color: #3a81c3;">(</span><span style="color: #ba2f59; font-weight: bold;">out_of_range</span> <span style="color: #715ab1;">e</span><span style="color: #3a81c3;">){</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">If out of range, at() will raise exception.</span>
+<span style="color: #3a81c3;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>C++ does not check iterator bound either. Dereferencing an out-of-range iterator will occur segmentation fault.</li>
+<li>The input range for a STL algorithm is a close-open range (NOT including the later iterator).</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c++">xx = <span style="color: #3a81c3;">{</span><span style="color: #4e3163;">0</span>,<span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span>,<span style="color: #4e3163;">3</span>,<span style="color: #4e3163;">4</span><span style="color: #3a81c3;">}</span>;
+<span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #3a81c3;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #3a81c3;">&gt;</span> <span style="color: #6c3163; font-weight: bold;">sub</span> <span style="color: #3a81c3;">(</span>xx.begin<span style="color: #6c3163;">()</span> + <span style="color: #4e3163;">1</span>, xx.begin<span style="color: #6c3163;">()</span> + <span style="color: #4e3163;">3</span><span style="color: #3a81c3;">)</span>;
+assert<span style="color: #3a81c3;">(</span>sub == <span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #6c3163;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #6c3163;">&gt;</span> <span style="color: #6c3163;">(</span><span style="color: #2d9574;">{</span><span style="color: #4e3163;">1</span>,<span style="color: #4e3163;">2</span><span style="color: #2d9574;">}</span><span style="color: #6c3163;">)</span><span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline333" class="outline-4">
+<h4 id="orgheadline333"><span class="section-number-4">12.1.4</span> Char</h4>
+<div class="outline-text-4" id="text-12-1-4">
+<ul class="org-ul">
+<li>In C++ char type is more like integer.</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c++">assert<span style="color: #3a81c3;">(</span> to_string<span style="color: #6c3163;">(</span><span style="color: #2d9574;">'a'</span><span style="color: #6c3163;">)</span> != <span style="color: #2d9574;">"a"</span> <span style="color: #3a81c3;">)</span>;
+assert<span style="color: #3a81c3;">(</span> to_string<span style="color: #6c3163;">(</span><span style="color: #2d9574;">'a'</span><span style="color: #6c3163;">)</span> == <span style="color: #2d9574;">"97"</span> <span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Char can be used to index an array syntactically, hiding some serious bugs</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #3a81c3;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #3a81c3;">&gt;</span> <span style="color: #715ab1;">xx</span> = <span style="color: #3a81c3;">{</span><span style="color: #4e3163;">0</span>, <span style="color: #4e3163;">1</span>, <span style="color: #4e3163;">2</span>, <span style="color: #4e3163;">3</span><span style="color: #3a81c3;">}</span>;
+assert<span style="color: #3a81c3;">(</span> &amp; xx<span style="color: #6c3163;">[</span><span style="color: #2d9574;">'1'</span><span style="color: #6c3163;">]</span> != &amp; xx<span style="color: #6c3163;">[</span><span style="color: #4e3163;">1</span><span style="color: #6c3163;">]</span> <span style="color: #3a81c3;">)</span>;
+assert<span style="color: #3a81c3;">(</span>string<span style="color: #6c3163;">(</span><span style="color: #2d9574;">'1'</span>, <span style="color: #4e3163;">65</span><span style="color: #6c3163;">)</span> == <span style="color: #2d9574;">"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"</span><span style="color: #3a81c3;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline335" class="outline-3">
+<h3 id="orgheadline335"><span class="section-number-3">12.2</span> Causes of Segmentation Fault</h3>
+<div class="outline-text-3" id="text-12-2">
+<ul class="org-ul">
+<li>Out-of-range iterator</li>
+<li>Uninitialized pointer</li>
+<li><code>pop()</code> on an empty stack or queue.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline338" class="outline-2">
+<h2 id="orgheadline338"><span class="section-number-2">13</span> Others</h2>
 <div class="outline-text-2" id="text-13">
-</div><div id="outline-container-orgheadline329" class="outline-3">
-<h3 id="orgheadline329"><span class="section-number-3">13.1</span> Software Installation</h3>
+</div><div id="outline-container-orgheadline337" class="outline-3">
+<h3 id="orgheadline337"><span class="section-number-3">13.1</span> Software Installation</h3>
 <div class="outline-text-3" id="text-13-1">
 <dl class="org-dl">
-<dt>Emacs</dt><dd><code>brew install emacs --HEAD --use-git-head --with-cocoa --with-gnutls --with-rsvg --with-imagemagick</code></dd>
+<dt>Emacs</dt><dd><code>brew install emacs --HEAD --with-cocoa --with-gnutls --with-imagemagick</code></dd>
 <dt>Openmp</dt><dd>The <code>gcc</code> that comes with Mac OS does not contain OpenMP, so we need to reinstall it: <code>brew reinstall gcc --without-multilib</code> Then use the newly installed <code>g++-6</code> or other later version.</dd>
 </dl>
 </div>
@@ -4542,7 +4685,7 @@ Greedy algorithm applies to any matroid.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-09-03 Sat 01:32</p>
+<p class="date">Created: 2016-09-03 Sat 03:42</p>
 <p class="validation"></p>
 </div>
 </body>
