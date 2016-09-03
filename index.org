@@ -2058,5 +2058,6 @@ assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 
 * Others
 ** Software Installation
-- Emacs :: ~brew install emacs --HEAD --with-cocoa --with-gnutls --with-imagemagick~
+- Emacs :: ~brew install emacs --HEAD --with-cocoa --with-gnutls --with-imagemagick~ 
+If you prefer a stable version, use ~brew cask install emacs~ to install from a stable binary release.
 - Openmp :: The ~gcc~ that comes with Mac OS does not contain OpenMP, so we need to reinstall it: ~brew reinstall gcc --without-multilib~ Then use the newly installed ~g++-6~ or other later version.
