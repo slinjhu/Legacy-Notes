@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-09-03 Sat 15:27 -->
+<!-- 2016-09-04 Sun 00:46 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -599,7 +599,7 @@ for the JavaScript code in this tag.
 <li><a href="#orgheadline329">11.2. Java Basics</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline339">12. C++</a>
+<li><a href="#orgheadline341">12. C++</a>
 <ul>
 <li><a href="#orgheadline337">12.1. Pitfalls in C++</a>
 <ul>
@@ -610,11 +610,16 @@ for the JavaScript code in this tag.
 </ul>
 </li>
 <li><a href="#orgheadline338">12.2. Causes of Segmentation Fault</a></li>
+<li><a href="#orgheadline340">12.3. Advanced Techniques</a>
+<ul>
+<li><a href="#orgheadline339">12.3.1. Static local variable</a></li>
 </ul>
 </li>
-<li><a href="#orgheadline341">13. Others</a>
+</ul>
+</li>
+<li><a href="#orgheadline343">13. Others</a>
 <ul>
-<li><a href="#orgheadline340">13.1. Software Installation</a></li>
+<li><a href="#orgheadline342">13.1. Software Installation</a></li>
 </ul>
 </li>
 </ul>
@@ -4688,8 +4693,8 @@ Greedy algorithm applies to any matroid.
 </div>
 </div>
 
-<div id="outline-container-orgheadline339" class="outline-2">
-<h2 id="orgheadline339"><span class="section-number-2">12</span> C++</h2>
+<div id="outline-container-orgheadline341" class="outline-2">
+<h2 id="orgheadline341"><span class="section-number-2">12</span> C++</h2>
 <div class="outline-text-2" id="text-12">
 </div><div id="outline-container-orgheadline337" class="outline-3">
 <h3 id="orgheadline337"><span class="section-number-3">12.1</span> Pitfalls in C++</h3>
@@ -4734,6 +4739,10 @@ A common bug could occur when you want to loop through from the first to the sec
 <pre class="src src-c++"><span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #3a81c3;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #3a81c3;">&gt;</span> <span style="color: #715ab1;">xx</span>; <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Empty</span>
 <span style="color: #3a81c3; font-weight: bold;">for</span><span style="color: #3a81c3;">(</span><span style="color: #ba2f59; font-weight: bold;">size_t</span> <span style="color: #715ab1;">i</span> = <span style="color: #4e3163;">0</span>; i &lt; xx.size<span style="color: #6c3163;">()</span> - <span style="color: #4e3163;">1</span>; ++i<span style="color: #3a81c3;">){</span>
   <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Loop will not stop until i = 4294967295</span>
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #3a81c3; font-weight: bold;">for</span><span style="color: #3a81c3;">(</span><span style="color: #ba2f59; font-weight: bold;">size_t</span> <span style="color: #715ab1;">i</span> = <span style="color: #4e3163;">0</span>; i + <span style="color: #4e3163;">1</span> &lt; xx.size<span style="color: #6c3163;">()</span>; ++i<span style="color: #3a81c3;">){</span>
+  <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Loop will be skipped (avoid adding int with unsigned)</span>
 <span style="color: #3a81c3;">}</span>
 </pre>
 </div>
@@ -4821,13 +4830,41 @@ assert<span style="color: #3a81c3;">(</span>string<span style="color: #6c3163;">
 </ul>
 </div>
 </div>
+<div id="outline-container-orgheadline340" class="outline-3">
+<h3 id="orgheadline340"><span class="section-number-3">12.3</span> Advanced Techniques</h3>
+<div class="outline-text-3" id="text-12-3">
+</div><div id="outline-container-orgheadline339" class="outline-4">
+<h4 id="orgheadline339"><span class="section-number-4">12.3.1</span> Static local variable</h4>
+<div class="outline-text-4" id="text-12-3-1">
+<p>
+Initialization of a static local variable will be executed only once, and the variable keeps its value until the program exits.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Use static local variable to reduce scope</span>
+<span style="color: #ba2f59; font-weight: bold;">vector</span><span style="color: #3a81c3;">&lt;</span><span style="color: #ba2f59; font-weight: bold;">int</span><span style="color: #3a81c3;">&gt;</span> <span style="color: #6c3163; font-weight: bold;">xx</span> <span style="color: #3a81c3;">(</span><span style="color: #4e3163;">10</span>, <span style="color: #4e3163;">0</span><span style="color: #3a81c3;">)</span>;
+<span style="color: #3a81c3; font-weight: bold;">for</span><span style="color: #3a81c3;">(</span><span style="color: #ba2f59; font-weight: bold;">int</span> &amp; <span style="color: #715ab1;">x</span> : xx<span style="color: #3a81c3;">){</span>
+  <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">cnt</span> = <span style="color: #4e3163;">0</span>;
+  x = cnt++;
+<span style="color: #3a81c3;">}</span>
+
+<span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Use static local variable in a function to pass information of last function call</span>
+<span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">increment</span><span style="color: #3a81c3;">(){</span>
+  <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">int</span> <span style="color: #715ab1;">cnt</span> = <span style="color: #4e3163;">0</span>;
+  cnt++;
+<span style="color: #3a81c3;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 
-<div id="outline-container-orgheadline341" class="outline-2">
-<h2 id="orgheadline341"><span class="section-number-2">13</span> Others</h2>
+<div id="outline-container-orgheadline343" class="outline-2">
+<h2 id="orgheadline343"><span class="section-number-2">13</span> Others</h2>
 <div class="outline-text-2" id="text-13">
-</div><div id="outline-container-orgheadline340" class="outline-3">
-<h3 id="orgheadline340"><span class="section-number-3">13.1</span> Software Installation</h3>
+</div><div id="outline-container-orgheadline342" class="outline-3">
+<h3 id="orgheadline342"><span class="section-number-3">13.1</span> Software Installation</h3>
 <div class="outline-text-3" id="text-13-1">
 <dl class="org-dl">
 <dt>Emacs</dt><dd><code>brew install emacs --HEAD --with-cocoa --with-gnutls --with-imagemagick</code></dd>
@@ -4844,7 +4881,7 @@ If you prefer a stable version, use <code>brew cask install emacs</code> to inst
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-09-03 Sat 15:27</p>
+<p class="date">Created: 2016-09-04 Sun 00:46</p>
 <p class="validation"></p>
 </div>
 </body>

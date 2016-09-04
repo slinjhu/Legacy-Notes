@@ -2038,6 +2038,10 @@ vector<int> xx; // Empty
 for(size_t i = 0; i < xx.size() - 1; ++i){
   // Loop will not stop until i = 4294967295
 }
+
+for(size_t i = 0; i + 1 < xx.size(); ++i){
+  // Loop will be skipped (avoid adding int with unsigned)
+}
 #+END_SRC
 
 **** ~int~ to ~bool~
@@ -2085,6 +2089,23 @@ assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 - Out-of-range iterator
 - Uninitialized pointer
 - ~pop()~ on an empty stack or queue.
+** Advanced Techniques
+*** Static local variable
+Initialization of a static local variable will be executed only once, and the variable keeps its value until the program exits.
+#+BEGIN_SRC c++
+// Use static local variable to reduce scope
+vector<int> xx (10, 0);
+for(int & x : xx){
+  static int cnt = 0;
+  x = cnt++;
+}
+
+// Use static local variable in a function to pass information of last function call
+void increment(){
+  static int cnt = 0;
+  cnt++;
+}
+#+END_SRC
 
 * Others
 ** Software Installation
