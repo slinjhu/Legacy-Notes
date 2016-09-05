@@ -2028,6 +2028,7 @@ Here I record some mistakes that are very easy to make in C++.
 #+BEGIN_SRC c++
 int mid = (left + right) / 2;
 #+END_SRC
+- Avoid decrementing index of ~size_t~ type.
 
 *** Implicit cast
 **** ~int~ to ~unsigned~
