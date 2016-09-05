@@ -183,6 +183,7 @@
     - Class A holds a reference to Class B instance. 
     - B is global in Class A. 
 - Aggregation (Shared association) :: 
+    - Compositions that happen dynamically
     - Whole-part relationship. 
     - Person continues to exist after his Company dies. 
     - Person can also be aggregated to other classes. 
