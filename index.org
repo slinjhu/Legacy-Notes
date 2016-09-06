@@ -755,6 +755,16 @@ Cronbach's alpha is a measure of internal consistency. Suppose $X=Y_1 + Y_2 +\do
 \[\alpha = {k\over k-1} \left( 1 - {\sum_{i=1}^k \sigma^2_{Y_i} \over \sigma_X^2 } \right) \]
 
 * Parallel Computing
+** Intro
+*** Amdahl's law
+- $P$: Portion that can be optimized 
+- $S$: Speedup
+- Theoretical speedup: \[\frac{1}{(1 - P) + {P\over S}}\]
+*** 3 facts against parallelism
+- Startup costs associated with initializing processes
+- Interference: slowdown resulting from multiple processes accessing shared resources
+- Skew: not all tasks are broken down into the same size
+
 ** OpenMP
 
 ** CUDA
@@ -1779,6 +1789,12 @@ Let $D[m,n]$ denote the min edit distance of string $A_{0\dots m}$ and $B_{0\dot
   D[m - 1, n] & \mbox{insert} A_m
 \end{cases}
 \]
+
+*** Combination Sum
+Given a set of numbers $a_i$, find the number of combinations of $a_i$ (allowing duplicates) that sum to a target $T$.
+**** Optimal substructure
+- If there is one combination that contains $a_n$, then the combination is a solution to the subproblem up to $a_n$ with sum $T - a_n$.
+- If no combination contains $a_n$, then these combinations are solution to the subproblem up to $a_{n-1}$ with sum $T$.
 
 *** TODO Optimal binary search tree
 Given probability of accessing each node $k_i$ in the BST, we want to minimize total cost $\sum_{i=1}^n p_i (\mbox{depth}_T(k_i) + 1)$
