@@ -1764,12 +1764,27 @@ Define $c[i,j]$ to be the length of an LCS of the sequence $X_i$ and $Y_j$.
     \max\big(c[i, j-1], c[i-1,j] \big) & \mbox{if $i,j>0$ and $x_i\ne y_j$}
   \end{cases} 
 \]
-*** TODO Minimum Edit Distance 
+*** Minimum Edit Distance 
+Given two string $A$ and $B$, we find the minimum number of edits (substitution, insertion, deletion) to transform $A$ to $B$.
+**** Optimal substructure
+- If $A_m = B_n$, then we can ignore their last characters.
+- If $A_m \neq B_n$, then we need to consider pair $(A_{m-1}, B_n)$ and $(A_m, B_{n-1})$
+**** Recursive formula
+Let $D[m,n]$ denote the min edit distance of string $A_{0\dots m}$ and $B_{0\dots n}$
+- If $A_m = B_n$, then $D[m,n] = D[m - 1, n - 1]$
+- If $A_m \neq B_n$, then 
+\[ D[m,n] = 1 + \min \begin{cases}
+  D[m - 1, n - 1] & \mbox{substitute} A_m \\
+  D[m, n - 1] & \mbox{delete} A_m\\
+  D[m - 1, n] & \mbox{insert} A_m
+\end{cases}
+\]
 
 *** TODO Optimal binary search tree
 Given probability of accessing each node $k_i$ in the BST, we want to minimize total cost $\sum_{i=1}^n p_i (\mbox{depth}_T(k_i) + 1)$
 **** Optimal substructure
-To determine the optimal BST is to determine the root in each level. Let $k_r$ be the root of optimal BST containing $(k_1, k_2, \dots, k_n)$, then the left subtree containing $(k_1, k_2, \dots, k_{r-1})$ and the right subtree $(k_{r+1}, \dots, k_n)$ must also be optimal.
+To determine the optimal BST is to determine the root in each subtree. 
+- Let $k_r$ be the root of optimal BST containing $(k_1, k_2, \dots, k_n)$ (sorted), then the left subtree containing $(k_1, k_2, \dots, k_{r-1})$ and the right subtree $(k_{r+1}, \dots, k_n)$ must also be optimal.
 
 **** Recursive formula
 Denote $M[i,j]$ as the total cost of accessing optimal BST containing $(k_i, \dots, k_j)$. 
