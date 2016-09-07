@@ -170,6 +170,466 @@
 
 #+HTML_HEAD:<base target="_blank">
 
+* Algorithm
+** Asymptotic bounds
+*** Definitions
+-  *$f = O(g)$*: Upper bound; There exists positive constants $c, n_0$, such that $0 \le f \le c\cdot g$ for all $n\ge n_0$
+-  *$f = \Omega(g)$*: Lower bound; There exist positive constants $c,
+   n_0$ such that $0 \le c\cdot g \le f$ for all $n\ge n_0$
+-  *$f = \Theta(g)$*: Double-side bound
+-  *$f = o(g)$*: Loose upper bound; For any (small) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le f < c\cdot g$ for all $n\ge n_0$
+-  *$f = \omega(g)$*: Loose upper bound; For any (large) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le c\cdot g < f$ for all $n\ge n_0$
+*** Rules
+- Transpose symmetry ::
+    -  $f = O(g) \iff g = \Omega(f)$
+    -  $f = o(g) \iff g = \omega(f)$
+
+- Combinations ::
+    -  $f + g = \Omega(\min(f, g))$
+    -  $f + g = O(\max(f, g))$
+    -  $f + o(f) = \Theta(f)$
+
+** Bit Manipulation
+*** Basic Manipulations and their Applications
+**** Construct a bit-mask
+- ~000100 : 1 << 2~
+- ~000111 : (1 << 3) - 1~ (Note that shift operation has a lower precedence)
+- ~111111 : ~0U~
+- ~001100 : (1 << 4) - (1 << 2)~
+**** AND ~&~
+- Get the value of bit: ~x & mask~
+- Check whether a number is odd: ~x & 1~
+- Set value of a bit to 0: ~x &= ~mask~
+**** OR ~|~
+- Set value of a bit to 1: ~x |= mask~
+**** Exclusive OR, XOR ~^~
+- Result is true is the two operands are different
+#+BEGIN_SRC c++
+x ^ y == ~x ^ ~y;
+#+END_SRC
+- Self inverse: ~(x ^ a) ^ a == x~
+- Flip a bit: ~x ^= mask~ (because ~b ^ 1 == 1 - b~ and ~b ^ 0 == b~)
+**** Shift
+- Note that in C++ it would pad with 1 when right-shift a negative integer
+- Swap lower and higher 16 bits: ~(x << 16) | (x >> 16)~
+*** Two's Complement
+- Negative numbers are usually represented as its two's complement: (~-x~)_bin $=$ 2^N $-$ (~x~)_bin
+- Using this representation, integer addition is simply the same as binary addition.
+- Some examples
+| Decimal Number | Binary Representation              |
+|----------------+------------------------------------|
+| $1$            | ~00000000000000000000000000000001~ |
+| $0$            | ~00000000000000000000000000000000~ |
+| $-1$           | ~11111111111111111111111111111111~ |
+| $-2$           | ~11111111111111111111111111111110~ |
+| $-3$           | ~11111111111111111111111111111101~ |
+| $-4$           | ~11111111111111111111111111111100~ |
+- Note that (=~x=)_bin $=$ (~11111111111111111111111111111111~) $-$ (=x=)_bin $=$ 2^N $- 1 -$ (=x=)_bin $= -1 -$ (=x=)_bin, because 2^N overflowed in binary representation. We have an interesting fact: (=~x=)_bin $=$ (=- x - 1=)_bin
+
+*** Increment and Decrement  
+- Increment flips the rightmost 0 to 1, and all tail 1 to 0, leaving leading bits unchanged.
+- Decrement flips the rightmost 1 to 0, and all tail 0 to 1, leaving leading bits unchanged.
+- Both increment and decrement flips the right bits.
+- Some examples about decrement
+| =x=           | 010000011010 _1000_ |                           |
+| =x-1=         | 010000011010 _0111_ |                           |
+| =x & (x-1)=   | 010000011010 _0000_ | Flip the rightmost 1 -> 0 |
+| =x or (x-1)=  | 010000011010 _1111_ | Tail 1000 -> 1111         |
+| =x & ~(x-1)=  | 000000000000 _1000_ | Extract the rightmost 1   |
+- Some examples about increment
+| =x=           | 010000011010 _0111_ |                           |
+| =x+1=         | 010000011010 _1000_ |                           |
+| =x & (x+1)=   | 010000011010 _0000_ | Tail 0111 -> 0000         |
+| =x or (x+1)=  | 010000011010 _1111_ | Flip the rightmost 0 -> 1 |
+*** LSB(Least Significant Bit)
+~x &=~ =~(x - 1)= destroys the nonzero LSB, while =x & ~(x - 1)= extracts the nonzero LSB. In two's complement, it is the same as =x & -x=
+Some applications of LSB:
+- Power of 2: Destroying the nonzero LSB of $x$ yields zero.
+- Find two single numbers where others are in pair: use LSB of ~a^b~ to bucketize all numbers, and then take XOR.
+  
+** Dynamic Programming (DP)
+*** Ideas
+-  Multi-stage optimization: the decisions we make at some point are influenced by the decisions we made earlier.
+-  The word "programming" in here means a way of tabulation.
+-  Similar to Divide-and-Conquer but with overlapping subproblems.
+
+*** Longest Common Subsequence (LCS)
+Given a sequence $X = (x_1, x_2, \dots, x_m)$, where each $x_i$ is an element of some alphabet, another sequence $Z = (z_1, z_2, \dots, z_k)$ is a *subsequence* of $X$ if there exists a strictly increasing sequence $(i_1, i_2, \dots, i_k)$ of indices of $X$ such that for all $j = 1,2,\dots, k$ we have $x_{i_j} = z_j$. In the longest common subsequence problem, we are given two sequences $X$ and $Y$, and we wish to find a maximum length common subsequence of $X$ and $Y$.
+
+**** Optimal substructure
+Let $X, Y$ be sequences and $Z$ be a LCS of $X$ and $Y$.
+-  If $x_m = y_n$, then $z_k = x_m = y_n$ and $Z_{k-1}$ is an LCS of $X_{m-1}$ and $Y_{n-1}$.
+-  IF $x_m\ne y_n$ and $z_k\ne x_m$, then $Z$ is LCS of $X_{m-1}$ and $Y$.
+-  IF $x_m\ne y_n$ and $z_k\ne y_n$, then $Z$ is LCS of $X$ and $Y_{n-1}$.
+
+**** Recursive formula
+Define $c[i,j]$ to be the length of an LCS of the sequence $X_i$ and $Y_j$. 
+\[ c[i,j] =  \begin{cases} 
+    0 & \mbox{if $i = 0$ or $j = 0$} \\
+    c[i-1, j-1] + 1 & \mbox{if $i, j >0$ and $x_i = y_j$} \\ 
+    \max\big(c[i, j-1], c[i-1,j] \big) & \mbox{if $i,j>0$ and $x_i\ne y_j$}
+  \end{cases} 
+\]
+*** Minimum Edit Distance 
+Given two string $A$ and $B$, we find the minimum number of edits (substitution, insertion, deletion) to transform $A$ to $B$.
+**** Optimal substructure
+- If $A_m = B_n$, then we can ignore their last characters.
+- If $A_m \neq B_n$, then we need to consider pair $(A_{m-1}, B_n)$ and $(A_m, B_{n-1})$
+**** Recursive formula
+Let $D[m,n]$ denote the min edit distance of string $A_{0\dots m}$ and $B_{0\dots n}$
+- If $A_m = B_n$, then $D[m,n] = D[m - 1, n - 1]$
+- If $A_m \neq B_n$, then 
+\[ D[m,n] = 1 + \min \begin{cases}
+  D[m - 1, n - 1] & \mbox{substitute} A_m \\
+  D[m, n - 1] & \mbox{delete} A_m\\
+  D[m - 1, n] & \mbox{insert} A_m
+\end{cases}
+\]
+
+*** Combination Sum
+Given a set of numbers $a_i$, find the number of combinations of $a_i$ (allowing duplicates) that sum to a target $T$.
+**** Optimal substructure
+- If there is one combination that contains $a_n$, then the combination is a solution to the subproblem up to $a_n$ with sum $T - a_n$.
+- If no combination contains $a_n$, then these combinations are solution to the subproblem up to $a_{n-1}$ with sum $T$.
+
+*** TODO Optimal binary search tree
+Given probability of accessing each node $k_i$ in the BST, we want to minimize total cost $\sum_{i=1}^n p_i (\mbox{depth}_T(k_i) + 1)$
+**** Optimal substructure
+To determine the optimal BST is to determine the root in each subtree. 
+- Let $k_r$ be the root of optimal BST containing $(k_1, k_2, \dots, k_n)$ (sorted), then the left subtree containing $(k_1, k_2, \dots, k_{r-1})$ and the right subtree $(k_{r+1}, \dots, k_n)$ must also be optimal.
+
+**** Recursive formula
+Denote $M[i,j]$ as the total cost of accessing optimal BST containing $(k_i, \dots, k_j)$. 
+\[ M[i,j] = \]
+
+*** TODO Rod-cutting
+
+*** TODO Matrix-chain multiplication
+
+*** 0-1 knapsack problem
+Given the value $v_i$ and weight $w_i$ for each of $n$ items and a knapsack of capacity $W$ pounds, find the items that can fit in the knapsack and maximize total value.
+**** Optimal substructure
+Assume $S$ is the optimal selection of capacity $W$ and up to item $k$.
+- If $k \in S$, then $S\setminus k$ must be optimal to subproblem with capacity $W - w_k$ up to item $k-1$.
+- If $k \not\in S$, then $S$ must be optimal to subproblem with capacity $W$ up to item $k-1$.
+
+**** Recursive formula
+Denote $V[k, w]$ as the value of the optimal solution to the first $k$ items with constraint of weight $w$. 
+\[ V[k, w] = \begin{cases} 
+  0 & \mbox{if $k=0$}\\
+  V[k-1, w] & \mbox{if $k\ne0$ and $w_k > w$} \\
+  \max\big( V[k-1, w], V[k-1, w-w_k] + v_k \big) & \mbox{otherwise}
+\end{cases}\]
+
+** Graph
+*** Traversing a graph
+**** BFS (Breath-first search)
+***** Algorithm implemented with a queue
+1. Initialization. Color all vertices as *white* and setup an empty queue
+2. Push the source $u$ into the queue.
+3. While the queue is not empty, pull one vertex $v$ from it, push all $v$'s *white* neighbors (which are marked *gray* after being enqueued) into the queue, and mark $v$ as *black*.
+
+***** Properties of BFS
+-  Running time $O(V + E)$
+-  BFS expands the frontier between discovered and undiscovered vertices uniformly across the breadth of the frontier.
+-  It discovers all vertices at distance $k$ from the source before discovering any vertex at distance $k+1$.
+-  BFS tree = shortest-path tree
+
+**** DFS (Depth-first search)
+***** Algorithm implemented with a stack
+Change the queue to stack in BFS.
+
+***** Recursive algorithm
+#+BEGIN_EXAMPLE
+DFS(v){
+    v.is_discovered = True
+    For each edge {v, u} in v.Adj {
+        if u.is_discovered == False {
+            DFS(u)
+        }
+    }
+}
+#+END_EXAMPLE
+
+***** Properties of DFS
+-  Running time $O(E+V)$
+-  DFS recursively explores edges out of the most recently discovered vertex $v$ that still has unexplored out-edges. Once all of $v$'s edges have been explored, DFS *backtracks* to previous vertices.
+-  DFS timestamps each vertex with discovery and finish time.
+-  In DFS, discovery and finishing times have parenthesis property.
+-  Edge partitions with DFS: tree edges, forward edges, backward edges, cross edges.
+
+**** Applications of DFS
+***** Topological sort
+-  Only a DAG (Directed Acyclic Graph) can be sorted.
+-  All edges go forward in a topologically sorted graph.
+-  Algorithm: Starting with an empty list, DFS a graph. When a node finished, put the node at the *head* of the list.
+-  Running time: $O(E+V)$
+
+***** Strongly Connected Components (SCC)
+Algorithm:
+1. DFS($G^T$) to get finishing times.
+2. Let v be the vertex in $G$ with largest finishing time.
+3. Run DFS$(v)$ in $G$ to define an SCC $C$ of all nodes found in this
+   DFS.
+4. Delete $C$ from $G$.
+5. Repeat from (1) until $G$ is empty
+
+-  Two vertices $u$ and $v$ are equivalent if $u$ is reachable from $v$ and $v$ is reachable from $u$.
+-  SCC: a maximal set in which every pair of vertices are equivalent.
+-  Running time: $O(E+V)$
+-  The node with largest finishing time is in a source SCC.
+
+***** Other applications
+-  If a directed graph has a backward edge in DFS, then it is not DAG.
+
+*** Shortest paths
+**** Types of shortest path
+-  *Single source*: the shortest paths from source $v$ to all other nodes.
+-  *Single pair*: find the shortest path from $u$ to $v$.
+-  *All pairs*: find the shortest path from $u$ to $v$ for every edge $u\to v$.
+
+**** Bellman-Ford Algorithm (single source)
+-  Define $M[u,k]$ as the length of the shortest path from $v$ to $u$ with at most $k$ edges.
+-  Dynamic programming recurrence:
+   -  $M[u, k] = 0$, if $u=v, k=0$
+   -  $M[u, k] = \infty$, if $u\ne v, k=0$
+   -  $M[u, k] = \displaystyle\min_{w\to u \in E} \bigg(M[w, k-1] + len(w\to u) \bigg)$, otherwise.
+
+**** Relaxation
+-  Define $d(x)$ as an upper bound on its distance from the source.
+-  Relaxation is the process of narrowing this upper bound.
+-  *Relax$(x,y)$*: if $d(y) > d(x) + len(x,y)$, then $d(y) = d(x) +
+   len(x,y)$ and $y$.parent $= x$.
+
+**** Dijkstra's Algorithm (single source)
+
+-  does not work if there are negative edges
+-  a greedy algorithm.
+-  start from empty, maintain and grow it to shortest path tree.
+
+1. $T = \emptyset$
+2. Set $d(v) = 0$, where $v$ is the source. Set all other vertices $d(u)  = \infty$
+3. While not all nodes in $T$
+   1. Let $u$ be node with minimum $d(u)$
+   2. Add $u$ to $T$
+   3. For each edge $u\to x$ with $x\not\in T$, relax$(u,x)$
+
+**** Floyd-Warshall Algorithm (all pairs)
+
+*** Minimum spanning tree (MST)
+**** Generic greedy
+
+-  Suppose $A$ is a subset of a MST. Edge $uv$ is *safe* for $A$ if $A\cup uv$ is also a subset of a MST.
+-  A *cut* $(S,\overline{S})$ is a partition of $V$ into two pieces.
+-  An edge *crosses* the cut if one of its endpoints is in $S$ and the other one not in $S$.
+-  Given a set of edges $A$, a cut *respects* $A$ if no edge in $A$ crosses the cut.
+-  An edge $e$ is a *light edge* crossing a cut if it crosses the cut and has minimum weight.
+-  Let $A\subseteq E$ be a subset of a MST, let $(S,\overline{S})$ be a cut respecting $A$, and let $e$ be a light edge crossing $(S, \overline{S})$. Then $e$ is safe for $A$.
+
+***** Generic-MST
+1. $A = \emptyset$
+2. While $A$ is not a spanning tree, find an edge $uv$ that is safe for $A$ and add it to $A$.
+3. Return $A$
+
+**** Prim's Algorithm
+
+-  start with a node, maintain a tree and grow it to spanning.
+
+1. $A = \emptyset$
+2. Let $u$ be an arbitrary node, and let $S = \{u\}$.
+3. While $A$ is not a spanning tree, find an light edge $xy$ of $(S,\overline{S})$ with $x\in S$ and $y\not\in S$. Set $A = A\cup \{xy\}$ and $S = S\cup y$.
+4. Return $A$
+
+**** Kruskal's Algorithm
+-  maintain a forest and stop when the forest becomes a tree.
+-  pure greedy.
+-  Running time: $O(m \log m)$
+
+1. $A = \emptyset$.
+2. Sort the edges not in $A$ by weight in ascending order.
+3. For each edge $e$ in this order, if $A\cup e$ has no cycles, add $e$ to $A$.
+4. Return $A$
+
+*** Maximum flow
+
+** Greedy Algorithms
+
+*** Matroid
+-  Let $U$ be a universe of elements and $I$ be a collection of subsets of $U$. Then $(U, I)$ is a *matroid* if the following three properties hold:
+   1. $\emptyset \in I$
+   2. If $F \in I$ and $F'\subseteq F$, then $F'\in I$
+   3. *Augmentation property*: If $F_1\in I$ and $F_2\in I$ with $|F_2| > |F_1|$, then there is some element $e\in F_2\setminus F_1$ such that $F_1 \cup e \in I$.
+
+-  If $F_1\in I$ and $F_2\in I$ are both maximal, then $|F_1| = |F_2|$.
+-  The size of maximal independent set is known as the *rank* of a matroid.
+-  An *independence oracle* is an algorithm which, when given a set $S\subseteq U$, tells us whether $S\in I$.
+
+*** Greedy algorithm
+Greedy algorithm applies to any matroid.
+1. Initialize $F = \emptyset$.
+2. Sort $U$ by weight from largest to smallest.
+3. Consider the elements in sorted order. For each element $e$, add it to $F$ if $F\cup e$ is independent.
+
+*** Applications
+-  Applied to forest: Kruskal's Algorithm.
+
+* Distributed Systems
+
+* Parallel Computing
+** Intro
+*** Amdahl's law
+- $P$: Portion that can be optimized 
+- $S$: Speedup
+- Theoretical speedup: \[\frac{1}{(1 - P) + {P\over S}}\]
+*** 3 facts against parallelism
+- Startup costs associated with initializing processes
+- Interference: slowdown resulting from multiple processes accessing shared resources
+- Skew: not all tasks are broken down into the same size
+
+** OpenMP
+
+** CUDA
+*** Terminologies
+- CUDA: a parallel computing platform and API model created by Nvidia. 
+- Host: CPU
+- Device: Graphical Processing Unit
+- Kernel: functions run on GPU device 
+**** Grid, block, and thread
+- Block: each parallel invocation of a device function
+- Thread: a block can be split into parallel threads
+    - Within a block, all threads can share data via shared memory (fast)
+    - Declare using =__shared__= keyword
+    - =void __syncthreads();=: Synchronize all threads within a block.
+
+
+*** GPU Memory Model
+- Global memory: slow and uncached
+- Registers: fast; for variables defined in kernels.
+- Local memory: for what doesn’t fit in registers, slow but cached
+- Shared memory: accessible by threads within the block
+- Texture memory: read only; cache optimized for 2D access. 
+[[./figures/CUDA/MemoryModel.png]]
+
+*** Syntax
+- =__global__ function declaration=: the keyword indicates a function that runs on device and is called by from host code.
+- =mykernel<<< N_blocks, N_threads_per_block >>>();= Triple angle brackets mark a call from host code to device code. 
+- Host pointer cannot be dereferenced in device code; Device pointer cannot be dereferenced in host code. 
+- =blockIdx.x= and =threadIdx.x= give the index
+- =blockDim.x= give the number of threads per block
+
+** OpenCL
+
+* Java
+** About Java
+- Platform :: Any hardware or software environment in which a program runs is known as a platform. Java is also a platform since it has its own runtime environment and API. 
+- Types of Java applications :: 
+      - Standalone application: aka desktop or window based application; need to be installed on every machine. 
+      - Web application: an application that runs on the server side and creates dynamic page. 
+      - Enterprise application: is distributed in nature, such as banking applications. 
+      - Mobile application. 
+- JVM (Java Virtual Machine) :: JVM is a specification of an abstract machine that provides runtime environment in which Java bytecode can be executed. 
+[[./figures/Java/JVM.jpg]]
+- JRE (Java Runtime Environment) :: JRE is the implementation of JVM and it provides runtime environment. JRE = JVM + libraries etc.
+- JDK (Java Development Kit) :: JDK = JRE + development tools
+
+** Java Basics
+- Variable :: A variable is name of reserved area allocated in memory. 
+- Three types of variables :: (1) local variable: declared inside a method. (2) instance variable: declared inside a class but outside the method. (3) static variable: declared as static; cannot be local. 
+- Data types :: [[./figures/Java/DataType.jpg]]
+- Operators ::  shift >>> 
+
+* C++
+** Pitfalls in C++
+Here I record some mistakes that are very easy to make in C++.
+*** Overflow and Underflow
+- Avoid adding two ~int~ number when an easy alternative exists
+#+BEGIN_SRC c++
+int mid = (left + right) / 2;
+#+END_SRC
+- Avoid decrementing index of ~size_t~ type.
+
+*** Implicit cast
+**** ~int~ to ~unsigned~
+A signed number is implicitly cast into unsigned before adding, and it may cause counter-intuitive results: 
+#+BEGIN_SRC c++
+assert(0U - 1 == -1);
+assert(0U - 1 > 0);
+#+END_SRC
+
+A common bug could occur when you want to loop through from the first to the second last element of a vector. Since ~size()~ is unsigned, and if the vector is empty, the loop will not be skipped.
+#+BEGIN_SRC c++
+vector<int> xx; // Empty
+for(size_t i = 0; i < xx.size() - 1; ++i){
+  // Loop will not stop until i = 4294967295
+}
+
+for(size_t i = 0; i + 1 < xx.size(); ++i){
+  // Loop will be skipped (avoid adding int with unsigned)
+}
+#+END_SRC
+
+**** ~int~ to ~bool~
+~int~ will be implicitly cast into ~bool~. If you mistakenly type ~&~ as ~&&~, then it still compiles but lead to different result.
+#+BEGIN_SRC c++
+int x = 0x0f, y = 0xf0;
+assert((x & y) == 0);
+assert((x && y) == 1);
+#+END_SRC
+
+*** Vector
+- When initializing a nested vector, ~{}~ is NOT the same as ~{{}}~. ~{}~ is an empty vector, while ~{{}}~ is a size-1 vector containing an empty list.
+- It is always easy to forget that vector does NOT check index bound. If you are not confident with the index, use ~at()~.
+#+BEGIN_SRC c++
+vector<int> xx = {0,1};
+try{
+  cout << xx.at(99);
+}catch(out_of_range e){
+  // If out of range, at() will raise exception.
+}
+#+END_SRC
+- C++ does not check iterator bound either. Dereferencing an out-of-range iterator will occur segmentation fault.
+- The input range for a STL algorithm is a close-open range (NOT including the later iterator).
+#+BEGIN_SRC c++
+xx = {0,1,2,3,4};
+vector<int> sub (xx.begin() + 1, xx.begin() + 3);
+assert(sub == vector<int> ({1,2}));
+#+END_SRC
+
+*** Char
+- In C++ char type is more like integer.
+#+BEGIN_SRC c++
+assert( to_string('a') != "a" );
+assert( to_string('a') == "97" );
+#+END_SRC
+
+- Char can be used to index an array syntactically, hiding some serious bugs
+#+BEGIN_SRC c++
+vector<int> xx = {0, 1, 2, 3};
+assert( & xx['1'] != & xx[1] );
+assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+#+END_SRC
+
+** Causes of Segmentation Fault
+- Out-of-range iterator
+- Uninitialized pointer
+- ~pop()~ on an empty stack or queue.
+** Advanced Techniques
+*** Static local variable
+Initialization of a static local variable will be executed only once, and the variable keeps its value until the program exits.
+#+BEGIN_SRC c++
+// Use static local variable to reduce scope
+vector<int> xx (10, 0);
+for(int & x : xx){
+  static int cnt = 0;
+  x = cnt++;
+}
+
+// Use static local variable in a function to pass information of last function call
+void increment(){
+  static int cnt = 0;
+  cnt++;
+}
+#+END_SRC
 
 * Design Pattern
 ** UML and Dependency
@@ -754,50 +1214,6 @@ where $\lambda$ is determined such that it maximize the normality after transfor
 Cronbach's alpha is a measure of internal consistency. Suppose $X=Y_1 + Y_2 +\dots Y_k$, then
 \[\alpha = {k\over k-1} \left( 1 - {\sum_{i=1}^k \sigma^2_{Y_i} \over \sigma_X^2 } \right) \]
 
-* Parallel Computing
-** Intro
-*** Amdahl's law
-- $P$: Portion that can be optimized 
-- $S$: Speedup
-- Theoretical speedup: \[\frac{1}{(1 - P) + {P\over S}}\]
-*** 3 facts against parallelism
-- Startup costs associated with initializing processes
-- Interference: slowdown resulting from multiple processes accessing shared resources
-- Skew: not all tasks are broken down into the same size
-
-** OpenMP
-
-** CUDA
-*** Terminologies
-- CUDA: a parallel computing platform and API model created by Nvidia. 
-- Host: CPU
-- Device: Graphical Processing Unit
-- Kernel: functions run on GPU device 
-**** Grid, block, and thread
-- Block: each parallel invocation of a device function
-- Thread: a block can be split into parallel threads
-    - Within a block, all threads can share data via shared memory (fast)
-    - Declare using =__shared__= keyword
-    - =void __syncthreads();=: Synchronize all threads within a block.
-
-
-*** GPU Memory Model
-- Global memory: slow and uncached
-- Registers: fast; for variables defined in kernels.
-- Local memory: for what doesn’t fit in registers, slow but cached
-- Shared memory: accessible by threads within the block
-- Texture memory: read only; cache optimized for 2D access. 
-[[./figures/CUDA/MemoryModel.png]]
-
-*** Syntax
-- =__global__ function declaration=: the keyword indicates a function that runs on device and is called by from host code.
-- =mykernel<<< N_blocks, N_threads_per_block >>>();= Triple angle brackets mark a call from host code to device code. 
-- Host pointer cannot be dereferenced in device code; Device pointer cannot be dereferenced in host code. 
-- =blockIdx.x= and =threadIdx.x= give the index
-- =blockDim.x= give the number of threads per block
-
-** OpenCL
-
 * Natural Language Processing
 ** Grammar
 *** Levels of languages:
@@ -1077,7 +1493,6 @@ which can be interpreted as (observed count of feature $k$) $-$ (expected count 
 - Solve using backward-forward (aka Baum-Welch) algorithm.
 - *Backward probability*: $\beta_t(i)$, the total probability of all paths from state $q_i$ that emit observations from time $(t+1)$ to the end.
 \[\beta_t(i) = p(o_{t+1}, o_{t+2},\dots, o_T | q_t=i, \lambda ) \]
-
 
 
 
@@ -1673,312 +2088,6 @@ P[X=0] &\le& P\bigg[ |X-\mu|\ge \mu \bigg]
 \le {\sigma^2 \over \mu^2 } = {E[X^2]\over \mu^2} -1
 \end{eqnarray}
 
-
-* Algorithm
-** Asymptotic bounds
-*** Definitions
--  *$f = O(g)$*: Upper bound; There exists positive constants $c, n_0$, such that $0 \le f \le c\cdot g$ for all $n\ge n_0$
--  *$f = \Omega(g)$*: Lower bound; There exist positive constants $c,
-   n_0$ such that $0 \le c\cdot g \le f$ for all $n\ge n_0$
--  *$f = \Theta(g)$*: Double-side bound
--  *$f = o(g)$*: Loose upper bound; For any (small) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le f < c\cdot g$ for all $n\ge n_0$
--  *$f = \omega(g)$*: Loose upper bound; For any (large) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le c\cdot g < f$ for all $n\ge n_0$
-*** Rules
-- Transpose symmetry ::
-    -  $f = O(g) \iff g = \Omega(f)$
-    -  $f = o(g) \iff g = \omega(f)$
-
-- Combinations ::
-    -  $f + g = \Omega(\min(f, g))$
-    -  $f + g = O(\max(f, g))$
-    -  $f + o(f) = \Theta(f)$
-
-** Bit Manipulation
-*** Basic Manipulations and their Applications
-**** Construct a bit-mask
-- ~000100 : 1 << 2~
-- ~000111 : (1 << 3) - 1~ (Note that shift operation has a lower precedence)
-- ~111111 : ~0U~
-- ~001100 : (1 << 4) - (1 << 2)~
-**** AND ~&~
-- Get the value of bit: ~x & mask~
-- Check whether a number is odd: ~x & 1~
-- Set value of a bit to 0: ~x &= ~mask~
-**** OR ~|~
-- Set value of a bit to 1: ~x |= mask~
-**** Exclusive OR, XOR ~^~
-- Result is true is the two operands are different
-#+BEGIN_SRC c++
-x ^ y == ~x ^ ~y;
-#+END_SRC
-- Self inverse: ~(x ^ a) ^ a == x~
-- Flip a bit: ~x ^= mask~ (because ~b ^ 1 == 1 - b~ and ~b ^ 0 == b~)
-**** Shift
-- Note that in C++ it would pad with 1 when right-shift a negative integer
-- Swap lower and higher 16 bits: ~(x << 16) | (x >> 16)~
-*** Two's Complement
-- Negative numbers are usually represented as its two's complement: (~-x~)_bin $=$ 2^N $-$ (~x~)_bin
-- Using this representation, integer addition is simply the same as binary addition.
-- Some examples
-| Decimal Number | Binary Representation              |
-|----------------+------------------------------------|
-| $1$            | ~00000000000000000000000000000001~ |
-| $0$            | ~00000000000000000000000000000000~ |
-| $-1$           | ~11111111111111111111111111111111~ |
-| $-2$           | ~11111111111111111111111111111110~ |
-| $-3$           | ~11111111111111111111111111111101~ |
-| $-4$           | ~11111111111111111111111111111100~ |
-- Note that (=~x=)_bin $=$ (~11111111111111111111111111111111~) $-$ (=x=)_bin $=$ 2^N $- 1 -$ (=x=)_bin $= -1 -$ (=x=)_bin, because 2^N overflowed in binary representation. We have an interesting fact: (=~x=)_bin $=$ (=- x - 1=)_bin
-
-*** Increment and Decrement  
-- Increment flips the rightmost 0 to 1, and all tail 1 to 0, leaving leading bits unchanged.
-- Decrement flips the rightmost 1 to 0, and all tail 0 to 1, leaving leading bits unchanged.
-- Both increment and decrement flips the right bits.
-- Some examples about decrement
-| =x=           | 010000011010 _1000_ |                           |
-| =x-1=         | 010000011010 _0111_ |                           |
-| =x & (x-1)=   | 010000011010 _0000_ | Flip the rightmost 1 -> 0 |
-| =x or (x-1)=  | 010000011010 _1111_ | Tail 1000 -> 1111         |
-| =x & ~(x-1)=  | 000000000000 _1000_ | Extract the rightmost 1   |
-- Some examples about increment
-| =x=           | 010000011010 _0111_ |                           |
-| =x+1=         | 010000011010 _1000_ |                           |
-| =x & (x+1)=   | 010000011010 _0000_ | Tail 0111 -> 0000         |
-| =x or (x+1)=  | 010000011010 _1111_ | Flip the rightmost 0 -> 1 |
-*** LSB(Least Significant Bit)
-~x &=~ =~(x - 1)= destroys the nonzero LSB, while =x & ~(x - 1)= extracts the nonzero LSB. In two's complement, it is the same as =x & -x=
-Some applications of LSB:
-- Power of 2: Destroying the nonzero LSB of $x$ yields zero.
-- Find two single numbers where others are in pair: use LSB of ~a^b~ to bucketize all numbers, and then take XOR.
-  
-** Dynamic Programming (DP)
-*** Ideas
--  Multi-stage optimization: the decisions we make at some point are influenced by the decisions we made earlier.
--  The word "programming" in here means a way of tabulation.
--  Similar to Divide-and-Conquer but with overlapping subproblems.
-
-*** Longest Common Subsequence (LCS)
-Given a sequence $X = (x_1, x_2, \dots, x_m)$, where each $x_i$ is an element of some alphabet, another sequence $Z = (z_1, z_2, \dots, z_k)$ is a *subsequence* of $X$ if there exists a strictly increasing sequence $(i_1, i_2, \dots, i_k)$ of indices of $X$ such that for all $j = 1,2,\dots, k$ we have $x_{i_j} = z_j$. In the longest common subsequence problem, we are given two sequences $X$ and $Y$, and we wish to find a maximum length common subsequence of $X$ and $Y$.
-
-**** Optimal substructure
-Let $X, Y$ be sequences and $Z$ be a LCS of $X$ and $Y$.
--  If $x_m = y_n$, then $z_k = x_m = y_n$ and $Z_{k-1}$ is an LCS of $X_{m-1}$ and $Y_{n-1}$.
--  IF $x_m\ne y_n$ and $z_k\ne x_m$, then $Z$ is LCS of $X_{m-1}$ and $Y$.
--  IF $x_m\ne y_n$ and $z_k\ne y_n$, then $Z$ is LCS of $X$ and $Y_{n-1}$.
-
-**** Recursive formula
-Define $c[i,j]$ to be the length of an LCS of the sequence $X_i$ and $Y_j$. 
-\[ c[i,j] =  \begin{cases} 
-    0 & \mbox{if $i = 0$ or $j = 0$} \\
-    c[i-1, j-1] + 1 & \mbox{if $i, j >0$ and $x_i = y_j$} \\ 
-    \max\big(c[i, j-1], c[i-1,j] \big) & \mbox{if $i,j>0$ and $x_i\ne y_j$}
-  \end{cases} 
-\]
-*** Minimum Edit Distance 
-Given two string $A$ and $B$, we find the minimum number of edits (substitution, insertion, deletion) to transform $A$ to $B$.
-**** Optimal substructure
-- If $A_m = B_n$, then we can ignore their last characters.
-- If $A_m \neq B_n$, then we need to consider pair $(A_{m-1}, B_n)$ and $(A_m, B_{n-1})$
-**** Recursive formula
-Let $D[m,n]$ denote the min edit distance of string $A_{0\dots m}$ and $B_{0\dots n}$
-- If $A_m = B_n$, then $D[m,n] = D[m - 1, n - 1]$
-- If $A_m \neq B_n$, then 
-\[ D[m,n] = 1 + \min \begin{cases}
-  D[m - 1, n - 1] & \mbox{substitute} A_m \\
-  D[m, n - 1] & \mbox{delete} A_m\\
-  D[m - 1, n] & \mbox{insert} A_m
-\end{cases}
-\]
-
-*** Combination Sum
-Given a set of numbers $a_i$, find the number of combinations of $a_i$ (allowing duplicates) that sum to a target $T$.
-**** Optimal substructure
-- If there is one combination that contains $a_n$, then the combination is a solution to the subproblem up to $a_n$ with sum $T - a_n$.
-- If no combination contains $a_n$, then these combinations are solution to the subproblem up to $a_{n-1}$ with sum $T$.
-
-*** TODO Optimal binary search tree
-Given probability of accessing each node $k_i$ in the BST, we want to minimize total cost $\sum_{i=1}^n p_i (\mbox{depth}_T(k_i) + 1)$
-**** Optimal substructure
-To determine the optimal BST is to determine the root in each subtree. 
-- Let $k_r$ be the root of optimal BST containing $(k_1, k_2, \dots, k_n)$ (sorted), then the left subtree containing $(k_1, k_2, \dots, k_{r-1})$ and the right subtree $(k_{r+1}, \dots, k_n)$ must also be optimal.
-
-**** Recursive formula
-Denote $M[i,j]$ as the total cost of accessing optimal BST containing $(k_i, \dots, k_j)$. 
-\[ M[i,j] = \]
-
-*** TODO Rod-cutting
-
-*** TODO Matrix-chain multiplication
-
-*** 0-1 knapsack problem
-Given the value $v_i$ and weight $w_i$ for each of $n$ items and a knapsack of capacity $W$ pounds, find the items that can fit in the knapsack and maximize total value.
-**** Optimal substructure
-Assume $S$ is the optimal selection of capacity $W$ and up to item $k$.
-- If $k \in S$, then $S\setminus k$ must be optimal to subproblem with capacity $W - w_k$ up to item $k-1$.
-- If $k \not\in S$, then $S$ must be optimal to subproblem with capacity $W$ up to item $k-1$.
-
-**** Recursive formula
-Denote $V[k, w]$ as the value of the optimal solution to the first $k$ items with constraint of weight $w$. 
-\[ V[k, w] = \begin{cases} 
-  0 & \mbox{if $k=0$}\\
-  V[k-1, w] & \mbox{if $k\ne0$ and $w_k > w$} \\
-  \max\big( V[k-1, w], V[k-1, w-w_k] + v_k \big) & \mbox{otherwise}
-\end{cases}\]
-
-** Graph
-*** Traversing a graph
-**** BFS (Breath-first search)
-***** Algorithm implemented with a queue
-1. Initialization. Color all vertices as *white* and setup an empty queue
-2. Push the source $u$ into the queue.
-3. While the queue is not empty, pull one vertex $v$ from it, push all $v$'s *white* neighbors (which are marked *gray* after being enqueued) into the queue, and mark $v$ as *black*.
-
-***** Properties of BFS
--  Running time $O(V + E)$
--  BFS expands the frontier between discovered and undiscovered vertices uniformly across the breadth of the frontier.
--  It discovers all vertices at distance $k$ from the source before discovering any vertex at distance $k+1$.
--  BFS tree = shortest-path tree
-
-**** DFS (Depth-first search)
-***** Algorithm implemented with a stack
-Change the queue to stack in BFS.
-
-***** Recursive algorithm
-#+BEGIN_EXAMPLE
-DFS(v){
-    v.is_discovered = True
-    For each edge {v, u} in v.Adj {
-        if u.is_discovered == False {
-            DFS(u)
-        }
-    }
-}
-#+END_EXAMPLE
-
-***** Properties of DFS
--  Running time $O(E+V)$
--  DFS recursively explores edges out of the most recently discovered vertex $v$ that still has unexplored out-edges. Once all of $v$'s edges have been explored, DFS *backtracks* to previous vertices.
--  DFS timestamps each vertex with discovery and finish time.
--  In DFS, discovery and finishing times have parenthesis property.
--  Edge partitions with DFS: tree edges, forward edges, backward edges, cross edges.
-
-**** Applications of DFS
-***** Topological sort
--  Only a DAG (Directed Acyclic Graph) can be sorted.
--  All edges go forward in a topologically sorted graph.
--  Algorithm: Starting with an empty list, DFS a graph. When a node finished, put the node at the *head* of the list.
--  Running time: $O(E+V)$
-
-***** Strongly Connected Components (SCC)
-Algorithm:
-1. DFS($G^T$) to get finishing times.
-2. Let v be the vertex in $G$ with largest finishing time.
-3. Run DFS$(v)$ in $G$ to define an SCC $C$ of all nodes found in this
-   DFS.
-4. Delete $C$ from $G$.
-5. Repeat from (1) until $G$ is empty
-
--  Two vertices $u$ and $v$ are equivalent if $u$ is reachable from $v$ and $v$ is reachable from $u$.
--  SCC: a maximal set in which every pair of vertices are equivalent.
--  Running time: $O(E+V)$
--  The node with largest finishing time is in a source SCC.
-
-***** Other applications
--  If a directed graph has a backward edge in DFS, then it is not DAG.
-
-*** Shortest paths
-**** Types of shortest path
--  *Single source*: the shortest paths from source $v$ to all other nodes.
--  *Single pair*: find the shortest path from $u$ to $v$.
--  *All pairs*: find the shortest path from $u$ to $v$ for every edge $u\to v$.
-
-**** Bellman-Ford Algorithm (single source)
--  Define $M[u,k]$ as the length of the shortest path from $v$ to $u$ with at most $k$ edges.
--  Dynamic programming recurrence:
-   -  $M[u, k] = 0$, if $u=v, k=0$
-   -  $M[u, k] = \infty$, if $u\ne v, k=0$
-   -  $M[u, k] = \displaystyle\min_{w\to u \in E} \bigg(M[w, k-1] + len(w\to u) \bigg)$, otherwise.
-
-**** Relaxation
--  Define $d(x)$ as an upper bound on its distance from the source.
--  Relaxation is the process of narrowing this upper bound.
--  *Relax$(x,y)$*: if $d(y) > d(x) + len(x,y)$, then $d(y) = d(x) +
-   len(x,y)$ and $y$.parent $= x$.
-
-**** Dijkstra's Algorithm (single source)
-
--  does not work if there are negative edges
--  a greedy algorithm.
--  start from empty, maintain and grow it to shortest path tree.
-
-1. $T = \emptyset$
-2. Set $d(v) = 0$, where $v$ is the source. Set all other vertices $d(u)  = \infty$
-3. While not all nodes in $T$
-   1. Let $u$ be node with minimum $d(u)$
-   2. Add $u$ to $T$
-   3. For each edge $u\to x$ with $x\not\in T$, relax$(u,x)$
-
-**** Floyd-Warshall Algorithm (all pairs)
-
-*** Minimum spanning tree (MST)
-**** Generic greedy
-
--  Suppose $A$ is a subset of a MST. Edge $uv$ is *safe* for $A$ if $A\cup uv$ is also a subset of a MST.
--  A *cut* $(S,\overline{S})$ is a partition of $V$ into two pieces.
--  An edge *crosses* the cut if one of its endpoints is in $S$ and the other one not in $S$.
--  Given a set of edges $A$, a cut *respects* $A$ if no edge in $A$ crosses the cut.
--  An edge $e$ is a *light edge* crossing a cut if it crosses the cut and has minimum weight.
--  Let $A\subseteq E$ be a subset of a MST, let $(S,\overline{S})$ be a cut respecting $A$, and let $e$ be a light edge crossing $(S, \overline{S})$. Then $e$ is safe for $A$.
-
-***** Generic-MST
-1. $A = \emptyset$
-2. While $A$ is not a spanning tree, find an edge $uv$ that is safe for $A$ and add it to $A$.
-3. Return $A$
-
-**** Prim's Algorithm
-
--  start with a node, maintain a tree and grow it to spanning.
-
-1. $A = \emptyset$
-2. Let $u$ be an arbitrary node, and let $S = \{u\}$.
-3. While $A$ is not a spanning tree, find an light edge $xy$ of $(S,\overline{S})$ with $x\in S$ and $y\not\in S$. Set $A = A\cup \{xy\}$ and $S = S\cup y$.
-4. Return $A$
-
-**** Kruskal's Algorithm
--  maintain a forest and stop when the forest becomes a tree.
--  pure greedy.
--  Running time: $O(m \log m)$
-
-1. $A = \emptyset$.
-2. Sort the edges not in $A$ by weight in ascending order.
-3. For each edge $e$ in this order, if $A\cup e$ has no cycles, add $e$ to $A$.
-4. Return $A$
-
-*** Maximum flow
-
-** Greedy Algorithms
-
-*** Matroid
--  Let $U$ be a universe of elements and $I$ be a collection of subsets of $U$. Then $(U, I)$ is a *matroid* if the following three properties hold:
-   1. $\emptyset \in I$
-   2. If $F \in I$ and $F'\subseteq F$, then $F'\in I$
-   3. *Augmentation property*: If $F_1\in I$ and $F_2\in I$ with $|F_2| > |F_1|$, then there is some element $e\in F_2\setminus F_1$ such that $F_1 \cup e \in I$.
-
--  If $F_1\in I$ and $F_2\in I$ are both maximal, then $|F_1| = |F_2|$.
--  The size of maximal independent set is known as the *rank* of a matroid.
--  An *independence oracle* is an algorithm which, when given a set $S\subseteq U$, tells us whether $S\in I$.
-
-*** Greedy algorithm
-Greedy algorithm applies to any matroid.
-1. Initialize $F = \emptyset$.
-2. Sort $U$ by weight from largest to smallest.
-3. Consider the elements in sorted order. For each element $e$, add it to $F$ if $F\cup e$ is independent.
-
-*** Applications
--  Applied to forest: Kruskal's Algorithm.
-
-
-
 * My Cheat Sheet
 ** Emacs
 *** General
@@ -2012,118 +2121,6 @@ Greedy algorithm applies to any matroid.
 
 ** Bash
 - =pgrep keywords=: grep search by process name
-
-* Java
-** About Java
-- Platform :: Any hardware or software environment in which a program runs is known as a platform. Java is also a platform since it has its own runtime environment and API. 
-- Types of Java applications :: 
-      - Standalone application: aka desktop or window based application; need to be installed on every machine. 
-      - Web application: an application that runs on the server side and creates dynamic page. 
-      - Enterprise application: is distributed in nature, such as banking applications. 
-      - Mobile application. 
-- JVM (Java Virtual Machine) :: JVM is a specification of an abstract machine that provides runtime environment in which Java bytecode can be executed. 
-[[./figures/Java/JVM.jpg]]
-- JRE (Java Runtime Environment) :: JRE is the implementation of JVM and it provides runtime environment. JRE = JVM + libraries etc.
-- JDK (Java Development Kit) :: JDK = JRE + development tools
-
-** Java Basics
-- Variable :: A variable is name of reserved area allocated in memory. 
-- Three types of variables :: (1) local variable: declared inside a method. (2) instance variable: declared inside a class but outside the method. (3) static variable: declared as static; cannot be local. 
-- Data types :: [[./figures/Java/DataType.jpg]]
-- Operators ::  shift >>> 
-
-* C++
-** Pitfalls in C++
-Here I record some mistakes that are very easy to make in C++.
-*** Overflow and Underflow
-- Avoid adding two ~int~ number when an easy alternative exists
-#+BEGIN_SRC c++
-int mid = (left + right) / 2;
-#+END_SRC
-- Avoid decrementing index of ~size_t~ type.
-
-*** Implicit cast
-**** ~int~ to ~unsigned~
-A signed number is implicitly cast into unsigned before adding, and it may cause counter-intuitive results: 
-#+BEGIN_SRC c++
-assert(0U - 1 == -1);
-assert(0U - 1 > 0);
-#+END_SRC
-
-A common bug could occur when you want to loop through from the first to the second last element of a vector. Since ~size()~ is unsigned, and if the vector is empty, the loop will not be skipped.
-#+BEGIN_SRC c++
-vector<int> xx; // Empty
-for(size_t i = 0; i < xx.size() - 1; ++i){
-  // Loop will not stop until i = 4294967295
-}
-
-for(size_t i = 0; i + 1 < xx.size(); ++i){
-  // Loop will be skipped (avoid adding int with unsigned)
-}
-#+END_SRC
-
-**** ~int~ to ~bool~
-~int~ will be implicitly cast into ~bool~. If you mistakenly type ~&~ as ~&&~, then it still compiles but lead to different result.
-#+BEGIN_SRC c++
-int x = 0x0f, y = 0xf0;
-assert((x & y) == 0);
-assert((x && y) == 1);
-#+END_SRC
-
-*** Vector
-- When initializing a nested vector, ~{}~ is NOT the same as ~{{}}~. ~{}~ is an empty vector, while ~{{}}~ is a size-1 vector containing an empty list.
-- It is always easy to forget that vector does NOT check index bound. If you are not confident with the index, use ~at()~.
-#+BEGIN_SRC c++
-vector<int> xx = {0,1};
-try{
-  cout << xx.at(99);
-}catch(out_of_range e){
-  // If out of range, at() will raise exception.
-}
-#+END_SRC
-- C++ does not check iterator bound either. Dereferencing an out-of-range iterator will occur segmentation fault.
-- The input range for a STL algorithm is a close-open range (NOT including the later iterator).
-#+BEGIN_SRC c++
-xx = {0,1,2,3,4};
-vector<int> sub (xx.begin() + 1, xx.begin() + 3);
-assert(sub == vector<int> ({1,2}));
-#+END_SRC
-
-*** Char
-- In C++ char type is more like integer.
-#+BEGIN_SRC c++
-assert( to_string('a') != "a" );
-assert( to_string('a') == "97" );
-#+END_SRC
-
-- Char can be used to index an array syntactically, hiding some serious bugs
-#+BEGIN_SRC c++
-vector<int> xx = {0, 1, 2, 3};
-assert( & xx['1'] != & xx[1] );
-assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-#+END_SRC
-
-** Causes of Segmentation Fault
-- Out-of-range iterator
-- Uninitialized pointer
-- ~pop()~ on an empty stack or queue.
-** Advanced Techniques
-*** Static local variable
-Initialization of a static local variable will be executed only once, and the variable keeps its value until the program exits.
-#+BEGIN_SRC c++
-// Use static local variable to reduce scope
-vector<int> xx (10, 0);
-for(int & x : xx){
-  static int cnt = 0;
-  x = cnt++;
-}
-
-// Use static local variable in a function to pass information of last function call
-void increment(){
-  static int cnt = 0;
-  cnt++;
-}
-#+END_SRC
 
 * Others
 ** Software Installation
