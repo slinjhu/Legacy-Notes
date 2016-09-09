@@ -474,7 +474,10 @@ Greedy algorithm applies to any matroid.
 -  Applied to forest: Kruskal's Algorithm.
 
 * Distributed Systems
-
+** Networks
+*** Protocols
+- UDP :: User Datagram Protocol. Short message; unreliable, connectionless.
+- TCP :: Transmission Control Protocol. Long streams of data; deliver the same order as sent; connection oriented.
 * Parallel Computing
 ** Intro
 *** Amdahl's law
