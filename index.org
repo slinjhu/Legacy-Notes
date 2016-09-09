@@ -474,7 +474,8 @@ Greedy algorithm applies to any matroid.
 -  Applied to forest: Kruskal's Algorithm.
 
 * Distributed Systems
-
+** ARQ (Automatic Repeat reQuest)
+ARQ is an error-control method for data transmission
 * Parallel Computing
 ** Intro
 *** Amdahl's law
