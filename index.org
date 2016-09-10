@@ -474,6 +474,10 @@ Greedy algorithm applies to any matroid.
 -  Applied to forest: Kruskal's Algorithm.
 
 * Distributed Systems
+** Point-to-Point Protocols and Links
+- Data Link Control (DLC): the point-to-point protocols needed to control the passage of data over a communication link.
+- To an extent, the combination of modem, physical link and modem appears to higher layers as a virtual bit pipe.
+
 ** ARQ (Automatic Repeat reQuest)
 ARQ is an error-control method for data transmission that uses acknowledgments and timeouts to achieve reliable data transmission over an _unreliable_ service.
 *** Stop-and-wait ARQ
