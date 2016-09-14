@@ -534,7 +534,8 @@ ARQ is an error-control method for data transmission that uses acknowledgments a
 ** OpenCL
 
 * Java
-** About Java
+** Java Basics
+*** About Java
 - Platform :: Any hardware or software environment in which a program runs is known as a platform. Java is also a platform since it has its own runtime environment and API. 
 - Types of Java applications :: 
       - Standalone application: aka desktop or window based application; need to be installed on every machine. 
@@ -546,32 +547,42 @@ ARQ is an error-control method for data transmission that uses acknowledgments a
 - JRE (Java Runtime Environment) :: JRE is the implementation of JVM and it provides runtime environment. JRE = JVM + libraries etc.
 - JDK (Java Development Kit) :: JDK = JRE + development tools
 
-** Java Basics
-- Variable :: A variable is name of reserved area allocated in memory. 
-- Three types of variables :: (1) local variable: declared inside a method. (2) instance variable: declared inside a class but outside the method. (3) static variable: declared as static; cannot be local. 
-- Data types :: [[./figures/Java/DataType.jpg]]
+*** Variable 
+A variable is name of reserved area allocated in memory.
+*** Three types of variables 
+- local variable: declared inside a method. 
+- instance variable: declared inside a class but outside the method. 
+- static variable: declared as static; cannot be local.
+*** Data types
+ [[./figures/Java/DataType.jpg]]
 
-- What happens at runtime ::
-  1. Class file
-  2. Classloader: a subsystem of JRE that dynamically loads classes into JVM.
-  3. Bytecode verifier: the verifier checks that the instructions cannot perform actions that are obviously damaging.
-  4. Interpreter
-  5. Runtime
-  6. Hardware
+*** What happens at runtime
+1. Class file
+2. Classloader: a subsystem of JRE that dynamically loads classes into JVM.
+3. Bytecode verifier: the verifier checks that the instructions cannot perform actions that are obviously damaging.
+4. Interpreter
+5. Runtime
+6. Hardware
 
-- Comparison with C++ ::
+*** Comparison with C++
   - Call by value only.
   - No multiple inheritance
   - No virtual keyword (all non-static methods are virtual by default)
   - Supports unsigned right shift ~>>>~ (padding zero for negative numbers)
   - Single inheritance tree; all classes are children of ~Object~
   - All values get initialized.
-- Some keywords ::
-  - ~strictfp~ method: restricts floating-point calculations to ensure portability.
-  - ~static~: use for memory management mainly. 
-    - Static variable can be used to refer the common property of all objects and get memory only once in class area.
-    - Static method belongs to the class rather than an object. We cannot override static methods.
-    - Static block is executed in class loader
+*** Some keywords
+- ~strictfp~: restricts floating-point calculations to ensure portability.
+
+
+** Object Oriented Java
+*** Inheritance
+- Whenever you create the instance of subclass, an instance of parent class is created implicitly (~super~)
+*** Static keyword
+~static~ is used for memory management mainly. 
+  - *Static variable* can be used to refer the common property of all objects and get memory only once in class area.
+  - *Static method* belongs to the class rather than an object. We cannot override static methods.
+  - *Static block* is executed in class loader
 #+BEGIN_SRC java
 public class Main {
     public static void main(String[] args) {
@@ -583,6 +594,157 @@ public class Main {
 }
 #+END_SRC
 
+*** Instance Initializer block
+#+BEGIN_SRC java
+class SuperClass{
+    SuperClass(){
+        System.out.println("super() called first");
+    }
+}
+
+class SubClass extends SuperClass{
+    SubClass(){
+        System.out.println("Constructor of subclass called after initializer block");
+    }
+
+    {
+        System.out.println("Initializer block called after super()");
+    }
+}
+#+END_SRC
+
+*** Final keyword
+The ~final~ keyword is used to restrict users. 
+- *final variable* is constant and can be initialized directly or in constructor only.
+#+BEGIN_SRC java
+class Student{
+    public final String name;    
+    Student(String name){
+        this.name = name;
+    }
+    
+    static public final String school;
+    static {
+        school = "No.1 middle school";
+    }
+}
+#+END_SRC
+- *final method* cannot be overridden
+- *final class* cannot be extended
+- *final parameter* of a function is constant
+
+*** Runtime polymorphism, or Dynamic method dispatch
+- A call to an overridden method is resolved at runtime rather than compile time.
+- Note that rumtime polymorphism cannot be achieved by data members.
+#+BEGIN_SRC java
+public class A {
+    public static void main(String[] args){
+        // Call subclass method even after up casting
+        Animal cat = new Cat();
+        Animal dog = new Dog();
+        cat.makeSound();
+        dog.makeSound();
+    }
+}
+
+class Animal {
+    void makeSound(){
+        System.out.println("animal sound");
+    }
+}
+
+class Cat extends Animal {
+    void makeSound(){
+        System.out.println("meow");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound(){
+        System.out.println("bark");
+    }
+}
+#+END_SRC
+  
+*** Static binding and dynamic binding
+- Binding: connecting a method call to the method body
+- Static (early) binding: type of the object is determined at compile time by the compiler
+#+BEGIN_SRC java
+public class A {
+    public static void main(String[] args){
+        // Call subclass method even after up casting
+        dynamicBinding(new Cat());
+        dynamicBinding(new Dog());
+    }
+
+    static void dynamicBinding(Animal a){
+        a.makeSound();
+    }
+}
+
+class Animal {
+    void makeSound(){
+        System.out.println("animal sound");
+    }
+}
+
+class Cat extends Animal {
+    void makeSound(){
+        System.out.println("meow");
+    }
+}
+
+class Dog extends Animal {
+    void makeSound(){
+        System.out.println("bark");
+    }
+}
+#+END_SRC
+
+*** *~instanceof~*, type comparison
+- ~instanceof~ compares an instance with a type, and return true if the instance if of the type or can be cast to the type.
+- Before down casting, check the possibility using ~instanceof~
+
+*** Abstraction
+- Abstraction means hiding the implementation details and showing only functionality to users
+*** Interface
+- An interface is a blueprint of a class
+- Interface fields are ~public static final~ by default.
+- Interface methods are ~public abstract~ by default.
+- A Java class can implement multiple interfaces
+- An interface with no number is known as *marker* or *tagger* interface, such as Serializable, Cloneable etc
+
+** Data Structures
+*** Array
+Array is fixed size in Java
+#+BEGIN_SRC java
+int a[] = new int[5];
+int b[] = {1,2,3};
+#+END_SRC
+*** Wrapper classes
+- Wrapper class in Java provides the mechanism to convert primitive (~int~) into object (~Integer~) and object into primitive.
+- Autoboxing and unboxing: the automatic conversion of primitive into objects and vise versa
+- All the wrapper classes are immutable (immutable does not mean constant). 
+
+*** String
+- Java ~String~ is like ~char[]~, a sequence of char.
+- ~java.lang.String implements Serializable, Comparable and CharSequence~
+- Java ~String~ is immutable. ~StringBuffer~ is the same as ~String~ except for that it is mutable.
+
+** Exception
+*** Hierarchy of Java Exception classes
+[[./figures/Java/exceptionhierarchy.jpg]]
+*** Types of exceptions
+- Checked exception: the classes that extend ~Throwable~ except ~RuntimeException~ and ~Error~, such at ~IOException~, ~SQLException~
+- Unchecked exception: the classes that extend ~RuntimeException~, such as ~NullPointerException~, ~ArrayIndexOutOfBoundsException~, ~ArithmeticException~. Unchecked exceptions usually mean the programmer made some mistakes.
+- Error: error is irrecoverable, such as ~OutOfMemoryError~, ~AssertionError~, ~VirtualMachineError~
+*** Multiple catch
+- At a time only one Exception is occurred and one catch block is executed
+- All catch blocks must be ordered from most specific to most general
+- ~fianlly~ block is always executed and used for important code such as closing connection
+*** Declaring Exception in overriding a method
+- If the parent method declares no exception, then the overriding method can only declare unchecked exception.
+- If the parent method declares an exception, then the overriding method cannot declare a super-class exception. 
 
 
 * C++
