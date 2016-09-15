@@ -714,6 +714,7 @@ class Dog extends Animal {
 - A Java class can implement multiple interfaces
 - An interface with no number is known as *marker* or *tagger* interface, such as Serializable, Cloneable etc
 
+
 ** Data Structures
 *** Array
 Array is fixed size in Java
@@ -745,6 +746,63 @@ int b[] = {1,2,3};
 *** Declaring Exception in overriding a method
 - If the parent method declares no exception, then the overriding method can only declare unchecked exception.
 - If the parent method declares an exception, then the overriding method cannot declare a super-class exception. 
+
+** Nested Classes
+*** Inner class: non-static nested class
+**** Member inner class: a class created within a class and outside method
+In order to instantiate a inner class, you have to instantiate an outer class.
+
+**** Anonymous inner class
+Anonymous inner class should be used if you have to override method temporarily.
+#+BEGIN_SRC java
+class B{
+    void method(){
+        System.out.println("Old method");
+    }
+}
+
+public class A {
+    public static void main(String[] args){
+
+        B b = new B(){
+            void method(){
+                System.out.println("New method");
+            }
+        };
+        b.method();
+    }
+}
+#+END_SRC
+
+**** Local inner class: a class created within a method
+
+
+*** Static nested class
+#+BEGIN_SRC java
+public class A {
+    static class B{
+        void method(){
+            System.out.println("Static inner class");
+        }
+    }    
+    public static void main(String[] args){
+        B b = new B();
+        b.method();
+    }
+}
+#+END_SRC
+
+*** Nested interface
+An interface created within class or interface. It is useful to group related interfaces so that they can be easily maintained.
+#+BEGIN_SRC java
+interface Animal{
+    interface Dog{}
+}
+class Puppy implements Animal.Dog{}
+#+END_SRC
+
+** Multithreading in Java
+
 
 
 * C++
