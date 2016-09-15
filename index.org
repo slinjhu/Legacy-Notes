@@ -803,6 +803,7 @@ class Puppy implements Animal.Dog{}
 
 ** Multithreading in Java
 
+** Garbage Collection
 
 
 * C++
