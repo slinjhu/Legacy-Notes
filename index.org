@@ -247,6 +247,85 @@ Some applications of LSB:
 - Power of 2: Destroying the nonzero LSB of $x$ yields zero.
 - Find two single numbers where others are in pair: use LSB of ~a^b~ to bucketize all numbers, and then take XOR.
   
+** String and Array
+*** Two pointers
+**** Check if a string is palindromic
+#+BEGIN_SRC c++
+bool isPalindromic(const string s){
+  if(s.empty()) return true;
+  for(size_t i = 0, j = s.size() - 1; i < j; ++i, --j){
+    if(s[i] != s[j]) return false;
+  }
+  return true;
+}
+#+END_SRC
+
+*** Recursion
+**** Longest substring with at least k repeated chars
+*Question*: find the length of the longest substring $T$ such that every char in $T$ appears at least $k$ times.
+- Mark all chars in the string that appears less than $k$ times. These chars cannot be in any solution.
+- For each substring split by these chars, recursively solve it.
+
+*** Running Maximum
+**** Buy and sell stock
+*Question*: given an array of stock prices, supposing you can buy and sell one share, find the max profit
+#+BEGIN_SRC c++
+int maxProfit(vector<int>& prices){
+  int lowest = INT_MAX; // Running min of stock price
+  int maxProfit = 0; // Running max of profit
+  for(int p : prices){
+    lowest = min(p, lowest);
+    maxProfit = max(maxProfit, p - lowest);
+  }
+  return maxProfit;
+}
+#+END_SRC
+
+**** Longest substring without repeating char
+#+BEGIN_SRC c++
+int lengthOfLongestSubstring(string s){
+  vector<int> lastOccurrence (256, -1);
+  int lastDup = -1;
+  int maxL = 0; // Running max length of substring [lastDup + 1, i]
+  for(int i = 0; i < s.size(); ++i){
+    if(lastOccurrence[s[i]] > lastDup){
+      lastDup = lastOccurrence[s[i]];
+    }
+    maxL = max(maxL, i - lastDup);
+    lastOccurrence[s[i]] = i;
+  }
+  return maxL;
+}
+#+END_SRC
+
+*** Dynamic Programming
+**** Longest increasing subsequence
+*Question*: Given an unsorted array $A$, find the length of the longest increasing subsequence.
+- Let $L_i$ denote the length of LIS that ended at (including) $A_i$.
+- $L_i = 1 + \max_{j<i} L_j \cdot(A_j < A_i)$
+- Length of LIS is $\max_i L_i$
+
+*** Hashing
+**** strstr(), Find the first occurrence of a substring
+- Rabin-Karp algorithm is similar to the nested loop brute force algorithm, but it omits the inner loop by comparing the hash of the sliding-window substring in the text against the hash of the needle.
+- The hash function should be incremental for efficiency.
+- Rabin-Karp uses the 26-base numerical value as the hash.
+
+*** Hash table
+**** Find the first non-repeated char in a given string
+#+BEGIN_SRC c++
+size_t firstNonreapt(const string s){
+  assert(!s.empty());
+  const size_t maxSize = ~0U;
+  vector<size_t> firstOccurrence (256, maxSize);
+  for(size_t i = 0; i < s.size(); ++i){
+    if(firstOccurrence[s[i]] < maxSize) firstOccurrence[s[i]] = maxSize;
+    else firstOccurrence[s[i]] = i;
+  }
+  return * min_element(firstOccurrence.begin(), firstOccurrence.end());
+}
+#+END_SRC
+
 ** Dynamic Programming (DP)
 *** Ideas
 -  Multi-stage optimization: the decisions we make at some point are influenced by the decisions we made earlier.
@@ -453,7 +532,6 @@ Algorithm:
 *** Maximum flow
 
 ** Greedy Algorithms
-
 *** Matroid
 -  Let $U$ be a universe of elements and $I$ be a collection of subsets of $U$. Then $(U, I)$ is a *matroid* if the following three properties hold:
    1. $\emptyset \in I$
