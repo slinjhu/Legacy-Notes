@@ -260,6 +260,8 @@ bool isPalindromic(const string s){
 }
 #+END_SRC
 
+**** Find the longest palindromic substring
+For each position, using two pointers to search for palindromic strings centered at this position.
 *** Recursion
 **** Longest substring with at least k repeated chars
 *Question*: find the length of the longest substring $T$ such that every char in $T$ appears at least $k$ times.
@@ -306,7 +308,7 @@ int lengthOfLongestSubstring(string s){
 - Length of LIS is $\max_i L_i$
 
 *** Hashing
-**** strstr(), Find the first occurrence of a substring
+**** strstr, Find the first occurrence of a substring
 - Rabin-Karp algorithm is similar to the nested loop brute force algorithm, but it omits the inner loop by comparing the hash of the sliding-window substring in the text against the hash of the needle.
 - The hash function should be incremental for efficiency.
 - Rabin-Karp uses the 26-base numerical value as the hash.
@@ -323,6 +325,21 @@ size_t firstNonreapt(const string s){
     else firstOccurrence[s[i]] = i;
   }
   return * min_element(firstOccurrence.begin(), firstOccurrence.end());
+}
+#+END_SRC
+
+*** Greedy
+**** Buy and sell stock multiple times
+*Question*: Given an array of prices at day $i$, find the max profit where you can only perform one transaction per day.
+- Buy at local minimum and sell at local maximum
+- Actually tracking the one-day difference is enough
+#+BEGIN_SRC c++
+int maxProfit(vector<int>& prices) {
+  int maxP = 0;
+  for(size_t i = 0; i + 1 < prices.size(); ++i){
+    maxP += max(0, prices[i + 1] - prices[i]);
+  }
+  return maxP;
 }
 #+END_SRC
 
