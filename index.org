@@ -361,7 +361,33 @@ int maxProfit(vector<int>& prices) {
 - Heapify: sink the root down until it obeys the heap property
 - Build heap from an array: for each $i$ from $N/2$ down to $0$, heapify node $i$.
 - Heap sort: swap root with tail while shrinking heap size and heapifing the new root, until heap size reaches 1.
+**** STL implementation
+#+BEGIN_SRC c++
+vector<int> data = {4,2,9,8,1};
 
+priority_queue<int> maxHeap;
+for(int x : data) maxHeap.push(x);
+assert(maxHeap.top() == 9);
+
+priority_queue<int, vector<int>, greater<int>> minHeap;
+for(int x : data) minHeap.push(x);
+assert(minHeap.top() == 1);
+#+END_SRC
+
+** Binary Tree
+*** Data Structures
+**** BST properties
+- _all nodes in left subtree_ < _root_ < _all nodes in right subtree_
+**** Operations
+- Insert: 
+  - If root is NULL, replace the root with newly created node
+  - If root is larger, recursively insert it to the left child
+  - If root is smaller, recursively insert it to the right child
+- Search: similar to insert
+- Delete a node:
+  - If the node has no child, just delete
+  - If the node has one child, replace it with its chidlren
+  - If the node has two children, recursively replace the root with its in-order predecessor and delete the predecessor, until it reaches one of the above two base cases.
 
 ** Dynamic Programming (DP)
 *** Ideas
