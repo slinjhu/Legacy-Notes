@@ -1009,6 +1009,7 @@ assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 - Out-of-range iterator
 - Uninitialized pointer
 - ~pop()~ on an empty stack or queue.
+- Infinite function call stack
 ** Advanced Techniques
 *** Static local variable
 Initialization of a static local variable will be executed only once, and the variable keeps its value until the program exits.
