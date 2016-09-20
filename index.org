@@ -343,6 +343,26 @@ int maxProfit(vector<int>& prices) {
 }
 #+END_SRC
 
+** Binary Heap
+*** Data Structure of Heap
+**** Properties
+- Max heap property: ~node >= children~
+- Complete binary tree; only right leaves can be missing
+- For node $i$:
+  - Left child: $2i+1$
+  - Right child: $2i+2$
+  - Parent: $(i-1)/2$
+- For heap size $N$:
+  - height of the tree: $\log_2 N + 1$
+  - First leaf: $N /2$
+**** Operations
+- Extract max: swap root with the rightmost leaf, and then sink the root down.
+- Insert: append to the bottom and float it up.
+- Heapify: sink the root down until it obeys the heap property
+- Build heap from an array: for each $i$ from $N/2$ down to $0$, heapify node $i$.
+- Heap sort: swap root with tail while shrinking heap size and heapifing the new root, until heap size reaches 1.
+
+
 ** Dynamic Programming (DP)
 *** Ideas
 -  Multi-stage optimization: the decisions we make at some point are influenced by the decisions we made earlier.
