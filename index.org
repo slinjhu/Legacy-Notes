@@ -283,6 +283,37 @@ int maxProfit(vector<int>& prices){
 }
 #+END_SRC
 
+**** Buy and sell stock twice
+You can buy and sell at most twice, but one transaction in a day.
+#+BEGIN_SRC c++
+int buy_and_sell_twice(vector<int> prices){
+  if(prices.empty()) return 0;
+  const int N = prices.size();
+  vector<int> forwardP (N, 0);
+  // Find the max profit sell at or before day i
+  int runningMin = INT_MAX, maxP = 0;
+  for(int i = 1; i < N; ++i){
+    runningMin = min(runningMin, prices[i]);
+    maxP = max(maxP, prices[i] - runningMin);
+    forwardP[i] = maxP;
+  }
+  // Find the profit buy at or after day i
+  vector<int> backwardP (N, 0);
+  int runningMax = INT_MIN;
+  maxP = 0;
+  for(int i = N - 1; i >= 0; --i){
+    runningMax = max(runningMax, prices[i]);
+    maxP = max(maxP, runningMax - prices[i]);
+    backwardP[i] = maxP;
+  }
+  // Find the max profit that sell at or before day i-1 and buy at or after day i
+  runningMax = backwardP[0]; // Cannot sell at day 0
+  for(int i = 1; i < N; ++i){
+    runningMax = max(runningMax, forwardP[i - 1] + backwardP[i]);
+  }
+  return runningMax;
+}
+#+END_SRC
 **** Longest substring without repeating char
 #+BEGIN_SRC c++
 int lengthOfLongestSubstring(string s){
@@ -1808,7 +1839,7 @@ Denote $w_1^n$ as a word sequence $(w_1, w_2, \dots, w_n)$.
 - Pretend that we see all words \lambda times  more.
 - For unigram: 
 \[
-  p(w) = {c(w) \over N} \to {c(w) + \lambda \over N+\lambda V}
+p(w) = {c(w) \over N} \to {c(w) + \lambda \over N+\lambda V}
 \]
 - For bigram: augment unigram counts first
 \[
