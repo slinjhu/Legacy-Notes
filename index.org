@@ -670,7 +670,30 @@ ARQ is an error-control method for data transmission that uses acknowledgments a
   - *UDP*: User Datagram Protocol. Short message; unreliable, connectionless.
   - *TCP*: Transmission Control Protocol. Long streams of data; deliver the same order as sent; connection oriented.
 
+* Operating System
+- Task: sequence of instructions that operate as a group
+- 
+** Process
+- A process is the operating system's abstraction for a running program
+- Processes provide the illusion that the program is the only one running on the system
+- Processes do NOT share memory by definition.
+- Each process has 
+  - a virtual address space, 
+  - executable code
+  - a unique process identifier
+  - at least one thread of execution
 
+- Each process is started with a single thread (primary thread), but can create additional threads from any of its threads.
+** Thread
+- A thread is the entity within a process that can be scheduled for execution.
+- All threads of a process share virtual address space and system resources
+- Each thread maintains
+  - exception handlers
+  - thread local storage
+  - a unique thread identifier
+
+
+** Mutex
 * Parallel Computing
 ** Intro
 *** Amdahl's law
