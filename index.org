@@ -374,6 +374,18 @@ int maxProfit(vector<int>& prices) {
 }
 #+END_SRC
 
+** Randomization
+*** Reservoir sampling
+Given a large list containing $n$ items, where $n$ is unknown or very large. Reservoir sampling randomly pick one item.
+#+BEGIN_SRC c++
+T sample;
+int N = 0;
+for(T x : xx){
+  ++N;
+  if(rand() % N == 0) sample = x;
+}
+#+END_SRC
+
 ** Binary Heap
 *** Data Structure of Heap
 **** Properties
