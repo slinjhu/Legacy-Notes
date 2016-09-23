@@ -338,6 +338,35 @@ int lengthOfLongestSubstring(string s){
 - $L_i = 1 + \max_{j<i} L_j \cdot(A_j < A_i)$
 - Length of LIS is $\max_i L_i$
 
+**** Word Break
+Given a string ~s~ and a set of words ~vocabulary~, determine if the string can be segmented into words in the vocabulary.
+- For a string ~wordsuffix~, if ~suffix~ is in the vocabulary, then ~wordsuffix~ is in the vocabulary if and only if ~word~ is in the vocabulary.
+#+BEGIN_SRC c++
+bool wordBreak(string s, unordered_set<string>& wordDict) {
+  if(s.empty()) return false;
+  auto check = [&s, &wordDict](int i1, int i2){
+    int cnt = i2 - i1 + 1;
+    return wordDict.count(s.substr(i1, cnt)) > 0;
+  };
+
+  const int N = s.size();
+  vector<bool> canBreak (N, 0);
+  for(int i = 0; i < N; ++i){
+    canBreak[i] = check(0, i);
+    for(int j = 1; j <= i; ++j){
+      if(canBreak[j-1] && check(j, i)){
+        canBreak[i] = true;
+        break;
+      }
+    }
+  }
+  return canBreak.back();
+}
+#+END_SRC
+**** Palindromic partitioning
+Given a string and find the min number of palindromic sub-strings that you can partition the string into.
+
+
 *** Hashing
 **** strstr, Find the first occurrence of a substring
 - Rabin-Karp algorithm is similar to the nested loop brute force algorithm, but it omits the inner loop by comparing the hash of the sliding-window substring in the text against the hash of the needle.
