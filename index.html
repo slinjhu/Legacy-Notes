@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-09-20 Tue 22:25 -->
+<!-- 2016-09-25 Sun 10:30 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -5822,14 +5822,20 @@ If you prefer a stable version, use <code>brew cask install emacs</code> to inst
 </p>
 <dl class="org-dl">
 <dt>Openmp</dt><dd>The <code>gcc</code> that comes with Mac OS does not contain OpenMP, so we need to reinstall it: <code>brew reinstall gcc --without-multilib</code> Then use the newly installed <code>g++-6</code> or other later version.</dd>
+<dt>Save password for ssh</dt><dd></dd>
 </dl>
+<pre class="example">
+ssh-keygen
+brew install ssh-copy-id
+ssh-copy-id user@hostname
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-09-20 Tue 22:25</p>
+<p class="date">Created: 2016-09-25 Sun 10:30</p>
 <p class="validation"></p>
 </div>
 </body>
