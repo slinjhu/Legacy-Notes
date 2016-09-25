@@ -338,6 +338,35 @@ int lengthOfLongestSubstring(string s){
 - $L_i = 1 + \max_{j<i} L_j \cdot(A_j < A_i)$
 - Length of LIS is $\max_i L_i$
 
+**** Word Break
+Given a string ~s~ and a set of words ~vocabulary~, determine if the string can be segmented into words in the vocabulary.
+- For a string ~wordsuffix~, if ~suffix~ is in the vocabulary, then ~wordsuffix~ is in the vocabulary if and only if ~word~ is in the vocabulary.
+#+BEGIN_SRC c++
+bool wordBreak(string s, unordered_set<string>& wordDict) {
+  if(s.empty()) return false;
+  auto check = [&s, &wordDict](int i1, int i2){
+    int cnt = i2 - i1 + 1;
+    return wordDict.count(s.substr(i1, cnt)) > 0;
+  };
+
+  const int N = s.size();
+  vector<bool> canBreak (N, 0);
+  for(int i = 0; i < N; ++i){
+    canBreak[i] = check(0, i);
+    for(int j = 1; j <= i; ++j){
+      if(canBreak[j-1] && check(j, i)){
+        canBreak[i] = true;
+        break;
+      }
+    }
+  }
+  return canBreak.back();
+}
+#+END_SRC
+**** Palindromic partitioning
+Given a string and find the min number of palindromic sub-strings that you can partition the string into.
+
+
 *** Hashing
 **** strstr, Find the first occurrence of a substring
 - Rabin-Karp algorithm is similar to the nested loop brute force algorithm, but it omits the inner loop by comparing the hash of the sliding-window substring in the text against the hash of the needle.
@@ -371,6 +400,18 @@ int maxProfit(vector<int>& prices) {
     maxP += max(0, prices[i + 1] - prices[i]);
   }
   return maxP;
+}
+#+END_SRC
+
+** Randomization
+*** Reservoir sampling
+Given a large list containing $n$ items, where $n$ is unknown or very large. Reservoir sampling randomly pick one item.
+#+BEGIN_SRC c++
+T sample;
+int N = 0;
+for(T x : xx){
+  ++N;
+  if(rand() % N == 0) sample = x;
 }
 #+END_SRC
 
@@ -670,7 +711,30 @@ ARQ is an error-control method for data transmission that uses acknowledgments a
   - *UDP*: User Datagram Protocol. Short message; unreliable, connectionless.
   - *TCP*: Transmission Control Protocol. Long streams of data; deliver the same order as sent; connection oriented.
 
+* Operating System
+- Task: sequence of instructions that operate as a group
+- 
+** Process
+- A process is the operating system's abstraction for a running program
+- Processes provide the illusion that the program is the only one running on the system
+- Processes do NOT share memory by definition.
+- Each process has 
+  - a virtual address space, 
+  - executable code
+  - a unique process identifier
+  - at least one thread of execution
 
+- Each process is started with a single thread (primary thread), but can create additional threads from any of its threads.
+** Thread
+- A thread is the entity within a process that can be scheduled for execution.
+- All threads of a process share virtual address space and system resources
+- Each thread maintains
+  - exception handlers
+  - thread local storage
+  - a unique thread identifier
+
+
+** Mutex
 * Parallel Computing
 ** Intro
 *** Amdahl's law
