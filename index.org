@@ -330,6 +330,19 @@ int lengthOfLongestSubstring(string s){
   return maxL;
 }
 #+END_SRC
+**** Jump Game
+Given an array of non-negative integers, you are initially positioned at index 0. Each element in the array represents your maximum jump at that position. Determine if you are able to reach the last index.
+#+BEGIN_SRC c++
+bool canJump(vector<int>& nums) {
+  int maxIdx = 0;
+  for(int i = 0; i < nums.size(); ++i){
+    if(maxIdx >= i){
+      maxIdx = max(maxIdx, nums[i] + i);
+    }
+  }
+  return maxIdx + 1 >= nums.size();
+}
+#+END_SRC
 
 *** Dynamic Programming
 **** Longest increasing subsequence
