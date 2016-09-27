@@ -1144,23 +1144,6 @@ assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 - Uninitialized pointer
 - ~pop()~ on an empty stack or queue.
 - Infinite function call stack
-** Advanced Techniques
-*** Static local variable
-Initialization of a static local variable will be executed only once, and the variable keeps its value until the program exits.
-#+BEGIN_SRC c++
-// Use static local variable to reduce scope
-vector<int> xx (10, 0);
-for(int & x : xx){
-  static int cnt = 0;
-  x = cnt++;
-}
-
-// Use static local variable in a function to pass information of last function call
-void increment(){
-  static int cnt = 0;
-  cnt++;
-}
-#+END_SRC
 
 * Design Pattern
 ** UML and Dependency
