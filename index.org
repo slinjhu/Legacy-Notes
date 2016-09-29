@@ -1145,6 +1145,10 @@ assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 - ~pop()~ on an empty stack or queue.
 - Infinite function call stack
 
+** Templates
+*** File IO
+#+INCLUDE: "./source/C++/fileIO.cpp" src c++
+
 * Design Pattern
 ** UML and Dependency
 [[./figures/DesignPattern/Relationships.jpg]]
