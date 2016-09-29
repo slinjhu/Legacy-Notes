@@ -1148,7 +1148,8 @@ assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 ** Templates
 *** File IO
 #+INCLUDE: "./source/C++/fileIO.cpp" src c++
-
+*** Timer
+#+INCLUDE: "./source/C++/timer.cpp" src c++
 * Design Pattern
 ** UML and Dependency
 [[./figures/DesignPattern/Relationships.jpg]]
