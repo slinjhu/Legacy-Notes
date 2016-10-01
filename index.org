@@ -768,6 +768,22 @@ A consensus protocol tolerating halting failures must satisfy
 - Integrity: every correct process must decide at most one value, and the value must have been proposed by some process
 - Agreement: every correct process must agree on the same value
 
+** Multicast
+*** Ordering
+- In a distributed system, message transmission delays is not negligible compared with time between events in a single process
+- Real physical time is not observable within the system
+- We extend _partial ordering_ defined by "happened before" to a _consistent total ordering_
+**** Happened-before
+- If $a$ and $b$ are in the same process and $a$ comes before $b$, then $a\to b$
+- For the same message $m$, send($m$) $\to$ receive($m$)
+- Transitivity: $a\to b$ and $b\to c$ implies that $a \to c$
+- $a$ and $b$ are said to be concurrent if $a\not \to b$ and $b\not \to a$ (there exists no happened-before relationships)
+**** Types of ordering
+- Reliable:
+- FIFO (Happened-before): messages are delivered in the order they were sent by any single sender
+- Causal: if send(a) \to send(b), then deliver(a) \to deliver(b) at common destinations.
+- Agreed (Total order): messages are delivered in the same order to all recipients (including the sender).
+- Safe Delivery: messages is delivered after received by all processes
 
 * Operating System
 - Task: sequence of instructions that operate as a group
