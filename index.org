@@ -700,6 +700,26 @@ Greedy algorithm applies to any matroid.
 -  Applied to forest: Kruskal's Algorithm.
 
 * Distributed Systems
+** Network
+*** 7 layers of the OSI model (Open System Interconnection)
+- 1. Physical layer: conveys bit stream through the network at the electrical level.
+- 2. Data Link layer: at data link layer, packets are encoded and decoded into bits.
+- 3. Network layer: provides switching and routing, creating logical virtual paths for data transmission.
+- 4. Transport layer: 
+- 5. Session layer: establishes, manages, and terminates connections between applications.
+- 6. Presentation layer: provides independence from data representation
+- 7. Application Layer: provides host to host communication services for applications
+
+
+*** Physical devices
+- Router :: 
+  - Router forwards data packets along networks. 
+  - Router is connected to at least two networks.
+- Switch ::
+  - Switch filters and forwards packets between LAN segments.
+
+
+
 ** Point-to-Point Protocols and Links
 - Data Link Control (DLC): the point-to-point protocols needed to control the passage of data over a communication link.
 - To an extent, the combination of modem, physical link and modem appears to higher layers as a virtual bit pipe.
@@ -723,6 +743,31 @@ ARQ is an error-control method for data transmission that uses acknowledgments a
 - Protocols
   - *UDP*: User Datagram Protocol. Short message; unreliable, connectionless.
   - *TCP*: Transmission Control Protocol. Long streams of data; deliver the same order as sent; connection oriented.
+
+** Consensus problem
+*** Failure
+- Crash (or Byzantine) failure: a process abruptly stops and does not resume.
+- 
+*** Timing
+- Synchronous :: 
+  - Processes execute in lock-step
+  - There is a known upper bound on message transmission delay.
+  - Each process has an accurate clock
+- Asynchronous ::
+  - Processes executes at independent rates
+  - No bound on message transmission delay
+
+*** Consensus
+- The consensus problem requires agreement among a number of processes for a single data value. 
+- Some of the processes may fail or be unreliable
+- The processes must put forth their candidate values, communicate with one another, and agree on a single consensus value.
+*** Requirements
+A consensus protocol tolerating halting failures must satisfy
+- Termination: every correct process must decide some value
+- Validity: if all processes propose the same value, then all correct processes should decide that value
+- Integrity: every correct process must decide at most one value, and the value must have been proposed by some process
+- Agreement: every correct process must agree on the same value
+
 
 * Operating System
 - Task: sequence of instructions that operate as a group
