@@ -778,6 +778,10 @@ A consensus protocol tolerating halting failures must satisfy
 - For the same message $m$, send($m$) $\to$ receive($m$)
 - Transitivity: $a\to b$ and $b\to c$ implies that $a \to c$
 - $a$ and $b$ are said to be concurrent if $a\not \to b$ and $b\not \to a$ (there exists no happened-before relationships)
+**** Logical clock
+- Clock: a clock is simply a way of assigning number to an event
+- Clock condition: if $a\to b$, then $C(a) < C(b)$. We cannot expect the converse to hold.
+
 **** Types of ordering
 - Reliable:
 - FIFO (Happened-before): messages are delivered in the order they were sent by any single sender
