@@ -269,7 +269,7 @@ For each position, using two pointers to search for palindromic strings centered
 - For each substring split by these chars, recursively solve it.
 
 *** Running Maximum
-**** Buy and sell stock
+**** Buy and sell stock once
 *Question*: given an array of stock prices, supposing you can buy and sell one share, find the max profit
 #+BEGIN_SRC c++
 int maxProfit(vector<int>& prices){
@@ -379,6 +379,8 @@ bool wordBreak(string s, unordered_set<string>& wordDict) {
 **** Palindromic partitioning
 Given a string and find the min number of palindromic sub-strings that you can partition the string into.
 
+**** Buy and sell stocks up to $k$ times
+
 
 *** Hashing
 **** strstr, Find the first occurrence of a substring
@@ -402,7 +404,7 @@ size_t firstNonreapt(const string s){
 #+END_SRC
 
 *** Greedy
-**** Buy and sell stock multiple times
+**** Buy and sell stock unlimited times
 *Question*: Given an array of prices at day $i$, find the max profit where you can only perform one transaction per day.
 - Buy at local minimum and sell at local maximum
 - Actually tracking the one-day difference is enough
@@ -1142,7 +1144,11 @@ Here I record some mistakes that are very easy to make in C++.
 int mid = (left + right) / 2;
 #+END_SRC
 - Avoid decrementing index of ~size_t~ type.
-
+#+BEGIN_SRC c++
+for(size_t i = 0, j = num.size() - 1; i <= j; ++i, --j){
+  // If num.size() == 1, then the next step j would underflow
+}
+#+END_SRC
 *** Implicit cast
 **** ~int~ to ~unsigned~
 A signed number is implicitly cast into unsigned before adding, and it may cause counter-intuitive results: 
