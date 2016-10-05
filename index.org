@@ -1210,6 +1210,15 @@ assert( & xx['1'] != & xx[1] );
 assert(string('1', 65) == "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 #+END_SRC
 
+*** Boolean
+- Size of ~bool~ is implementation-defined, not specified by the standard. It could be 1 byte instead of 1 bit.
+- Use ~!var~ to flip a ~bool~ variable. 
+#+BEGIN_SRC c++
+bool a = false;
+assert( ~a != true );
+assert( !a == true );
+#+END_SRC
+
 ** Causes of Segmentation Fault
 - Out-of-range iterator
 - Uninitialized pointer
