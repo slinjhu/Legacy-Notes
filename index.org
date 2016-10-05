@@ -1222,6 +1222,16 @@ assert( !a == true );
 ** Techniques
 *** Logical operators
 - There is no logical XOR operator. Use ~a != b~ instead. Do NOT use bitwise XOR ~^~.
+*** Assertion
+- Use assertion to reveal bugs in the code. 
+- In production, to improve efficiency define ~NDEBUG~ to ignore all assertions.
+#+BEGIN_SRC c++
+// #define NDEBUG
+#include<assert.h>
+int main(){
+  assert(true);
+}
+#+END_SRC
 
 ** Causes of Segmentation Fault
 - Out-of-range iterator
