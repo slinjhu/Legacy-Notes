@@ -1219,6 +1219,10 @@ assert( ~a != true );
 assert( !a == true );
 #+END_SRC
 
+** Techniques
+*** Logical operators
+- There is no logical XOR operator. Use ~a != b~ instead. Do NOT use bitwise XOR ~^~.
+
 ** Causes of Segmentation Fault
 - Out-of-range iterator
 - Uninitialized pointer
