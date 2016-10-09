@@ -825,6 +825,20 @@ A consensus protocol tolerating halting failures must satisfy
 - Startup costs associated with initializing processes
 - Interference: slowdown resulting from multiple processes accessing shared resources
 - Skew: not all tasks are broken down into the same size
+*** Multiple instruction, multiple data (MIMD)
+- Shared memory: all processes share a single address space and communicate by writing and reading *shared variables*.
+  - SMP: symmetric multiprocessor
+  - NUMA: Nonuniform memory access. To mitigate the effects of nonuniform memory access, each process has a cache and keeps it coherent.
+- Distributed memory: each process has its own address space and communicates by *message passing*.
+  - MPP: massively parallel processors; processors and network infrastructures are highly coupled and specialized for parallelism.
+  - Cluster: off-the-shelf computers connected by off-the-shelf networks
+  - Grids: distributed heterogeneous resources connected by LAN or WAN
+*** Task
+- Task: a sequence of instructions that operate together as a group.
+- UE (Unit of Execution): 
+  - process: a collection of resources that enables the execution of program instructions
+  - thread: a lightweight, fundamental UE
+
 
 ** OpenMP
 
