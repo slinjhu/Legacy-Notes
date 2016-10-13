@@ -418,6 +418,56 @@ int maxProfit(vector<int>& prices) {
 }
 #+END_SRC
 
+** In-place array manipulation
+*** Rotate an array
+Given an array of size $n$, rotate it by $k$ positions
+#+BEGIN_SRC c++
+void rotate(vector<int> & A, int k){
+  k %= A.size();
+  reverse(A.begin(), A.end());
+  reverse(A.begin(), A.begin() + k);
+  reverse(A.begin() + k, A.end());
+}
+#+END_SRC
+*** Pivotify
+Maintain two pointers indicating the unclassified area. Each time either accept $u_1$ as the left class, or swap it to the right class.
+
+#+BEGIN_SRC c++
+void pivotify3(vector<int> & xx, int pivot){
+  /* _______________________________________________________
+    |__Smaller___|___Equal___|___Unclassified___|___Larger__|
+                  e1          u1              u2
+   */
+  int e1 = 0, u1 = 0, u2 = xx.size() - 1;
+  while(u1 <= u2){
+    if(xx[u1] == pivot){
+      ++u1;
+    }else if(xx[u1] < pivot){
+      swap(xx[e1++], xx[u1++]);
+    }else{
+      swap(xx[u1], xx[u2--]);
+    }
+  }
+}
+
+void pivotify2(vector<int> & xx){
+  auto isOdd = [&xx](int idx){return xx[idx] % 2 != 0;};
+  /* In-place arrange an array into two groups
+     ________________________________________
+     |__Odd_____|__Unclassified___|____Even__|
+                 u1             u2
+   */
+  int u1 = 0, u2 = xx.size() - 1;
+  while(u1 <= u2){
+    if(isOdd(u1)){
+      ++u1;
+    }else{
+      swap(xx[u1], xx[u2--]);
+    }
+  }
+}
+#+END_SRC
+
 ** Randomization
 *** Reservoir sampling
 Given a large list containing $n$ items, where $n$ is unknown or very large. Reservoir sampling randomly pick one item.
