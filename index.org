@@ -380,7 +380,18 @@ bool wordBreak(string s, unordered_set<string>& wordDict) {
 Given a string and find the min number of palindromic sub-strings that you can partition the string into.
 
 **** Buy and sell stocks up to $k$ times
+Given an array of stock prices, find the max profit by performing $k$ buy-sell transactions. 
 
+Define tables
+- $B_{i,j}$: max money after performing j-th buy at day i
+- $S_{i,j}$: max money after performing j-th sell at day i
+
+- Double recursion
+\[ B_{i,j} = - p_i + \max_{i'<i} S_{i',j-1} \]
+\[ S_{i,j} = p_i + \max_{i'<i} B_{i',j} \]
+- Starting condition
+\[B_{0,j} = - p_0\]
+\[S_{0,j} = 0\]
 
 *** Hashing
 **** strstr, Find the first occurrence of a substring
