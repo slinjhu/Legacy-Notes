@@ -247,6 +247,50 @@ Some applications of LSB:
 - Power of 2: Destroying the nonzero LSB of $x$ yields zero.
 - Find two single numbers where others are in pair: use LSB of ~a^b~ to bucketize all numbers, and then take XOR.
   
+*** Arithmetic Operations using Bit Manipulations
+**** Add
+Adding signed and unsigned numbers works the same way.
+#+BEGIN_SRC c++
+int add(int a, int b){
+  int sum = a ^ b;
+  int carry = (a & b) << 1;
+  return carry == 0 ? sum : add(sum, carry);
+}
+#+END_SRC
+**** Multiply
+Here we use bit shift to perform multiplying or dividing by 2.
+
+In calculating $a\times b$, 
+- If $b = \pm 1$, we are done
+- If $b = 2k$, then $a\times b = 2a \times {b\over2}$
+- If $b = 2k + 1$, then $a\times b = a + 2a\times {b\over 2}$
+
+#+BEGIN_SRC c++
+int multiply(int a, int b){
+  if(b == 1) return a;
+  if(b == -1) return -a;
+  if(b & 1) return add(a, multiply(a << 1, b >> 1));
+  else return multiply(a << 1, b >> 1);
+}
+#+END_SRC
+**** Divide $a / b$
+The basic idea is to find the largest $k$ such that $b \cdot 2^k \le a$, then recursively reduce $a$ until $a < b$.
+\[{a\over b} = 2^k + {a - b\cdot 2^k \over b}\]
+
+There is a frequent bug about left shifting: if ~a =bin(10...0)~ and ~b = 1~, then left shifting b will never get a larger value than a due to overflow.
+
+#+BEGIN_SRC c++
+unsigned divide(unsigned a, unsigned b){
+  if(a < b) return 0;
+  // Find the largest k such that b * 2^k <= a
+  int k = 0;
+  while((b << k) < a) ++k;
+  if((b << k) > a) --k;
+
+  a = add(a, -(b << k));
+  return add(1 << k, divide(a, b));
+}
+#+END_SRC
 ** String and Array
 *** Two pointers
 **** Check if a string is palindromic
