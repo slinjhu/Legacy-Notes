@@ -424,7 +424,18 @@ bool wordBreak(string s, unordered_set<string>& wordDict) {
 Given a string and find the min number of palindromic sub-strings that you can partition the string into.
 
 **** Buy and sell stocks up to $k$ times
+Given an array of stock prices, find the max profit by performing $k$ buy-sell transactions. 
 
+Define tables
+- $B_{i,j}$: max money after performing j-th buy at day i
+- $S_{i,j}$: max money after performing j-th sell at day i
+
+- Double recursion
+\[ B_{i,j} = - p_i + \max_{i'<i} S_{i',j-1} \]
+\[ S_{i,j} = p_i + \max_{i'<i} B_{i',j} \]
+- Starting condition
+\[B_{0,j} = - p_0\]
+\[S_{0,j} = 0\]
 
 *** Hashing
 **** strstr, Find the first occurrence of a substring
@@ -459,6 +470,56 @@ int maxProfit(vector<int>& prices) {
     maxP += max(0, prices[i + 1] - prices[i]);
   }
   return maxP;
+}
+#+END_SRC
+
+** In-place array manipulation
+*** Rotate an array
+Given an array of size $n$, rotate it by $k$ positions
+#+BEGIN_SRC c++
+void rotate(vector<int> & A, int k){
+  k %= A.size();
+  reverse(A.begin(), A.end());
+  reverse(A.begin(), A.begin() + k);
+  reverse(A.begin() + k, A.end());
+}
+#+END_SRC
+*** Pivotify
+Maintain two pointers indicating the unclassified area. Each time either accept $u_1$ as the left class, or swap it to the right class.
+
+#+BEGIN_SRC c++
+void pivotify3(vector<int> & xx, int pivot){
+  /* _______________________________________________________
+    |__Smaller___|___Equal___|___Unclassified___|___Larger__|
+                  e1          u1              u2
+   */
+  int e1 = 0, u1 = 0, u2 = xx.size() - 1;
+  while(u1 <= u2){
+    if(xx[u1] == pivot){
+      ++u1;
+    }else if(xx[u1] < pivot){
+      swap(xx[e1++], xx[u1++]);
+    }else{
+      swap(xx[u1], xx[u2--]);
+    }
+  }
+}
+
+void pivotify2(vector<int> & xx){
+  auto isOdd = [&xx](int idx){return xx[idx] % 2 != 0;};
+  /* In-place arrange an array into two groups
+     ________________________________________
+     |__Odd_____|__Unclassified___|____Even__|
+                 u1             u2
+   */
+  int u1 = 0, u2 = xx.size() - 1;
+  while(u1 <= u2){
+    if(isOdd(u1)){
+      ++u1;
+    }else{
+      swap(xx[u1], xx[u2--]);
+    }
+  }
 }
 #+END_SRC
 
