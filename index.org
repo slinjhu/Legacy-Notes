@@ -173,12 +173,12 @@
 * Algorithm
 ** Asymptotic bounds
 *** Definitions
--  *$f = O(g)$*: Upper bound; There exists positive constants $c, n_0$, such that $0 \le f \le c\cdot g$ for all $n\ge n_0$
--  *$f = \Omega(g)$*: Lower bound; There exist positive constants $c,
-   n_0$ such that $0 \le c\cdot g \le f$ for all $n\ge n_0$
--  *$f = \Theta(g)$*: Double-side bound
--  *$f = o(g)$*: Loose upper bound; For any (small) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le f < c\cdot g$ for all $n\ge n_0$
--  *$f = \omega(g)$*: Loose upper bound; For any (large) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le c\cdot g < f$ for all $n\ge n_0$
+- $f = O(g)$: Upper bound; There exists positive constants $c, n_0$, such that $0 \le f(n) \le c\cdot g(n)$ for all $n\ge n_0$
+- $f = \Omega(g)$: Lower bound; There exist positive constants $c,
+   n_0$ such that $0 \le c\cdot g(n) \le f(n)$ for all $n\ge n_0$
+- $f = \Theta(g)$: Double-side bound
+- $f = o(g)$: Loose upper bound; For any (small) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le f(n) < c\cdot g(n)$ for all $n\ge n_0$
+- $f = \omega(g)$: Loose lower bound; For any (large) positive constant $c$, there exists a positive constant $n_0$ such that $0 \le c\cdot g(n) < f(n)$ for all $n\ge n_0$
 *** Rules
 - Transpose symmetry ::
     -  $f = O(g) \iff g = \Omega(f)$
@@ -204,6 +204,7 @@
 - Set value of a bit to 1: ~x |= mask~
 **** Exclusive OR, XOR ~^~
 - Result is true is the two operands are different
+- 
 #+BEGIN_SRC c++
 x ^ y == ~x ^ ~y;
 #+END_SRC
@@ -214,7 +215,7 @@ x ^ y == ~x ^ ~y;
 - Swap lower and higher 16 bits: ~(x << 16) | (x >> 16)~
 *** Two's Complement
 - Negative numbers are usually represented as its two's complement: (~-x~)_bin $=$ 2^N $-$ (~x~)_bin
-- Using this representation, integer addition is simply the same as binary addition.
+- Using this representation, signed addition is simply the same as unsigned addition.
 - Some examples
 | Decimal Number | Binary Representation              |
 |----------------+------------------------------------|
@@ -224,7 +225,7 @@ x ^ y == ~x ^ ~y;
 | $-2$           | ~11111111111111111111111111111110~ |
 | $-3$           | ~11111111111111111111111111111101~ |
 | $-4$           | ~11111111111111111111111111111100~ |
-- Note that (=~x=)_bin $=$ (~11111111111111111111111111111111~) $-$ (=x=)_bin $=$ 2^N $- 1 -$ (=x=)_bin $= -1 -$ (=x=)_bin, because 2^N overflowed in binary representation. We have an interesting fact: (=~x=)_bin $=$ (=- x - 1=)_bin
+- Note that (=~x=)_bin $=$ (~11111111111111111111111111111111~) $-$ (=x=)_bin $=$ 2^N $- 1 -$ (=x=)_bin $= -1 -$ (=x=)_bin, because 2^N overflowed in binary representation. We have an interesting fact: (=~x=)_bin $=$ (=-x - 1=)_bin
 
 *** Increment and Decrement  
 - Increment flips the rightmost 0 to 1, and all tail 1 to 0, leaving leading bits unchanged.
@@ -233,14 +234,14 @@ x ^ y == ~x ^ ~y;
 - Some examples about decrement
 | =x=           | 010000011010 _1000_ |                           |
 | =x-1=         | 010000011010 _0111_ |                           |
-| =x & (x-1)=   | 010000011010 _0000_ | Flip the rightmost 1 -> 0 |
-| =x or (x-1)=  | 010000011010 _1111_ | Tail 1000 -> 1111         |
+| =x & (x-1)=   | 010000011010 _0000_ | Flip the rightmost 1 \to 0 |
+| =x or (x-1)=  | 010000011010 _1111_ | Tail 1000 \to 1111        |
 | =x & ~(x-1)=  | 000000000000 _1000_ | Extract the rightmost 1   |
 - Some examples about increment
-| =x=           | 010000011010 _0111_ |                           |
-| =x+1=         | 010000011010 _1000_ |                           |
-| =x & (x+1)=   | 010000011010 _0000_ | Tail 0111 -> 0000         |
-| =x or (x+1)=  | 010000011010 _1111_ | Flip the rightmost 0 -> 1 |
+| =x=          | 010000011010 _0111_ |                            |
+| =x+1=        | 010000011010 _1000_ |                            |
+| =x & (x+1)=  | 010000011010 _0000_ | Tail 0111 \to 0000         |
+| =x or (x+1)= | 010000011010 _1111_ | Flip the rightmost 0 \to 1 |
 *** LSB(Least Significant Bit)
 ~x &=~ =~(x - 1)= destroys the nonzero LSB, while =x & ~(x - 1)= extracts the nonzero LSB. In two's complement, it is the same as =x & -x=
 Some applications of LSB:

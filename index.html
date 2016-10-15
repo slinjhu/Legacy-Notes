@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-15 Sat 00:54 -->
+<!-- 2016-10-15 Sat 01:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -859,12 +859,12 @@ for the JavaScript code in this tag.
 <h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> Definitions</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <ul class="org-ul">
-<li><b>\(f = O(g)\)</b>: Upper bound; There exists positive constants \(c, n_0\), such that \(0 \le f \le c\cdot g\) for all \(n\ge n_0\)</li>
-<li><b>\(f = \Omega(g)\)</b>: Lower bound; There exist positive constants \(c,
-   n_0\) such that \(0 \le c\cdot g \le f\) for all \(n\ge n_0\)</li>
-<li><b>\(f = \Theta(g)\)</b>: Double-side bound</li>
-<li><b>\(f = o(g)\)</b>: Loose upper bound; For any (small) positive constant \(c\), there exists a positive constant \(n_0\) such that \(0 \le f < c\cdot g\) for all \(n\ge n_0\)</li>
-<li><b>\(f = \omega(g)\)</b>: Loose upper bound; For any (large) positive constant \(c\), there exists a positive constant \(n_0\) such that \(0 \le c\cdot g < f\) for all \(n\ge n_0\)</li>
+<li>\(f = O(g)\): Upper bound; There exists positive constants \(c, n_0\), such that \(0 \le f(n) \le c\cdot g(n)\) for all \(n\ge n_0\)</li>
+<li>\(f = \Omega(g)\): Lower bound; There exist positive constants \(c,
+   n_0\) such that \(0 \le c\cdot g(n) \le f(n)\) for all \(n\ge n_0\)</li>
+<li>\(f = \Theta(g)\): Double-side bound</li>
+<li>\(f = o(g)\): Loose upper bound; For any (small) positive constant \(c\), there exists a positive constant \(n_0\) such that \(0 \le f(n) < c\cdot g(n)\) for all \(n\ge n_0\)</li>
+<li>\(f = \omega(g)\): Loose lower bound; For any (large) positive constant \(c\), there exists a positive constant \(n_0\) such that \(0 \le c\cdot g(n) < f(n)\) for all \(n\ge n_0\)</li>
 </ul>
 </div>
 </div>
@@ -916,6 +916,7 @@ for the JavaScript code in this tag.
 <li><a id="orgheadline7"></a>Exclusive OR, XOR <code>^</code><br  /><div class="outline-text-5" id="text-1-2-1-4">
 <ul class="org-ul">
 <li>Result is true is the two operands are different</li>
+<li></li>
 </ul>
 <div class="org-src-container">
 
@@ -939,7 +940,7 @@ for the JavaScript code in this tag.
 <div class="outline-text-4" id="text-1-2-2">
 <ul class="org-ul">
 <li>Negative numbers are usually represented as its two's complement: (<code>-x</code>)<sub>bin</sub> \(=\) 2<sup>N</sup> \(-\) (<code>x</code>)<sub>bin</sub></li>
-<li>Using this representation, integer addition is simply the same as binary addition.</li>
+<li>Using this representation, signed addition is simply the same as unsigned addition.</li>
 <li>Some examples</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -989,7 +990,7 @@ for the JavaScript code in this tag.
 </tbody>
 </table>
 <ul class="org-ul">
-<li>Note that (<code>~x</code>)<sub>bin</sub> \(=\) (<code>11111111111111111111111111111111</code>) \(-\) (<code>x</code>)<sub>bin</sub> \(=\) 2<sup>N</sup> \(- 1 -\) (<code>x</code>)<sub>bin</sub> \(= -1 -\) (<code>x</code>)<sub>bin</sub>, because 2<sup>N</sup> overflowed in binary representation. We have an interesting fact: (<code>~x</code>)<sub>bin</sub> \(=\) (<code>- x - 1</code>)<sub>bin</sub></li>
+<li>Note that (<code>~x</code>)<sub>bin</sub> \(=\) (<code>11111111111111111111111111111111</code>) \(-\) (<code>x</code>)<sub>bin</sub> \(=\) 2<sup>N</sup> \(- 1 -\) (<code>x</code>)<sub>bin</sub> \(= -1 -\) (<code>x</code>)<sub>bin</sub>, because 2<sup>N</sup> overflowed in binary representation. We have an interesting fact: (<code>~x</code>)<sub>bin</sub> \(=\) (<code>-x - 1</code>)<sub>bin</sub></li>
 </ul>
 </div>
 </div>
@@ -1029,13 +1030,13 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left"><code>x &amp; (x-1)</code></td>
 <td class="org-left">010000011010 <span class="underline">0000</span></td>
-<td class="org-left">Flip the rightmost 1 -&gt; 0</td>
+<td class="org-left">Flip the rightmost 1 &rarr; 0</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>x or (x-1)</code></td>
 <td class="org-left">010000011010 <span class="underline">1111</span></td>
-<td class="org-left">Tail 1000 -&gt; 1111</td>
+<td class="org-left">Tail 1000 &rarr; 1111</td>
 </tr>
 
 <tr>
@@ -1074,13 +1075,13 @@ for the JavaScript code in this tag.
 <tr>
 <td class="org-left"><code>x &amp; (x+1)</code></td>
 <td class="org-left">010000011010 <span class="underline">0000</span></td>
-<td class="org-left">Tail 0111 -&gt; 0000</td>
+<td class="org-left">Tail 0111 &rarr; 0000</td>
 </tr>
 
 <tr>
 <td class="org-left"><code>x or (x+1)</code></td>
 <td class="org-left">010000011010 <span class="underline">1111</span></td>
-<td class="org-left">Flip the rightmost 0 -&gt; 1</td>
+<td class="org-left">Flip the rightmost 0 &rarr; 1</td>
 </tr>
 </tbody>
 </table>
@@ -6444,7 +6445,7 @@ ssh-copy-id user@hostname
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-10-15 Sat 00:54</p>
+<p class="date">Created: 2016-10-15 Sat 01:31</p>
 <p class="validation"></p>
 </div>
 </body>
