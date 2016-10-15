@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-10-15 Sat 01:31 -->
+<!-- 2016-10-15 Sat 01:44 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -1091,7 +1091,7 @@ for the JavaScript code in this tag.
 <h4 id="orgheadline12"><span class="section-number-4">1.2.4</span> LSB(Least Significant Bit)</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
-<code>x &amp;=</code> <code>~(x - 1)</code> destroys the nonzero LSB, while <code>x &amp; ~(x - 1)</code> extracts the nonzero LSB. In two's complement, it is the same as <code>x &amp; -x</code>
+<code>x &amp;= x - 1</code> destroys the nonzero LSB, while <code>x &amp; ~(x - 1)</code> extracts the nonzero LSB. In two's complement, it is the same as <code>x &amp; -x</code>
 Some applications of LSB:
 </p>
 <ul class="org-ul">
@@ -1150,7 +1150,7 @@ The basic idea is to find the largest \(k\) such that \(b \cdot 2^k \le a\), the
 </p>
 
 <p>
-There is a frequent bug about left shifting: if <code>a =bin(10...0)</code> and <code>b = 1</code>, then left shifting b will never get a larger value than a due to overflow.
+There is a frequent bug about left shifting: if <code>a = bin(10...0)</code> and <code>b = 1</code>, then left shifting \(b\) will never get a larger value than \(a\) due to overflow.
 </p>
 
 <div class="org-src-container">
@@ -6445,7 +6445,7 @@ ssh-copy-id user@hostname
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-10-15 Sat 01:31</p>
+<p class="date">Created: 2016-10-15 Sat 01:44</p>
 <p class="validation"></p>
 </div>
 </body>

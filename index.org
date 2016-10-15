@@ -243,7 +243,7 @@ x ^ y == ~x ^ ~y;
 | =x & (x+1)=  | 010000011010 _0000_ | Tail 0111 \to 0000         |
 | =x or (x+1)= | 010000011010 _1111_ | Flip the rightmost 0 \to 1 |
 *** LSB(Least Significant Bit)
-~x &=~ =~(x - 1)= destroys the nonzero LSB, while =x & ~(x - 1)= extracts the nonzero LSB. In two's complement, it is the same as =x & -x=
+~x &= x - 1~ destroys the nonzero LSB, while =x & ~(x - 1)= extracts the nonzero LSB. In two's complement, it is the same as =x & -x=
 Some applications of LSB:
 - Power of 2: Destroying the nonzero LSB of $x$ yields zero.
 - Find two single numbers where others are in pair: use LSB of ~a^b~ to bucketize all numbers, and then take XOR.
@@ -278,7 +278,7 @@ int multiply(int a, int b){
 The basic idea is to find the largest $k$ such that $b \cdot 2^k \le a$, then recursively reduce $a$ until $a < b$.
 \[{a\over b} = 2^k + {a - b\cdot 2^k \over b}\]
 
-There is a frequent bug about left shifting: if ~a =bin(10...0)~ and ~b = 1~, then left shifting b will never get a larger value than a due to overflow.
+There is a frequent bug about left shifting: if ~a = bin(10...0)~ and ~b = 1~, then left shifting $b$ will never get a larger value than $a$ due to overflow.
 
 #+BEGIN_SRC c++
 unsigned divide(unsigned a, unsigned b){
