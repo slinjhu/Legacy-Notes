@@ -896,6 +896,10 @@ A consensus protocol tolerating halting failures must satisfy
 - Agreed (Total order): messages are delivered in the same order to all recipients (including the sender).
 - Safe Delivery: messages is delivered after received by all processes
 
+*** Lamport Timestamps
+- provide a partial ordering of events with minimal overhead
+- 
+
 * Operating System
 - Task: sequence of instructions that operate as a group
 - 
