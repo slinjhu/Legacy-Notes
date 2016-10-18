@@ -919,6 +919,22 @@ A consensus protocol tolerating halting failures must satisfy
   - thread local storage
   - a unique thread identifier
 
+** Memory Hierarchy
+*** Cache line
+- Cache line: Data is transferred between memory and cache in blocks of fixed size (usually 64 bytes), called cache lines. 
+- Cache entry: The cache entry includes the copied data as well as the requested memory location (called *tag*).
+- Memory address:
+  - Tag: 
+  - Index: which cache line that the data has been put in.
+  - Offset: 6 bits for 64 byte cache line; specifies the location of the 1-byte data within the cache line.
+*** Associativity
+- Direct map: each entry in the main memory can go in just one place in the cache.
+- Full associative: 
+- N-way associative: 
+**** Associativity is a trade-off
+- Caches with more associativity suffer fewer misses.
+- More associativity also means more places to check.
+
 
 ** Mutex
 * Parallel Computing
