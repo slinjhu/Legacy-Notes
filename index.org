@@ -202,6 +202,7 @@
 - Set value of a bit to 0: ~x &= ~mask~
 **** OR ~|~
 - Set value of a bit to 1: ~x |= mask~
+- Ceil to odd number (e.g., 3 \to 3, 4 \to 5): ~x | 1~
 **** Exclusive OR, XOR ~^~
 - Result is true is the two operands are different
 - 
