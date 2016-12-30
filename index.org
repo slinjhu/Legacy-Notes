@@ -1476,8 +1476,6 @@ reduce the interactions between objects to just a few close friends.
 
 [[./figures/DesignPattern/Observer.png]]
 
-#+INCLUDE: "./source/DesignPattern/DemoObserver.java" src java
-
 ** Decorator
 - The decorator pattern attaches additional responsibilities to an object dynamically. 
 - Decorators provide a flexible alternative to subclassing for extending functionalities.
