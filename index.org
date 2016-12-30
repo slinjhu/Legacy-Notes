@@ -1403,7 +1403,7 @@ int main(){
 - Activate it: ~source envname/bin/activate~
 - Use ~python~ or ~pip~ as usual (the versions are specified by the virtual environment)
 - When done, ~deactivate~
-You can 
+
 *** ~pip~
 - ~pip freeze > requirements.txt~ prints out installed packages
 - ~pip install -r requirements.txt~ install packages as specified in the file.
