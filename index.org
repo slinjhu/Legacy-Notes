@@ -1395,6 +1395,19 @@ int main(){
 #+INCLUDE: "./source/C++/fileIO.cpp" src c++
 *** Timer
 #+INCLUDE: "./source/C++/timer.cpp" src c++
+* Python
+** Virtual Environments
+*** ~virtualenv~
+~virtualenv~ is a tool to create isolated Python environments. 
+- Go to a folder, create an virtual environment with  ~virtualenv -p /usr/bin/python2.7 envname~
+- Activate it: ~source envname/bin/activate~
+- Use ~python~ or ~pip~ as usual (the versions are specified by the virtual environment)
+- When done, ~deactivate~
+You can 
+*** ~pip~
+- ~pip freeze > requirements.txt~ prints out installed packages
+- ~pip install -r requirements.txt~ install packages as specified in the file.
+
 * Design Pattern
 ** Object Oriented
 *** Abstraction
