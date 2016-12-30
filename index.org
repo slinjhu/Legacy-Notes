@@ -1505,7 +1505,6 @@ reduce the interactions between objects to just a few close friends.
 ** Singleton
 - The Singleton pattern ensures a class has only one instance, and provides a global point of acceding it. 
 - No public constructor.
-#+INCLUDE: "./source/DesignPattern/DemoSingleton.java" src java
 
 ** Command
 - The Command Pattern encapsulates a request as an object, thereby letting you parameterize other objects with different requests, queue or log requests, and support undoable operations. 

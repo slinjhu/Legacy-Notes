@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2016-12-29 Thu 17:48 -->
+<!-- 2016-12-29 Thu 17:51 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes</title>
@@ -3650,29 +3650,6 @@ reduce the interactions between objects to just a few close friends.
 <li>The Singleton pattern ensures a class has only one instance, and provides a global point of acceding it.</li>
 <li>No public constructor.</li>
 </ul>
-<div class="org-src-container">
-
-<pre class="src src-java"><span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #3a81c3;">{</span>
-    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #715ab1;">uniqueInstance</span>;
-
-    <span style="color: #2aa1ae; background-color: #ecf3ec;">// </span><span style="color: #2aa1ae; background-color: #ecf3ec;">Make the constructor private such that it cannot be called from outside.</span>
-    <span style="color: #3a81c3; font-weight: bold;">private</span> <span style="color: #6c3163; font-weight: bold;">Singleton</span><span style="color: #6c3163;">(){}</span>
-
-    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #6c3163; font-weight: bold;">getInstance</span><span style="color: #6c3163;">()</span> <span style="color: #6c3163;">{</span>
-        <span style="color: #3a81c3; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>uniqueInstance == <span style="color: #4e3163;">null</span><span style="color: #2d9574;">){</span>
-            uniqueInstance = <span style="color: #3a81c3; font-weight: bold;">new</span> <span style="color: #ba2f59; font-weight: bold;">Singleton</span><span style="color: #67b11d;">()</span>;
-        <span style="color: #2d9574;">}</span>
-        <span style="color: #3a81c3; font-weight: bold;">return</span> uniqueInstance;
-    <span style="color: #6c3163;">}</span>
-<span style="color: #3a81c3;">}</span>
-
-<span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">class</span> <span style="color: #ba2f59; font-weight: bold;">DemoSingleton</span> <span style="color: #3a81c3;">{</span>
-    <span style="color: #3a81c3; font-weight: bold;">public</span> <span style="color: #3a81c3; font-weight: bold;">static</span> <span style="color: #ba2f59; font-weight: bold;">void</span> <span style="color: #6c3163; font-weight: bold;">main</span><span style="color: #6c3163;">(</span><span style="color: #ba2f59; font-weight: bold;">String</span><span style="color: #2d9574;">[]</span> <span style="color: #715ab1;">args</span><span style="color: #6c3163;">){</span>
-        <span style="color: #ba2f59; font-weight: bold;">Singleton</span> <span style="color: #715ab1;">singleton</span> = Singleton.getInstance<span style="color: #2d9574;">()</span>;
-    <span style="color: #6c3163;">}</span>
-<span style="color: #3a81c3;">}</span>
-</pre>
-</div>
 </div>
 </div>
 
@@ -6580,7 +6557,7 @@ ssh-copy-id user@hostname
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Sen Lin</p>
-<p class="date">Created: 2016-12-29 Thu 17:48</p>
+<p class="date">Created: 2016-12-29 Thu 17:51</p>
 <p class="validation"></p>
 </div>
 </body>
